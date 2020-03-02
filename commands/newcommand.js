@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'newcommand',
+  name: 'sv_newcommand',
   description: 'newcommand!',
   execute(msg, args) {
     var fs = require('fs');
