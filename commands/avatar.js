@@ -22,8 +22,8 @@ module.exports = {
 		const exampleEmbed = new Discord.RichEmbed()
 		.setColor('#0099ff')
 		.setTitle(`${res}'s avatar`)
-		.setImage(user.displayAvatarURL)
-		.setTimestamp();
+		.setImage(user.displayAvatarURL);
+		//.setTimestamp();
 		return msg.channel.send(exampleEmbed);
 	}); 
 	//msg.channel.send(avatarList);
