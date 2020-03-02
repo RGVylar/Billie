@@ -1,6 +1,7 @@
 require('dotenv').config();
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const { Client, MessageAttachment } = require('discord.js');
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
 
@@ -11,19 +12,9 @@ Object.keys(botCommands).map(key => {
 const TOKEN = process.env.TOKEN;
 
 bot.login(TOKEN);
-bot.on('serverNewMember', function(server, user) {
-     user.addTo(server.roles.get("name", "Member"));
-});
+
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
-  bot.user.setStatus('available')
-    bot.user.setPresence({
-        game: {
-            name: 'sv_list',
-            type: "STREAMING",
-            url: "https://www.twitch.tv/rgvylar"
-        }
-    });
 });
 
 bot.on('message', msg => {
@@ -32,7 +23,12 @@ bot.on('message', msg => {
   console.info(`Called command: ${command}`);
 
   if (!bot.commands.has(command)) return;
-
+  if (message.content === '!rip') {
+    // Create the attachment using MessageAttachment
+    const attachment = new MessageAttachment('https://i.imgur.com/w3duR07.png');
+    // Send the attachment in the message channel
+    message.channel.send(attachment);
+  }
   try {
     bot.commands.get(command).execute(msg, args);
   } catch (error) {
