@@ -14,6 +14,14 @@ bot.login(TOKEN);
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
+  bot.user.setStatus('available')
+    bot.user.setPresence({
+        game: {
+            name: 'sv_list',
+            type: "STREAMING",
+            url: "https://www.twitch.tv/rgvylar"
+        }
+    });
 });
 
 bot.on('message', msg => {
