@@ -19,7 +19,7 @@ bot.on('ready', () => {
         game: {
             name: 'sv_list',
             type: "STREAMING",
-            url: "https://www.twitch.tv/rgvylar"
+            url: "https://shinobu.chat/merch/"
         }
     });
 });
