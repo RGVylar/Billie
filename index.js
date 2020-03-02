@@ -18,7 +18,7 @@ bot.on('ready', () => {
     bot.user.setPresence({
         game: {
             name: 'sv_list',
-            type: "LISTENING",
+            type: "STREAMING",
             url: "https://www.twitch.tv/rgvylar"
         }
     });
