@@ -4,7 +4,7 @@ module.exports = {
   execute: async (msg, args) => {
     const ytdl = require('ytdl-core');
     if (msg.member.voice.channel) {
-      const connection = awaits msg.member.voice.channel.join();
+      const connection = await msg.member.voice.channel.join();
     } else {
       msg.reply('You need to join a voice channel first!');
     }
