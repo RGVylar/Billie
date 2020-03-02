@@ -5,9 +5,12 @@ module.exports = {
   execute(msg, args) {
   	if (!msg.mentions.users.size) {
 		console.log(msg.author.displayAvatarURL);
+		const user = msg.member.user.tag;
+		const n = user.indexOf("#");
+		const  res = str.substring(n, user.length);
 		const exampleEmbed = new Discord.RichEmbed()
 		.setColor('#0099ff')
-		.setTitle(`${msg.member.user.tag}'s avatar`)
+		.setTitle(`${res}'s avatar`)
 		.setImage(msg.author.displayAvatarURL)
 		.setTimestamp();
 		//msg.channel.send(`Your avatar: <${msg.author.displayAvatarURL}>`);
