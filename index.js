@@ -11,7 +11,9 @@ Object.keys(botCommands).map(key => {
 const TOKEN = process.env.TOKEN;
 
 bot.login(TOKEN);
-
+bot.on('serverNewMember', function(server, user) {
+     user.addTo(server.roles.get("name", "Member"));
+});
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
   bot.user.setStatus('available')
