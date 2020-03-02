@@ -7,7 +7,7 @@ module.exports = {
 		console.log(msg.author.displayAvatarURL);
 		const exampleEmbed = new Discord.RichEmbed()
 		.setColor('#0099ff')
-		.setTitle(msg.member.user.tag)
+		.setTitle(msg.member.user)
 		.setImage(msg.author.displayAvatarURL)
 		.setTimestamp();
 		//msg.channel.send(`Your avatar: <${msg.author.displayAvatarURL}>`);
