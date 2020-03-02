@@ -7,7 +7,7 @@ module.exports = {
 		console.log(msg.author.displayAvatarURL);
 		const user = msg.member.user.tag;
 		const n = user.indexOf("#");
-		const  res = user.substring(n, user.length);
+		const  res = user.substring(1, n);
 		const exampleEmbed = new Discord.RichEmbed()
 		.setColor('#0099ff')
 		.setTitle(`${res}'s avatar`)
