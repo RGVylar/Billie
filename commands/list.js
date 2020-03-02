@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'help',
+  name: 'sv_help',
   description: 'help!',
   execute(msg, args) {
     msg.channel.send(```fix
