@@ -4,7 +4,7 @@ module.exports = {
   description: 'avatar!',
   execute(msg, args) {
   	if (!msg.mentions.users.size) {
-		console.log(msg.author.displayAvatar);
+		console.log(msg.author.displayAvatarURL);
 		const exampleEmbed = new Discord.RichEmbed()
 		.setColor('#0099ff')
 		.setTitle('${msg.author.username}')
