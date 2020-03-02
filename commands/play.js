@@ -1,7 +1,7 @@
 const ytdl = require('ytdl-core');
 const queue = new Map();
 module.exports = {
-  name: 'play',
+  name: 'sv_play',
   description: 'play!',
   execute(msg, args) {
     
