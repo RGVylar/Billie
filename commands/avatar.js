@@ -6,7 +6,7 @@ module.exports = {
   	if (!msg.mentions.users.size) {
 		const exampleEmbed = new Discord.RichEmbed()
 		.setColor('#0099ff')
-		.setTitle('${user.username}')
+		.setTitle('${msg.author.username}')
 		.setImage('${msg.author.displayAvatarURL}')
 		.setTimestamp();
 		//msg.channel.send(`Your avatar: <${msg.author.displayAvatarURL}>`);
