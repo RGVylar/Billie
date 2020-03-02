@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'dice',
+  name: 'sv_dice',
   description: 'dice!',
   execute(msg, args) {
 	var diceRoll = Math.floor( Math.random() * args ) +1;
