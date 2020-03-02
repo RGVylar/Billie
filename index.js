@@ -28,7 +28,7 @@ bot.on('ready', () => {
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
 });
-bot.on('message', async  msg => {
+bot.on('message', msg => {
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();
   console.info(`Called command: ${command}`);
