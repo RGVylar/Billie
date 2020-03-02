@@ -15,19 +15,29 @@ bot.login(TOKEN);
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
+  bot.user.setStatus('available')
+    bot.user.setPresence({
+        game: {
+            name: 'sv_list',
+            type: "STREAMING",
+            url: "https://www.twitch.tv/rgvylar"
+        }
+    });
 });
-
+bot.on('serverNewMember', function(server, user) {
+     user.addTo(server.roles.get("name", "Member"));
+});
 bot.on('message', msg => {
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();
   console.info(`Called command: ${command}`);
 
   if (!bot.commands.has(command)) return;
-  if (message.content === '!rip') {
+  if (msg.content === '!rip') {
     // Create the attachment using MessageAttachment
     const attachment = new MessageAttachment('https://i.imgur.com/w3duR07.png');
     // Send the attachment in the message channel
-    message.channel.send(attachment);
+    msg.channel.send(attachment);
   }
   try {
     bot.commands.get(command).execute(msg, args);
