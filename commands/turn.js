@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'turn',
+  name: 'sv_turn',
   description: 'Turn!',
   execute(msg, args) {
     msg.reply('End his turn');
