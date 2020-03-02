@@ -26,7 +26,7 @@ module.exports = {
 		.setTimestamp();
 		return msg.channel.send(exampleEmbed);
 	}); 
-	msg.channel.send(avatarList);
+	//msg.channel.send(avatarList);
 	msg.delete();
   },
 };
