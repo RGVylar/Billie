@@ -5,7 +5,7 @@ module.exports = {
     msg.reply('End his turn');
    	if(msg.member.id==399925589290647552){msg.channel.send('<@273081779420921856> Now is your turn!');}
    	if(msg.member.id==273081779420921856){msg.channel.send('<@399925589290647552> Now is your turn!');}
-   	if(msg.member.id1=273081779420921856&&msg.member.id!=273081779420921856){msg.channel.send('...but...who are you?');}
+   	if((msg.member.id1=273081779420921856)&&(msg.member.id!=399925589290647552)){msg.channel.send('...but...who are you?');}
     msg.delete();
   },
 };
