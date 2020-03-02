@@ -3,7 +3,7 @@ const queue = new Map();
 module.exports = {
   name: 'sv_play',
   description: 'play!',
-  execute(msg, args) {
+  execute(async msg, args) {
     if (msg.member.voice.channel) {
       const connection = await msg.member.voice.channel.join();
     } else {
