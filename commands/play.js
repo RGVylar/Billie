@@ -3,7 +3,6 @@ module.exports = {
   description: 'play!',
   execute: async (msg, args) => {
     const ytdl = require('ytdl-core');
-    if (msg.member.voice.channel) {
       const connection = await msg.member.voice.channel.join().then(connection => {
             console.log("joined channel");
             const stream = ytdl('https://youtu.be/nGfS3y3wnfc', { filter : 'audioonly' });
@@ -13,8 +12,5 @@ module.exports = {
                 voiceChannel.leave();
             });
         }).catch(err => console.log(err));
-    } else {
-      msg.reply('You need to join a voice channel first!');
-    }
   },
 };
