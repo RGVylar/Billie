@@ -1,8 +1,8 @@
 module.exports = {
-  name: 'sv_help',
-  description: 'help!',
+  name: 'sv_list',
+  description: 'list!',
   execute(msg, args) {
-    msg.channel.send("```fix\n
+    msg.channel.send('```fix\n
 Command list =\n
 sv_avatar: sends avatar link\n
 sv_coin: flips a coin\n
@@ -15,7 +15,7 @@ sv_sa: I miss this command\n
 sv_stop: get out of this channel\n
 sv_suck: n-nani?...\n
 sv_turn: Tekkus command\n
-```");
+```');
     msg.delete();
   },
 };
