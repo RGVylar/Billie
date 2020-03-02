@@ -1,7 +1,6 @@
 require('dotenv').config();
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const { Client, MessageAttachment } = require('discord.js');
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
 
@@ -33,12 +32,6 @@ bot.on('message', msg => {
   console.info(`Called command: ${command}`);
 
   if (!bot.commands.has(command)) return;
-  if (msg.content === '!rip') {
-    // Create the attachment using MessageAttachment
-    const attachment = new MessageAttachment('https://i.imgur.com/w3duR07.png');
-    // Send the attachment in the message channel
-    msg.channel.send(attachment);
-  }
   try {
     bot.commands.get(command).execute(msg, args);
   } catch (error) {
