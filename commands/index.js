@@ -15,4 +15,5 @@ module.exports = {
   Stop: require('./stop'),
   Play: require('./play'),
   List: require('./list'),
+  Attach: require('./attach'),
 };
