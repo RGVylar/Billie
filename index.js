@@ -1,6 +1,7 @@
 require('dotenv').config();
 const Discord = require('discord.js');
 const { Client, MessageAttachment } = require('discord.js');
+const { Client, MessageEmbed } = require('discord.js');
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
