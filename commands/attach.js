@@ -1,3 +1,4 @@
+const { Client, MessageAttachment } = require('discord.js');
 module.exports = {
   name: 'sv_attach',
   description: 'attach!',
