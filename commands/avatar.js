@@ -3,7 +3,13 @@ module.exports = {
   description: 'avatar!',
   execute(msg, args) {
   	if (!msg.mentions.users.size) {
-		return msg.channel.send(`Your avatar: <${msg.author.displayAvatarURL}>`);
+		return const exampleEmbed = new Discord.RichEmbed()
+		.setColor('#0099ff')
+		.setTitle('Lets dance!')
+		.setImage('${msg.author.displayAvatarURL}')
+		.setTimestamp();
+		//msg.channel.send(`Your avatar: <${msg.author.displayAvatarURL}>`);
+		msg.channel.send(exampleEmbed);
 	}
 	const avatarList = msg.mentions.users.map(user => {
 		return `${user.username}'s avatar: <${user.displayAvatarURL}>`;
