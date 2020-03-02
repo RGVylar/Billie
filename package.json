@@ -4,8 +4,6 @@
   "description": "Billie bot",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm install",
-    "start": "node index.js"
   },
   "author": "RGVylar",
   "license": "ISC",
