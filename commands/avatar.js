@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'avatar',
+  name: 'sv_avatar',
   description: 'avatar!',
   execute(msg, args) {
   	if (!msg.mentions.users.size) {
