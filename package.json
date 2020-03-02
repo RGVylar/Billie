@@ -1,10 +1,11 @@
 {
-  "name": "discord-bot",
+  "name": "Billie-bot",
   "version": "1.0.0",
-  "description": "Discord bot",
+  "description": "Billie bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "npm run build",
+    "start": "node index.js"
   },
   "author": "RGVylar",
   "license": "ISC",
