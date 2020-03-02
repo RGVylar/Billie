@@ -14,4 +14,5 @@ module.exports = {
   Coin: require('./coin'),
   Stop: require('./stop'),
   Play: require('./play'),
+  List: require('./list'),
 };
