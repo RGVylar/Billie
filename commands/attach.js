@@ -7,17 +7,17 @@ module.exports = {
 	.setColor('#0099ff')
 	.setTitle('Some title')
 	.setURL('https://discord.js.org/')
-	.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+	.setAuthor('Some name', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1', 'https://discord.js.org')
 	.setDescription('Some description here')
-	.setThumbnail('https://i.imgur.com/wSTFkRM.png')
+	.setThumbnail('https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1')
 	.addField('Regular field title', 'Some value here')
 	.addBlankField()
 	.addField('Inline field title', 'Some value here', true)
 	.addField('Inline field title', 'Some value here', true)
 	.addField('Inline field title', 'Some value here', true)
-	.setImage('https://i.imgur.com/wSTFkRM.png')
+	.setImage('https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1')
 	.setTimestamp()
-	.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+	.setFooter('Some footer text here', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
 
 msg.channel.send(exampleEmbed);
     msg.delete();
