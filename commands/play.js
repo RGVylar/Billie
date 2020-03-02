@@ -9,6 +9,6 @@ module.exports = {
     } else {
       msg.reply('You need to join a voice channel first!');
     }
-    connection.play(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' }));
+    connection.play(ytdl('https://youtu.be/nGfS3y3wnfc', { filter: 'audioonly' }));
   },
 };
