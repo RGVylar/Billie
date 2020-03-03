@@ -48,7 +48,7 @@ bot.on('message', msg => {
     ++excom;
     bot.user.setPresence({
         game: {
-            name: excom+' commands executed',
+            name: excom + ' ' + PREFIX + 'list',
             type: "STREAMING",
             url: "https://www.twitch.tv/rgvylar"
         }
