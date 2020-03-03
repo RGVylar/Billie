@@ -1,4 +1,3 @@
-{
-   "PREFIX": "sv_",
-   "TOKEN": process.env.TOKEN
-}
+exports.TOKEN = process.env.TOKEN;
+
+exports.PREFIX = 'mp_';
