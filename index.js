@@ -35,12 +35,14 @@ bot.on('message', msg => {
   if (!msg.content.startsWith(PREFIX)) return;
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();
-  console.info(`Called command: ${command}`);
+	const n = command.indexOf(PREFIX);
+	const  name = command.substring(n, command.lenght);
+  console.info(`Called command: ${name}`);
 
-  if (!bot.commands.has(command)) return;
+  if (!bot.commands.has(name)) return;
   try {
-    console.log(command);
-    bot.commands.get(command).execute(msg, args);
+    console.log(name);
+    bot.commands.get(name).execute(msg, args);
   } catch (error) {
     console.error(error);
     msg.reply('there was an error trying to execute that command!');
