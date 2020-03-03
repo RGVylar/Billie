@@ -9,7 +9,7 @@ module.exports = {
     var randomIndex = Math.floor(Math.random() * gifs.length); 
     const exampleEmbed = new Discord.RichEmbed()
 	.setColor('#0099ff')
-	.setTitle('Lets dance!')
+	.setTitle('This is cursed!')
 	.setImage(gifs[randomIndex]);
 
 msg.channel.send(exampleEmbed);
