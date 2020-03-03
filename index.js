@@ -39,6 +39,7 @@ bot.on('message', msg => {
 
   if (!bot.commands.has(command)) return;
   try {
+    console.log(command);
     bot.commands.get(command).execute(msg, args);
   } catch (error) {
     console.error(error);
