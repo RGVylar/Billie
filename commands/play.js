@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'sv_play',
+  name: 'play',
   description: 'play!',
   execute: async (msg, args) => {
     const ytdl = require('ytdl-core');
