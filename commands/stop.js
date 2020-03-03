@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'sv_stop',
+  name: 'stop',
   description: 'stop!',
   execute(msg, args) {   
     if(!msg.member.voiceChannel)
