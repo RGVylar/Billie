@@ -4,13 +4,11 @@ module.exports = {
   description: 'punch!',
   execute(msg, args) {
   if (!msg.mentions.users.size) {
-	  
-		const exampleEmbed = new Discord.RichEmbed()
+	const exampleEmbed = new Discord.RichEmbed()
 	.setColor('#0099ff')
-		.setTitle(`wtf?`)
+	.setTitle(`wtf?`)
 	.setImage("https://i.kym-cdn.com/photos/images/newsfeed/000/617/983/4b0.gif");
-  
-		return msg.channel.send(exampleEmbed);
+	return msg.channel.send(exampleEmbed);
 	}
 	const userlist = msg.mentions.users.map(user => {
 		const usera = msg.member.user.tag;
@@ -34,7 +32,6 @@ module.exports = {
   
 		return msg.channel.send(exampleEmbed);
 	}); 
-	//msg.channel.send(avatarList);
 	msg.delete();
   },
 };
