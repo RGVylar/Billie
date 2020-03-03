@@ -7,7 +7,7 @@ module.exports = {
     var i;
     for (i = 0; i < files.length; i++) {
     var n = files[i].indexOf('.');
-      files[i] =  files[i].substring(0, n);
+      files[i] =  '- '+PREFIX+files[i].substring(0, n);
     }
     msg.channel.send('```fix\nCommands =\n'+files.join("\n")+'```');
     msg.delete();
