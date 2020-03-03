@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'sv_join',
+  name: 'join',
   description: 'join!',
   execute(msg, args) {
      const voiceChannel = msg.member.voiceChannel;
