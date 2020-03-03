@@ -1,5 +1,5 @@
 require('dotenv').config();
-const config = require("./config.json");
+const config = require("./config.js");
 const Discord = require('discord.js');
 const MessageAttachment = require('discord.js');
 const MessageEmbed = require('discord.js');
