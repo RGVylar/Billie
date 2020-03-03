@@ -18,4 +18,5 @@ module.exports = {
   Attach: require('./attach'),
   Cry: require('./cry'),
   Cursed: require('./cursed'),
+  Hug: require('./hug'),
 };
