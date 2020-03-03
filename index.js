@@ -37,7 +37,7 @@ bot.on('message', msg => {
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();
 	const n = command.indexOf(PREFIX);
-	const  name = command.substring(n, command.length);
+	const  name = command.substring(n+PREFIX.length, command.length);
 	console.log(command + ' ' + name);
   console.info(`Called command: ${name}`);
 
