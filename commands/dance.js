@@ -8,7 +8,7 @@ module.exports = {
     const exampleEmbed = new Discord.RichEmbed()
 	.setColor('#0099ff')
 	.setTitle('Lets dance!')
-	.setImage(dance[randomIndex])
+	.setImage(dances[randomIndex])
 	.setTimestamp();
 
 msg.channel.send(exampleEmbed);
