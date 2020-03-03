@@ -17,4 +17,5 @@ module.exports = {
   List: require('./list'),
   Attach: require('./attach'),
   Cry: require('./cry'),
+  Cursed: require('./cursed'),
 };
