@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
-  name: 'cry',
-  description: 'cry!',
+  name: 'dab',
+  description: 'dab!',
   execute(msg, args) {
     var gifs = ["https://media1.tenor.com/images/59983e51f744411fd00c2e50b1399fc5/tenor.gif?itemid=12789689"
 		 ];
