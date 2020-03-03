@@ -1,4 +1,5 @@
 require('dotenv').config();
+const config = require("./config.json");
 const Discord = require('discord.js');
 const MessageAttachment = require('discord.js');
 const MessageEmbed = require('discord.js');
@@ -10,7 +11,8 @@ Object.keys(botCommands).map(key => {
   bot.commands.set(botCommands[key].name, botCommands[key]);
 });
 
-const TOKEN = process.env.TOKEN;
+const TOKEN = config.TOKEN;
+const PREFIX = config.PREFIX;
 
 bot.login(TOKEN);
 
@@ -29,6 +31,8 @@ bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
 });
 bot.on('message', msg => {
+  
+  if (!msg.content.startsWith(PREFIX)) return;
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();
   console.info(`Called command: ${command}`);
