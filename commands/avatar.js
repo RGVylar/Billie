@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 module.exports = {
-  name: 'sv_avatar',
+  name: 'avatar',
   description: 'avatar!',
   execute(msg, args) {
   	if (!msg.mentions.users.size) {
