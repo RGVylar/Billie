@@ -1,0 +1,4 @@
+{
+   "PREFIX": "sv_",
+   "TOKEN": process.env.TOKEN
+}
