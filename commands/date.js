@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'sv_date',
+  name: 'date',
   description: 'date!',
   execute(msg, args) {
     msg.reply('It is ' + Date());
