@@ -3,7 +3,7 @@ module.exports = {
   name: 'cry',
   description: 'cry!',
   execute(msg, args) {
-    var gifs = ["https://tenor.com/view/anime-rain-let-it-rain-monogatari-series-koyomi-araragi-gif-16422239",
+    var gifs = ["https://media.tenor.com/images/8c7d0963ce62b09bd97fea22ac5e9b17/tenor.gif",
 		              "https://imgur.com/Y1xuiUK"
 		 ];
     var randomIndex = Math.floor(Math.random() * gifs.length); 
