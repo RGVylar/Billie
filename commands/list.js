@@ -1,5 +1,5 @@
 var fs = require('fs');
-const config = require("./config.js");
+const config = require("../config.js");
 module.exports = {
   name: 'list',
   description: 'list!',
