@@ -8,7 +8,7 @@ module.exports = {
 		const exampleEmbed = new Discord.RichEmbed()
 	.setColor('#0099ff')
 		.setTitle(`wtf?`)
-	.setImage("https://media1.tenor.com/images/a25726b66284a8932a17e63360819f3c/tenor.gif?itemid=12015413");
+	.setImage("https://i.kym-cdn.com/photos/images/newsfeed/000/617/983/4b0.gif");
   
 		return msg.channel.send(exampleEmbed);
 	}
