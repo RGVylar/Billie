@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 module.exports = {
-  name: 'sv_attach',
+  name: 'attach',
   description: 'attach!',
   execute(msg, args) {
     const exampleEmbed = new Discord.RichEmbed()
