@@ -16,4 +16,5 @@ module.exports = {
   Play: require('./play'),
   List: require('./list'),
   Attach: require('./attach'),
+  Cry: require('./cry'),
 };
