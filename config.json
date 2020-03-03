@@ -1,3 +1,3 @@
 exports.TOKEN = process.env.TOKEN;
 
-exports.PREFIX = 'mp_';
+exports.PREFIX = 'sv_';
