@@ -20,4 +20,5 @@ module.exports = {
   Cursed: require('./cursed'),
   Hug: require('./hug'),
   Punch: require('./punch'),
+  Dab: require('./dab'),
 };
