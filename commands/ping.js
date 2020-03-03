@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'sv_ping',
+  name: 'ping',
   description: 'Ping!',
   execute(msg, args) {
     msg.reply('This is a reply');
