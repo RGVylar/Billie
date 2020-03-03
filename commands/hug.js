@@ -4,7 +4,13 @@ module.exports = {
   description: 'hug!',
   execute(msg, args) {
   if (!msg.mentions.users.size) {
-		return msg.channel.send("SAD");
+	  
+		const exampleEmbed = new Discord.RichEmbed()
+	.setColor('#0099ff')
+		.setTitle(`Lonely, right?`)
+	.setImage("https://media1.tenor.com/images/a25726b66284a8932a17e63360819f3c/tenor.gif?itemid=12015413");
+  
+		return msg.channel.send(exampleEmbed);
 	}
 	const userlist = msg.mentions.users.map(user => {
 		const usera = msg.member.user.tag;
