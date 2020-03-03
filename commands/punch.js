@@ -7,7 +7,7 @@ module.exports = {
 	const exampleEmbed = new Discord.RichEmbed()
 	.setColor('#0099ff')
 	.setTitle(`wtf?`)
-	.setImage("https://static1.fjcdn.com/thumbnails/comments/+_846f2ca89d93c5ee6e6b1d06cf7e68ca.gif");
+	.setImage("https://2eu.funnyjunk.com/thumbnails/comments/My+friend+ive+spent+years+on+fj+as+a+commenter+_bdcf430bf5964aa58d3ebbd9877211a6.gif");
 	return msg.channel.send(exampleEmbed);
 	}
 	const userlist = msg.mentions.users.map(user => {
