@@ -8,6 +8,7 @@ module.exports = {
 		  "https://media.tenor.com/images/fe3826b59f80f5e6c7cc04eb474fb44d/tenor.gif",
 		  "https://cdn.discordapp.com/emojis/515424732116549652.gif?v=1",
 		  "https://cdn.discordapp.com/emojis/518934188800344084.gif?v=1",
+		  "https://cdn.discordapp.com/attachments/652432414135681060/684491470992179378/dcm6qj2-86c36880-8a11-489c-b4f5-c8bee9fd8dd7.gif",
 		  "https://external-preview.redd.it/abIpQURl4wtDa6Y31c4RWKL7hwhgxDagpzGwFbUwMlQ.gif?s=1a81ebfe75fbadb488e6edc53e7f5d4f0b585142"
 		 ];
     var randomIndex = Math.floor(Math.random() * dances.length); 
