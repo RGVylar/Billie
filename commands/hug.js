@@ -13,8 +13,7 @@ module.exports = {
 		const b = userb.indexOf("#");
 		const  resa = usera.substring(0, a);
 		const  resb = userb.substring(0, b);
-    var gifs = ["https://i.imgur.com/SNQJAJ8.gif",
-		  "https://i.imgur.com/scMnIjw.gif"
+    var gifs = ["https://images-ext-1.discordapp.net/external/QYnzqF83OZ14RzVoM1t3EUw62M5x9WiIRTdwwNkVW0c/https/cdn.weeb.sh/images/HkfgF_QvW.gif"
 		 ];
     var randomIndex = Math.floor(Math.random() * gifs.length); 
     const exampleEmbed = new Discord.RichEmbed()
