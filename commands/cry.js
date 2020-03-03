@@ -4,7 +4,7 @@ module.exports = {
   description: 'cry!',
   execute(msg, args) {
     var gifs = ["https://media.tenor.com/images/8c7d0963ce62b09bd97fea22ac5e9b17/tenor.gif",
-		              "https://imgur.com/Y1xuiUK"
+		              "https://i.imgur.com/Y1xuiUK.gif"
 		 ];
     var randomIndex = Math.floor(Math.random() * gifs.length); 
     const exampleEmbed = new Discord.RichEmbed()
