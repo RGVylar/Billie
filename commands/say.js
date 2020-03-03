@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'sv_say',
+  name: 'say',
   description: 'say!',
   execute(msg, args) {
     const sayMessage = args.join(" ");
