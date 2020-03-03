@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'sv_coin',
+  name: 'coin',
   description: 'coin!',
   execute(msg, args) {
     var flipcoin = ["heads", "tails"];
