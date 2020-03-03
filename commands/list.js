@@ -4,7 +4,11 @@ module.exports = {
   description: 'list!',
   execute(msg, args) {
     var files = fs.readdirSync('./commands');
-    console.log(files.length);
+    var i;
+    for (i = 0; i < files.length; i++) {
+    var n = files[i].indexOf('.');
+      files[i] =  files[i].substring(0, n);
+    }
     msg.channel.send('```fix\nCommands =\n'+files.join("\n")+'```');
     msg.delete();
   },
