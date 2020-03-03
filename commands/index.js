@@ -19,4 +19,5 @@ module.exports = {
   Cry: require('./cry'),
   Cursed: require('./cursed'),
   Hug: require('./hug'),
+  Punch: require('./punch'),
 };
