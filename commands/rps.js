@@ -1,6 +1,6 @@
 module.exports = {
-  name: 'coin',
-  description: 'coin!',
+  name: 'rps',
+  description: 'rps!',
   execute(msg, args) {
   let replies = ['rock', 'paper', 'scissors'];
         let result = Math.floor((Math.random() * replies.length));
