@@ -4,8 +4,7 @@ module.exports = {
   description: 'translate!',
   execute(msg, args) {
   const sayMessage = args.join(" ");
- translate.text(sayMessage, function(err, text){
- 
+  translate.text(sayMessage, function(err, text){
     msg.delete().catch(O_o=>{}); 
     msg.channel.send(text);
  });
