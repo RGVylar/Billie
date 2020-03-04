@@ -24,4 +24,5 @@ module.exports = {
   Translate: require('./translate'),
   RPS: require('./rps'),
   Loli: require('./loli'),
+  Tea: require('./tea'),
 };
