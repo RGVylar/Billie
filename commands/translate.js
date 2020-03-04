@@ -5,8 +5,9 @@ module.exports = {
   execute(msg, args) {
   const sayMessage = args.join(" ");
   translate.text(sayMessage, function(err, text){
-    msg.delete().catch(O_o=>{}); 
+    console.log(text);
     msg.channel.send(text);
+    msg.delete().catch(O_o=>{}); 
  });
     
   },
