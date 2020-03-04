@@ -22,4 +22,5 @@ module.exports = {
   Punch: require('./punch'),
   Dab: require('./dab'),
   Translate: require('./translate'),
+  RPS: require('./rps'),
 };
