@@ -26,4 +26,5 @@ module.exports = {
   Loli: require('./loli'),
   Tea: require('./tea'),
   Urban: require('./urban'),
+  Urbansfw: require('./urbansfw'),
 };
