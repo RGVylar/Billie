@@ -2,8 +2,8 @@ module.exports = {
   name: 'rps',
   description: 'rps!',
   execute(msg, args) {
-  let replies = ['rock', 'paper', 'scissors'];
-        let result = Math.floor((Math.random() * replies.length));
+  var replies = ['rock', 'paper', 'scissors'];
+        var result = Math.floor((Math.random() * replies.length));
 
         let uReply = args[0];
         if (!uReply) return msg.channel.send(`Please play with one of these responses: \`${replies.join(', ')}\``);
