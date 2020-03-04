@@ -7,7 +7,7 @@ module.exports = {
  translate.text(sayMessage, function(err, text){
  
     msg.delete().catch(O_o=>{}); 
-    msg.channel.send(sayMessage);
+    msg.channel.send(text);
  });
     
   },
