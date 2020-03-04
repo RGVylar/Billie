@@ -27,4 +27,5 @@ module.exports = {
   Tea: require('./tea'),
   Urban: require('./urban'),
   Urbansfw: require('./urbansfw'),
+  Kick: require('./kick'),
 };
