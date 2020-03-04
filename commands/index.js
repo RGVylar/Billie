@@ -23,4 +23,5 @@ module.exports = {
   Dab: require('./dab'),
   Translate: require('./translate'),
   RPS: require('./rps'),
+  Loli: require('./loli'),
 };
