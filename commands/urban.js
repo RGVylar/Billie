@@ -5,7 +5,7 @@ const types = ['top'];
 module.exports = {
   name: 'urban',
   description: 'urban!',
-  execute(msg, args) {const word = args.join(" ")
+  async execute(msg, args) {const word = args.join(" ")
   try {
     const { body } = await snekfetch
       .get('http://api.urbandictionary.com/v0/define')
