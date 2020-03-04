@@ -9,7 +9,7 @@ module.exports = {
   });
     msg.channel.send(text);
     msg.delete().catch(O_o=>{}); 
- });
+ 
     
   },
 };
