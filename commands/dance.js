@@ -9,7 +9,8 @@ module.exports = {
 		  "https://cdn.discordapp.com/emojis/515424732116549652.gif?v=1",
 		  "https://cdn.discordapp.com/emojis/518934188800344084.gif?v=1",
 		  "https://cdn.discordapp.com/attachments/652432414135681060/684491470992179378/dcm6qj2-86c36880-8a11-489c-b4f5-c8bee9fd8dd7.gif",
-		  "https://external-preview.redd.it/abIpQURl4wtDa6Y31c4RWKL7hwhgxDagpzGwFbUwMlQ.gif?s=1a81ebfe75fbadb488e6edc53e7f5d4f0b585142"
+		  "https://external-preview.redd.it/abIpQURl4wtDa6Y31c4RWKL7hwhgxDagpzGwFbUwMlQ.gif?s=1a81ebfe75fbadb488e6edc53e7f5d4f0b585142",
+		  "https://i.pinimg.com/originals/04/c3/9f/04c39f437de3bda67d2dc35bbb563d88.gif"
 		 ];
     var randomIndex = Math.floor(Math.random() * dances.length); 
     const exampleEmbed = new Discord.RichEmbed()
