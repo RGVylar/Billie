@@ -25,4 +25,5 @@ module.exports = {
   RPS: require('./rps'),
   Loli: require('./loli'),
   Tea: require('./tea'),
+  Urban: require('./urban'),
 };
