@@ -21,4 +21,5 @@ module.exports = {
   Hug: require('./hug'),
   Punch: require('./punch'),
   Dab: require('./dab'),
+  Translate: require('./translate'),
 };
