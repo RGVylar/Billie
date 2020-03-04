@@ -17,7 +17,8 @@ module.exports = {
 		const b = userb.indexOf("#");
 		const  resa = usera.substring(0, a);
 		const  resb = userb.substring(0, b);
-    var gifs = ["https://gifimage.net/wp-content/uploads/2017/09/anime-sick-gif-14.gif"
+    var gifs = ["https://gifimage.net/wp-content/uploads/2017/09/anime-sick-gif-14.gif",
+		"https://i.pinimg.com/originals/04/7e/50/047e50f227ec86d0ca8a780ff10420cd.gif"
 	       ];
     var randomIndex = Math.floor(Math.random() * gifs.length); 
     const exampleEmbed = new Discord.RichEmbed()
