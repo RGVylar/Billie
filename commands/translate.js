@@ -1,4 +1,4 @@
-const translate = require('./lib/translator.js');
+const translate = require('../lib/translator.js');
 module.exports = {
   name: 'translate',
   description: 'translate!',
