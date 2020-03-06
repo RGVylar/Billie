@@ -21,8 +21,8 @@ module.exports = {
 		const  resb = userb.substring(0, b);
     var gifs = ["https://media1.tenor.com/images/ccd552765795d8791d6bc458547e9fe9/tenor.gif?itemid=14795898",
                 "https://66.media.tumblr.com/f34fe7b01573743938f30c51d211227e/tumblr_oqgoupiCnF1slt45io1_400.gifv",
-                "https://cdn.discordapp.com/attachments/683806538208378887/685552461267730557/1546195210_5122f7445ee0.gif",
-                "
+                "https://cdn.discordapp.com/attachments/683806538208378887/685552461267730557/1546195210_5122f7445ee0.gif"
+                
 	       ];
     var randomIndex = Math.floor(Math.random() * gifs.length); 
     const exampleEmbed = new Discord.RichEmbed()
