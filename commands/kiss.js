@@ -21,7 +21,10 @@ module.exports = {
 		const  resb = userb.substring(0, b);
     var gifs = ["https://i.pinimg.com/originals/d4/dc/09/d4dc09375712a7ed678c9a317f76ad40.gif",
                 "https://data.whicdn.com/images/305308438/original.gif",
-                "https://media1.tenor.com/images/9b4892906aaea841c0b6cabd84f29f07/tenor.gif?itemid=13890623"
+                "https://media1.tenor.com/images/9b4892906aaea841c0b6cabd84f29f07/tenor.gif?itemid=13890623",
+		"https://iforo.3djuegos.com/files_foros/15/15pj_play.gif",
+		"https://i.pinimg.com/originals/5e/db/97/5edb9777072d901af6c294f9d1ba30ac.gif",
+		"https://wethehunted.files.wordpress.com/2015/11/katanagatari-kiss.gif"
 	       ];
     var randomIndex = Math.floor(Math.random() * gifs.length); 
     const exampleEmbed = new Discord.RichEmbed()
