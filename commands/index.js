@@ -28,4 +28,6 @@ module.exports = {
   Urban: require('./urban'),
   Urbansfw: require('./urbansfw'),
   Kick: require('./kick'),
+  Kiss: require('./kiss'),
+  Friendkiss: require('./friendkiss'),
 };
