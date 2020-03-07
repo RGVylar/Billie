@@ -13,7 +13,8 @@ module.exports = {
 		"https://i.pinimg.com/originals/30/a6/5e/30a65e38004afc5c02be189cf17b2f1f.gif",
 		"https://i.pinimg.com/originals/35/1c/8a/351c8a0fbabdc2196e3e1542e5335c2f.gif",
 		"https://i.pinimg.com/originals/e1/5f/46/e15f464216a5d2d6cdf37c6c3e596036.gif",
-		"https://media1.tenor.com/images/567a03b4c9f4572b58b479c13ef854b6/tenor.gif?itemid=15620009"
+		"https://media1.tenor.com/images/567a03b4c9f4572b58b479c13ef854b6/tenor.gif?itemid=15620009",
+		"https://2eu.funnyjunk.com/gifs/I_f82256_6524944.gif"
 		 ];
     var randomIndex = Math.floor(Math.random() * gifs.length); 
     const exampleEmbed = new Discord.RichEmbed()
