@@ -19,7 +19,7 @@ module.exports = {
 
         // Image Feed
         
-        await fetch('https://aws.random.cat/meow')
+        await fetch('https://danbooru.donmai.us/posts/3818540')
             .then(response => response.json())
             .then((data) => { msg.channel.send(data); })
             .catch(err => { msg.channel.send(err) });
