@@ -42,10 +42,14 @@ module.exports = {
         //    .catch(err => { msg.channel.send(err) });
 
         //Get Image
-        await fetch("https://danbooru.donmai.us/data/3662f779469cd2b49fa51191574c37fd.jpg")
-            .then(response => response.json())
-            .then((data) => { msg.channel.send(data);})
-            .catch(err => { msg.channel.send(err) });
+        const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
+
+        message.channel.send(file);
+
+        //await fetch("https://danbooru.donmai.us/data/3662f779469cd2b49fa51191574c37fd.jpg")
+        //    .then(response => response.json())
+        //    .then((data) => { msg.channel.send(data);})
+        //    .catch(err => { msg.channel.send(err) });
 
         msg.delete();
     },
