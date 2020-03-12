@@ -18,6 +18,6 @@ module.exports = {
 
 msg.channel.send(exampleEmbed);
     //msg.channel.send({ files: ["https://media.discordapp.net/attachments/652432414135681060/680578706875482132/tenor_2.gif"] });
-    msg.delete();
+    //msg.delete();
   },
 };

@@ -20,6 +20,6 @@ module.exports = {
 	.setFooter('Some footer text here', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
 
 msg.channel.send(exampleEmbed);
-    msg.delete();
+    //msg.delete();
   },
 };

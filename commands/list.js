@@ -11,6 +11,6 @@ module.exports = {
       files[i] =  '- ' + config.PREFIX + files[i].substring(0, n);
     }
     msg.channel.send('```fix\nCommands =\n'+files.join("\n")+'```');
-    msg.delete();
+    //msg.delete();
   },
 };

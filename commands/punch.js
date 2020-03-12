@@ -32,6 +32,6 @@ module.exports = {
   
 		return msg.channel.send(exampleEmbed);
 	}); 
-	msg.delete();
+	//msg.delete();
   },
 };
