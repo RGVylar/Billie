@@ -24,11 +24,14 @@ module.exports = {
                 args = vanilla;
             }
             var urlSearch = "https://danbooru.donmai.us/posts.json?search[tags]=" + args;
+            msg.channel.send(urlSearch);
+
             var postID;
             //// Get first page post with tag
             await fetch(urlSearch)
                 .then(response => response.json())
                 .then(data => {
+                    msg.channel.send(data.length);
                     var seed = Math.random() * data.length; 
                     msg.channel.send("In : " + data[seed].id + " - Seed : " + seed );
                     postID = data[seed].id;
