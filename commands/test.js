@@ -17,13 +17,13 @@ module.exports = {
         }
 
         // Image Feed
-        const userAction = async () => {
+        
             const response = await fetch('https://danbooru.donmai.us/tags.json?search%5Bname_matches%5D=a*');
             const myJson = await response.json(); //extract JSON from the http response
             // do something with myJson
 
             msg.channel.send(myJson);
-        }
+        
 
         
 
