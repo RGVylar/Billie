@@ -26,6 +26,6 @@ module.exports = {
   } catch (err) {
     return msg.channel.send(`Oh no, an error occurred: \`${err.msg}\`. Try again later!`);
   }
-    msg.delete();
+    //msg.delete();
   },
 };
