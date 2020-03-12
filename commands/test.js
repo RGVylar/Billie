@@ -9,7 +9,7 @@ module.exports = {
 
         if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
-        const args = msg.content.slice(prefix.length).split(' ');
+        args = msg.content.slice(prefix.length).split(' ');
         const command = args.shift().toLowerCase();
 
         if (command === 'args-info') {
