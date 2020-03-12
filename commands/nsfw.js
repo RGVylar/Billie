@@ -54,6 +54,7 @@ module.exports = {
                         .setColor('#ffc0cb')
                         .setURL('https://danbooru.donmai.us/posts/' + postID)
                         .setAuthor(data.tag_string_artist)
+                        .setDescription(args)
                         .setImage(data.file_url);
 
 
