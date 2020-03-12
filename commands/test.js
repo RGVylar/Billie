@@ -21,18 +21,20 @@ module.exports = {
             if (!args) {
                 // No tag then we take vanilla
 
-                args = vanilla;
+                args = "vanilla";
             }
+
             var urlSearch = "https://danbooru.donmai.us/posts.json?search[tags]=" + args;
             msg.channel.send(urlSearch);
 
             var postID;
+
             //// Get first page post with tag
             await fetch(urlSearch)
                 .then(response => response.json())
                 .then(data => {
                     msg.channel.send(data.length);
-                    var seed = Math.random() * data.length; 
+                    var seed = Math.random() * data.length -1; 
                     msg.channel.send("In : " + data[seed].id + " - Seed : " + seed );
                     postID = data[seed].id;
                    
