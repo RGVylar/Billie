@@ -19,7 +19,7 @@ module.exports = {
 
         // Image Feed
         
-        const list = fetch('https://danbooru.donmai.us/tags.json?search%5Bname_matches%5D=a*').then(response => response.json());
+        const list = fetch('https://danbooru.donmai.us/tags.json?search%5Bname_matches%5D=a*').then(response => response.json()).catch(err => msg.channel.send(err));
 
         msg.channel.send(list);
 
