@@ -43,9 +43,11 @@ module.exports = {
 
         //Get Image
 
+
+
         await fetch("https://danbooru.donmai.us/posts/3818600.json?")
             .then(response => response.json())
-            .then(data => { msg.channel.send(data);})
+            .then(data => { message.channel.send("Lewd", { files: [data.file_url] });;})
             .catch(err => { msg.channel.send(err) });
 
         msg.delete();
