@@ -42,7 +42,7 @@ module.exports = {
         //    .catch(err => { msg.channel.send(err) });
 
         //Get Image
-        await fetch("https://danbooru.donmai.us/posts/3818600")
+        await fetch("https://danbooru.donmai.us/data/3662f779469cd2b49fa51191574c37fd.jpg")
             .then(response => response.json())
             .then((data) => { list = data; })
             .catch(err => { msg.channel.send(err) });
