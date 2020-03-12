@@ -27,7 +27,7 @@ module.exports = {
 
 
             console.log(args);
-            var urlSearch = "https://danbooru.donmai.us/posts.json?search[tags]=" + args;
+            var urlSearch = "https://danbooru.donmai.us/posts.json?search[tags]=" + args + "&random=true&raw";
             console.log(urlSearch);
 
             var postID;
