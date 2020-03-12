@@ -13,7 +13,7 @@ module.exports = {
 
         args = msg.content.slice(prefix.length).split(' ');
         const command = args.shift().toLowerCase();
-
+        msg.channel.send(`Command value : ${command}`);
         if (command === 'args-info') {
             if (!args.length) {
                 return msg.channel.send(`You didn't provide any arguments, ${msg.author}!`);
