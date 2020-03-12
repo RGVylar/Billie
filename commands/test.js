@@ -5,7 +5,7 @@ module.exports = {
     execute(msg, args) {
         
         
-        var prefix = 'sv_' + module.name;
+        var prefix = 'sv_' + this.name;
         if (!msg.content.startsWith(prefix) || msg.author.bot) {
             msg.channel.send(`error you mother fockor : ${prefix}` );
             return;
