@@ -22,31 +22,33 @@ module.exports = {
         var urlSearch = "https://danbooru.donmai.us/posts.json?search[tags]=" + args;
         var list;
 
-        // Get first page post with tag
-        await fetch(urlSearch)
-            .then(response => response.json())
-            .then((data) => list)
-            .catch(err => { msg.channel.send(err) });
+        //// Get first page post with tag
+        //await fetch(urlSearch)
+        //    .then(response => response.json())
+        //    .then((data) => list)
+        //    .catch(err => { msg.channel.send(err) });
 
-        msg.channel.send(list);
+        //msg.channel.send(list);
 
-        var seed = Math.random() * list.length; 
+        //var seed = Math.random() * list.length; 
 
-        var urlPost = "https://danbooru.donmai.us/posts/" + list[seed].id +".json?"
+        //var urlPost = "https://danbooru.donmai.us/posts/" + list[seed].id +".json?"
 
-        // Get post JSON object
-        var postData;
-        await fetch(urlPost)
-            .then(response => response.json())
-            .then((data) => postData)
-            .catch(err => { msg.channel.send(err) });
+        //// Get post JSON object
+        //var postData;
+        //await fetch(urlPost)
+        //    .then(response => response.json())
+        //    .then((data) => postData)
+        //    .catch(err => { msg.channel.send(err) });
 
         //Get Image
-        await fetch(postData[file_url])
+        await fetch("https://danbooru.donmai.us/posts/45456456")
             .then(response => response.json())
-            .then((data) => { msg.channel.send(data) })
+            .then((data) => { list = data;})
             .catch(err => { msg.channel.send(err) });
 
+
+        msg.channel.send(list);
         msg.delete();
     },
 };
