@@ -47,7 +47,7 @@ module.exports = {
 
         await fetch("https://danbooru.donmai.us/posts/3818600.json?")
             .then(response => response.json())
-            .then(data => { message.channel.send(data.file_url);})
+            .then(data => { msg.channel.send(data.file_url);})
             .catch(err => { msg.channel.send(err) });
 
         msg.delete();
