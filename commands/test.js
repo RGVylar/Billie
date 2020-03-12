@@ -27,7 +27,7 @@ module.exports = {
 
 
             console.log(args);
-            var urlSearch = "https://danbooru.donmai.us/posts.json?search[tags]=" + args + "&random=true&raw";
+            var urlSearch = "https://danbooru.donmai.us/posts.json?tags=" + args + "&random=true&raw=true";
             console.log(urlSearch);
 
             var postID;
@@ -40,8 +40,6 @@ module.exports = {
                     postID = data[seed].id;
                 })
                 .catch(err => { msg.channel.send(err) });
-
-            msg.channel.send("Out : " + postID);
             //Get Image
 
 
