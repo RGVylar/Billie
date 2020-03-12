@@ -47,8 +47,6 @@ module.exports = {
             .then((data) => { msg.channel.send(data);})
             .catch(err => { msg.channel.send(err) });
 
-
-        msg.channel.send(list);
         msg.delete();
     },
 };
