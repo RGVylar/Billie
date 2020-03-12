@@ -18,13 +18,32 @@ module.exports = {
         }
 
         // Image Feed
-        
-        await fetch('https://danbooru.donmai.us/posts/3818540')
+
+        var urlSearch = "https://danbooru.donmai.us/posts.json?search[tags]=" + args;
+        var list;
+
+        // Get first page post with tag
+        await fetch(urlSearch)
             .then(response => response.json())
-            .then((data) => { msg.channel.send(data); })
+            .then((data) => list)
             .catch(err => { msg.channel.send(err) });
 
-        //msg.channel.send(file);
+        var seed = Math.random() * list.length; 
+
+        var urlPost = "https://danbooru.donmai.us/posts/" + list[seed].id +".json?"
+
+        // Get post JSON object
+        var postData;
+        await fetch(urlPost)
+            .then(response => response.json())
+            .then((data) => postData)
+            .catch(err => { msg.channel.send(err) });
+
+        //Get Image
+        await fetch(postData[file_url])
+            .then(response => response.json())
+            .then((data) => { msg.channel.send(data) })
+            .catch(err => { msg.channel.send(err) });
 
         msg.delete();
     },
