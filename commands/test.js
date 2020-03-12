@@ -42,13 +42,12 @@ module.exports = {
         //    .catch(err => { msg.channel.send(err) });
 
         //Get Image
-        await fetch("https://danbooru.donmai.us/data/3662f779469cd2b49fa51191574c37fd.jpg")
+       var data = await fetch("https://danbooru.donmai.us/data/3662f779469cd2b49fa51191574c37fd.jpg")
             .then(response => response.json())
-            .then((data) => list = data)
             .catch(err => { msg.channel.send(err) });
 
 
-        msg.channel.send(list);
+        msg.channel.send(data);
         msg.delete();
     },
 };
