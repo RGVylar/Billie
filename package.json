@@ -12,7 +12,8 @@
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
     "ffmpeg-binaries": "^3.2.2-3",
-    "ytdl-core": "^2.0.0",
-    "translate": "1.1.1"
+    "node-fetch": "^2.6.0",
+    "translate": "1.1.1",
+    "ytdl-core": "^2.0.0"
   }
 }
