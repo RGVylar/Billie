@@ -8,7 +8,7 @@ module.exports = {
             const nsfwWrongChannelWarn = new Discord.RichEmbed()
                 .setColor('#0099ff')
                 .setTitle('You lewd !')
-                .setMessage('You need to be in a nsfw channel for that Baa~ Baka')
+                .setDescription('You need to be in a nsfw channel for that Baa~ Baka')
                 .setImage("https://tenor.com/view/lewd-gif-7979947");
 
             msg.channel.send(nsfwWrongChannelWarn);
