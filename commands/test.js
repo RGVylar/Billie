@@ -49,8 +49,20 @@ module.exports = {
             var urlPost = "https://danbooru.donmai.us/posts/" + postID +".json?"
             await fetch(urlPost)
                 .then(response => response.json())
-                .then(data => { msg.channel.send("", { files: [data.file_url] }); })
+                .then(data => {
+                    const postEmbed = new Discord.RichEmbed()
+                        .setColor('#0099ff')
+                        .setTitle('Some title')
+                        .setURL('https://danbooru.donmai.us/posts/' + postID)
+                        .setAuthor(data.tag_string_artist)
+                        .setImage(data.file_url)
+                        .setTimestamp();
+
+
+                    msg.channel.send(postEmbed);
+                })
                 .catch(err => { msg.channel.send(err) });
+
 
             
 
