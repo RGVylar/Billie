@@ -1,6 +1,6 @@
 module.exports = {
   name: 'newcommand',
-  description: 'newcommand!',
+  description: 'Generates a new file to future command creation',
   execute(msg, args) {
     var fs = require('fs');
 	var stream = fs.createWriteStream("commands/command.js");
