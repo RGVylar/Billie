@@ -5,7 +5,7 @@ module.exports = {
     execute(msg, args) {
         //var gifs = ["
         //];
-        var randomIndex = Math.floor(Math.random() * gifs.length);
+        //var randomIndex = Math.floor(Math.random() * gifs.length);
         const exampleEmbed = new Discord.RichEmbed()
             .setColor('#0099ff')
             .setTitle('Random Test');
