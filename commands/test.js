@@ -18,14 +18,17 @@ module.exports = {
         } else {
 
             // Image Feed
-            if (!args) {
+            if (!args || args == "") {
                 // No tag then we take vanilla
 
                 args = "vanilla";
+                console.log(args);
             }
 
+
+            console.log(args);
             var urlSearch = "https://danbooru.donmai.us/posts.json?search[tags]=" + args;
-            msg.channel.send(urlSearch);
+            console.log(urlSearch);
 
             var postID;
 
@@ -34,7 +37,8 @@ module.exports = {
                 .then(response => response.json())
                 .then(data => {
                     msg.channel.send(data.length);
-                    var seed = Math.random() * data.length -1; 
+                    var seed = Math.random() * data.length - 1; 
+                    console.log(data);
                     msg.channel.send("In : " + data[seed].id + " - Seed : " + seed );
                     postID = data[seed].id;
                    
