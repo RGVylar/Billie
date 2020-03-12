@@ -12,5 +12,6 @@ module.exports = {
             //.setImage(gifs[randomIndex]);
 
         msg.channel.send(exampleEmbed);
+        msg.delete();
     },
 };
