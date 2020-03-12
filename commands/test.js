@@ -52,7 +52,6 @@ module.exports = {
                 .then(data => {
                     const postEmbed = new Discord.RichEmbed()
                         .setColor('#0099ff')
-                        .setTitle('Some title')
                         .setURL('https://danbooru.donmai.us/posts/' + postID)
                         .setAuthor(data.tag_string_artist)
                         .setImage(data.file_url)
