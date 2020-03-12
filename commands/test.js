@@ -6,7 +6,10 @@ module.exports = {
         
         
         var prefix = 'sv_' + module.name;
-        if (!msg.content.startsWith(prefix) || msg.author.bot) return;
+        if (!msg.content.startsWith(prefix) || msg.author.bot) {
+            msg.channel.send(`error you mother fockor : ${prefix}` );
+            return;
+        }
 
         args = msg.content.slice(prefix.length).split(' ');
         const command = args.shift().toLowerCase();
