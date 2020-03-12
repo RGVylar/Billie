@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const fetch = require('node-fetch');
 module.exports = {
     name: 'test',
     description: 'AzTest',
@@ -18,7 +19,7 @@ module.exports = {
 
         // Image Feed
         
-        const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
+        //const { list } = await fetch(`https://danbooru.donmai.us/tags.json?search%5Bname_matches%5D=a*`).then(response => response.json());
 
         msg.channel.send(list);
         
