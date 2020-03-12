@@ -31,11 +31,11 @@ module.exports = {
                 .then((data) => {
                     var seed = Math.random() * data.length; 
                     postID = data[seed].id;
-                    msg.channel.send("In : " + data[seed].id)
+                    msg.channel.send("In : " + data[seed].id);
                 })
                 .catch(err => { msg.channel.send(err) });
 
-            msg.channel.send("Out : " + data[seed].id)
+            msg.channel.send("Out : " + data[seed].id);
             //Get Image
 
 
