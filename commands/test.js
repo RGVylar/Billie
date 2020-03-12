@@ -3,7 +3,9 @@ module.exports = {
     name: 'test',
     description: 'AzTest',
     execute(msg, args) {
-        var prefix = 'sv_'+name;
+        
+        
+        var prefix = 'sv_' + module.name;
         if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
         args = msg.content.slice(prefix.length).split(' ');
@@ -17,13 +19,8 @@ module.exports = {
             msg.channel.send(`Command name: ${command}\nArguments: ${args}`);
 
         }
-        //const exampleEmbed = new Discord.RichEmbed()
-        //    .setColor('#0099ff')
-        //    .setTitle('Random Test');
 
-        //    //.setImage(gifs[randomIndex]);
 
-        //msg.channel.send(exampleEmbed);
         msg.delete();
     },
 };
