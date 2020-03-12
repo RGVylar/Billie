@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 module.exports = {
     name: 'test',
     description: 'AzTest',
-    execute(msg, args) {
+    execute:async(msg, args) => {
 
 
         // Nsfw channel test
@@ -19,9 +19,12 @@ module.exports = {
 
         // Image Feed
         
-        const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
+        await fetch('https://aws.random.cat/meow')
+            .then(response => response.json())
+            .then((data) => { msg.channel.send(data); })
+            .catch(err => { msg.channel.send(err) });
 
-        msg.channel.send(file);
+        //msg.channel.send(file);
 
         msg.delete();
     },
