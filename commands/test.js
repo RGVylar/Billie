@@ -28,6 +28,8 @@ module.exports = {
             .then((data) => list)
             .catch(err => { msg.channel.send(err) });
 
+        msg.channel.send(list);
+
         var seed = Math.random() * list.length; 
 
         var urlPost = "https://danbooru.donmai.us/posts/" + list[seed].id +".json?"
