@@ -37,10 +37,9 @@ module.exports = {
                 .then(response => response.json())
                 .then(data => {
                     msg.channel.send(data.length);
-                    var seed = Math.random() * data.length - 1; 
-                    console.log(data);
-                    msg.channel.send("In : " + data[seed].id + " - Seed : " + seed );
-                    postID = data[seed].id;
+                    var seed = Math.floor(Math.random() * data.length - 1); 
+                    msg.channel.send("In : " + data[0][seed].id + " - Seed : " + seed );
+                    postID = data[0][seed].id;
                    
                 })
                 .catch(err => { msg.channel.send(err) });
