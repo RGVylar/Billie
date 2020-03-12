@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 module.exports = {
     name: 'test',
     description: 'AzTest',
-    execute:async(msg, args) => {
+    execute: async (msg, args) => {
 
 
         // Nsfw channel test
@@ -42,12 +42,13 @@ module.exports = {
         //    .catch(err => { msg.channel.send(err) });
 
         //Get Image
-       var data = await fetch("https://danbooru.donmai.us/data/3662f779469cd2b49fa51191574c37fd.jpg")
+        await fetch("https://danbooru.donmai.us/data/3662f779469cd2b49fa51191574c37fd.jpg")
             .then(response => response.json())
+            .then((data) => { msg.channel.send(data);})
             .catch(err => { msg.channel.send(err) });
 
 
-        msg.channel.send(data);
+        msg.channel.send(list);
         msg.delete();
     },
 };
