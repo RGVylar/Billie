@@ -24,10 +24,10 @@ module.exports = {
                 args = "vanilla";
                 console.log(args);
             }
-
-            var argumentsList = args.split(' ');
-            console.log(argumentsList);
-            var urlTag = argumentsList.join('&');
+            console.log(args);
+            //var argumentsList = args.split(' ');
+            //console.log(argumentsList);
+            var urlTag = args.join('&');
             console.log(urlTag);
             
             var urlSearch = "https://danbooru.donmai.us/posts.json?random=true&raw=true&tags=" + urlTag;
