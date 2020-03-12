@@ -27,14 +27,10 @@ module.exports = {
 
             var argumentsList = args.split(' ');
             console.log(argumentsList);
-            var i;
-            var urlTag = argumentsList[0];
-            for (i = 1; i < argumentsList.length-1; i++) {
-                urlTag = urlTag + "&" + argumentsList[i];
-            }
+            var urlTag = argumentsList.join('&');
             console.log(urlTag);
             
-            var urlSearch = "https://danbooru.donmai.us/posts.json?tags=" + args + "&random=true&raw=true";
+            var urlSearch = "https://danbooru.donmai.us/posts.json?random=true&raw=true&tags=" + urlTag;
             console.log(urlSearch);
 
             var postID;
