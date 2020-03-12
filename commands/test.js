@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'test',
     description: 'AzTest',
-    execute:async(msg, args) {
+    execute(msg, args) {
 
 
         // Nsfw channel test
@@ -18,11 +18,9 @@ module.exports = {
 
         // Image Feed
         
-            const response = await fetch('https://danbooru.donmai.us/tags.json?search%5Bname_matches%5D=a*');
-            const myJson = await response.json(); //extract JSON from the http response
-            // do something with myJson
+        const { list } = await fetch(`https://api.urbandictionary.com/v0/define?${query}`).then(response => response.json());
 
-            msg.channel.send(myJson);
+        msg.channel.send(list);
         
 
         
