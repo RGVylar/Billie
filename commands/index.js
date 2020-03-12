@@ -30,4 +30,6 @@ module.exports = {
   Kick: require('./kick'),
   Kiss: require('./kiss'),
   Friendkiss: require('./friendkiss'),
+  Test: require('./test'),
+
 };
