@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
   name: 'avatar',
-  description: 'avatar!',
+  description: 'Shows user avatar (or users if command come with users as args)',
   execute(msg, args) {
   	if (!msg.mentions.users.size) {
 		const user = msg.member.user.tag;
