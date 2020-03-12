@@ -38,8 +38,8 @@ module.exports = {
                 .then(data => {
                     msg.channel.send(data.length);
                     var seed = Math.floor(Math.random() * data.length - 1); 
-                    msg.channel.send("In : " + data[0][seed].id + " - Seed : " + seed );
-                    postID = data[0][seed].id;
+                    msg.channel.send("In : " + data[seed].id + " - Seed : " + seed );
+                    postID = data[seed].id;
                    
                 })
                 .catch(err => { msg.channel.send(err) });
