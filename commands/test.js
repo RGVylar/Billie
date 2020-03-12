@@ -28,14 +28,15 @@ module.exports = {
             //// Get first page post with tag
             await fetch(urlSearch)
                 .then(response => response.json())
-                .then((data) => {
+                .then(data => {
                     var seed = Math.random() * data.length; 
+                    msg.channel.send("In : " + data[seed].id + " - Seed : " + seed );
                     postID = data[seed].id;
-                    msg.channel.send("In : " + data[seed].id);
+                   
                 })
                 .catch(err => { msg.channel.send(err) });
 
-            msg.channel.send("Out : " + data[seed].id);
+            msg.channel.send("Out : " + postID);
             //Get Image
 
 
