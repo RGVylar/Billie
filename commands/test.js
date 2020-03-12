@@ -19,9 +19,9 @@ module.exports = {
 
         // Image Feed
         
-        const list = fetch('https://danbooru.donmai.us/tags.json?search%5Bname_matches%5D=a*').then(response => response.json()).catch(err => msg.channel.send(err));
+        const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
 
-        msg.channel.send(list);
+        msg.channel.send(file);
 
         msg.delete();
     },
