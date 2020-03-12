@@ -3,10 +3,7 @@ module.exports = {
     name: 'test',
     description: 'AzTest',
     execute(msg, args) {
-        //var gifs = ["
-        //];
-        //var randomIndex = Math.floor(Math.random() * gifs.length);
-
+        var prefix = 'sv_'+name;
         if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
         args = msg.content.slice(prefix.length).split(' ');
