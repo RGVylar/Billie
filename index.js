@@ -33,7 +33,7 @@ bot.on('ready', () => {
         }
     });
       bot.users.get(DEV).send("Im awake, my master! Peace, Peace");
-      bot.users.get(DEV1).send("Im awake, my master! Peace, Peace");
+      //bot.users.get(DEV1).send("Im awake, my master! Peace, Peace");
   });
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
