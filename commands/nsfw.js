@@ -5,6 +5,7 @@ module.exports = {
     description: 'AzTest',
     execute: async (msg, args) => {
 
+        var error = false;
 
         // Nsfw channel test
         if (!msg.channel.nsfw) {
@@ -46,6 +47,7 @@ module.exports = {
                                     .setDescription("No image with this tag")
                                     .setImage('https://vqgazmo.yrhfibxjbtvw.hath.network:1298/h/ef870055f5d3063030868f9dabb19ba76f17b583-20809-512-288-jpg/keystamp=1584103200-96f49dde50;fileindex=67809191;xres=org/0126d1a112f09cc260c8ec0063113bfc9a5b8b5dr1_1136_640v2_00.jpg');
                         msg.channel.send(postEmbed);
+                        error = true;
                         return;
                     }
 
@@ -54,28 +56,25 @@ module.exports = {
                 })
                 .catch(err => { msg.channel.send(err) });
 
-            //Get Image
+            if (!error) {
+                //Get Image
 
-            var urlPost = "https://danbooru.donmai.us/posts/" + postID +".json?"
-            await fetch(urlPost)
-                .then(response => response.json())
-                .then(data => {
-                    const postEmbed = new Discord.RichEmbed()
-                        .setColor('#ffc0cb')
-                        .setURL('https://danbooru.donmai.us/posts/' + postID)
-                        .setAuthor(data.tag_string_artist)
-                        .setDescription(args)
-                        .setImage(data.file_url);
-
-
-                    msg.channel.send(postEmbed);
-                })
-                .catch(err => { msg.channel.send(err) });
+                var urlPost = "https://danbooru.donmai.us/posts/" + postID + ".json?"
+                await fetch(urlPost)
+                    .then(response => response.json())
+                    .then(data => {
+                        const postEmbed = new Discord.RichEmbed()
+                            .setColor('#ffc0cb')
+                            .setURL('https://danbooru.donmai.us/posts/' + postID)
+                            .setAuthor(data.tag_string_artist)
+                            .setDescription(args)
+                            .setImage(data.file_url);
 
 
-            
-
-
+                        msg.channel.send(postEmbed);
+                    })
+                    .catch(err => { msg.channel.send(err) });
+            }
         }
 
 
