@@ -15,7 +15,7 @@ module.exports = {
   
 		return msg.channel.send(exampleEmbed);
 	}
-	MongoClient.connect(url, function(err, db) {
+	MongoClient.connect(MONGO, function(err, db) {
 		  if (err) throw err;
 		  var dbo = db.db("billie");
 		  dbo.collection("kiss").find({}).toArray(function(err, result) {
