@@ -6,7 +6,6 @@ const MessageEmbed = require('discord.js');
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
-const mongoose = require('mongoose'); 
 var excom = 0;
 
 Object.keys(botCommands).map(key => {
@@ -29,6 +28,7 @@ bot.on('ready', () => {
             url: "https://www.twitch.tv/rgvylar"
         }
     });
+    bot.users.get("273081779420921856").send("Im up");
 });
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
