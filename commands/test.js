@@ -35,7 +35,7 @@ module.exports = {
 
             var postID;
 
-            //// Get first page post with tag
+            //// Select the post with tag
             await fetch(urlSearch)
                 .then(response => response.json())
                 .then(data => {
@@ -43,8 +43,8 @@ module.exports = {
                     postID = data[seed].id;
                 })
                 .catch(err => { msg.channel.send(err) });
-            //Get Image
 
+            //Get Image
 
             var urlPost = "https://danbooru.donmai.us/posts/" + postID +".json?"
             await fetch(urlPost)
