@@ -25,9 +25,10 @@ module.exports = {
 	  
 					return msg.channel.send(exampleEmbed);
 				}); 
-			db.close();
-		});
-		return msg.channel.send(exampleEmbed);
+				db.close();
+			});
+			return msg.channel.send(exampleEmbed);
+		}
 	}
 		MongoClient.connect(MONGO, function(err, db) {
 		  	if (err) throw err;
