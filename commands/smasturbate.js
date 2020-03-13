@@ -6,14 +6,15 @@ module.exports = {
   execute(msg, args) {
     if(msg.member.roles.find(r => r.name === "tester")){
 		const MONGO = config.MONGO;
-	  	if (!args || args == "") {
-		  	MongoClient.connect(MONGO, function(err, db) {
+	  	if (!args || args == "") {msg.channel.send("I need an url");}
+	  	else if (args.includes('-m')) {
+	  		MongoClient.connect(MONGO, function(err, db) {
 			  if (err) throw err;
 			  var dbo = db.db("billie");
 			  var myobj = { url:args };
-			  dbo.collection("masturbate").insertOne(myobj, function(err, res) {
+			  dbo.collection("multibate").insertOne(myobj, function(err, res) {
 			    if (err) throw err;
-			    msg.channel.send("1 lewd inserted");
+			    msg.channel.send("1 multi lewd inserted");
 			    db.close();
 			  });
 			});
@@ -23,9 +24,9 @@ module.exports = {
 			  if (err) throw err;
 			  var dbo = db.db("billie");
 			  var myobj = { url:args };
-			  dbo.collection("multibate").insertOne(myobj, function(err, res) {
+			  dbo.collection("masturbate").insertOne(myobj, function(err, res) {
 			    if (err) throw err;
-			    msg.channel.send("1 multi lewd inserted");
+			    msg.channel.send("1 lewd inserted");
 			    db.close();
 			  });
 			});
