@@ -28,7 +28,7 @@ module.exports = {
             console.log(args);
 
             // Get the rating request
-            var rating.push('');
+            var rating = [''];
 
             if (args.includes('-e')) {
                 rating.push('e');
