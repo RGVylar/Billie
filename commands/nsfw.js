@@ -44,6 +44,9 @@ module.exports = {
 
             }
 
+            console.log(args);
+
+
 
             var listArgsDelete;
             if (args.length > 2) {
