@@ -28,7 +28,7 @@ module.exports = {
 				db.close();
 			});
 			return msg.channel.send(exampleEmbed);
-			}
+			});
 		}	
 		else{
 			MongoClient.connect(MONGO, function(err, db) {
