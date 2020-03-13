@@ -1,8 +1,8 @@
 const MongoClient = require('mongoose'); 
 const config = require("../config.js");
 module.exports = {
-  name: 'join',
-  description: 'join!',
+  name: 'mongo',
+  description: 'mongo!',
   execute(msg, args) {
 	const url = config.MONGO;
 	MongoClient.connect(url, function(err, db) {
