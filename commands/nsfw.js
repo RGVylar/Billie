@@ -27,26 +27,27 @@ module.exports = {
             }
             console.log(args);
 
+            // Get the rating request
             var rating = '';
 
-            if (args.includes('-h')) {
-                rating = '&search[rating]=explicit'
-                args.splice(args.indexOf('-h'), 1);
-            }
             if (args.includes('-e')) {
-                rating = rating + '&search[rating]=questionable'
+                rating.push('e');
                 args.splice(args.indexOf('-e'), 1);
+            }
+            if (args.includes('-q')) {
+                rating.push('q');
+                args.splice(args.indexOf('-q'), 1);
 
             }
             if (args.includes('-s')) {
-                rating = rating + '&search[rating]=safe'
+                rating.push('s');
                 args.splice(args.indexOf('-s'), 1);
-
             }
 
             console.log(args);
 
 
+            // filter the tags, nbr of tag must be < 2
 
             var listArgsDelete;
             if (args.length > 2) {
@@ -61,7 +62,7 @@ module.exports = {
             var urlTag = args.join('+');
             console.log(urlTag);
             
-            var urlSearch = "https://danbooru.donmai.us/posts.json?random=true&raw=true&tags=" + urlTag + rating;
+            var urlSearch = "https://danbooru.donmai.us/posts.json?limit=50&random=true&raw=true&tags=" + urlTag;
             console.log(urlSearch);
 
             var postID;
@@ -80,9 +81,19 @@ module.exports = {
                         error = true;
                         return;
                     }
-
                     var seed = Math.floor(Math.random() * data.length - 1); 
+
+                    // Get a post with the right rating
+                    if (rating != '') {
+                        while (rating.includes(data[seed].rating)) {
+                            seed = Math.floor(Math.random() * data.length - 1);
+                        }
+                    }
+
                     postID = data[seed].id;
+
+
+                    
                 })
                 .catch(err => { msg.channel.send(err) });
 
