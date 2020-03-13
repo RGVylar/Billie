@@ -43,10 +43,10 @@ module.exports = {
                                 const postEmbed = new Discord.RichEmbed()
                                     .setColor('#FF0000')
                                     .setTitle('Error')
-                                    .setURL('https://vqgazmo.yrhfibxjbtvw.hath.network:1298/h/ef870055f5d3063030868f9dabb19ba76f17b583-20809-512-288-jpg/keystamp=1584103200-96f49dde50;fileindex=67809191;xres=org/0126d1a112f09cc260c8ec0063113bfc9a5b8b5dr1_1136_640v2_00.jpg')
                                     .setDescription("No image with this tag")
-                                    .setImage(data.file_url);
-                                msg.channel.send(postEmbed);
+                                    .setImage('https://vqgazmo.yrhfibxjbtvw.hath.network:1298/h/ef870055f5d3063030868f9dabb19ba76f17b583-20809-512-288-jpg/keystamp=1584103200-96f49dde50;fileindex=67809191;xres=org/0126d1a112f09cc260c8ec0063113bfc9a5b8b5dr1_1136_640v2_00.jpg');
+                        msg.channel.send(postEmbed);
+                        return;
                     }
 
                     var seed = Math.floor(Math.random() * data.length - 1); 
