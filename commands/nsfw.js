@@ -23,9 +23,7 @@ module.exports = {
                 // No tag then we take vanilla
 
                 args.push('');
-                console.log(args);
             }
-            console.log(args);
 
             // Get the rating request
             var rating = [];
@@ -89,18 +87,18 @@ module.exports = {
                     var seed = Math.floor(Math.random() * data.length - 1); 
 
                     // Get a post with the right rating
-                    if (rating.length != 0) {
+                    if (rating.length > 0) {
                         console.log("Getting post with right rating");
 
                         while (!rating.includes(data[seed].rating)) {
                             seed = Math.floor(Math.random() * data.length - 1);
                         }
-
                         console.log("Post with right rating  : " + data[seed].id);
-
                     }
 
                     postID = data[seed].id;
+                    console.log("Post ID : " + postID);
+
                 })
                 .catch(err => { msg.channel.send(err) });
 
@@ -115,9 +113,9 @@ module.exports = {
                             .setColor('#ffc0cb')
                             .setURL('https://danbooru.donmai.us/posts/' + postID)
                             .setAuthor(data.tag_string_artist)
-                            .addField('Tags : ', args.join(' - '))
-                            .addField('Tags deleted : ', listArgsDelete.join(' - '))
-                            .addField('Filters : ', ratingString.join(' - '))
+                            .addField('Tags : ', args)
+                            .addField('Tags deleted : ', listArgsDelete)
+                            .addField('Filters : ', ratingString)
                             .setImage(data.file_url);
 
                         console.log("Id Post : " + data.id);
