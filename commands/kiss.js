@@ -28,10 +28,6 @@ module.exports = {
 		const b = userb.indexOf("#");
 		const  resa = usera.substring(0, a);
 		const  resb = userb.substring(0, b);
-		var gifs;
-		 for (var i = result.length - 1; i >= 0; i--) {
-              gifs[i]=result[i].url
-                }
     /*var gifs = ["https://i.pinimg.com/originals/d4/dc/09/d4dc09375712a7ed678c9a317f76ad40.gif",
                 "https://data.whicdn.com/images/305308438/original.gif",
                 "https://media1.tenor.com/images/9b4892906aaea841c0b6cabd84f29f07/tenor.gif?itemid=13890623",
@@ -39,11 +35,11 @@ module.exports = {
 		"https://i.pinimg.com/originals/5e/db/97/5edb9777072d901af6c294f9d1ba30ac.gif",
 		"https://wethehunted.files.wordpress.com/2015/11/katanagatari-kiss.gif"
 	       ];*/
-    var randomIndex = Math.floor(Math.random() * gifs.length); 
+    var randomIndex = Math.floor(Math.random() * result.length); 
     const exampleEmbed = new Discord.RichEmbed()
 	.setColor('#0099ff')
 		.setTitle(`${resa} kisses ${resb}`)
-	.setImage(gifs[randomIndex]);
+	.setImage(result[randomIndex].url);
   
 		return msg.channel.send(exampleEmbed);
 	}); 
