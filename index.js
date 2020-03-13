@@ -6,6 +6,7 @@ const MessageEmbed = require('discord.js');
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
+const mongoose = require('mongoose');
 var excom = 0;
 
 Object.keys(botCommands).map(key => {
@@ -14,6 +15,9 @@ Object.keys(botCommands).map(key => {
 
 const TOKEN = config.TOKEN;
 const PREFIX = config.PREFIX;
+const MONGO = config.MONGO;
+const DEV = config.DEV;
+const TWITCH = config.TWITCH;
 
 bot.login(TOKEN);
 
@@ -24,10 +28,17 @@ bot.on('ready', () => {
         game: {
             name: PREFIX+'help',
             type: "STREAMING",
-            url: "https://www.twitch.tv/rgvylar"
+            url: TWITCH
         }
     });
-});
+    mongoose.connect(MONGO, {useNewUrlParser: true});
+    var db = mongoose.connection;
+    db.on('error', bot.users.get(DEV).send("connection error"));
+    db.once('open', function() {
+      bot.users.get(DEV).send("connection success");
+    });  
+      bot.users.get(DEV).send("Im awake, my master! Peace, Peace");
+  });
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
 });
@@ -50,7 +61,7 @@ bot.on('message', msg => {
         game: {
             name: excom + ' ' + PREFIX + 'list',
             type: "STREAMING",
-            url: "https://www.twitch.tv/rgvylar"
+            url: TWITCH
         }
     });
   } catch (error) {
