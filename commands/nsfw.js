@@ -105,6 +105,8 @@ module.exports = {
             if (!error) {
                 //Get Image
 
+                console.log('Getting Image Object');
+
                 var urlPost = "https://danbooru.donmai.us/posts/" + postID + ".json?"
                 await fetch(urlPost)
                     .then(response => response.json())
@@ -113,12 +115,16 @@ module.exports = {
                             .setColor('#ffc0cb')
                             .setURL('https://danbooru.donmai.us/posts/' + postID)
                             .setAuthor(data.tag_string_artist)
-                            .addField('Tags : ', args)
-                            .addField('Tags deleted : ', listArgsDelete)
-                            .addField('Filters : ', ratingString)
-                            .setImage(data.file_url);
+                            .setImage(data.file_url)
+                            .addField('Tags : ', args.toString())
+                            .addField('Tags deleted : ', listArgsDelete.toString())
+                            .addBlankField()
+                            .addField('Filters : ', ratingString.toString());
+                            
 
                         console.log("Id Post : " + data.id);
+
+                        console.log('Sending embed with image');
 
                         msg.channel.send(postEmbed);
                     })
