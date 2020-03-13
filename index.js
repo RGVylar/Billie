@@ -31,12 +31,6 @@ bot.on('ready', () => {
             url: TWITCH
         }
     });
-    mongoose.connect(MONGO, {useNewUrlParser: true});
-    var db = mongoose.connection;
-    db.on('error', bot.users.get(DEV).send("connection error"));
-    db.once('open', function() {
-      bot.users.get(DEV).send("connection success");
-    });  
       bot.users.get(DEV).send("Im awake, my master! Peace, Peace");
   });
 bot.on('serverNewMember', function(server, user) {
