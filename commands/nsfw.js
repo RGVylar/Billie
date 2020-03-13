@@ -29,19 +29,23 @@ module.exports = {
 
             // Get the rating request
             var rating = [''];
+            var ratingString = [''];
 
             if (args.includes('-e')) {
                 rating.push('e');
+                ratingString.push('Explicit');
                 args.splice(args.indexOf('-e'), 1);
             }
 
             if (args.includes('-q')) {
                 rating.push('q');
+                ratingString.push('Questionable');
                 args.splice(args.indexOf('-q'), 1);
             }
 
             if (args.includes('-s')) {
                 rating.push('s');
+                ratingString.push('Safe');
                 args.splice(args.indexOf('-s'), 1);
             }
 
@@ -110,6 +114,7 @@ module.exports = {
                             .setURL('https://danbooru.donmai.us/posts/' + postID)
                             .setAuthor(data.tag_string_artist)
                             .setDescription("Tags : " + args + " - Tags deleted : " + listArgsDelete)
+                            .addField('Filters : ', ratingString.join(' - '))
                             .setImage(data.file_url);
 
                         console.log("Id Post : " + data.id);
