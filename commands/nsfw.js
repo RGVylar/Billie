@@ -119,10 +119,10 @@ module.exports = {
                             .setURL('https://danbooru.donmai.us/posts/' + postID)
                             .setAuthor(data.tag_string_artist)
                             .setImage(data.file_url)
-                            .addField('Tags : ', args);
-                            //.addField('Tags deleted : ', listArgsDelete.toString())
-                            //.addBlankField()
-                            //.addField('Filters : ', ratingString.toString());
+                            .addField('Tags : ', " " + args)
+                            .addField('Tags deleted : ', " " + listArgsDelete.toString())
+                            .addBlankField()
+                            .addField('Filters : ', " " + ratingString.toString());
                             
 
                         console.log("Id Post : " + data.id);
