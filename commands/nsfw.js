@@ -118,8 +118,8 @@ module.exports = {
                             .setColor('#ffc0cb')
                             .setURL('https://danbooru.donmai.us/posts/' + postID)
                             .setTitle(data.tag_string_artist)
-                            .setDescription('Tags : ' + args + "\rTags deleted : " + listArgsDelete + "\rFilters : " + ratingString)
-                            .setImage(data.file_url)
+                            .setDescription('Tags : ' + data.tag_string + "\rFilters : " + ratingString)
+                            .setImage(data.file_url);
                             //.addField('Tags : ', " " + args)
                             //.addField('Tags deleted : ', " " + listArgsDelete)
                             //.addBlankField()
