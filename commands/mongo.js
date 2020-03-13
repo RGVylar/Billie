@@ -1,14 +1,14 @@
-const MongoClient = require('mongoose'); 
+const mongoose = require('mongoose'); 
 const config = require("../config.js");
 module.exports = {
   name: 'mongo',
   description: 'mongo!',
   execute(msg, args) {
-	const url = config.MONGO;
-	MongoClient.connect(url, function(err, db) {
-	  if (err) throw err;
-	  msg.channel.send("Database created!");
-	  db.close();
-	});
+	mongoose.connect(url, {useNewUrlParser: true});
+	var db = mongoose.connection;
+	db.on('error', msg.channel.send("connection error"));
+	db.once('open', function() {
+	  msg.channel.send("connection success");
+	});  
   },
 };
