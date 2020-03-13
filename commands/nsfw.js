@@ -117,7 +117,7 @@ module.exports = {
                         const postEmbed = new Discord.RichEmbed()
                             .setColor('#ffc0cb')
                             .setURL('https://danbooru.donmai.us/posts/' + postID)
-                            .setAuthor(data.tag_string_artist)
+                            .setTitle(data.tag_string_artist)
                             .setDescription('Tags : ' + args + "\rTags deleted : " + listArgsDelete + "\rFilters : " + ratingString)
                             .setImage(data.file_url)
                             //.addField('Tags : ', " " + args)
