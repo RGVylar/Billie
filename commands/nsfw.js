@@ -22,7 +22,7 @@ module.exports = {
             if (!args || args == "") {
                 // No tag then we take vanilla
 
-                args = "hentai";
+                args.push('');
                 console.log(args);
             }
             console.log(args);
@@ -34,11 +34,12 @@ module.exports = {
                 rating.push('e');
                 args.splice(args.indexOf('-e'), 1);
             }
+
             if (args.includes('-q')) {
                 rating.push('q');
                 args.splice(args.indexOf('-q'), 1);
-
             }
+
             if (args.includes('-s')) {
                 rating.push('s');
                 args.splice(args.indexOf('-s'), 1);
