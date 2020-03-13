@@ -17,7 +17,7 @@ module.exports = {
 					const a = usera.indexOf("#");
 					const  resa = usera.substring(0, a);
 				    var randomIndex = Math.floor(Math.random() * result.length); 
-				    var gif = result[randomIndex].url
+				    var gif = result[randomIndex].url;
 				    const exampleEmbed = new Discord.RichEmbed()
 					.setColor('#0099ff')
 					.setTitle(`${resa} masturbates`)
@@ -44,7 +44,7 @@ module.exports = {
 						const  resa = usera.substring(0, a);
 						const  resb = userb.substring(0, b);
 					    var randomIndex = Math.floor(Math.random() * result.length); 
-					    var gif = result[randomIndex].url
+					    var gif = result[randomIndex].url;
 					    const exampleEmbed = new Discord.RichEmbed()
 						.setColor('#0099ff')
 							.setTitle(`${resa} masturbates ${resb}`)
