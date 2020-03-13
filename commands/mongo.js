@@ -7,8 +7,13 @@ module.exports = {
 	const MONGO = config.MONGO;
   	mongoose.connect(MONGO, function(err, db) {
 	  if (err) throw err;
-	  msg.channel.send("Database created!");
-	  db.close();
+	  var dbo = db.db("billie");
+	  var myobj = { name: "Company Inc", address: "Highway 37" };
+	  dbo.collection("billie").insertOne(myobj, function(err, res) {
+	    if (err) throw err;
+	    msg.channel.send("1 document inserted");
+	    db.close();
+	  });
 	});
   },
 };

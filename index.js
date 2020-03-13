@@ -17,6 +17,7 @@ const TOKEN = config.TOKEN;
 const PREFIX = config.PREFIX;
 const MONGO = config.MONGO;
 const DEV = config.DEV;
+const DEV1 = config.DEV1;
 const TWITCH = config.TWITCH;
 
 bot.login(TOKEN);
@@ -32,6 +33,7 @@ bot.on('ready', () => {
         }
     });
       bot.users.get(DEV).send("Im awake, my master! Peace, Peace");
+      bot.users.get(DEV1).send("Im awake, my master! Peace, Peace");
   });
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
