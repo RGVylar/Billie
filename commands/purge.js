@@ -2,7 +2,7 @@ module.exports = {
   name: 'purge',
   description: 'purge command',
   execute(msg, args) {
-    const args = msg.content.split(' ').slice(1); // All arguments behind the command name with the prefix
+    //const args = msg.content.split(' ').slice(1); // All arguments behind the command name with the prefix
     const amount = args.join(' '); // Amount of messages which should be deleted
 
     if (!amount) return msg.reply('You haven\'t given an amount of messages which should be deleted!'); // Checks if the amount parameter is given
