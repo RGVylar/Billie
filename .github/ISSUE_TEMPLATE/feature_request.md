@@ -1,8 +1,8 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
-labels: enhancement, To do
+title: "[_proper_label_] _short_desc_"
+labels: To do, enhancement
 assignees: ''
 
 ---
