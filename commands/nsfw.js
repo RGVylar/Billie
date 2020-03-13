@@ -26,8 +26,14 @@ module.exports = {
                 console.log(args);
             }
             console.log(args);
-            //var argumentsList = args.split(' ');
-            //console.log(argumentsList);
+
+            var listArgsDelete;
+            if (args.length > 2) {
+                listArgsDelete = args.splice(0,2)
+            }
+
+
+
             var urlTag = args.join('+');
             console.log(urlTag);
             
@@ -67,7 +73,7 @@ module.exports = {
                             .setColor('#ffc0cb')
                             .setURL('https://danbooru.donmai.us/posts/' + postID)
                             .setAuthor(data.tag_string_artist)
-                            .setDescription(args)
+                            .setDescription("Tags : " + args + " - Tags deleted : " + listArgsDelete)
                             .setImage(data.file_url);
 
 
