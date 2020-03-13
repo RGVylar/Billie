@@ -85,7 +85,7 @@ module.exports = {
                     var seed = Math.floor(Math.random() * data.length - 1); 
 
                     // Get a post with the right rating
-                    if (rating != '') {
+                    if (rating.length != 0) {
                         while (rating.includes(data[seed].rating)) {
                             seed = Math.floor(Math.random() * data.length - 1);
                         }
