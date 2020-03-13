@@ -6,7 +6,7 @@ const MessageEmbed = require('discord.js');
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
-const mongoose = require('mongoose');
+const MongoClient = require('mongodb').MongoClient;
 var excom = 0;
 
 Object.keys(botCommands).map(key => {
