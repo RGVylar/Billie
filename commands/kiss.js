@@ -41,6 +41,6 @@ module.exports = {
 		db.close();
 		});
 	});
-	msg.delete();
+	//msg.delete();
   },
 };
