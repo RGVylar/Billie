@@ -29,8 +29,8 @@ module.exports = {
 
             var listArgsDelete = args.slice();
             if (args.length > 2) {
-                listArgsDelete = listArgsDelete.splice(0, 2);
-                args = args.splice(2, args.length);
+                listArgsDelete.splice(0, 2);
+                args = args.splice(3, args.length);
             }
 
 
