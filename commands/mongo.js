@@ -5,11 +5,10 @@ module.exports = {
   description: 'mongo!',
   execute(msg, args) {
 	const MONGO = config.MONGO;
-	mongoose.connect(MONGO, {useNewUrlParser: true});
-	var db = mongoose.connection;
-	db.on('error', msg.channel.send("connection error"));
-	db.once('open', function() {
-	  msg.channel.send("connection success");
-	});  
+  	mongoose.connect(MONGO, function(err, db) {
+	  if (err) throw err;
+	  msg.channel.send("Database created!");
+	  db.close();
+	});
   },
 };
