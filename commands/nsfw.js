@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
 module.exports = {
-    name: 'test',
+    name: 'nsfw',
     description: 'AzTest',
     execute: async (msg, args) => {
 
@@ -51,11 +51,11 @@ module.exports = {
                 .then(response => response.json())
                 .then(data => {
                     const postEmbed = new Discord.RichEmbed()
-                        .setColor('#0099ff')
+                        .setColor('#ffc0cb')
                         .setURL('https://danbooru.donmai.us/posts/' + postID)
                         .setAuthor(data.tag_string_artist)
-                        .setImage(data.file_url)
-                        .setTimestamp();
+                        .setDescription(args)
+                        .setImage(data.file_url);
 
 
                     msg.channel.send(postEmbed);
