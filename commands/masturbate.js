@@ -10,23 +10,22 @@ module.exports = {
 		MongoClient.connect(MONGO, function(err, db) {
 		  	if (err) throw err;
 		  	var dbo = db.db("billie");
-		  	dbo.collection("masturbate").find({}).toArray(function(err, result) {
-		    	if (err) throw err;
-				const userlist = msg.mentions.users.map(user => {
-					const usera = msg.member.user.tag;
-					const a = usera.indexOf("#");
-					const  resa = usera.substring(0, a);
-				    var randomIndex = Math.floor(Math.random() * result.length); 
-				    var gif = result[randomIndex].url;
-				    const exampleEmbed = new Discord.RichEmbed()
-					.setColor('#0099ff')
-					.setTitle(`${resa} masturbates`)
-					.setImage(gif[0]);
+		  		dbo.collection("masturbate").find({}).toArray(function(err, result) {
+			    	if (err) throw err;
+						const user = msg.member.user.tag;
+						const n = user.indexOf("#");
+						const  res = user.substring(0, n);
+					    var randomIndex = Math.floor(Math.random() * result.length); 
+					    var gif = result[randomIndex].url;
+					    const exampleEmbed = new Discord.RichEmbed()
+						.setColor('#0099ff')
+						.setTitle(`${res} masturbates`)
+						.setImage(gif[0]);
 	  
-					return msg.channel.send(exampleEmbed);
-				}); 
-				db.close();
-			});
+						return msg.channel.send(exampleEmbed);
+					}); 
+					db.close();
+				
 			});
 		}	
 		else{
@@ -35,7 +34,7 @@ module.exports = {
 		  		var dbo = db.db("billie");
 		  		dbo.collection("multibate").find({}).toArray(function(err, result) {
 		    		if (err) throw err;
-					const userlist = msg.mentions.users.map(user => {
+					
 						const usera = msg.member.user.tag;
 						const userb = user.tag;
 						const a = usera.indexOf("#");
@@ -46,13 +45,13 @@ module.exports = {
 					    var gif = result[randomIndex].url;
 					    const exampleEmbed = new Discord.RichEmbed()
 						.setColor('#0099ff')
-							.setTitle(`${resa} masturbates ${resb}`)
+						.setTitle(`${resa} masturbates ${resb}`)
 						.setImage(gif[0]);
 	  
 						return msg.channel.send(exampleEmbed);
 					}); 
 					db.close();
-				});
+				
 			});
 		}
   	},
