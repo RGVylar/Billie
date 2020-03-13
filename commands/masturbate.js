@@ -48,7 +48,7 @@ module.exports = {
 					    const exampleEmbed = new Discord.RichEmbed()
 						.setColor('#0099ff')
 							.setTitle(`${resa} masturbates ${resb}`)
-						.setImage(gif[1]);
+						.setImage(gif[0]);
 	  
 						return msg.channel.send(exampleEmbed);
 					}); 

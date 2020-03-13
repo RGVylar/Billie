@@ -8,6 +8,7 @@ module.exports = {
 		const MONGO = config.MONGO;
 	  	if (!args || args == "") {msg.channel.send("I need an url");}
 	  	else if (args.includes('-m')) {
+	  		args.splice(args.indexOf('-m'), 1);
 	  		MongoClient.connect(MONGO, function(err, db) {
 			  if (err) throw err;
 			  var dbo = db.db("billie");
