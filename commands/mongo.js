@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb').MongoClient;
+const MongoClient = require('mongoose'); 
 const config = require("./config.js");
 module.exports = {
   name: 'join',
