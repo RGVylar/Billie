@@ -14,7 +14,7 @@ module.exports = {
   Coin: require('./coin'),
   Stop: require('./stop'),
   Play: require('./play'),
-  List: require('./list'),
+  Help: require('./help'),
   Attach: require('./attach'),
   Cry: require('./cry'),
   Cursed: require('./cursed'),
