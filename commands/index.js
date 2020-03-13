@@ -33,4 +33,5 @@ module.exports = {
   Nsfw: require('./nsfw'),
   Purge: require('./purge'),
   Skiss: require('./skiss'),
+  Smasturbate: require('./smasturbate'),
 };

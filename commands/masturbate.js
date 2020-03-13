@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 module.exports = {
-  name: 'kiss',
-  description: 'kiss!',
+  name: 'masturbate',
+  description: 'masturbate!',
   execute(msg, args) {
 	const MONGO = config.MONGO;
   	if (!msg.mentions.users.size) {
@@ -18,7 +18,7 @@ module.exports = {
 	MongoClient.connect(MONGO, function(err, db) {
 		  if (err) throw err;
 		  var dbo = db.db("billie");
-		  dbo.collection("kiss").find({}).toArray(function(err, result) {
+		  dbo.collection("masturbate").find({}).toArray(function(err, result) {
 		    if (err) throw err;
 		    console.log(result);
 	const userlist = msg.mentions.users.map(user => {
@@ -32,7 +32,7 @@ module.exports = {
     var gif = result[randomIndex].url
     const exampleEmbed = new Discord.RichEmbed()
 	.setColor('#0099ff')
-		.setTitle(`${resa} kisses ${resb}`)
+		.setTitle(`${resa} masturbates ${resb}`)
 	.setImage(gif[0]);
   
 		return msg.channel.send(exampleEmbed);
