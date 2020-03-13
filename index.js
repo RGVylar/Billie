@@ -6,6 +6,7 @@ const MessageEmbed = require('discord.js');
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
+var mongoose = require('mongoose');
 var excom = 0;
 
 Object.keys(botCommands).map(key => {
@@ -15,6 +16,7 @@ Object.keys(botCommands).map(key => {
 const TOKEN = config.TOKEN;
 const PREFIX = config.PREFIX;
 const MONGO = config.MONGO;
+const DEV = config.DEV;
 
 bot.login(TOKEN);
 
@@ -28,7 +30,7 @@ bot.on('ready', () => {
             url: "https://www.twitch.tv/rgvylar"
         }
     });
-    bot.users.get("273081779420921856").send("Im up");
+    bot.users.get(DEV).send("Im awake, my master! Peace, Peace");
 });
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
