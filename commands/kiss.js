@@ -28,7 +28,10 @@ module.exports = {
 		const b = userb.indexOf("#");
 		const  resa = usera.substring(0, a);
 		const  resb = userb.substring(0, b);
-		var gifs = Object.values(result);
+		var gifs;
+		 for (var i = result.length - 1; i >= 0; i--) {
+              gifs[i]=result[i].url
+                }
     /*var gifs = ["https://i.pinimg.com/originals/d4/dc/09/d4dc09375712a7ed678c9a317f76ad40.gif",
                 "https://data.whicdn.com/images/305308438/original.gif",
                 "https://media1.tenor.com/images/9b4892906aaea841c0b6cabd84f29f07/tenor.gif?itemid=13890623",
