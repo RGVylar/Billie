@@ -86,7 +86,7 @@ module.exports = {
 
                     // Get a post with the right rating
                     if (rating.length != 0) {
-                        while (rating.includes(data[seed].rating)) {
+                        while (!rating.includes(data[seed].rating)) {
                             seed = Math.floor(Math.random() * data.length - 1);
                         }
                     }
