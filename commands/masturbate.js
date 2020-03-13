@@ -19,14 +19,13 @@ module.exports = {
 					    var gif = result[randomIndex].url;
 					    const exampleEmbed = new Discord.RichEmbed()
 						.setColor('#0099ff')
-						.setTitle(`${res} masturbates`)
+						.setTitle(`${ress} masturbates`)
 						.setImage(gif[0]);
 	  
 						return msg.channel.send(exampleEmbed);
 					}); 
 					db.close();
-				
-			});
+				});
 		}	
 		else{
 			MongoClient.connect(MONGO, function(err, db) {
@@ -34,7 +33,7 @@ module.exports = {
 		  		var dbo = db.db("billie");
 		  		dbo.collection("multibate").find({}).toArray(function(err, result) {
 		    		if (err) throw err;
-					
+					const userlist = msg.mentions.users.map(user => {
 						const usera = msg.member.user.tag;
 						const userb = user.tag;
 						const a = usera.indexOf("#");
@@ -51,7 +50,7 @@ module.exports = {
 						return msg.channel.send(exampleEmbed);
 					}); 
 					db.close();
-				
+				});
 			});
 		}
   	},
