@@ -6,6 +6,7 @@ const MessageEmbed = require('discord.js');
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
+const mongoose = require('mongoose'); 
 var excom = 0;
 
 Object.keys(botCommands).map(key => {
@@ -14,6 +15,7 @@ Object.keys(botCommands).map(key => {
 
 const TOKEN = config.TOKEN;
 const PREFIX = config.PREFIX;
+const MONGO = config.MONGO;
 
 bot.login(TOKEN);
 
