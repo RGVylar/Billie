@@ -36,10 +36,11 @@ module.exports = {
 		"https://wethehunted.files.wordpress.com/2015/11/katanagatari-kiss.gif"
 	       ];*/
     var randomIndex = Math.floor(Math.random() * result.length); 
+    var gif = result[randomIndex].url
     const exampleEmbed = new Discord.RichEmbed()
 	.setColor('#0099ff')
 		.setTitle(`${resa} kisses ${resb}`)
-	.setImage(result[randomIndex].url);
+	.setImage(gif[0]);
   
 		return msg.channel.send(exampleEmbed);
 	}); 
