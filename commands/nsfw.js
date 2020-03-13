@@ -27,6 +27,24 @@ module.exports = {
             }
             console.log(args);
 
+            var rating = '';
+
+            if (args.includes('-h')) {
+                rating = '&search[rating]=explicit'
+                args.splice(args.indexOf('-h'), 1);
+            }
+            if (args.includes('-e')) {
+                rating = rating + '&search[rating]=questionable'
+                args.splice(args.indexOf('-e'), 1);
+
+            }
+            if (args.includes('-s')) {
+                rating = rating + '&search[rating]=safe'
+                args.splice(args.indexOf('-s'), 1);
+
+            }
+
+
             var listArgsDelete;
             if (args.length > 2) {
                 listArgsDelete = args.splice(2, args.length - 2);
@@ -40,7 +58,7 @@ module.exports = {
             var urlTag = args.join('+');
             console.log(urlTag);
             
-            var urlSearch = "https://danbooru.donmai.us/posts.json?random=true&raw=true&tags=" + urlTag;
+            var urlSearch = "https://danbooru.donmai.us/posts.json?random=true&raw=true&tags=" + urlTag + rating;
             console.log(urlSearch);
 
             var postID;
