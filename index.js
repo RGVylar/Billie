@@ -22,7 +22,7 @@ bot.on('ready', () => {
   bot.user.setStatus('available')
     bot.user.setPresence({
         game: {
-            name: PREFIX+'list',
+            name: PREFIX+'help',
             type: "STREAMING",
             url: "https://www.twitch.tv/rgvylar"
         }
