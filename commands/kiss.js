@@ -49,6 +49,6 @@ module.exports = {
 		});
 	});
 	//msg.channel.send(avatarList);
-	//msg.delete();
+	msg.delete();
   },
 };
