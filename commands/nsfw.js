@@ -97,7 +97,7 @@ module.exports = {
                             .setDescription("Tags : " + args + " - Tags deleted : " + listArgsDelete)
                             .setImage(data.file_url);
 
-
+                        console.log("Id Post : " + data.id);
                         msg.channel.send(postEmbed);
                     })
                     .catch(err => { msg.channel.send(err) });
