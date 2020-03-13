@@ -31,5 +31,5 @@ module.exports = {
   Kiss: require('./kiss'),
   Friendkiss: require('./friendkiss'),
   Nsfw: require('./nsfw'),
-
+  Purge: require('./purge'),
 };
