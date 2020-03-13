@@ -10,7 +10,7 @@ module.exports = {
 		MongoClient.connect(MONGO, function(err, db) {
 		  	if (err) throw err;
 		  	var dbo = db.db("billie");
-		  	dbo.collection("multibate").find({}).toArray(function(err, result) {
+		  	dbo.collection("masturbate").find({}).toArray(function(err, result) {
 		    	if (err) throw err;
 				const userlist = msg.mentions.users.map(user => {
 					const usera = msg.member.user.tag;
@@ -34,7 +34,7 @@ module.exports = {
 			MongoClient.connect(MONGO, function(err, db) {
 		  		if (err) throw err;
 		  		var dbo = db.db("billie");
-		  		dbo.collection("masturbate").find({}).toArray(function(err, result) {
+		  		dbo.collection("multibate").find({}).toArray(function(err, result) {
 		    		if (err) throw err;
 					const userlist = msg.mentions.users.map(user => {
 						const usera = msg.member.user.tag;
