@@ -90,15 +90,17 @@ module.exports = {
 
                     // Get a post with the right rating
                     if (rating.length != 0) {
+                        console.log("Getting post with right rating");
+
                         while (!rating.includes(data[seed].rating)) {
                             seed = Math.floor(Math.random() * data.length - 1);
                         }
+
+                        console.log("Post with right rating  : " + data[seed].id);
+
                     }
 
                     postID = data[seed].id;
-
-
-                    
                 })
                 .catch(err => { msg.channel.send(err) });
 
@@ -119,6 +121,7 @@ module.exports = {
                             .setImage(data.file_url);
 
                         console.log("Id Post : " + data.id);
+
                         msg.channel.send(postEmbed);
                     })
                     .catch(err => { msg.channel.send(err) });
