@@ -27,10 +27,10 @@ module.exports = {
             }
             console.log(args);
 
-            var listArgsDelete = args.slice();
+            var listArgsDelete;
             if (args.length > 2) {
-                listArgsDelete.splice(0, 2);
-                args = args.splice(3, args.length);
+                listArgsDelete = args.splice(2, args.length-2);
+                
             }
 
 
