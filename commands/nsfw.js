@@ -123,6 +123,7 @@ module.exports = {
                             
 
                         console.log("Id Post : " + data.id);
+                        console.log("URL Post : " + data.file_url);
 
                         console.log('Sending embed with image');
 
