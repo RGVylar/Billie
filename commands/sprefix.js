@@ -6,7 +6,7 @@ module.exports = {
   execute(msg, args) {
 	const MONGO = config.MONGO;
     if(msg.member.roles.find(r => r.name === "tester")){
-	  	if (!args || args == "") {msg.channel.send("I need an url");}	
+	  	if (!args || args == "") {msg.channel.send("I need the new prefix");}	
 	  	else{ 	
 			MongoClient.connect(url, function(err, db) {
 			  if (err) throw err;
@@ -14,7 +14,7 @@ module.exports = {
 			  var PREFIX = args;
 			  var myquery = { prefix: /^/ };
 			  var newvalues = {$set: {prefix: PREFIX} };
-			  dbo.collection("customers").updateMany(myquery, newvalues, function(err, res) {
+			  dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
 			    if (err) throw err;
 			    msg.channel.send(res.result.nModified + " document(s) updated");
 			    return PREFIX;
