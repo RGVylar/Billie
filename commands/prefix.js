@@ -16,7 +16,7 @@ module.exports = {
 			  var newvalues = {$set: {prefix: PREFIX} };
 			  dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
 			    if (err) throw err;
-			    msg.channel.send(res.result.nModified + " document(s) updated");
+			    msg.channel.send("Prefix updated to: `"+PREFIX+"`");
 			    db.close();
 			  });
 			});

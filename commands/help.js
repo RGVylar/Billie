@@ -16,14 +16,14 @@ module.exports = {
           if (err) throw err;
           var res = result[0].prefix;
           PREFIX  = res[0];
-          return PREFIX;
         }); 
         db.close();
-        return PREFIX;
       });
     for (i = 0; i < files.length; i++) {
       var n = files[i].indexOf('.');
-      files[i] =  '- ' + PREFIX + files[i].substring(0, n);
+      if(files[i]!='fuck'&&files[i]!='sfuck'&&files[i]!='index'&&files[i]!='masturbate'&&files[i]!='smasturbate'){
+        files[i] =  '- ' + PREFIX + files[i].substring(0, n);
+      }
     }
     msg.channel.send('```fix\nCommands =\n'+files.join("\n")+'```');
   },
