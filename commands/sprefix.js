@@ -10,7 +10,7 @@ module.exports = {
 	  	else{ 	
 			MongoClient.connect(MONGO, function(err, db) {
 			  if (err) throw err;
-			  var dbo = db.db("mydb");
+			  var dbo = db.db("billie");
 			  var PREFIX = args;
 			  var myquery = { prefix: /^/ };
 			  var newvalues = {$set: {prefix: PREFIX} };
