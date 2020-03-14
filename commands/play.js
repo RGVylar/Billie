@@ -20,7 +20,6 @@ module.exports = {
 
               console.log("joined channel");
               // the bot is connected
-              const ytdl = require('ytdl-core');
               const fs = require('fs');
               //const ytsr = require('ytsr');
               var voiceChannel = msg.member.voiceChannel;
@@ -55,6 +54,7 @@ module.exports = {
 };
 
 function play(url_string, connection) {
+    const ytdl = require('ytdl-core');
     const stream = ytdl(url_string, { filter: 'audioonly' });
     const streamOptions = { seek: 0, volume: 1 };
     connection.playStream(stream, streamOptions);
