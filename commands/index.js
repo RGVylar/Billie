@@ -35,4 +35,6 @@ module.exports = {
   Skiss: require('./skiss'),
   Masturbate: require('./masturbate'),
   Smasturbate: require('./smasturbate'),
+  Fuck: require('./fuck'),
+  Sfuck: require('./sfuck'),
 };
