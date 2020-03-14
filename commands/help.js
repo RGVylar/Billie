@@ -7,17 +7,11 @@ module.exports = {
   execute(msg, args) {
     var files = fs.readdirSync('./commands');
     var i;
+    const MONGO = config.MONGO;
     for (i = 0; i < files.length; i++) {
       var n = files[i].indexOf('.');
-      files[i]=files[i].substring(0, n);
-      if(files[i]!='fuck'&&files[i]!='sfuck'&&files[i]!='index'&&files[i]!='masturbate'&&files[i]!='smasturbate'){
-        files[i] ='- ' + files[i];
-      }
-      else{
-        files.splice(i,i+1);
-      }
+        files[i] =  '- ' + files[i].substring(0, n);
     }
-    const MONGO = config.MONGO;
       MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db("billie");
