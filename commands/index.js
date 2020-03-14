@@ -37,4 +37,13 @@ module.exports = {
   Smasturbate: require('./smasturbate'),
   Fuck: require('./fuck'),
   Sfuck: require('./sfuck'),
+  Scursed: require('./scursed'),
+  Sdab: require('./sdab'),
+  Sdance: require('./sdance'),
+  Shug: require('./shug'),
+  Skick: require('./skick'),
+  Spunch: require('./spunch'),
+  Ssuck: require('./ssuck'),
+  Scry: require('./scry'),
+  Stea: require('./stea'),
 };
