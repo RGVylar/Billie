@@ -46,4 +46,6 @@ module.exports = {
   Scry: require('./scry'),
   Stea: require('./stea'),
   Sprefix: require('./sprefix'),
+  Undress: require('./undress'),
+  Sundress: require('./sundress'),
 };
