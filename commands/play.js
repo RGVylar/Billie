@@ -6,16 +6,19 @@ module.exports = {
       const ytdl = require('ytdl-core');
 
       if (msg.member.voiceChannel) {
+
           const connection = await msg.member.voiceChannel.join();
           console.log("joined channel");
           // the bot is connected
           const ytdl = require('ytdl-core');
-          const dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' }));
+
+          var server = servers[msg.guild.id];
+          server.dispatcher = connection.playStream(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' }));
 
 
-          dispatcher.on("end", end => {
+          server.dispatcher.on("end", end => {
               console.log("left channel");
-              voiceChannel.leave();
+              connection.disconnect();
 
           }).catch(err => console.log(err));
       } else {
