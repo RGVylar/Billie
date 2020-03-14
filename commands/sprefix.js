@@ -17,7 +17,6 @@ module.exports = {
 			  dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
 			    if (err) throw err;
 			    msg.channel.send(res.result.nModified + " document(s) updated");
-			    return PREFIX;
 			    db.close();
 			  });
 			});
