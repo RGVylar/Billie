@@ -32,7 +32,7 @@ bot.on('ready', () => {
             url: TWITCH
         }
     });
-      bot.users.get(DEV).send("Im awake, my master! Peace, Peace");
+      bot.users.get(DEV).send('Im awake, my master! Peace, Peace and It is ' + Date());
       //bot.users.get(DEV1).send("Im awake, my master! Peace, Peace");
   });
 bot.on('serverNewMember', function(server, user) {
