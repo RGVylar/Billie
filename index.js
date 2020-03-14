@@ -14,7 +14,7 @@ Object.keys(botCommands).map(key => {
 });
 
 const TOKEN = config.TOKEN;
-var PREFIX ="+";;
+var PREFIX ="+";
 const MONGO = config.MONGO;
 const DEV = config.DEV;
 const DEV1 = config.DEV1;
@@ -26,7 +26,7 @@ MongoClient.connect(MONGO, function(err, db) {
     if (err) throw err;
   console.log(result);
   console.log(result[0].prefix);
-    PREFIX= result[0].prefix;
+    PREFIX=result[0].prefix;
   }); 
   db.close();
 });
