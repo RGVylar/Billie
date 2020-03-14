@@ -26,7 +26,7 @@ module.exports = {
               voiceChannel.join()
                   .then(connection => {
 
-                      queueSong.push(args);
+                      queueSong.push(args[0]);
 
                       if (queueSong.length == 1) {
                           play(queueSong[0], connection);
