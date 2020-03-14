@@ -8,7 +8,7 @@ module.exports = {
     if(msg.member.roles.find(r => r.name === "tester")){
 	  	if (!args || args == "") {msg.channel.send("I need the new prefix");}	
 	  	else{ 	
-			MongoClient.connect(url, function(err, db) {
+			MongoClient.connect(MONGO, function(err, db) {
 			  if (err) throw err;
 			  var dbo = db.db("mydb");
 			  var PREFIX = args;
