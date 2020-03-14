@@ -6,7 +6,7 @@ module.exports = {
     description: 'undress!',
     execute(msg, args) {
     const MONGO = config.MONGO;
-    if (!msg.channel.nsfw) {
+  if (!msg.channel.nsfw) {
         const nsfwWrongChannelWarn = new Discord.RichEmbed()
             .setColor('#FF0000')
             .setTitle('You lewd !')
@@ -14,8 +14,7 @@ module.exports = {
             .setImage("https://media1.tenor.com/images/8674cfb928b1055dd6b8227e7e61060b/tenor.gif?itemid=7979947");
 
         msg.channel.send(nsfwWrongChannelWarn);
-    }
-    else {
+    } else {
       MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db("billie");
