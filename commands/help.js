@@ -7,10 +7,8 @@ module.exports = {
   execute(msg, args) {
     var files = fs.readdirSync('./commands');
     var i;
-    var PREFIX='';
-    for (i = 0; i < files.length; i++) {
-      var n = files[i].indexOf('.');
-      const MONGO = config.MONGO;
+    var PREFIX;
+    const MONGO = config.MONGO;
       MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db("billie");
@@ -21,6 +19,8 @@ module.exports = {
         }); 
         db.close();
       });
+    for (i = 0; i < files.length; i++) {
+      var n = files[i].indexOf('.');
       files[i] =  '- ' + PREFIX + files[i].substring(0, n);
     }
     msg.channel.send('```fix\nCommands =\n'+files.join("\n")+'```');
