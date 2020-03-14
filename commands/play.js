@@ -9,7 +9,7 @@ module.exports = {
 
 
       if (msg.member.voiceChannel) {
-          if (!args) {
+          if (!args || args[0] == '') {
               const noArgsError = new Discord.RichEmbed()
                   .setColor('#FF0000')
                   .setTitle('What do I play ? Duh')
@@ -17,8 +17,6 @@ module.exports = {
                   .setImage("https://media1.tenor.com/images/2290e840877d07ab1cbfbdc72853f386/tenor.gif?itemid=6061449");
 
               msg.channel.send(noArgsError);
-
-
           } else {
               console.log("joined channel");
               // the bot is connected
