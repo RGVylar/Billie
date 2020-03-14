@@ -2,14 +2,14 @@ const Discord = require('discord.js');
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 module.exports = {
-    name: 'dab',
-    description: 'dab!',
+    name: 'cry',
+    description: 'cry!',
     execute(msg, args) {
     const MONGO = config.MONGO;
     MongoClient.connect(MONGO, function(err, db) {
       if (err) throw err;
       var dbo = db.db("billie");
-      dbo.collection("dab").find({}).toArray(function(err, result) {
+      dbo.collection("cry").find({}).toArray(function(err, result) {
             if (err) throw err;
           const user = msg.member.user.tag;
           const n = user.indexOf("#");
