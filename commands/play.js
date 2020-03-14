@@ -12,7 +12,7 @@ module.exports = {
           // the bot is connected
           const ytdl = require('ytdl-core');
           var voiceChannel = msg.member.voiceChannel;
-          const stream = ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' });
+          const stream = ytdl('https://www.youtube.com/watch?v=btqZejLvZFU', { filter: 'audioonly' });
           const streamOptions = { seek: 0, volume: 1 };
           const dispatcher = connection.playStream(stream, streamOptions);
 
