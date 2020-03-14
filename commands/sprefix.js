@@ -7,14 +7,15 @@ module.exports = {
 	const MONGO = config.MONGO;
     if(msg.member.roles.find(r => r.name === "tester")){
 	  	if (!args || args == "") {msg.channel.send("I need an url");}	
-	  	else{
-		  	MongoClient.connect(MONGO, function(err, db) {
+	  	else{ 	
+			MongoClient.connect(url, function(err, db) {
 			  if (err) throw err;
-			  var dbo = db.db("billie");
-			  var myobj = { prefix:args };
-			  dbo.collection("config").insertOne(myobj, function(err, res) {
+			  var dbo = db.db("mydb");
+			  var myquery = { prefix: /^/ };
+			  var newvalues = {$set: {prefix: args} };
+			  dbo.collection("customers").updateMany(myquery, newvalues, function(err, res) {
 			    if (err) throw err;
-			    msg.channel.send("Prefix inserted!");
+			    msg.channel.send(res.result.nModified + " document(s) updated");
 			    db.close();
 			  });
 			});
@@ -22,15 +23,4 @@ module.exports = {
 	}else{msg.channel.send("You dont have permission");}
 	msg.delete();
   },
-};/*
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("mydb");
-  var myquery = { address: /^S/ };
-  var newvalues = {$set: {name: "Minnie"} };
-  dbo.collection("customers").updateMany(myquery, newvalues, function(err, res) {
-    if (err) throw err;
-    console.log(res.result.nModified + " document(s) updated");
-    db.close();
-  });
-});*/
+};
