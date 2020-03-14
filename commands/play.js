@@ -11,6 +11,7 @@ module.exports = {
 
           // the bot is connected
           const ytdl = require('ytdl-core');
+          const fs = require('fs');
           //const ytsr = require('ytsr');
           var voiceChannel = msg.member.voiceChannel;
           const stream = ytdl(args[0], { filter: 'audioonly' });
