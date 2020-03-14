@@ -25,7 +25,7 @@ MongoClient.connect(MONGO, function(err, db) {
   dbo.collection("config").find({}).toArray(function(err, result) {
     if (err) throw err;
     var ref = result[0].prefix;
-    PREFIX=gif[0];
+    PREFIX=ref[0];
   }); 
   db.close();
 });
