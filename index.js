@@ -43,7 +43,6 @@ bot.on('ready', () => {
         }
     });
       bot.users.get(DEV).send('Im awake, my master! Peace, Peace and It is ' + Date());
-      bot.users.get(DEV3).send('RAPIDO, quitate los pantalones, tengo que esconder la ciberdroga!');
   });
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
