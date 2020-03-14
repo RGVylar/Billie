@@ -55,8 +55,11 @@ bot.on('message', msg => {
   const args = msg.content.split(/ +/);
   console.log(args);
   const command = args.shift().toLowerCase();
+  console.log(command);
 	const n = command.indexOf(PREFIX);
+  console.log(n);
 	const  name = command.substring(n+PREFIX.length, command.length);
+  console.log(name);
   console.info(`Called command: ${name}`);
 
   if (!bot.commands.has(name)) return;
