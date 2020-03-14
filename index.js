@@ -61,7 +61,7 @@ bot.on('message', msg => {
   console.log('Index of prefix: '+n);
   console.log('Command length: '+command.length);
   console.log('Prefix length: '+PREFIX.length);
-	const  name = command.substring(n+PREFIX.length, command.length);
+	const  name = command.substring(PREFIX.length, command.length);
   console.log('Name: '+name);
   console.info(`Called command: ${name}`);
 
