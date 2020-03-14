@@ -30,7 +30,7 @@ module.exports = {
                       queueSong.push(args[0]);
 
                       if (queueSong.length == 1) {
-                          play(queueSong[0], connection);
+                          play(queueSong[0], connection, msg);
                       } else {
                           const songAddedQueue = new Discord.RichEmbed()
                               .setColor('#0099ff')
@@ -52,7 +52,7 @@ module.exports = {
                               msg.channel.send(botDisconnectMessage);
                               voiceChannel.leave();
                           } else {
-                              play(queueSong[0], connection);
+                              play(queueSong[0], connection, msg);
                           }
 
                       })
@@ -70,7 +70,7 @@ module.exports = {
 
 };
 
-function play(url_string, connection) {
+function play(url_string, connection, msg) {
     const ytdl = require('ytdl-core');
     const stream = ytdl(url_string, { filter: 'audioonly' });
     const streamOptions = { seek: 0, volume: 1 };
