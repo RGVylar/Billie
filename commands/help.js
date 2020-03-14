@@ -15,7 +15,7 @@ module.exports = {
           if (err) throw err;
           var res = result[0].prefix;
           var PREFIX  = res[0];
-          msg.channel.send('The prefix right now is `'+PREFIX'`');
+          msg.channel.send('The prefix right now is `'+PREFIX+'`');
         }); 
         db.close();
       });
