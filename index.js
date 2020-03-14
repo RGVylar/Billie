@@ -30,7 +30,7 @@ MongoClient.connect(MONGO, function(err, db) {
   }); 
   db.close();
 });
-console.log(PREFIX);
+console.log('the prefix is: '+PREFIX);
 bot.login(TOKEN);
 
 bot.on('ready', () => {
