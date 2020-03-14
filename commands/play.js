@@ -26,13 +26,29 @@ module.exports = {
               voiceChannel.join()
                   .then(connection => {
 
-                      play(queueSong[0], connection);
+                      queueSong.push(args);
+
+                      if (queueSong.length == 1) {
+                          play(queueSong[0], connection);
+                      } else {
+                          const songAddedQueue = new Discord.RichEmbed()
+                              .setColor('#0099ff')
+                              .setTitle('Song added to the queue :' + url_string)
+                          msg.channel.send(songAddedQueue);
+                      }
                       msg.delete();
 
                       // When no packets left to send, leave the channel.
                       connection.on('end', () => {
-                          if (!queueSong || queueSong == "") {
+                          queueSong.shift();
+                          if (!queueSong || queueSong == "" || queueSong.length == 0) {
                               console.log("left channel");
+                              const botDisconnectMessage = new Discord.RichEmbed()
+                                  .setColor('#0099ff')
+                                  .setTitle('No more song !')
+                                  .setDescription('Adios Mios !')
+                                  .setImage("https://media1.tenor.com/images/34657995bdac0aa521277ecc21c4e4a0/tenor.gif?itemid=15967381");
+                              msg.channel.send(botDisconnectMessage);
                               voiceChannel.leave();
                           } else {
                               play(queueSong[0], connection);
@@ -64,6 +80,5 @@ function play(url_string, connection) {
         .setTitle('Now Playing :' + url_string)
         .setURL(args[0])
         .setImage("https://media1.tenor.com/images/64a1c5b08061597450ad74c769dcfd1f/tenor.gif?itemid=15936106");
-
     msg.channel.send(nowPlayingMessage);
 };
