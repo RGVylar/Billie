@@ -24,6 +24,8 @@ MongoClient.connect(MONGO, function(err, db) {
   var dbo = db.db("billie");
   dbo.collection("config").find({}).toArray(function(err, result) {
     if (err) throw err;
+  console.log(result);
+  console.log(result[0].prefix);
     PREFIX= result[0].prefix;
   }); 
   db.close();
