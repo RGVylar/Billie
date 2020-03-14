@@ -5,6 +5,7 @@ module.exports = {
   	name: 'dance',
   	description: 'dance!',
   	execute(msg, args) {
+		const MONGO = config.MONGO;
 		MongoClient.connect(MONGO, function(err, db) {
 			if (err) throw err;
 			var dbo = db.db("billie");
