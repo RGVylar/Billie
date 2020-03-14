@@ -5,8 +5,7 @@ module.exports = {
   execute: async (msg, args) => {
       const ytdl = require('ytdl-core');
 
-
-
+      var queueSong = [];
 
       if (msg.member.voiceChannel) {
           if (!args || args == "") {
@@ -18,6 +17,7 @@ module.exports = {
 
               msg.channel.send(noArgsError);
           } else {
+
               console.log("joined channel");
               // the bot is connected
               const ytdl = require('ytdl-core');
@@ -26,26 +26,21 @@ module.exports = {
               var voiceChannel = msg.member.voiceChannel;
               voiceChannel.join()
                   .then(connection => {
-                      const stream = ytdl(args[0], { filter: 'audioonly' });
-                      const streamOptions = { seek: 0, volume: 1 };
-                      connection.playStream(stream, streamOptions);
 
-                      const nowPlayingMessage = new Discord.RichEmbed()
-                          .setColor('#0099ff')
-                          .setTitle('Now Playing :')
-                          .setURL(args[0])
-                          .setImage("https://media1.tenor.com/images/64a1c5b08061597450ad74c769dcfd1f/tenor.gif?itemid=15936106");
-
-                      msg.channel.send(nowPlayingMessage);
+                      play(queueSong[0], connection);
                       msg.delete();
 
                       // When no packets left to send, leave the channel.
                       connection.on('end', () => {
-                          console.log("left channel");
-                          voiceChannel.leave();
+                          if (!queueSong || queueSong == "") {
+                              console.log("left channel");
+                              voiceChannel.leave();
+                          } else {
+                              play(queueSong[0], connection);
+                          }
+
                       })
                   })
-              
           }
          
       } else {
@@ -54,5 +49,21 @@ module.exports = {
 
 
       
-  },
+    },
+
+
+};
+
+function play(url_string, connection) {
+    const stream = ytdl(url_string, { filter: 'audioonly' });
+    const streamOptions = { seek: 0, volume: 1 };
+    connection.playStream(stream, streamOptions);
+
+    const nowPlayingMessage = new Discord.RichEmbed()
+        .setColor('#0099ff')
+        .setTitle('Now Playing :' + url_string)
+        .setURL(args[0])
+        .setImage("https://media1.tenor.com/images/64a1c5b08061597450ad74c769dcfd1f/tenor.gif?itemid=15936106");
+
+    msg.channel.send(nowPlayingMessage);
 };
