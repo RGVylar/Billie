@@ -29,7 +29,6 @@ module.exports = {
   Urbansfw: require('./urbansfw'),
   Kick: require('./kick'),
   Kiss: require('./kiss'),
-  Friendkiss: require('./friendkiss'),
   Nsfw: require('./nsfw'),
   Purge: require('./purge'),
   Skiss: require('./skiss'),

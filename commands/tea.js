@@ -1,17 +1,28 @@
 const Discord = require('discord.js');
+const MongoClient = require('mongodb').MongoClient;
+const config = require("../config.js");
 module.exports = {
-  name: 'tea',
-  description: 'tea!',
-  execute(msg, args) {
-    var gifs = ["https://cdn.discordapp.com/emojis/557418528035307530.gif?v=1"
-		 ];
-    var randomIndex = Math.floor(Math.random() * gifs.length); 
-    const exampleEmbed = new Discord.RichEmbed()
-	.setColor('#0099ff')
-	.setTitle('Its tea time!')
-	.setImage(gifs[randomIndex]);
-
-msg.channel.send(exampleEmbed);
-    //msg.delete();
-  },
+    name: 'tea',
+    description: 'tea!',
+    execute(msg, args) {
+    const MONGO = config.MONGO;
+    MongoClient.connect(MONGO, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db("billie");
+      dbo.collection("tea").find({}).toArray(function(err, result) {
+            if (err) throw err;
+          const user = msg.member.user.tag;
+          const n = user.indexOf("#");
+          const  res = user.substring(0, n);
+            var randomIndex = Math.floor(Math.random() * result.length); 
+            var gif = result[randomIndex].url;
+            const exampleEmbed = new Discord.RichEmbed()
+          .setColor('#0099ff')
+          .setTitle(`${res}, Its tea time!`)
+          .setImage(gif[0]);
+        return msg.channel.send(exampleEmbed);
+      }); 
+      db.close();
+    });
+    },
 };
