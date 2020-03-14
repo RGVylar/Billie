@@ -24,22 +24,27 @@ module.exports = {
               const fs = require('fs');
               //const ytsr = require('ytsr');
               var voiceChannel = msg.member.voiceChannel;
-              var connection = voiceChannel.join();
-              const stream = ytdl(args[0], { filter: 'audioonly' });
-              const streamOptions = { seek: 0, volume: 1 };
-              const nowPlayingMessage = new Discord.RichEmbed()
-                  .setColor('#0099ff')
-                  .setTitle('Now Playing :')
-                  .setURL(args[0])
-                  .setImage("https://media1.tenor.com/images/64a1c5b08061597450ad74c769dcfd1f/tenor.gif?itemid=15936106");
+              var connection = voiceChannel.join()
+                  .then(connection => {
+                      const stream = ytdl(args[0], { filter: 'audioonly' });
+                      const streamOptions = { seek: 0, volume: 1 };
+                      connection.playStream(stream, streamOptions);
 
-              msg.channel.send(nowPlayingMessage);
-              connection.playStream(stream, streamOptions);
-              // When no packets left to send, leave the channel.
-              connection.on('end', () => {
-                  console.log("left channel");
-                  voiceChannel.leave();
-              })
+                      const nowPlayingMessage = new Discord.RichEmbed()
+                          .setColor('#0099ff')
+                          .setTitle('Now Playing :')
+                          .setURL(args[0])
+                          .setImage("https://media1.tenor.com/images/64a1c5b08061597450ad74c769dcfd1f/tenor.gif?itemid=15936106");
+
+                      msg.channel.send(nowPlayingMessage);
+
+                      // When no packets left to send, leave the channel.
+                      connection.on('end', () => {
+                          console.log("left channel");
+                          voiceChannel.leave();
+                      })
+                  })
+              
           }
          
       } else {
