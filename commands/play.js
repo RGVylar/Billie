@@ -1,11 +1,12 @@
 const Discord = require('discord.js');
+const queueSong = [];
+
 module.exports = {
   name: 'play',
   description: 'play!',
   execute: async (msg, args) => {
       const ytdl = require('ytdl-core');
 
-      var queueSong = [];
 
       if (msg.member.voiceChannel) {
           if (!args || args == "") {
@@ -78,7 +79,7 @@ function play(url_string, connection) {
     const nowPlayingMessage = new Discord.RichEmbed()
         .setColor('#0099ff')
         .setTitle('Now Playing :' + url_string)
-        .setURL(args[0])
+        .setURL(url_string)
         .setImage("https://media1.tenor.com/images/64a1c5b08061597450ad74c769dcfd1f/tenor.gif?itemid=15936106");
     msg.channel.send(nowPlayingMessage);
 };
