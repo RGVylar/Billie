@@ -34,7 +34,7 @@ module.exports = {
                       } else {
                           const songAddedQueue = new Discord.RichEmbed()
                               .setColor('#0099ff')
-                              .setTitle('Song added to the queue :' + url_string)
+                              .setTitle('Song added to the queue !');
                           msg.channel.send(songAddedQueue);
                       }
                       msg.delete();
