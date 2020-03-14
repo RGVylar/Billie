@@ -24,11 +24,13 @@ MongoClient.connect(MONGO, function(err, db) {
   var dbo = db.db("billie");
   dbo.collection("config").find({}).toArray(function(err, result) {
     if (err) throw err;
-    var ref = result[0].prefix;
-    PREFIX=ref[0];
+    //var ref =
+    PREFIX= result[0].prefix;
+    //PREFIX=ref[0];
   }); 
   db.close();
 });
+console.log(PREFIX);
 bot.login(TOKEN);
 
 bot.on('ready', () => {
