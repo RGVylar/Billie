@@ -40,7 +40,7 @@ module.exports = {
                       msg.delete();
 
                       // When no packets left to send, leave the channel.
-                      connection.on('end', () => {
+                      connection.on('finish', () => {
                           queueSong.shift();
                           if (!queueSong || queueSong == "" || queueSong.length == 0) {
                               console.log("left channel");
