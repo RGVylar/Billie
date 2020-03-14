@@ -45,4 +45,5 @@ module.exports = {
   Ssuck: require('./ssuck'),
   Scry: require('./scry'),
   Stea: require('./stea'),
+  Sprefix: require('./sprefix'),
 };
