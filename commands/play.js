@@ -17,14 +17,15 @@ module.exports = {
           // Wait until writing is finished
           stream.pipe(fs.createWriteStream('tmp_buf_audio.mp3'))
               .on('end', () => {
-                  const connection = await voiceChannel.join();
+                  voiceChannel.join()
+                  .then(connection => {
                   const streamOptions = { seek: 0, volume: 1 };
-                  connection.playStream(fs.createReadStream('tmp_buf_audio.mp3'), streamOptions)
-                  // When no packets left to send, leave the channel.
-                      .on('end', () =>  {
-                    console.log("left channel");
-                      voiceChannel.leave();
-
+                          connection.playStream(fs.createReadStream('tmp_buf_audio.mp3'), streamOptions)
+                              // When no packets left to send, leave the channel.
+                              .on('end', () => {
+                                  console.log("left channel");
+                                  voiceChannel.leave();
+                              })
               }).catch(console.error);
 
           }).catch(err => console.log(err));
