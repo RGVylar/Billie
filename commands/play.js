@@ -16,8 +16,8 @@ module.exports = {
           var voiceChannel = msg.member.voiceChannel;
           const stream = ytdl(args[0], { filter: 'audioonly' });
           // Wait until writing is finished
-          stream.pipe(fs.createWriteStream('tmp_buf_audio.mp3'))
-              .on('end', () => {
+          stream.pipe(fs.createWriteStream('tmp_buf_audio.mp3'));
+          stream.on('finish', () => {
 
                   voiceChannel.join()
                   .then(connection => {
