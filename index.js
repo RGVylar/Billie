@@ -50,24 +50,7 @@ bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
 });
 bot.on('message', msg => {
-  if(msg.content.includes(PREFIX+'prefix')){
-    if(msg.member.roles.find(r => r.name === "tester")){
-      if (!args || args == "") {msg.channel.send("I need an url");} 
-      else{   
-      MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
-        var dbo = db.db("mydb");
-        var myquery = { prefix: /^/ };
-        var newvalues = {$set: {prefix: args} };
-        dbo.collection("customers").updateMany(myquery, newvalues, function(err, res) {
-          if (err) throw err;
-          msg.channel.send(res.result.nModified + " document(s) updated");
-          db.close();
-        });
-      });
-    }
-  }else{msg.channel.send("You dont have permission");}
-  msg.delete();
+  
   MongoClient.connect(MONGO, function(err, db) {
     if (err) throw err;
     var dbo = db.db("billie");
@@ -80,20 +63,11 @@ bot.on('message', msg => {
     }); 
     db.close();
   });
-  }
   if (!msg.content.startsWith(PREFIX)) return;
-  console.log('the prefix is: '+PREFIX);
-  console.log('Msg content: '+msg.content);
   const args = msg.content.split(/ +/);
-  console.log('Args: '+args);
   const command = args.shift().toLowerCase();
-  console.log('Command: '+command);
 	const n = command.indexOf(PREFIX);
-  console.log('Index of prefix: '+n);
-  console.log('Command length: '+command.length);
-  console.log('Prefix length: '+PREFIX.length);
 	const  name = command.substring(PREFIX.length, command.length);
-  console.log('Name: '+name);
   console.info(`Called command: ${name}`);
 
   if (!bot.commands.has(name)) return;
