@@ -19,17 +19,7 @@ const MONGO = config.MONGO;
 const DEV = config.DEV;
 const DEV1 = config.DEV1;
 const TWITCH = config.TWITCH;
-MongoClient.connect(MONGO, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("billie");
-  dbo.collection("config").find({}).toArray(function(err, result) {
-    if (err) throw err;
-  console.log(result);
-  console.log(result[0].prefix);
-    PREFIX=result[0].prefix;
-  }); 
-  db.close();
-});
+
 bot.login(TOKEN);
 
 bot.on('ready', () => {
@@ -48,7 +38,17 @@ bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
 });
 bot.on('message', msg => {
-  
+  MongoClient.connect(MONGO, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("billie");
+    dbo.collection("config").find({}).toArray(function(err, result) {
+      if (err) throw err;
+    console.log(result);
+    console.log(result[0].prefix);
+      PREFIX=result[0].prefix;
+    }); 
+    db.close();
+  });
   if (!msg.content.startsWith(PREFIX)) return;
   console.log('the prefix is: '+PREFIX);
   console.log(msg.content);
