@@ -1,8 +1,8 @@
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 module.exports = {
-  name: 'stea',
-  description: 'set tea!',
+  name: 'sundress',
+  description: 'set undress!',
   execute(msg, args) {
 	const MONGO = config.MONGO;
     if(msg.member.roles.find(r => r.name === "tester")){
@@ -12,9 +12,9 @@ module.exports = {
 			  if (err) throw err;
 			  var dbo = db.db("billie");
 			  var myobj = { url:args };
-			  dbo.collection("tea").insertOne(myobj, function(err, res) {
+			  dbo.collection("undress").insertOne(myobj, function(err, res) {
 			    if (err) throw err;
-			    msg.channel.send("1 tea inserted");
+			    msg.channel.send("1 undress inserted");
 			    db.close();
 			  });
 			});
