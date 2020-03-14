@@ -20,7 +20,7 @@ module.exports = {
         }); 
         db.close();
       });
-      files[i] =  '- ' + config.PREFIX + files[i].substring(0, n);
+      files[i] =  '- ' + PREFIX + files[i].substring(0, n);
     }
     msg.channel.send('```fix\nCommands =\n'+files.join("\n")+'```');
   },
