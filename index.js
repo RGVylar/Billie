@@ -51,7 +51,9 @@ bot.on('message', msg => {
   
   if (!msg.content.startsWith(PREFIX)) return;
   console.log('the prefix is: '+PREFIX);
+  console.log(msg.content);
   const args = msg.content.split(/ +/);
+  console.log(args);
   const command = args.shift().toLowerCase();
 	const n = command.indexOf(PREFIX);
 	const  name = command.substring(n+PREFIX.length, command.length);
