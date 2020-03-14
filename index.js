@@ -14,12 +14,21 @@ Object.keys(botCommands).map(key => {
 });
 
 const TOKEN = config.TOKEN;
-const PREFIX = config.PREFIX;
+const PREFIX= config.PREFIX;
 const MONGO = config.MONGO;
 const DEV = config.DEV;
 const DEV1 = config.DEV1;
 const TWITCH = config.TWITCH;
-
+/*MongoClient.connect(MONGO, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("billie");
+  dbo.collection("lewdss").find({}).toArray(function(err, result) {
+    if (err) throw err;
+    var ref = result[0].prefix;
+    PREFIX=gif[0];
+  }); 
+  db.close();
+});*/
 bot.login(TOKEN);
 
 bot.on('ready', () => {
