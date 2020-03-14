@@ -1,18 +1,28 @@
 const Discord = require('discord.js');
+const MongoClient = require('mongodb').MongoClient;
+const config = require("../config.js");
 module.exports = {
-  name: 'dab',
-  description: 'dab!',
-  execute(msg, args) {
-    var gifs = ["https://media1.tenor.com/images/59983e51f744411fd00c2e50b1399fc5/tenor.gif?itemid=12789689"
-		 ];
-    var randomIndex = Math.floor(Math.random() * gifs.length); 
-    const exampleEmbed = new Discord.RichEmbed()
-	.setColor('#0099ff')
-	.setTitle('Dab on them haters')
-	.setImage(gifs[randomIndex]);
-
-msg.channel.send(exampleEmbed);
-    //msg.channel.send({ files: ["https://media.discordapp.net/attachments/652432414135681060/680578706875482132/tenor_2.gif"] });
-    //msg.delete();
-  },
+    name: 'dab',
+    description: 'dab!',
+    execute(msg, args) {
+    const MONGO = config.MONGO;
+    MongoClient.connect(MONGO, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db("billie");
+      dbo.collection("dab").find({}).toArray(function(err, result) {
+            if (err) throw err;
+          const user = msg.member.user.tag;
+          const n = user.indexOf("#");
+          const  res = user.substring(0, n);
+            var randomIndex = Math.floor(Math.random() * result.length); 
+            var gif = result[randomIndex].url;
+            const exampleEmbed = new Discord.RichEmbed()
+          .setColor('#0099ff')
+          .setTitle(`${res} dab to them haters!`)
+          .setImage(gif[0]);
+        return msg.channel.send(exampleEmbed);
+      }); 
+      db.close();
+    });
+    },
 };

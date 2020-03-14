@@ -45,12 +45,12 @@ bot.on('message', msg => {
   const command = args.shift().toLowerCase();
 	const n = command.indexOf(PREFIX);
 	const  name = command.substring(n+PREFIX.length, command.length);
-	console.log(command + ' ' + name);
+	//console.log(command + ' ' + name);
   console.info(`Called command: ${name}`);
 
   if (!bot.commands.has(name)) return;
   try {
-    console.log(name);
+    //console.log(name);
     bot.commands.get(name).execute(msg, args);
     ++excom;
     bot.user.setPresence({
