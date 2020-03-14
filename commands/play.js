@@ -9,7 +9,7 @@ module.exports = {
 
 
       if (msg.member.voiceChannel) {
-          if (!args || args[0] == '') {
+          if (!args || args == "") {
               const noArgsError = new Discord.RichEmbed()
                   .setColor('#FF0000')
                   .setTitle('What do I play ? Duh')
