@@ -24,7 +24,7 @@ module.exports = {
               const fs = require('fs');
               //const ytsr = require('ytsr');
               var voiceChannel = msg.member.voiceChannel;
-              var connection = voiceChannel.join()
+              voiceChannel.join()
                   .then(connection => {
                       const stream = ytdl(args[0], { filter: 'audioonly' });
                       const streamOptions = { seek: 0, volume: 1 };
@@ -37,6 +37,7 @@ module.exports = {
                           .setImage("https://media1.tenor.com/images/64a1c5b08061597450ad74c769dcfd1f/tenor.gif?itemid=15936106");
 
                       msg.channel.send(nowPlayingMessage);
+                      msg.delete();
 
                       // When no packets left to send, leave the channel.
                       connection.on('end', () => {
