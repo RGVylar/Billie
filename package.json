@@ -11,13 +11,12 @@
   "dependencies": {
     "discord.js": "^11.5.1",
     "dotenv": "^8.2.0",
-    "ffmpeg-static": "^4.0.1",
+    "ffmpeg-static": "4.0.1",
     "node-fetch": "^2.6.0",
     "translate": "1.1.1",
     "ytdl-core": "^2.0.0",
     "mongodb": "^3.0.5",
     "mongojs": "^2.4.0",
-    "node-opus": "0.3.3",
-    "opusscript": "^0.0.7"
+    "node-opus": "0.3.3"
   }
 }
