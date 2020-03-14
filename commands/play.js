@@ -24,33 +24,22 @@ module.exports = {
               const fs = require('fs');
               //const ytsr = require('ytsr');
               var voiceChannel = msg.member.voiceChannel;
-              var join = voiceChannel.join();
+              var connection = voiceChannel.join();
               const stream = ytdl(args[0], { filter: 'audioonly' });
-              // Wait until writing is finished
-              stream.pipe(fs.createWriteStream('tmp_buf_audio.mp3'));
-              stream.on('finish', () => {
+              const streamOptions = { seek: 0, volume: 1 };
+              const nowPlayingMessage = new Discord.RichEmbed()
+                  .setColor('#0099ff')
+                  .setTitle('Now Playing :')
+                  .setURL(args[0])
+                  .setImage("https://media1.tenor.com/images/64a1c5b08061597450ad74c769dcfd1f/tenor.gif?itemid=15936106");
 
-                  join.then(connection => {
-
-                      const nowPlayingMessage = new Discord.RichEmbed()
-                          .setColor('#0099ff')
-                          .setTitle('Now Playing :')
-                          .setURL(args[0])
-                          .setImage("https://media1.tenor.com/images/64a1c5b08061597450ad74c769dcfd1f/tenor.gif?itemid=15936106");
-
-                      msg.channel.send(nowPlayingMessage);
-
-                      const streamOptions = { seek: 0, volume: 1 };
-                      connection.playStream(fs.createReadStream('tmp_buf_audio.mp3'), streamOptions)
-                          // When no packets left to send, leave the channel.
-                          .on('end', () => {
-                              console.log("left channel");
-                              voiceChannel.leave();
-                          })
-
-                  }).catch(err => console.log(err));
-
-              }).catch(err => console.log(err));
+              msg.channel.send(nowPlayingMessage);
+              connection.playStream(stream, streamOptions);
+              // When no packets left to send, leave the channel.
+              connection.on('end', () => {
+                  console.log("left channel");
+                  voiceChannel.leave();
+              })
           }
          
       } else {
