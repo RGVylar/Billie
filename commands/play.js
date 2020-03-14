@@ -57,7 +57,6 @@ function play(url_string, connection, msg) {
     const ytdl = require('ytdl-core');
     const stream = ytdl(url_string, { filter: 'audioonly' });
     const streamOptions = { seek: 0, volume: 1 };
-    connection.playStream(stream, streamOptions);
 
     const nowPlayingMessage = new Discord.RichEmbed()
         .setColor('#0099ff')
@@ -66,8 +65,10 @@ function play(url_string, connection, msg) {
         .setImage("https://media1.tenor.com/images/64a1c5b08061597450ad74c769dcfd1f/tenor.gif?itemid=15936106");
     msg.channel.send(nowPlayingMessage);
 
+    connection.playStream(stream, streamOptions)
+
     // When no packets left to send, leave the channel.
-    connection.on('end', () => {
+    .on('end', () => {
 
         consol.log("Enter on finish");
         queueSong.shift();
