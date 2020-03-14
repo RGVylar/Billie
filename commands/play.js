@@ -39,23 +39,6 @@ module.exports = {
                       }
                       msg.delete();
 
-                      // When no packets left to send, leave the channel.
-                      connection.on('finish', () => {
-                          queueSong.shift();
-                          if (!queueSong || queueSong == "" || queueSong.length == 0) {
-                              console.log("left channel");
-                              const botDisconnectMessage = new Discord.RichEmbed()
-                                  .setColor('#0099ff')
-                                  .setTitle('No more song !')
-                                  .setDescription('Adios Mios !')
-                                  .setImage("https://media1.tenor.com/images/34657995bdac0aa521277ecc21c4e4a0/tenor.gif?itemid=15967381");
-                              msg.channel.send(botDisconnectMessage);
-                              voiceChannel.leave();
-                          } else {
-                              play(queueSong[0], connection, msg);
-                          }
-
-                      })
                   })
           }
          
@@ -82,4 +65,27 @@ function play(url_string, connection, msg) {
         .setURL(url_string)
         .setImage("https://media1.tenor.com/images/64a1c5b08061597450ad74c769dcfd1f/tenor.gif?itemid=15936106");
     msg.channel.send(nowPlayingMessage);
+
+    // When no packets left to send, leave the channel.
+    connection.on('end', () => {
+
+        consol.log("Enter on finish");
+        queueSong.shift();
+        if (!queueSong || queueSong == "" || queueSong.length == 0) {
+            consol.log("no more song in queue");
+
+            console.log("left channel");
+            const botDisconnectMessage = new Discord.RichEmbed()
+                .setColor('#0099ff')
+                .setTitle('No more song !')
+                .setDescription('Adios Mios !')
+                .setImage("https://media1.tenor.com/images/34657995bdac0aa521277ecc21c4e4a0/tenor.gif?itemid=15967381");
+            msg.channel.send(botDisconnectMessage);
+            voiceChannel.leave();
+        } else {
+            consol.log("Playing next song");
+            play(queueSong[0], connection, msg);
+        }
+
+    })
 };
