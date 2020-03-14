@@ -7,6 +7,13 @@ module.exports = {
   execute(msg, args) {
     var files = fs.readdirSync('./commands');
     var i;
+    for (i = 0; i < files.length; i++) {
+      var n = files[i].indexOf('.');
+      files[i]=files[i].substring(0, n);
+      if(files[i]!='fuck'&&files[i]!='sfuck'&&files[i]!='index'&&files[i]!='masturbate'&&files[i]!='smasturbate'){
+        files[i] ='- ' + files[i]
+      }
+    }
     const MONGO = config.MONGO;
       MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
@@ -19,12 +26,6 @@ module.exports = {
         }); 
         db.close();
       });
-    for (i = 0; i < files.length; i++) {
-      var n = files[i].indexOf('.');
-      if(files[i]!='fuck'&&files[i]!='sfuck'&&files[i]!='index'&&files[i]!='masturbate'&&files[i]!='smasturbate'){
-        files[i] =  '- ' + files[i].substring(0, n);
-      }
-    }
     msg.channel.send('```fix\nCommands =\n'+files.join("\n")+'```');
   },
 };
