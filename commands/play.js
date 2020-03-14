@@ -9,7 +9,7 @@ module.exports = {
 
 
       if (msg.member.voiceChannel) {
-          if (!args || args[0] == '') {
+          if (!args || args == "") {
               const noArgsError = new Discord.RichEmbed()
                   .setColor('#FF0000')
                   .setTitle('What do I play ? Duh')
@@ -24,13 +24,13 @@ module.exports = {
               const fs = require('fs');
               //const ytsr = require('ytsr');
               var voiceChannel = msg.member.voiceChannel;
-              voiceChannel.join();
+              var join = voiceChannel.join();
               const stream = ytdl(args[0], { filter: 'audioonly' });
               // Wait until writing is finished
               stream.pipe(fs.createWriteStream('tmp_buf_audio.mp3'));
               stream.on('finish', () => {
 
-                  voiceChannel.then(connection => {
+                  join.then(connection => {
 
                       const nowPlayingMessage = new Discord.RichEmbed()
                           .setColor('#0099ff')
