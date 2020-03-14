@@ -7,19 +7,25 @@ module.exports = {
 
       if (msg.member.voiceChannel) {
 
-          const connection = await msg.member.voiceChannel.join();
           console.log("joined channel");
+
           // the bot is connected
           const ytdl = require('ytdl-core');
+          //const ytsr = require('ytsr');
           var voiceChannel = msg.member.voiceChannel;
-          const stream = ytdl('https://www.youtube.com/watch?v=btqZejLvZFU', { filter: 'audioonly' });
-          const streamOptions = { seek: 0, volume: 1 };
-          const dispatcher = connection.playStream(stream, streamOptions);
+          const stream = ytdl(args, { filter: 'audioonly' });
+          // Wait until writing is finished
+          stream.pipe(fs.createWriteStream('tmp_buf_audio.mp3'))
+              .on('end', () => {
+                  const connection = await voiceChannel.join();
+                  const streamOptions = { seek: 0, volume: 1 };
+                  connection.playStream(fs.createReadStream('tmp_buf_audio.mp3'), streamOptions)
+                  // When no packets left to send, leave the channel.
+                  .on("end", end => {
+                    console.log("left channel");
+                      voiceChannel.leave();
 
-
-          dispatcher.on("end", end => {
-              console.log("left channel");
-              voiceChannel.leave();
+              }).catch(console.error);
 
           }).catch(err => console.log(err));
       } else {
