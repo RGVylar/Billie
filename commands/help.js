@@ -11,7 +11,10 @@ module.exports = {
       var n = files[i].indexOf('.');
       files[i]=files[i].substring(0, n);
       if(files[i]!='fuck'&&files[i]!='sfuck'&&files[i]!='index'&&files[i]!='masturbate'&&files[i]!='smasturbate'){
-        files[i] ='- ' + files[i]
+        files[i] ='- ' + files[i];
+      }
+      else{
+        files.splice(i,i+1);
       }
     }
     const MONGO = config.MONGO;
