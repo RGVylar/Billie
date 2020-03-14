@@ -13,7 +13,7 @@ module.exports = {
 			  if (err) throw err;
 			  var dbo = db.db("billie");
 			  var myobj = { url:args };
-			  dbo.collection("kiss").insertOne(myobj, function(err, res) {
+			  dbo.collection("lewdss").insertOne(myobj, function(err, res) {
 			    if (err) throw err;
 			    msg.channel.send("1 lewdss inserted");
 			    db.close();
