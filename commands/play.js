@@ -21,7 +21,7 @@ module.exports = {
                   const streamOptions = { seek: 0, volume: 1 };
                   connection.playStream(fs.createReadStream('tmp_buf_audio.mp3'), streamOptions)
                   // When no packets left to send, leave the channel.
-                  .on("end", end => {
+                      .on('end', () =>  {
                     console.log("left channel");
                       voiceChannel.leave();
 
