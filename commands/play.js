@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
-const queueSong = [];
 
 module.exports = {
   name: 'play',
   description: 'play!',
   execute: async (msg, args) => {
       const ytdl = require('ytdl-core');
+      const queueSong = [];
 
 
       if (msg.member.voiceChannel) {
