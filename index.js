@@ -26,7 +26,8 @@ MongoClient.connect(MONGO, function(err, db) {
     if (err) throw err;
   console.log('Mongo query: '+result);
   console.log('Just prefix: '+result[0].prefix);
-    PREFIX=result[0].prefix;
+    var res = result[0].prefix;
+    PREFIX  = res[0];
   }); 
   db.close();
 });
