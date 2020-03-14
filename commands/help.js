@@ -7,6 +7,7 @@ module.exports = {
   execute(msg, args) {
     var files = fs.readdirSync('./commands');
     var i;
+    var PREFIX;
     for (i = 0; i < files.length; i++) {
       var n = files[i].indexOf('.');
       const MONGO = config.MONGO;
