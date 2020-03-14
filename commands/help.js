@@ -7,7 +7,6 @@ module.exports = {
   execute(msg, args) {
     var files = fs.readdirSync('./commands');
     var i;
-    var PREFIX;
     const MONGO = config.MONGO;
       MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
@@ -15,14 +14,15 @@ module.exports = {
         dbo.collection("config").find({}).toArray(function(err, result) {
           if (err) throw err;
           var res = result[0].prefix;
-          PREFIX  = res[0];
+          var PREFIX  = res[0];
+          msg.channel.send('The prefix right now is `'+PREFIX'`');
         }); 
         db.close();
       });
     for (i = 0; i < files.length; i++) {
       var n = files[i].indexOf('.');
       if(files[i]!='fuck'&&files[i]!='sfuck'&&files[i]!='index'&&files[i]!='masturbate'&&files[i]!='smasturbate'){
-        files[i] =  '- ' + PREFIX + files[i].substring(0, n);
+        files[i] =  '- ' + files[i].substring(0, n);
       }
     }
     msg.channel.send('```fix\nCommands =\n'+files.join("\n")+'```');
