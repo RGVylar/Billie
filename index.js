@@ -43,7 +43,6 @@ bot.on('ready', () => {
         }
     });
       bot.users.get(DEV).send('Im awake, my master! Peace, Peace and It is ' + Date());
-      bot.users.get(DEV2).send('Hola, no se lo digas a Billie, pero me he escapado de su ordenador');
   });
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
