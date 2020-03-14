@@ -30,7 +30,6 @@ MongoClient.connect(MONGO, function(err, db) {
   }); 
   db.close();
 });
-console.log('the prefix is: '+PREFIX);
 bot.login(TOKEN);
 
 bot.on('ready', () => {
@@ -51,6 +50,7 @@ bot.on('serverNewMember', function(server, user) {
 bot.on('message', msg => {
   
   if (!msg.content.startsWith(PREFIX)) return;
+  console.log('the prefix is: '+PREFIX);
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();
 	const n = command.indexOf(PREFIX);
