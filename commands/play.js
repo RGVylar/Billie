@@ -11,14 +11,15 @@ module.exports = {
           console.log("joined channel");
           // the bot is connected
           const ytdl = require('ytdl-core');
+          var voiceChannel = message.member.voiceChannel;
+          const stream = ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' });
+          const streamOptions = { seek: 0, volume: 1 };
+          const dispatcher = connection.playStream(stream, streamOptions);
 
-          var server = servers[msg.guild.id];
-          server.dispatcher = connection.playStream(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' }));
 
-
-          server.dispatcher.on("end", end => {
+          dispatcher.on("end", end => {
               console.log("left channel");
-              connection.disconnect();
+              voiceChannel.leave();
 
           }).catch(err => console.log(err));
       } else {
