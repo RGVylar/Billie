@@ -11,11 +11,13 @@ module.exports = {
 			MongoClient.connect(url, function(err, db) {
 			  if (err) throw err;
 			  var dbo = db.db("mydb");
+			  var PREFIX = args;
 			  var myquery = { prefix: /^/ };
-			  var newvalues = {$set: {prefix: args} };
+			  var newvalues = {$set: {prefix: PREFIX} };
 			  dbo.collection("customers").updateMany(myquery, newvalues, function(err, res) {
 			    if (err) throw err;
 			    msg.channel.send(res.result.nModified + " document(s) updated");
+			    return PREFIX;
 			    db.close();
 			  });
 			});
