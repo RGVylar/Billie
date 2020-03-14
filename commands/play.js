@@ -13,7 +13,7 @@ module.exports = {
           const ytdl = require('ytdl-core');
           //const ytsr = require('ytsr');
           var voiceChannel = msg.member.voiceChannel;
-          const stream = ytdl(args, { filter: 'audioonly' });
+          const stream = ytdl(args[0], { filter: 'audioonly' });
           // Wait until writing is finished
           stream.pipe(fs.createWriteStream('tmp_buf_audio.mp3'))
               .on('end', () => {
