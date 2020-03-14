@@ -8,6 +8,8 @@ exports.DEV1 = process.env.DEV1;
 
 exports.DEV2 = process.env.DEV2;
 
+exports.DEV3 = process.env.DEV3;
+
 exports.TWITCH = process.env.TWITCH;
 
 exports.PREFIX = '+';
