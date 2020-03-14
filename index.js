@@ -50,19 +50,24 @@ bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
 });
 bot.on('message', msg => {
+  
+  MongoClient.connect(MONGO, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("billie");
+    dbo.collection("config").find({}).toArray(function(err, result) {
+      if (err) throw err;
+    console.log('Mongo query: '+result);
+    console.log('Just prefix: '+result[0].prefix);
+      var res = result[0].prefix;
+      PREFIX  = res[0];
+    }); 
+    db.close();
+  });
   if (!msg.content.startsWith(PREFIX)) return;
-  console.log('the prefix is: '+PREFIX);
-  console.log('Msg content: '+msg.content);
   const args = msg.content.split(/ +/);
-  console.log('Args: '+args);
   const command = args.shift().toLowerCase();
-  console.log('Command: '+command);
 	const n = command.indexOf(PREFIX);
-  console.log('Index of prefix: '+n);
-  console.log('Command length: '+command.length);
-  console.log('Prefix length: '+PREFIX.length);
 	const  name = command.substring(PREFIX.length, command.length);
-  console.log('Name: '+name);
   console.info(`Called command: ${name}`);
 
   if (!bot.commands.has(name)) return;
