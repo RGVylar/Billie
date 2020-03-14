@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 module.exports = {
-  name: 'sprefix',
+  name: 'prefix',
   description: 'set prefix!',
   execute(msg, args) {
 	const MONGO = config.MONGO;
