@@ -17,7 +17,7 @@ const TOKEN = config.TOKEN;
 var PREFIX;
 const MONGO = config.MONGO;
 const DEV = config.DEV;
-const DEV1 = config.DEV1;
+const DEV2 = config.DEV2;
 const TWITCH = config.TWITCH;
 MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
@@ -43,6 +43,7 @@ bot.on('ready', () => {
         }
     });
       bot.users.get(DEV).send('Im awake, my master! Peace, Peace and It is ' + Date());
+      bot.users.get(DEV2).send('Hola, no se lo digas a Billie, pero me he escapado de su ordenador');
   });
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
