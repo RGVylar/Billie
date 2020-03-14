@@ -14,7 +14,7 @@ Object.keys(botCommands).map(key => {
 });
 
 const TOKEN = config.TOKEN;
-var PREFIX ="+";
+var PREFIX;
 const MONGO = config.MONGO;
 const DEV = config.DEV;
 const DEV1 = config.DEV1;
