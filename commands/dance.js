@@ -1,4 +1,6 @@
 const Discord = require('discord.js');
+const MongoClient = require('mongodb').MongoClient;
+const config = require("../config.js");
 module.exports = {
   	name: 'dance',
   	description: 'dance!',
