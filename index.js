@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 const MessageAttachment = require('discord.js');
 const MessageEmbed = require('discord.js');
 const bot = new Discord.Client();
+const active = new Map();
 bot.commands = new Discord.Collection();
 const botCommands = require('./commands');
 const MongoClient = require('mongodb').MongoClient;
@@ -66,8 +67,14 @@ bot.on('message', msg => {
   console.info(`Called command: ${name}`);
 
   if (!bot.commands.has(name)) return;
-  try {
-    bot.commands.get(name).execute(msg, args);
+    try {
+
+        let options = {
+            ownerID: ownerID,
+            active: active
+        }
+
+        bot.commands.get(name).execute(msg, args, options, bot);
     ++excom;
     bot.user.setPresence({
         game: {
