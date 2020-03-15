@@ -41,7 +41,6 @@ module.exports = {
 
                   //Get Info
                   let info = await ytdl.getInfo(args[0]);
-                  console.log('info :' + info);
                   // First, we need top fetch the active -- Also, if it's not defined it wwill be hold {}
                   let data = options.active.get(msg.guild.id) || {};
 
@@ -65,6 +64,7 @@ module.exports = {
                           .setColor('#0099ff')
                           .setTitle('Song added to queue :' + info.title)
                           .setDescription('Requested by : ' + info.author.id)
+                          .setThumbnail(info.thumbnail_url)
                           .setURL(url_string)
                       msg.channel.send(songAddedQueue);
                   }
@@ -103,6 +103,7 @@ async function play(client, options, data) {
                 .setColor('#0099ff')
                 .setTitle('Now Playing :' + data.queue[0].songTitle)
                 .setDescription('Requested by : ' + data.queue[0].author.tag)
+                .setThumbnail(data.queue[0].thumbnail_url)
                 .setImage(gif[0]);
             msg.channel.send(nowPlayingMessage);
         });
