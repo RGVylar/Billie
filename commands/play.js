@@ -57,7 +57,7 @@ module.exports = {
 function play(url_string, connection, msg) {
     const ytdl = require('ytdl-core');
     const stream = ytdl(url_string, { filter: 'audioonly' });
-    const streamOptions = { seek: 0, volume: 1 };
+    const streamOptions = { seek: 0, volume: 0.75 };
     const MONGO = config.MONGO;
     MongoClient.connect(MONGO, function(err, db) {
       if (err) throw err;
