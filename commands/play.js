@@ -61,7 +61,7 @@ module.exports = {
 
 
                   //if there isn't a dispatcher already created, run the play function
-                  if (!data.dispatcher) play(client, options, data);
+                  if (!data.dispatcher) play(client, options, data,msg);
                   else { // If there is already a dispatcher
                       const songAddedQueue = new Discord.RichEmbed()
                           .setColor('#0099ff')
@@ -88,7 +88,7 @@ module.exports = {
 
 };
 
-async function play(client, options, data) {
+async function play(client, options, data, msg) {
 
     //Sending the now playing message
     const MONGO = config.MONGO;
@@ -121,11 +121,11 @@ async function play(client, options, data) {
 
     //Create listener even that will run when the song end
     data.dispatcher.once('end', function () {
-        finish(client, options, this);
+        finish(client, options, this, msg);
     });
 };
 
-function finish(client, options, dispatcher) {
+function finish(client, options, dispatcher, msg) {
 
     //fetch the guild object form the map
     let fetched = options.active.get(dispatcher.guildID);
@@ -138,7 +138,7 @@ function finish(client, options, dispatcher) {
         options.active.set(dispatcher.guildID, fetched);
 
         // finally run the play function with the new song
-        play(client, options, fetched);
+        play(client, options, fetched, msg);
     } else {
 
         //Delete the guild object from the map
