@@ -5,13 +5,7 @@ module.exports = {
   name: 'help',
   description: 'list of commands',
   execute(msg, args) {
-    var files = fs.readdirSync('./commands');
-    var i;
-    const MONGO = config.MONGO;
-    for (i = 0; i < files.length; i++) {
-      var n = files[i].indexOf('.');
-        files[i] =  '- ' + files[i].substring(0, n);
-    }
+      const MONGO = config.MONGO;
       MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db("billie");
@@ -19,10 +13,132 @@ module.exports = {
           if (err) throw err;
           var res = result[0].prefix;
           var PREFIX  = res[0];
-          msg.channel.send('The prefix right now is `'+PREFIX+'`');
-        }); 
-        db.close();
-      });
-    msg.channel.send('```fix\nCommands =\n'+files.join("\n")+'```');
+          if (!msg.channel.nsfw) {      
+            const embed = new Discord.RichEmbed()
+            .setColor('#FF0000')
+            .setTitle('Commands')
+            .setDescription('The list of the commands')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
+            msg.channel.send(embed);
+          }
+          else {
+            const embed = new Discord.RichEmbed()
+            .setColor('#FF0000')
+            .setTitle('Commands')
+            .setDescription('The list of the commands')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
+            msg.channel.send(embed);        
+          }
+      }); 
+      db.close();
+    });
   },
 };

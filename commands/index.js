@@ -51,4 +51,6 @@ module.exports = {
   Order: require('./order'),
   Cunni: require('./cunni'),
   Scunni: require('./scunni'),
+  Cum: require('./cum'),
+  Scum: require('./scum'),
 };
