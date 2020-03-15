@@ -66,7 +66,7 @@ module.exports = {
                       const songAddedQueue = new Discord.RichEmbed()
                           .setColor('#0099ff')
                           .setTitle('Song added to queue :' + info.title)
-                          .setDescription('Requested by : ' + msg.member.tag)
+                          .setDescription('Requested by : ' + msg.author.tag)
                           .setThumbnail(info.thumbnail_url)
                           .setURL(args[0])
                       msg.channel.send(songAddedQueue);
