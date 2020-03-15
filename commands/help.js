@@ -68,7 +68,7 @@ module.exports = {
             .addField( PREFIX + 'prefix', 'Changes the prefix', true)
             .addField( PREFIX + 'scursed', 'Adds cursed gif to the cursed command', true)
             .addField( PREFIX + 'newcommand', 'Adds a new command', true)
-            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
+            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/avatars/273081779420921856/d2d64a2647fbd912097802433d0359d3.png?size=2048');
             msg.channel.send(admin);
 
           }
@@ -82,7 +82,7 @@ module.exports = {
           .addField( PREFIX + 'join', 'Bot joins to your channel', true)
           .addField( PREFIX + 'stop', 'Bot leaves your channel', true)
           .addField( PREFIX + 'play', 'Bot plays or adds song to the queue', true)
-          .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
+          .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/518934188800344084.gif?v=1');
           msg.channel.send(music);
 
           if (!msg.channel.nsfw) {  
@@ -94,7 +94,7 @@ module.exports = {
             .setDescription('The list of NSFW commands')
             .setThumbnail('https://media1.tenor.com/images/8674cfb928b1055dd6b8227e7e61060b/tenor.gif?itemid=7979947')
             .addField( 'NSFW Commands in this channel', 'Please, ask for the commands on a NSFW channel if you want to see them', true)
-            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
+            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/594181619137380365.gif?v=1');
             msg.channel.send(nsfw);
           }
           else {
@@ -130,7 +130,7 @@ module.exports = {
               .addField( PREFIX + 'scunni', 'Adds cunni gif to the cunni command', true)
               .addField( PREFIX + 'sundress', 'Adds undress gif to the undress command', true)
               .addField( PREFIX + 'smasturbate', 'Adds masturbate gif to the masturbate command', true)
-              .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
+              .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/avatars/95589920415948800/7430d162faaa4bf9298230c0c1e3428c.png?size=2048');
               msg.channel.send(adminNsfw);   
 
             }
