@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
+const ytdlSearch = require('ytdl-getinfo');
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 module.exports = {
@@ -25,9 +26,12 @@ module.exports = {
               msg.channel.send(noArgsError);
           } else {
 
+              //We search for the video on youtube, take the first result if it's just string and not a full url
+              urlVideo = ytdlSearch.getInfo(args[0]);
+
 
               //Validate Info
-              let validate = await ytdl.validateURL(args[0]);
+              let validate = await ytdl.validateURL(urlVideo);
 
               if (!validate) {
                   const noArgsError = new Discord.RichEmbed()
@@ -40,7 +44,7 @@ module.exports = {
               } else {
 
                   //Get Info
-                  let info = await ytdl.getInfo(args[0]);
+                  let info = await ytdl.getInfo(urlVideo);
                   console.log(info.video_id);
 
                   // First, we need top fetch the active -- Also, if it's not defined it wwill be hold {}
@@ -55,7 +59,7 @@ module.exports = {
                   data.queue.push({
                       songTitle: info.title,
                       requester: msg.author.tag,
-                      url: args[0],
+                      url: urlVideo,
                       video_id: info.video_id,
                       announceChannel: msg.channel.id
                   });
@@ -71,7 +75,7 @@ module.exports = {
                           .setTitle('Song added to queue : ' + info.title)
                           .setDescription('Requested by : ' + msg.author.tag)
                           .setThumbnail('https://img.youtube.com/vi/' + info.video_id + '/0.jpg')
-                          .setURL(args[0])
+                          .setURL(urlVideo)
                       msg.channel.send(songAddedQueue);
                   }
 

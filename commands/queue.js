@@ -11,7 +11,7 @@ module.exports = {
         let queue = fetched.queue;
         let nowPlaying = queue[0]; //Now playing will always be the first one in the queue
 
-        let resp = 'Now playing : ' + nowPlaying.songTitle + ' - Requested by : ' + nowPlaying.requester +'\Queue : \r';
+        let resp = 'Now playing : ' + nowPlaying.songTitle + ' - Requested by : ' + nowPlaying.requester +'\rQueue : \r';
 
 
         for (var i = 1; i < queue.length; i++) {
