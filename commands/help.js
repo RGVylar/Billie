@@ -13,8 +13,8 @@ module.exports = {
           if (err) throw err;
           var res = result[0].prefix;
           var PREFIX  = res[0];
-
-          //Safe commands 
+          //Commands 55
+          //SAFE commands 25
           const commands = new Discord.RichEmbed()
           .setColor('#99cc00')
           .setTitle('Commands')
@@ -44,12 +44,12 @@ module.exports = {
           .addField('attach', 'Command', true)
           .addField('avatar', 'Command', true)
           .addField('translate', 'Command', true)
-          .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
+          .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
           msg.channel.send(commands);
 
           if(msg.member.roles.find(r => r.name === "tester")){
 
-            //ADMIN Commands
+            //ADMIN Commands 12
             const admin = new Discord.RichEmbed()
             .setColor('#99cc00')
             .setTitle('Admin Commands')
@@ -66,12 +66,12 @@ module.exports = {
             .addField('prefix', 'Command', true)
             .addField('scursed', 'Command', true)
             .addField('newcommand', 'Command', true)
-            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
+            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
             msg.channel.send(admin);
 
           }
 
-          //Music Commands
+          //Music Commands 3
           const music = new Discord.RichEmbed()
           .setColor('#FF0000')
           .setTitle('Music Commands')
@@ -79,23 +79,23 @@ module.exports = {
           .addField('join', 'Command', true)
           .addField('stop', 'Command', true)
           .addField('play', 'Command', true)
-          .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
+          .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
           msg.channel.send(music);
 
           if (!msg.channel.nsfw) {  
 
-            //NSFW Commands
+            //NSFW Commands 0
             const nsfw = new Discord.RichEmbed()
             .setColor('#FF0000')
             .setTitle('Commands NSFW')
             .setDescription('The list of NSFW commands')
             .addField('NSFW Commands in this channel', 'Please, ask for the commands on a NSFW channel', true)
-            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
+            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
             msg.channel.send(nsfw);
 
             if(msg.member.roles.find(r => r.name === "tester")){
 
-              //ADMIN NSFW Commands
+              //ADMIN NSFW Commands 6
               const adminNsfw = new Discord.RichEmbed()
               .setColor('#FF0000')
               .setTitle('Admin nsfw Commands')
@@ -106,14 +106,14 @@ module.exports = {
               .addField('scunni', 'Command', true)
               .addField('sundress', 'Command', true)
               .addField('smasturbate', 'Command', true)
-              .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
+              .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
               msg.channel.send(adminNsfw);   
 
             }
           }
           else {
 
-            //NSFW Commands
+            //NSFW Commands 8
             const nsfw = new Discord.RichEmbed()
             .setColor('#FF0000')
             .setTitle('Commands NSFW')
@@ -126,7 +126,7 @@ module.exports = {
             .addField('undress', 'Command', true)
             .addField('urbansfw', 'Command', true)
             .addField('masturbate', 'Command', true)
-            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
+            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
             msg.channel.send(nsfw);   
 
           }
