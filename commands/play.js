@@ -65,7 +65,7 @@ module.exports = {
                   else { // If there is already a dispatcher
                       const songAddedQueue = new Discord.RichEmbed()
                           .setColor('#0099ff')
-                          .setTitle('Song added to queue :' + info.title)
+                          .setTitle('Song added to queue : ' + info.title)
                           .setDescription('Requested by : ' + msg.author.tag)
                           .setThumbnail(info.thumbnail_url)
                           .setURL(args[0])
