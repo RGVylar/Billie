@@ -150,7 +150,7 @@ function finish(client, options, dispatcher, msg) {
         options.active.delete(dispatcher.guildID);
 
         // Leave the voice channel
-        let vc = client.guild.get(dispatcher.guildID).me.voiceChannel; // Get the voice channel of the bot in the guild
+        let vc = client.guilds.get(dispatcher.guildID).me.voiceChannel; // Get the voice channel of the bot in the guild
         if (vc) vc.leave();
         const botDisconnectMessage = new Discord.RichEmbed()
             .setColor('#0099ff')
