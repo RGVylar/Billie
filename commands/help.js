@@ -14,7 +14,7 @@ module.exports = {
           var res = result[0].prefix;
           var PREFIX  = res[0];
           if (!msg.channel.nsfw) {      
-            const embed = new Discord.RichEmbed()
+            const embed1 = new Discord.RichEmbed()
             .setColor('#FF0000')
             .setTitle('Commands')
             .setDescription('The list of the commands')
@@ -44,8 +44,7 @@ module.exports = {
             .addField('Command', 'Command')
             .addField('Command', 'Command')
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
-            msg.channel.send(embed);
-            embed = new Discord.RichEmbed()
+            const embed2 = new Discord.RichEmbed()
             .setColor('#FF0000')
             .setTitle('Commands 2')
             .setDescription('The list of the commands')
@@ -74,10 +73,9 @@ module.exports = {
             .addField('Command', 'Command')
             .addField('Command', 'Command')
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
-            msg.channel.send(embed);
-            embed = new Discord.RichEmbed()
+            const embed3 = new Discord.RichEmbed()
             .setColor('#FF0000')
-            .setTitle('Commands 2')
+            .setTitle('Commands 3')
             .setDescription('The list of the commands')
             .addField('Command', 'Command')
             .addField('Command', 'Command')
@@ -85,10 +83,12 @@ module.exports = {
             .addField('Command', 'Command')
             .addField('Command', 'Command')
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
-            msg.channel.send(embed);
+            msg.channel.send(embed1);
+            msg.channel.send(embed2);
+            msg.channel.send(embed3);
           }
           else {
-            const embed = new Discord.RichEmbed()
+            const embed1 = new Discord.RichEmbed()
             .setColor('#FF0000')
             .setTitle('Commands')
             .setDescription('The list of the commands')
@@ -118,8 +118,7 @@ module.exports = {
             .addField('Command', 'Command')
             .addField('Command', 'Command')
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
-            msg.channel.send(embed);
-            embed = new Discord.RichEmbed()
+            const embed2 = new Discord.RichEmbed()
             .setColor('#FF0000')
             .setTitle('Commands 2')
             .setDescription('The list of the commands')
@@ -148,8 +147,7 @@ module.exports = {
             .addField('Command', 'Command')
             .addField('Command', 'Command')
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
-            msg.channel.send(embed);
-            embed = new Discord.RichEmbed()
+            const embed3 = new Discord.RichEmbed()
             .setColor('#FF0000')
             .setTitle('Commands 2')
             .setDescription('The list of the commands')
@@ -159,7 +157,9 @@ module.exports = {
             .addField('Command', 'Command')
             .addField('Command', 'Command')
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
-            msg.channel.send(embed);      
+            msg.channel.send(embed1);
+            msg.channel.send(embed2);
+            msg.channel.send(embed3);
           }
         }); 
       db.close();
