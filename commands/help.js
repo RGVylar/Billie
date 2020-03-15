@@ -92,6 +92,14 @@ module.exports = {
             .setColor('#FF0000')
             .setTitle('Commands')
             .setDescription('The list of the commands')
+            .addField('sa', 'Command')
+            .addField('cry', 'Command')
+            .addField('cum', 'Command')
+            .addField('dab', 'Command')
+            .addField('say', 'Command')
+            .addField('hug', 'Command')
+            .addField('rps', 'Command')
+            .addField('tea', 'Command')
             .addField('Command', 'Command')
             .addField('Command', 'Command')
             .addField('Command', 'Command')
@@ -109,19 +117,12 @@ module.exports = {
             .addField('Command', 'Command')
             .addField('Command', 'Command')
             .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
+            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
+            msg.channel.send(embed);
+            embed = new Discord.RichEmbed()
+            .setColor('#FF0000')
+            .setTitle('Commands 2')
+            .setDescription('The list of the commands')
             .addField('Command', 'Command')
             .addField('Command', 'Command')
             .addField('Command', 'Command')
@@ -147,9 +148,20 @@ module.exports = {
             .addField('Command', 'Command')
             .addField('Command', 'Command')
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
-            msg.channel.send(embed);        
+            msg.channel.send(embed);
+            embed = new Discord.RichEmbed()
+            .setColor('#FF0000')
+            .setTitle('Commands 2')
+            .setDescription('The list of the commands')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .addField('Command', 'Command')
+            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
+            msg.channel.send(embed);      
           }
-      }); 
+        }); 
       db.close();
     });
   },
