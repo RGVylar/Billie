@@ -18,7 +18,7 @@ module.exports = {
 					const userlist = msg.mentions.users.map(user => {
 						const usera = msg.member.user.tag;
 						const userb = user.tag;
-						if(usera==userb) msg.channel.send("Find someone else :("); return;
+						if(usera==userb) msg.channel.send("Find someone else :(") return;
 						const a = usera.indexOf("#");
 						const b = userb.indexOf("#");
 						const  resa = usera.substring(0, a);
