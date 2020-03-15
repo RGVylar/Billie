@@ -14,12 +14,22 @@ module.exports = {
       .addBlankField()
       .addField('Bakemonogatari', '15 Episodes', true)
       .addField('Kisumonogatari', '3 Movies', true)
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
+      .addField('Nisemonogatari', '11 Episodes', true)
+      .addField('Nekomonogatari', '4 Episodes', true)
+      .addBlankField()
+      .addField('Monogatari series:second season', '25 Episodes (+3 Recaps)', true)
+      .addField('Nisemonogatari', '11 Episodes', true)
+      .addField('Nisemonogatari', '11 Episodes', true)
+      .addField('Nisemonogatari', '11 Episodes', true)
+      .addBlankField()
+      .addField('Bakemonogatari', '15 Episodes', true)
+      .addField('Nisemonogatari', '11 Episodes', true)
+      .addField('Nisemonogatari', '11 Episodes', true)
+      .addField('Nisemonogatari', '11 Episodes', true)
       .setImage('https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1')
       .setTimestamp()
       .setFooter('Some footer text here', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
 
-      msg.channel.send(nsfwWrongChannelWarn);
+      msg.channel.send(exampleEmbed);
     },
 };
