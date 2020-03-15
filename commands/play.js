@@ -27,8 +27,8 @@ module.exports = {
           } else {
 
               //We search for the video on youtube, take the first result if it's just string and not a full url
-              urlVideo = ytdlSearch.getInfo(args[0]);
-
+              urlVideo = ytdlSearch.getInfo(args.join(' '));
+              console.log(urlVideo);
 
               //Validate Info
               let validate = await ytdl.validateURL(urlVideo);
