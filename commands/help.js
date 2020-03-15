@@ -55,7 +55,7 @@ module.exports = {
             .setColor('#99cc00')
             .setTitle('Admin Commands')
             .setDescription('The list of the Admin commands')
-            .setThumbnail('https://cdn.discordapp.com/avatars/684090225198235697/25f8ae4bff68cfcf0b1c3b6b5e3a6843.png?size=2048')
+            .setThumbnail('https://cdn.discordapp.com/avatars/273081779420921856/d2d64a2647fbd912097802433d0359d3.png?size=2048')
             .addField( PREFIX + 'scry', 'Adds cry gif to the cry command', true)
             .addField( PREFIX + 'sdab', 'Adds dab gif to the dab command', true)
             .addField( PREFIX + 'shug', 'Adds hug gif to the hug command', true)
@@ -68,7 +68,7 @@ module.exports = {
             .addField( PREFIX + 'prefix', 'Changes the prefix', true)
             .addField( PREFIX + 'scursed', 'Adds cursed gif to the cursed command', true)
             .addField( PREFIX + 'newcommand', 'Adds a new command', true)
-            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/avatars/273081779420921856/d2d64a2647fbd912097802433d0359d3.png?size=2048');
+            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/594181619137380365.gif?v=1');
             msg.channel.send(admin);
 
           }
@@ -78,11 +78,11 @@ module.exports = {
           .setColor('#0099ff')
           .setTitle('Music Commands')
           .setDescription('The list of Music commands')
-          .setThumbnail('https://cdn.discordapp.com/emojis/615236186868416524.gif?v=1')
+          .setThumbnail('https://cdn.discordapp.com/emojis/518934188800344084.gif?v=1')
           .addField( PREFIX + 'join', 'Bot joins to your channel', true)
           .addField( PREFIX + 'stop', 'Bot leaves your channel', true)
           .addField( PREFIX + 'play', 'Bot plays or adds song to the queue', true)
-          .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/518934188800344084.gif?v=1');
+          .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/594181619137380365.gif?v=1');
           msg.channel.send(music);
 
           if (!msg.channel.nsfw) {  
@@ -123,14 +123,14 @@ module.exports = {
               .setColor('#FF0000')
               .setTitle('Admin nsfw Commands')
               .setDescription('The list of NSFW Admin commands')
-              .setThumbnail('https://cdn.discordapp.com/emojis/659923986523750412.png?v=1')
+              .setThumbnail('https://cdn.discordapp.com/avatars/95589920415948800/7430d162faaa4bf9298230c0c1e3428c.png?size=2048')
               .addField( PREFIX + 'scum', 'Adds cum gif to the cry command', true)
               .addField( PREFIX + 'ssuck', 'Adds suck gif to the suck command', true)
               .addField( PREFIX + 'sfuck', 'Adds fuck gif to the fuck command', true)
               .addField( PREFIX + 'scunni', 'Adds cunni gif to the cunni command', true)
               .addField( PREFIX + 'sundress', 'Adds undress gif to the undress command', true)
               .addField( PREFIX + 'smasturbate', 'Adds masturbate gif to the masturbate command', true)
-              .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/avatars/95589920415948800/7430d162faaa4bf9298230c0c1e3428c.png?size=2048');
+              .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
               msg.channel.send(adminNsfw);   
 
             }
