@@ -96,25 +96,6 @@ module.exports = {
             .addField( 'NSFW Commands in this channel', 'Please, ask for the commands on a NSFW channel', true)
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
             msg.channel.send(nsfw);
-
-            if(msg.member.roles.find(r => r.name === "tester")){
-
-              //ADMIN NSFW Commands 6
-              const adminNsfw = new Discord.RichEmbed()
-              .setColor('#FF0000')
-              .setTitle('Admin nsfw Commands')
-              .setDescription('The list of NSFW Admin commands')
-              .setThumbnail('https://cdn.discordapp.com/emojis/659923986523750412.png?v=1')
-              .addField( PREFIX + 'scum', 'Adds cum gif to the cry command', true)
-              .addField( PREFIX + 'ssuck', 'Adds suck gif to the suck command', true)
-              .addField( PREFIX + 'sfuck', 'Adds fuck gif to the fuck command', true)
-              .addField( PREFIX + 'scunni', 'Adds cunni gif to the cunni command', true)
-              .addField( PREFIX + 'sundress', 'Adds undress gif to the undress command', true)
-              .addField( PREFIX + 'smasturbate', 'Adds masturbate gif to the masturbate command', true)
-              .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
-              msg.channel.send(adminNsfw);   
-
-            }
           }
           else {
 
@@ -134,7 +115,25 @@ module.exports = {
             .addField( PREFIX + 'masturbate', 'Masturbate command!', true)
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
             msg.channel.send(nsfw);   
+            
+            if(msg.member.roles.find(r => r.name === "tester")){
 
+              //ADMIN NSFW Commands 6
+              const adminNsfw = new Discord.RichEmbed()
+              .setColor('#FF0000')
+              .setTitle('Admin nsfw Commands')
+              .setDescription('The list of NSFW Admin commands')
+              .setThumbnail('https://cdn.discordapp.com/emojis/659923986523750412.png?v=1')
+              .addField( PREFIX + 'scum', 'Adds cum gif to the cry command', true)
+              .addField( PREFIX + 'ssuck', 'Adds suck gif to the suck command', true)
+              .addField( PREFIX + 'sfuck', 'Adds fuck gif to the fuck command', true)
+              .addField( PREFIX + 'scunni', 'Adds cunni gif to the cunni command', true)
+              .addField( PREFIX + 'sundress', 'Adds undress gif to the undress command', true)
+              .addField( PREFIX + 'smasturbate', 'Adds masturbate gif to the masturbate command', true)
+              .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
+              msg.channel.send(adminNsfw);   
+
+            }
           }
         }); 
       db.close();
