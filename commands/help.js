@@ -1,4 +1,4 @@
-var fs = require('fs');
+const Discord = require('discord.js');
 const config = require("../config.js");
 const MongoClient = require('mongodb').MongoClient;
 module.exports = {
@@ -18,10 +18,10 @@ module.exports = {
             .setColor('#FF0000')
             .setTitle('Commands')
             .setDescription('The list of the commands')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
-            .addField('Command', 'Command')
+            .addField('sa', 'Command')
+            .addField('cry', 'Command')
+            .addField('say', 'Command')
+            .addField('hug', 'Command')
             .addField('Command', 'Command')
             .addField('Command', 'Command')
             .addField('Command', 'Command')
