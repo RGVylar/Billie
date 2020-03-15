@@ -49,4 +49,6 @@ module.exports = {
   Undress: require('./undress'),
   Sundress: require('./sundress'),
   Order: require('./order'),
+  Cunni: require('./cunni'),
+  Scunni: require('./scunni'),
 };
