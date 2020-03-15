@@ -61,12 +61,12 @@ module.exports = {
 
 
                   //if there isn't a dispatcher already created, run the play function
-                  if (data.dispatcher) play(client, options, data);
+                  if (!data.dispatcher) play(client, options, data);
                   else { // If there is already a dispatcher
                       const songAddedQueue = new Discord.RichEmbed()
                           .setColor('#0099ff')
                           .setTitle('Song added to queue :' + info.title)
-                          .setDescription('Requested by : ' + info.author.id)
+                          .setDescription('Requested by : ' + msg.member.tag)
                           .setThumbnail(info.thumbnail_url)
                           .setURL(args[0])
                       msg.channel.send(songAddedQueue);
