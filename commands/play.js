@@ -117,7 +117,7 @@ async function play(client, options, data, msg) {
     //Update the dispatcher data
     const streamOptions = { seek: 0, volume: 0.75 };
 
-    data.dispatcher = await data.connection.play(ytdl.playStream(data.queue[0].url, { filter: 'audioonly' }), streamOptions);
+    data.dispatcher = await data.connection.playStream(ytdl(data.queue[0].url, { filter: 'audioonly' }), streamOptions);
     data.dispatcher.guildID = data.guildID;
 
     //Create listener even that will run when the song end
