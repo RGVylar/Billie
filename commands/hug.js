@@ -18,19 +18,23 @@ module.exports = {
 					const userlist = msg.mentions.users.map(user => {
 						const usera = msg.member.user.tag;
 						const userb = user.tag;
-						if(usera==userb) msg.channel.send("Find someone else :(") return;
-						const a = usera.indexOf("#");
-						const b = userb.indexOf("#");
-						const  resa = usera.substring(0, a);
-						const  resb = userb.substring(0, b);
-					    var randomIndex = Math.floor(Math.random() * result.length); 
-					    var gif = result[randomIndex].url;
-					    const exampleEmbed = new Discord.RichEmbed()
-						.setColor('#0099ff')
-						.setTitle(`${resa} hugs ${resb}`)
-						.setImage(gif[0]);
-	  
-						return msg.channel.send(exampleEmbed);
+						if(usera==userb){
+							return msg.channel.send("Find someone else :(");
+						}
+						else {
+							const a = usera.indexOf("#");
+							const b = userb.indexOf("#");
+							const  resa = usera.substring(0, a);
+							const  resb = userb.substring(0, b);
+						    var randomIndex = Math.floor(Math.random() * result.length); 
+						    var gif = result[randomIndex].url;
+						    const exampleEmbed = new Discord.RichEmbed()
+							.setColor('#0099ff')
+							.setTitle(`${resa} hugs ${resb}`)
+							.setImage(gif[0]);
+		  
+							return msg.channel.send(exampleEmbed);
+						}
 					}); 
 					db.close();
 				});
