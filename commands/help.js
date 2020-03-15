@@ -15,7 +15,7 @@ module.exports = {
           var PREFIX  = res[0];
           if (!msg.channel.nsfw) {      
             const embed1 = new Discord.RichEmbed()
-            .setColor('#FF0000')
+            .setColor('#99cc00')
             .setTitle('Commands')
             .setDescription('The list of the commands')
             .addField('sa', 'Command', true)
