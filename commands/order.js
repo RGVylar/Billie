@@ -10,7 +10,6 @@ module.exports = {
       .setAuthor('Join Shinobu And Friends discord server!', 'https://cdn.discord.me/server/99cc19f10df5da7c09263ff47437dd8a700275be98bf88ae8c0c360a4ea0176d/icon_c47e9a6c64d7043618d92c7fb6125d1268f6a40497490ea377d9bba4bef12a27.jpg', 'https://discord.gg/nE2wuh6')
       .setDescription('Suggested watch order')
       .setThumbnail('https://cdn.discord.me/server/99cc19f10df5da7c09263ff47437dd8a700275be98bf88ae8c0c360a4ea0176d/icon_c47e9a6c64d7043618d92c7fb6125d1268f6a40497490ea377d9bba4bef12a27.jpg')
-      .setThumbnail('https://cdn.discord.me/server/99cc19f10df5da7c09263ff47437dd8a700275be98bf88ae8c0c360a4ea0176d/icon_c47e9a6c64d7043618d92c7fb6125d1268f6a40497490ea377d9bba4bef12a27.jpg')
       .addField('1. Bakemonogatari', '15 Episodes')
       .addField('2. Kizumonogatari', '3 Movies')
       .addField('3. Nisemonogatari', '11 Episodes')
@@ -23,7 +22,7 @@ module.exports = {
       .addField('10.Koyomimonogatari', '12 Hald-Episodes')
       .addField('11.Owarimonogatari Second Season', '7 Episodes')
       .addField('12.Zoku Owarimonogatari', '6 Episodes')
-      //.setImage('https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1')
+      .setImage('https://cdn.discord.me/server/99cc19f10df5da7c09263ff47437dd8a700275be98bf88ae8c0c360a4ea0176d/articles/article_5332c6291c17e5269d7dcba9183260a43b9a1daa86be206930cf60f85d2c6d58.jpg')
       //.setTimestamp()
       .setFooter('Made by RGVylar', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
 
