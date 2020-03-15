@@ -27,7 +27,7 @@ module.exports = {
           } else {
               var urlVideo = '';
               //We search for the video on youtube, take the first result if it's just string and not a full url
-              await ytdl.getInfo(args.join(' ')).then(info => {
+              await getInfo(args.join(' ')).then(info => {
                   urlVideo = 'https://www.youtube.com/watch?v=' + info.items[0].video_id;
                   console.log(info.items[0].title)
               });
