@@ -37,7 +37,6 @@ module.exports = {
   Skick: require('./skick'),
   Order: require('./order'),
   Cunni: require('./cunni'),
-  Cunni: require('./cunni'),
   Spunch: require('./spunch'),
   Lolito: require('./lolito'),
   Sdance: require('./sdance'),
