@@ -13,8 +13,44 @@ module.exports = {
           if (err) throw err;
           var res = result[0].prefix;
           var PREFIX  = res[0];
-          if (!msg.channel.nsfw) {      
-            const embed1 = new Discord.RichEmbed()
+
+          //Safe commands 
+          const commands = new Discord.RichEmbed()
+          .setColor('#99cc00')
+          .setTitle('Commands')
+          .setDescription('The list of commands')
+          .addField('sa', 'Command', true)
+          .addField('cry', 'Command', true)
+          .addField('dab', 'Command', true)
+          .addField('say', 'Command', true)
+          .addField('hug', 'Command', true)
+          .addField('rps', 'Command', true)
+          .addField('tea', 'Command', true)
+          .addField('coin', 'Command', true)
+          .addField('help', 'Command', true)
+          .addField('ping', 'Command', true)
+          .addField('turn', 'Command', true)
+          .addField('dice', 'Command', true)
+          .addField('date', 'Command', true)
+          .addField('kick', 'Command', true)
+          .addField('kiss', 'Command', true)
+          .addField('loli', 'Command', true)
+          .addField('dance', 'Command', true)
+          .addField('punch', 'Command', true)
+          .addField('urban', 'Command', true)
+          .addField('order', 'Command', true)
+          .addField('lolito', 'Command', true)
+          .addField('cursed', 'Command', true)
+          .addField('attach', 'Command', true)
+          .addField('avatar', 'Command', true)
+          .addField('translate', 'Command', true)
+          .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/679413153423163392.gif?v=1');
+          msg.channel.send(commands);
+
+          if(msg.member.roles.find(r => r.name === "tester")){
+
+            //ADMIN Commands
+            const admin = new Discord.RichEmbed()
             .setColor('#99cc00')
             .setTitle('Admin Commands')
             .setDescription('The list of the Admin commands')
