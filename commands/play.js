@@ -48,7 +48,7 @@ module.exports = {
                   // Next we update the data
                   if (!data.connection) data.connection = await msg.member.voiceChannel.join();
                   if (!data.queue) data.queue = []; //if there isn't a queue array, create one
-                  data.guildID = mesg.guild.id; 
+                  data.guildID = msg.guild.id; 
 
                   //We add it to the queue
                   data = queue.push({
