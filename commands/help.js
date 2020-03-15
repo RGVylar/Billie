@@ -36,7 +36,7 @@ module.exports = {
           .addField( PREFIX + 'kick', 'Kick someone', true)
           .addField( PREFIX + 'kiss', 'Kiss someone (-l makes it better)', true)
           .addField( PREFIX + 'loli', 'Are you sure about this one?', true)
-          .addField( PREFIX + 'dance', 'Dance, dance `til you`re dead', true)
+          .addField( PREFIX + 'dance', 'Dance, dance til you atadaaare dead', true)
           .addField( PREFIX + 'punch', 'Punch someone', true)
           .addField( PREFIX + 'urban', 'Show a SFW definition', true)
           .addField( PREFIX + 'order', 'Show monogatari watch order', true)
@@ -93,7 +93,7 @@ module.exports = {
             .setTitle('Commands NSFW')
             .setDescription('The list of NSFW commands')
             .setThumbnail('https://media1.tenor.com/images/8674cfb928b1055dd6b8227e7e61060b/tenor.gif?itemid=7979947')
-            .addField( 'NSFW Commands in this channel', 'Please, ask for the commands on a NSFW channel', true)
+            .addField( 'NSFW Commands in this channel', 'Please, ask for the commands on a NSFW channel if you want to see them', true)
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
             msg.channel.send(nsfw);
           }
@@ -115,7 +115,7 @@ module.exports = {
             .addField( PREFIX + 'masturbate', 'Masturbate command!', true)
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
             msg.channel.send(nsfw);   
-            
+
             if(msg.member.roles.find(r => r.name === "tester")){
 
               //ADMIN NSFW Commands 6
