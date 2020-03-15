@@ -19,6 +19,7 @@ module.exports = {
 			msg.channel.send("Find someone :(");
 		}	
 		else{
+				console.log(msg.mentinos.users);
 				MongoClient.connect(MONGO, function(err, db) {
 			  		if (err) throw err;
 			  		var dbo = db.db("billie");
