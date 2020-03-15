@@ -105,7 +105,7 @@ async function play(client, options, data, msg) {
 
             const nowPlayingMessage = new Discord.RichEmbed()
                 .setColor('#0099ff')
-                .setTitle('Now Playing :' + data.queue[0].songTitle)
+                .setTitle('Now Playing : ' + data.queue[0].songTitle)
                 .setDescription('Requested by : ' + data.queue[0].requester)
                 .setThumbnail(data.queue[0].thumbnail_url)
                 .setImage(gif[0]);
