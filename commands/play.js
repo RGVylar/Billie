@@ -56,6 +56,7 @@ module.exports = {
                       songTitle: info.title,
                       requester: msg.author.tag,
                       url: args[0],
+                      thumbnail_url: info.thumbnail_url,
                       announceChannel: msg.channel.id
                   });
 
