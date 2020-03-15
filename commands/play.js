@@ -58,7 +58,7 @@ module.exports = {
                   });
 
                   //if there isn't a dispatcher already created, run the play function
-                  if (data.dispatcher) play(client, options, data);
+                  if (data.dispatcher) playStream(client, options, data);
                   else { // If there is already a dispatcher
                       const songAddedQueue = new Discord.RichEmbed()
                           .setColor('#0099ff')
