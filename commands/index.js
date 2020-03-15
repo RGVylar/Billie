@@ -48,4 +48,5 @@ module.exports = {
   Prefix: require('./prefix'),
   Undress: require('./undress'),
   Sundress: require('./sundress'),
+  Order: require('./order'),
 };
