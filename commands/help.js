@@ -68,7 +68,7 @@ module.exports = {
             .addField( PREFIX + 'prefix', 'Changes the prefix', true)
             .addField( PREFIX + 'scursed', 'Adds cursed gif to the cursed command', true)
             .addField( PREFIX + 'newcommand', 'Adds a new command', true)
-            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/594181619137380365.gif?v=1');
+            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
             msg.channel.send(admin);
 
           }
@@ -82,7 +82,7 @@ module.exports = {
           .addField( PREFIX + 'join', 'Bot joins to your channel', true)
           .addField( PREFIX + 'stop', 'Bot leaves your channel', true)
           .addField( PREFIX + 'play', 'Bot plays or adds song to the queue', true)
-          .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/594181619137380365.gif?v=1');
+          .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
           msg.channel.send(music);
 
           if (!msg.channel.nsfw) {  
@@ -92,9 +92,9 @@ module.exports = {
             .setColor('#FF0000')
             .setTitle('Commands NSFW')
             .setDescription('The list of NSFW commands')
-            .setThumbnail('https://media1.tenor.com/images/8674cfb928b1055dd6b8227e7e61060b/tenor.gif?itemid=7979947')
+            .setThumbnail('https://cdn.discordapp.com/emojis/594181619137380365.gif?v=1')
             .addField( 'NSFW Commands in this channel', 'Please, ask for the commands on a NSFW channel if you want to see them', true)
-            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/594181619137380365.gif?v=1');
+            .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
             msg.channel.send(nsfw);
           }
           else {
