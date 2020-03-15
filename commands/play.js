@@ -41,7 +41,7 @@ module.exports = {
 
                   //Get Info
                   let info = await ytdl.getInfo(args[0]);
-
+                  consol.log('info :' + info);
                   // First, we need top fetch the active -- Also, if it's not defined it wwill be hold {}
                   let data = options.active.get(msg.guild.id) || {};
 
@@ -51,7 +51,7 @@ module.exports = {
                   data.guildID = msg.guild.id; 
 
                   //We add it to the queue
-                  data = queue.push({
+                  data.queue.push({
                       songTitle: info.title,
                       requester: msg.author.tag,
                       url: args[0],
