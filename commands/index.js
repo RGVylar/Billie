@@ -1,5 +1,5 @@
 module.exports = {
-  //Commands 55
+  //Commands 56
   //SAFE Commands 25
   Sa: require('./sa'),
   Cry: require('./cry'),
@@ -37,10 +37,12 @@ module.exports = {
   Urbansfw: require('./urbansfw'),
   Masturbate: require('./masturbate'),
 
-  //Music Commands 3
+  //Music Commands 4
   Join: require('./join'),
   Stop: require('./stop'),
   Play: require('./play'),
+  Queue: require('./queue'),
+
 
   //ADMIN NSFW Commands 6
   Scum: require('./scum'),
