@@ -41,6 +41,8 @@ module.exports = {
 
                   //Get Info
                   let info = await ytdl.getInfo(args[0]);
+                  console.log(info.thumbnail_url);
+
                   // First, we need top fetch the active -- Also, if it's not defined it wwill be hold {}
                   let data = options.active.get(msg.guild.id) || {};
 
@@ -141,6 +143,7 @@ function finish(client, options, dispatcher, msg) {
         // finally run the play function with the new song
         play(client, options, fetched, msg);
     } else {
+        console.log('No more song bot leaving');
 
         //Delete the guild object from the map
         options.active.delete(dispatcher.guildID);
