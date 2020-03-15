@@ -41,7 +41,7 @@ module.exports = {
 
                   //Get Info
                   let info = await ytdl.getInfo(args[0]);
-                  console.log(info.thumbnail_url);
+                  console.log(info.show_content_thumbnail);
 
                   // First, we need top fetch the active -- Also, if it's not defined it wwill be hold {}
                   let data = options.active.get(msg.guild.id) || {};
