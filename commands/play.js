@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const queueSong = [];
-
+const MongoClient = require('mongodb').MongoClient;
+const config = require("../config.js");
 module.exports = {
   name: 'play',
   description: 'play!',
@@ -57,14 +58,26 @@ function play(url_string, connection, msg) {
     const ytdl = require('ytdl-core');
     const stream = ytdl(url_string, { filter: 'audioonly' });
     const streamOptions = { seek: 0, volume: 1 };
-
-    const nowPlayingMessage = new Discord.RichEmbed()
-        .setColor('#0099ff')
-        .setTitle('Now Playing :' + url_string)
-        .setURL(url_string)
-        .setImage("https://media1.tenor.com/images/64a1c5b08061597450ad74c769dcfd1f/tenor.gif?itemid=15936106");
-    msg.channel.send(nowPlayingMessage);
-
+    const MONGO = config.MONGO;
+    MongoClient.connect(MONGO, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db("billie");
+      dbo.collection("dance").find({}).toArray(function(err, result) {
+            if (err) throw err;
+          const user = msg.member.user.tag;
+          const n = user.indexOf("#");
+          const  res = user.substring(0, n);
+            var randomIndex = Math.floor(Math.random() * result.length); 
+            var gif = result[randomIndex].url;
+            const nowPlayingMessage = new Discord.RichEmbed()
+                .setColor('#0099ff')
+                .setTitle('Now Playing :' + url_string)
+                .setURL(url_string)
+                .setImage(gif[0]);
+            msg.channel.send(nowPlayingMessage);
+      }); 
+      db.close();
+    });
     connection.playStream(stream, streamOptions)
 
     // When no packets left to send, leave the channel.
