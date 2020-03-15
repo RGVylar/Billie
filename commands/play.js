@@ -41,7 +41,7 @@ module.exports = {
 
                   //Get Info
                   let info = await ytdl.getInfo(args[0]);
-                  console.log(info.show_content_thumbnail);
+                  console.log(info.video_id);
 
                   // First, we need top fetch the active -- Also, if it's not defined it wwill be hold {}
                   let data = options.active.get(msg.guild.id) || {};
@@ -56,7 +56,7 @@ module.exports = {
                       songTitle: info.title,
                       requester: msg.author.tag,
                       url: args[0],
-                      thumbnail_url: info.thumbnail_url,
+                      video_id: info.video_id,
                       announceChannel: msg.channel.id
                   });
 
@@ -70,7 +70,7 @@ module.exports = {
                           .setColor('#0099ff')
                           .setTitle('Song added to queue : ' + info.title)
                           .setDescription('Requested by : ' + msg.author.tag)
-                          .setThumbnail(info.thumbnail_url)
+                          .setThumbnail('https://img.youtube.com/vi/' + info.video_id + '/0.jpg')
                           .setURL(args[0])
                       msg.channel.send(songAddedQueue);
                   }
@@ -110,7 +110,8 @@ async function play(client, options, data, msg) {
                 .setColor('#0099ff')
                 .setTitle('Now Playing : ' + data.queue[0].songTitle)
                 .setDescription('Requested by : ' + data.queue[0].requester)
-                .setThumbnail(data.queue[0].thumbnail_url)
+                .setThumbnail('https://img.youtube.com/vi/' + data.queue[0].video_id + '/0.jpg')
+                .setURL(data.queue[0].url)
                 .setImage(gif[0]);
             msg.channel.send(nowPlayingMessage);
         });
