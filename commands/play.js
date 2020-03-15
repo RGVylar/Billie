@@ -54,7 +54,7 @@ module.exports = {
                   data = queue.push({
                       songTitle: info.title,
                       requester: msg.author.tag,
-                      url = args[0],
+                      url: args[0],
                       announceChannel: msg.channel.id
                   });
 
