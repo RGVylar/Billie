@@ -102,6 +102,7 @@ async function play(client, options, data, msg) {
             const res = user.substring(0, n);
             var randomIndex = Math.floor(Math.random() * result.length);
             var gif = result[randomIndex].url;
+
             const nowPlayingMessage = new Discord.RichEmbed()
                 .setColor('#0099ff')
                 .setTitle('Now Playing :' + data.queue[0].songTitle)
