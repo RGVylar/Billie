@@ -36,7 +36,7 @@ module.exports = {
 					    var randomIndex = Math.floor(Math.random() * result.length); 
 					    var gif = result[randomIndex].url;
 					    const exampleEmbed = new Discord.RichEmbed()
-						.setColor('#0099ff')
+						.setColor('#ffc0cb')
 						.setTitle(`${resa} fucks ${resb} with a toy`)
 						.setImage(gif[0]);
 	  
@@ -63,7 +63,7 @@ module.exports = {
 						    var randomIndex = Math.floor(Math.random() * result.length); 
 						    var gif = result[randomIndex].url;
 						    const exampleEmbed = new Discord.RichEmbed()
-							.setColor('#0099ff')
+							.setColor('#ffc0cb')
 							.setTitle(`${resa} fucks ${resb}`)
 							.setImage(gif[0]);
 		  

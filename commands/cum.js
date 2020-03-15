@@ -36,7 +36,7 @@ module.exports = {
 						    var randomIndex = Math.floor(Math.random() * result.length); 
 						    var gif = result[randomIndex].url;
 						    const exampleEmbed = new Discord.RichEmbed()
-							.setColor('#0099ff')
+							.setColor('#ffc0cb')
 							.setTitle(`${resa} cums into ${resb}`)
 							.setImage(gif[0]);
 		  
