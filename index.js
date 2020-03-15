@@ -70,7 +70,6 @@ bot.on('message', msg => {
     try {
 
         let options = {
-            ownerID: ownerID,
             active: active
         }
 
