@@ -27,10 +27,10 @@ module.exports = {
           } else {
               var urlVideo = '';
               //We search for the video on youtube, take the first result if it's just string and not a full url
-              ytdlSearch.getInfo(args.join(' ')).then(info => {
+              await ytdlSearch.getInfo(args.join(' ')).then(info => {
                   urlVideo = info.items[0].url;
-                  console.log(info.items[0].title);
-              });;
+                  console.log(info.items[0].title)
+              });
               console.log(urlVideo)
 
               //Validate Info
