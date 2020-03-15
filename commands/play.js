@@ -43,7 +43,7 @@ module.exports = {
                   let info = await ytdl.getInfo(args[0]);
 
                   // First, we need top fetch the active -- Also, if it's not defined it wwill be hold {}
-                  let data = options.active.get(message.guild.id) || {};
+                  let data = options.active.get(msg.guild.id) || {};
 
                   // Next we update the data
                   if (!data.connection) data.connection = await msg.member.voiceChannel.join();
