@@ -28,8 +28,8 @@ module.exports = {
               var urlVideo = '';
               //We search for the video on youtube, take the first result if it's just string and not a full url
               await getInfo(args.join(' ')).then(info => {
-                  urlVideo = 'https://www.youtube.com/watch?v=' + info.items[0].video_id;
-                  console.log(info.items[0].title)
+                  console.table(info.items[0]);
+                  urlVideo = 'https://www.youtube.com/watch?v=' + info.items[0].url;
               });
               console.log(urlVideo)
 
