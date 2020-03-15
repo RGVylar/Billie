@@ -68,7 +68,7 @@ module.exports = {
                           .setTitle('Song added to queue :' + info.title)
                           .setDescription('Requested by : ' + info.author.id)
                           .setThumbnail(info.thumbnail_url)
-                          .setURL(url_string)
+                          .setURL(args[0])
                       msg.channel.send(songAddedQueue);
                   }
 
