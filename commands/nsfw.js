@@ -96,7 +96,7 @@ module.exports = {
                 urlPost = 'https://chan.sankakucomplex.com/post/show/'
             }
 
-            console.log(urlSearch);
+            console.table(urlSearch);
 
             var postID;
 
