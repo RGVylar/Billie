@@ -76,8 +76,8 @@ module.exports = {
           //IGNORE commands 2
           const notice = new Discord.RichEmbed()
           .setColor('#99cc00')
-          .setTitle('Commands')
-          .setDescription('The list of commands')
+          .setTitle('Ignore Commands')
+          .setDescription('The list of ignore commands')
           .setThumbnail('https://cdn.discordapp.com/avatars/683278717933453383/94953211657edbf9f841679da36ca535.png?size=2048')
           .addField( PREFIX + 'ignoreme', 'ill ignore you', true)
           .addField( PREFIX + 'noticeme', 'ill notice you', true)
