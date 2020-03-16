@@ -34,6 +34,8 @@ module.exports = {
                 args.splice(args.indexOf('-d'), 1);
             } else if (args.includes('-g')) { // Gelbooru
                 sourceWebsite = 'g';
+                args.splice(args.indexOf('-g'), 1);
+
             } else {
                 sourceWebsite = 'c'; // Default Sankaku <3
             }
@@ -89,12 +91,12 @@ module.exports = {
                 urlSearch = "https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&tag=" + urlTag;
                 urlPost = 'https://gelbooru.com/index.php?page=post&s=view&id='
 
-            } else {
+            } else if (sourceWebsite == 'c'){
                 urlSearch = "https://capi-v2.sankakucomplex.com/posts?lang=english&page=1&limit=100&tags=" + urlTag;
                 urlPost = 'https://chan.sankakucomplex.com/post/show/'
             }
 
-            console.log(urlSearch);
+            console.table(urlSearch);
 
             var postID;
 
