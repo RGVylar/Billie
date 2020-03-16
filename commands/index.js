@@ -21,6 +21,7 @@ module.exports = {
   Punch: require('./punch'),
   Urban: require('./urban'),
   Order: require('./order'),
+  Github: require('./github'),
   Lolito: require('./lolito'),
   Avatar: require('./avatar'),
   Attach: require('./attach'),
