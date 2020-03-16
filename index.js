@@ -54,7 +54,7 @@ bot.on('ready', () => {
   bot.user.setStatus('available')
     bot.user.setPresence({
         game: {
-            name: cont + ' ' + PREFIX+'help',
+            name: count + ' ' + PREFIX+'help',
             type: "STREAMING",
             url: TWITCH
         }
