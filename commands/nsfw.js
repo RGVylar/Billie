@@ -102,8 +102,7 @@ module.exports = {
 
             //// Select the post with tag
             await fetch(urlSearch, {
-                method: 'get',
-                body: JSON.stringify(body),
+                method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             })
                 .then(response => response.json())
