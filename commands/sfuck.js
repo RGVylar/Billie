@@ -20,9 +20,6 @@ module.exports = {
 			  });
 			});
 	  }
-	  else if(msg.member.roles.find(r => r.name === "tester")){
-		const MONGO = config.MONGO;
-	  	if (!args || args == "") {msg.channel.send("I need an url");}
 	  	else if (args.includes('-a')) {
 	  		args.splice(args.indexOf('-a'), 1);
 	  		MongoClient.connect(MONGO, function(err, db) {
