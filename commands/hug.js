@@ -22,6 +22,7 @@ module.exports = {
 				    	if (err) throw err;
 				    	if(result[0].user==userb){
 				    		whitelist=true;
+							console.log(whitelisted);
 				    	}
 				    	db.close();
 				  	});
