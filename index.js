@@ -92,7 +92,7 @@ bot.on('message', msg => {
     ++excom;
     bot.user.setPresence({
         game: {
-            name: excom + ' ' + PREFIX + 'help',
+            name: COUNT + ' ' + PREFIX + 'help',
             type: "STREAMING",
             url: TWITCH
         }

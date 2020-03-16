@@ -20,11 +20,10 @@ module.exports = {
 				  	var query = { user: userb };
 				  	dbo.collection("whitelist").find(query).toArray(function(err, result) {
 				    	if (err) throw err;
-				    	if(result[0].user==userb){
-							console.log('result[0].user: '+result[0].user);
-							console.log('userb: '+userb);
-				    		whitelisted=true;
-							console.log('whitelisted: '+ whitelisted);
+				    	if(result[0].user){
+					    	if(result[0].user==userb){
+					    		whitelisted=true;
+					    	}	
 				    	}
 				    	db.close();
 				  	});
@@ -38,11 +37,9 @@ module.exports = {
 								return msg.channel.send("Find someone else :(");
 							}
 							else if(whitelisted){
-								console.log(whitelisted);
-								return msg.channel.send("Who?");	
+								return msg.channel.send("Who? Someone who doesn't want to be bothered?");	
 							}
 							else {
-								console.log(whitelisted);
 								const a = usera.indexOf("#");
 								const b = userb.indexOf("#");
 								const  resa = usera.substring(0, a);
