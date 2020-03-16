@@ -73,6 +73,17 @@ module.exports = {
 
           }
 
+          //IGNORE commands 2
+          const notice = new Discord.RichEmbed()
+          .setColor('#99cc00')
+          .setTitle('Ignore Commands')
+          .setDescription('The list of ignore commands')
+          .setThumbnail('https://cdn.discordapp.com/avatars/683278717933453383/94953211657edbf9f841679da36ca535.png?size=2048')
+          .addField( PREFIX + 'ignoreme', 'ill ignore you', true)
+          .addField( PREFIX + 'noticeme', 'ill notice you', true)
+          .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
+          msg.channel.send(notice);
+
           //Music Commands 3
           const music = new Discord.RichEmbed()
           .setColor('#0099ff')

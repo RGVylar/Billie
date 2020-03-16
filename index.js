@@ -20,16 +20,30 @@ const MONGO = config.MONGO;
 const DEV = config.DEV;
 const DEV3 = config.DEV3;
 const TWITCH = config.TWITCH;
-MongoClient.connect(MONGO, function(err, db) {
+var COUNT=0;
+VAR COUNT=MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
   var dbo = db.db("billie");
   dbo.collection("config").find({}).toArray(function(err, result) {
     if (err) throw err;
     var res = result[0].prefix;
+    COUNT = result[0].count;
+    ++COUNT;
     PREFIX  = res[0];
   }); 
   db.close();
 });
+MongoClient.connect(MONGO, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("billie");
+        var myquery = {};
+        var newvalues = {$set: {count: COUNT} };
+        dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
+          if (err) throw err;
+          console.log('Bot '+COUNT+' times deployed');
+          db.close();
+        });
+      });
 
 bot.login(TOKEN);
 
@@ -43,7 +57,7 @@ bot.on('ready', () => {
             url: TWITCH
         }
     });
-      bot.users.get(DEV).send('Im awake, my master! Peace, Peace and It is ' + Date());
+      bot.users.get(DEV).send('Im awake, my master! Peace, Peace and It is my '+COUNT+' deploy!');
   });
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
@@ -77,7 +91,7 @@ bot.on('message', msg => {
     ++excom;
     bot.user.setPresence({
         game: {
-            name: excom + ' ' + PREFIX + 'help',
+            name: COUNT + ' ' + PREFIX + 'help',
             type: "STREAMING",
             url: TWITCH
         }
