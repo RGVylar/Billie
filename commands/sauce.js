@@ -21,7 +21,7 @@ module.exports = {
         	const sauce = new Discord.RichEmbed()
             .setColor('#FF0000')
             .setTitle('Your sauce!')
-            .setURL('https://nhentai.net/g/' + args + '/');
+            .setURL('https://nhentai.net/g/' + args + '/')
             .setImage('https://t.nhentai.net/galleries/'+args+'/cover.jpg');
 
         	msg.channel.send(sauce);  	
