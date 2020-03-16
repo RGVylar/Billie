@@ -103,6 +103,8 @@ module.exports = {
                 .then(response => response.json())
                 .then(data => {
                     if (data.length == 0) {
+                        console.log('data length = 0');
+                          
                                 const postEmbed = new Discord.RichEmbed()
                                     .setColor('#FF0000')
                                     .setTitle('Error')
@@ -112,6 +114,9 @@ module.exports = {
                         error = true;
                         return;
                     }
+                    console.log('data length Ok');
+
+
                     var seed = Math.floor(Math.random() * data.length - 1); 
 
                     // Get a post with the right rating
