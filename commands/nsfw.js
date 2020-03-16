@@ -101,8 +101,12 @@ module.exports = {
             var postID;
 
             //// Select the post with tag
-            await fetch(urlSearch)
-                .then(response => response)
+            await fetch(urlSearch, {
+                method: 'get',
+                body: JSON.stringify(body),
+                headers: { 'Content-Type': 'application/json' },
+            })
+                .then(response => response.json())
                 .then(body => console.log(body))
                 .then(data => {
 
