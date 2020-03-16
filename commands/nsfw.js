@@ -102,7 +102,7 @@ module.exports = {
 
             //// Select the post with tag
             await fetch(urlSearch)
-                .then(response => console.table(response.json()))
+                .then(response => console.table(JSON.parse(response)))
                 .then(data => {
                     console.log(urlSearch);
                     console.log('fetched');
