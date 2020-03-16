@@ -23,14 +23,15 @@ module.exports = {
 			const userlist = msg.mentions.users.map(user => {
 				const usera = msg.member.user.tag;
 				const userb = user.tag;
+				const id = user.id;
 				var whitelisted = MongoClient.connect(MONGO, function(err, db) {
 				  	if (err) throw err;
 				  	var dbo = db.db("billie");
-				  	var query = { user: userb };
+				  	var query = { user: id };
 				  	dbo.collection("whitelist").find(query).toArray(function(err, result) {
 				    	if (err) throw err;
 				    	if(typeof result[0] !== 'undefined'){
-					    	if(result[0].user==userb){
+					    	if(result[0].user==id){
 					    		whitelisted=true;
 					    	}	
 				    	}
@@ -44,8 +45,6 @@ module.exports = {
 				  		var dbo = db.db("billie");
 				  		dbo.collection("strapon").find({}).toArray(function(err, result) {
 			    			if (err) throw err;
-							const usera = msg.member.user.tag;
-							const userb = user.tag;
 							if(usera==userb){
 								return msg.channel.send("Find someone else :(");
 						}

@@ -8,7 +8,7 @@ module.exports = {
 	  	MongoClient.connect(MONGO, function(err, db) {
 		  	if (err) throw err;
 		  	var dbo = db.db("billie");
-		  	const ignored = msg.member.user.tag;
+		  	const ignored = msg.member.user.id;
 		  	var myobj = { user:ignored };
 		  	dbo.collection("whitelist").insertOne(myobj, function(err, res) {
 			    if (err) throw err;
