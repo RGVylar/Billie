@@ -15,6 +15,6 @@ module.exports = {
       .addField('BBDD', 'MongoDB')
       .setImage('https://cdn.discordapp.com/avatars/683278717933453383/94953211657edbf9f841679da36ca535.png')
       .setFooter('Made by RGVylar', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
-  	msg.channel.send(notice);
+  	msg.channel.send(github);
   	},
 };
