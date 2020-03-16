@@ -36,7 +36,7 @@ MongoClient.connect(MONGO, function(err, db) {
 MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db("billie");
-        var myquery = { };
+        var myquery = {};
         var newvalues = {$set: {count: COUNT} };
         dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
           if (err) throw err;
