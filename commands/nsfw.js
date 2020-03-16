@@ -105,7 +105,7 @@ module.exports = {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             })
-                .then(response => response.json())
+                .then(response => response.text())
                 .then(body => console.log(body))
                 .then(data => {
 
