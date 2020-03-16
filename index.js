@@ -21,6 +21,7 @@ const DEV = config.DEV;
 const DEV3 = config.DEV3;
 const TWITCH = config.TWITCH;
 var count="0";
+var cont="0";
 var newCount="0";
 MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
@@ -29,8 +30,8 @@ MongoClient.connect(MONGO, function(err, db) {
     if (err) throw err;
     var res = result[0].prefix;
     count = result[0].count;
-    ++count;
-    newCount=count.toString();
+    cont=count+1;
+    newCount=cont.toString();
     PREFIX  = res[0];
   }); 
   db.close();
@@ -38,7 +39,7 @@ MongoClient.connect(MONGO, function(err, db) {
 MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db("billie");
-        var myquery = {};
+        var myquery = { count: cont };
         var newvalues = {$set: {count: newCount} };
         dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
           if (err) throw err;
