@@ -34,6 +34,8 @@ module.exports = {
                 args.splice(args.indexOf('-d'), 1);
             } else if (args.includes('-g')) { // Gelbooru
                 sourceWebsite = 'g';
+                args.splice(args.indexOf('-g'), 1);
+
             } else {
                 sourceWebsite = 'c'; // Default Sankaku <3
             }
