@@ -54,7 +54,7 @@ bot.on('ready', () => {
   bot.user.setStatus('available')
     bot.user.setPresence({
         game: {
-            name: PREFIX+'help',
+            name: cont + ' ' + PREFIX+'help',
             type: "STREAMING",
             url: TWITCH
         }
@@ -90,14 +90,14 @@ bot.on('message', msg => {
         }
 
         bot.commands.get(name).execute(msg, args, options, bot);
-    ++excom;
+    /*++excom;
     bot.user.setPresence({
         game: {
             name: cont + ' ' + PREFIX + 'help',
             type: "STREAMING",
             url: TWITCH
         }
-    });
+    });*/
   } catch (error) {
     console.error(error);
     msg.reply('there was an error trying to execute that command!');
