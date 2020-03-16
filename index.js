@@ -37,10 +37,11 @@ MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db("billie");
         var myquery = {};
-        var newvalues = {$set: {count: COUNT} };
+        var newCount=COUNT.toString();
+        var newvalues = {$set: {count: newCount} };
         dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
           if (err) throw err;
-          console.log('Bot '+COUNT+' times deployed');
+          console.log('Bot '+newCount+' times deployed');
           db.close();
         });
       });
@@ -57,7 +58,7 @@ bot.on('ready', () => {
             url: TWITCH
         }
     });
-      bot.users.get(DEV).send('Im awake, my master! Peace, Peace and It is my '+COUNT+' deploy!');
+      bot.users.get(DEV).send('Im awake, my master! Peace, Peace and It is my '+newCount+' deploy!');
   });
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
