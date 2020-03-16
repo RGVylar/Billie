@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
+var whitelisted = false;
 module.exports = {
   	name: 'hug',
   	description: 'hug!',
