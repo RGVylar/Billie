@@ -5,7 +5,7 @@ module.exports = {
   	name: 'hug',
   	description: 'hug!',
   	execute(msg, args) {
-	var whitelisted = false;
+		var whitelisted = false;
 		const MONGO = config.MONGO;	
 	  	if (!msg.mentions.users.size) {
 			msg.channel.send("Find someone :(");

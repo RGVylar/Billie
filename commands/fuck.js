@@ -5,6 +5,7 @@ module.exports = {
   name: 'fuck',
   description: 'fuck!',
   execute(msg, args) {
+	var whitelisted = false;
 	const MONGO = config.MONGO;
 	if (!msg.channel.nsfw) {
         const nsfwWrongChannelWarn = new Discord.RichEmbed()
@@ -25,11 +26,13 @@ module.exports = {
 		  		var dbo = db.db("billie");
 		  		dbo.collection("strapon").find({}).toArray(function(err, result) {
 		    		if (err) throw err;
-					const userlist = msg.mentions.users.map(user => {
 						const usera = msg.member.user.tag;
 						const userb = user.tag;
 						if(usera==userb){
 							return msg.channel.send("Find someone else :(");
+						}
+						else if(whitelisted){
+							return msg.channel.send("Who? Someone who doesn't want to be bothered?");	
 						}
 						else {
 							const a = usera.indexOf("#");
@@ -49,7 +52,6 @@ module.exports = {
 					}); 
 					db.close();
 				});
-			});
 		}	
 		else{
 				MongoClient.connect(MONGO, function(err, db) {
@@ -57,29 +59,30 @@ module.exports = {
 			  		var dbo = db.db("billie");
 			  		dbo.collection("fuck").find({}).toArray(function(err, result) {
 			    		if (err) throw err;
-						const userlist = msg.mentions.users.map(user => {
 							const usera = msg.member.user.tag;
 							const userb = user.tag;
 						if(usera==userb){
 							return msg.channel.send("Find someone else :(");
 						}
-							else {
-								const a = usera.indexOf("#");
-								const b = userb.indexOf("#");
-								const  resa = usera.substring(0, a);
-								const  resb = userb.substring(0, b);
-							    var randomIndex = Math.floor(Math.random() * result.length); 
-							    var gif = result[randomIndex].url;
-							    const exampleEmbed = new Discord.RichEmbed()
-								.setColor('#ffc0cb')
-								.setTitle(`${resa} fucks ${resb}`)
-								.setImage(gif[0]);
-			  
-								return msg.channel.send(exampleEmbed);
-							}
-						}); 
-						db.close();
-					});
+						else if(whitelisted){
+							return msg.channel.send("Who? Someone who doesn't want to be bothered?");	
+						}
+						else {
+							const a = usera.indexOf("#");
+							const b = userb.indexOf("#");
+							const  resa = usera.substring(0, a);
+							const  resb = userb.substring(0, b);
+						    var randomIndex = Math.floor(Math.random() * result.length); 
+						    var gif = result[randomIndex].url;
+						    const exampleEmbed = new Discord.RichEmbed()
+							.setColor('#ffc0cb')
+							.setTitle(`${resa} fucks ${resb}`)
+							.setImage(gif[0]);
+		  
+							return msg.channel.send(exampleEmbed);
+						}
+					}); 
+					db.close();
 				});
 			}
 	  	}

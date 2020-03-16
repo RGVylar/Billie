@@ -20,15 +20,16 @@ const MONGO = config.MONGO;
 const DEV = config.DEV;
 const DEV3 = config.DEV3;
 const TWITCH = config.TWITCH;
-var COUNT=0;
-VAR COUNT=MongoClient.connect(MONGO, function(err, db) {
+var count=0;
+var newCount=0;
+MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
   var dbo = db.db("billie");
   dbo.collection("config").find({}).toArray(function(err, result) {
     if (err) throw err;
     var res = result[0].prefix;
-    COUNT = result[0].count;
-    ++COUNT;
+    count = result[0].count;
+    ++count;
     PREFIX  = res[0];
   }); 
   db.close();
@@ -37,10 +38,11 @@ MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db("billie");
         var myquery = {};
-        var newvalues = {$set: {count: COUNT} };
+        newCount=count.toString();
+        var newvalues = {$set: {count: newCount} };
         dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
           if (err) throw err;
-          console.log('Bot '+COUNT+' times deployed');
+          console.log('Bot '+newCount+' times deployed');
           db.close();
         });
       });
@@ -52,12 +54,12 @@ bot.on('ready', () => {
   bot.user.setStatus('available')
     bot.user.setPresence({
         game: {
-            name: PREFIX+'help',
+            name: count + ' ' + PREFIX+'help',
             type: "STREAMING",
             url: TWITCH
         }
     });
-      bot.users.get(DEV).send('Im awake, my master! Peace, Peace and It is my '+COUNT+' deploy!');
+      bot.users.get(DEV).send('Im awake, my master! Peace, Peace! It is my '+count+' successful deploy!');
   });
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
@@ -88,14 +90,14 @@ bot.on('message', msg => {
         }
 
         bot.commands.get(name).execute(msg, args, options, bot);
-    ++excom;
+    /*++excom;
     bot.user.setPresence({
         game: {
-            name: COUNT + ' ' + PREFIX + 'help',
+            name: cont + ' ' + PREFIX + 'help',
             type: "STREAMING",
             url: TWITCH
         }
-    });
+    });*/
   } catch (error) {
     console.error(error);
     msg.reply('there was an error trying to execute that command!');
