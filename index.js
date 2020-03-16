@@ -32,7 +32,7 @@ MongoClient.connect(MONGO, function(err, db) {
     count = result[0].count;
     cont=count;
     ++count;
-    newCount=cont.toString();
+    newCount=count.toString();
     PREFIX  = res[0];
   }); 
   db.close();
