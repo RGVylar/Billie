@@ -26,6 +26,7 @@ module.exports = {
               msg.channel.send(noArgsError);
           } else {
               var urlVideo = '';
+
               //We search for the video on youtube, take the first result if it's just string and not a full url
               await getInfo(args.join(' ')).then(info => {
                   urlVideo = info.items[0].webpage_url;
