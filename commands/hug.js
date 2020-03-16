@@ -9,6 +9,22 @@ module.exports = {
 	  	if (!msg.mentions.users.size) {
 			msg.channel.send("Find someone :(");
 		}	
+		else if {
+			MongoClient.connect(MONGO, function(err, db) {
+	  			if (err) throw err;
+	  			var dbo = db.db("billie");
+	  			const userlist = msg.mentions.users.map(user => {
+	  				const userb = user.tag;
+					var query = { user: userb };
+					dbo.collection("whitelist").find(query).toArray(function(err, result) {
+						if (err) throw err;
+							return msg.channel.send("Dont bother him/her...");
+	  				}); 
+					db.close();
+					msg.delete();
+				});
+			});
+		}
 		else{
 			MongoClient.connect(MONGO, function(err, db) {
 	  			if (err) throw err;
