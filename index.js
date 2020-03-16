@@ -21,6 +21,7 @@ const DEV = config.DEV;
 const DEV3 = config.DEV3;
 const TWITCH = config.TWITCH;
 var count=0;
+var newCount=0;
 MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
   var dbo = db.db("billie");
@@ -28,7 +29,7 @@ MongoClient.connect(MONGO, function(err, db) {
     if (err) throw err;
     var res = result[0].prefix;
     count = result[0].count;
-    ++count;
+    newCount=count+1;
     PREFIX  = res[0];
   }); 
   db.close();
@@ -37,7 +38,7 @@ MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db("billie");
         var myquery = {};
-        var newvalues = {$set: {count: count} };
+        var newvalues = {$set: {count: newCount} };
         dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
           if (err) throw err;
           console.log('Bot '+count+' times deployed');
