@@ -21,9 +21,6 @@ module.exports = {
 				  	dbo.collection("whitelist").find(query).toArray(function(err, result) {
 				    	if (err) throw err;
 				    	if(result[0].user==userb){
-				    		console.log(result.user);
-				    		console.log(result[0].user);
-				    		console.log(userb);
 				    		whitelist=true;
 				    	}
 				    	db.close();
@@ -36,6 +33,9 @@ module.exports = {
 		    			if (err) throw err;
 							if(usera==userb){
 								return msg.channel.send("Find someone else :(");
+							}
+							else if(whitelisted){
+								return msg.channel.send("Who?");	
 							}
 							else {
 								const a = usera.indexOf("#");
