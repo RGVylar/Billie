@@ -30,7 +30,8 @@ MongoClient.connect(MONGO, function(err, db) {
     if (err) throw err;
     var res = result[0].prefix;
     count = result[0].count;
-    cont=count+1;
+    cont=count;
+    ++count;
     newCount=cont.toString();
     PREFIX  = res[0];
   }); 
