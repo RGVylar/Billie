@@ -105,8 +105,8 @@ module.exports = {
                 .then(response => response.json())
                 .then(data => {
 
-                    var data = eval("(" + response + ")")
-                    alert(data.response)
+                    var json = JSON.stringify(data);
+                    console.table(json);
                     console.log(urlSearch);
                     console.log('fetched');
                     console.table(data[0]);
