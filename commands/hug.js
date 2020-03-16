@@ -21,8 +21,10 @@ module.exports = {
 				  	dbo.collection("whitelist").find(query).toArray(function(err, result) {
 				    	if (err) throw err;
 				    	if(result[0].user==userb){
+							console.log('result[0].user: '+result[0].use);
+							console.log('userb: '+userb);
 				    		whitelist=true;
-							console.log(whitelisted);
+							console.log('whitelisted: '+ whitelisted);
 				    	}
 				    	db.close();
 				  	});
