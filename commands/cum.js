@@ -65,7 +65,7 @@ module.exports = {
 						}); 
 						db.close();
 					});
-			}
+			});
 	  	}
 	},
 };
