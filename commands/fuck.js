@@ -68,7 +68,38 @@ module.exports = {
 						}); 
 						db.close();
 					});
-				}	
+				}
+				else if (args.includes('-a')) {
+	  				args.splice(args.indexOf('-a'), 1);
+					MongoClient.connect(MONGO, function(err, db) {
+				  		if (err) throw err;
+				  		var dbo = db.db("billie");
+				  		dbo.collection("anal").find({}).toArray(function(err, result) {
+			    			if (err) throw err;
+							if(usera==userb){
+								return msg.channel.send("Find someone else :(");
+						}
+						else if(whitelisted){
+							return msg.channel.send("Who? Someone who doesn't want to be bothered?");	
+						}
+						else {
+							const a = usera.indexOf("#");
+							const b = userb.indexOf("#");
+							const  resa = usera.substring(0, a);
+							const  resb = userb.substring(0, b);
+						    var randomIndex = Math.floor(Math.random() * result.length); 
+						    var gif = result[randomIndex].url;
+						    const exampleEmbed = new Discord.RichEmbed()
+							.setColor('#ffc0cb')
+							.setTitle(`${resa} fucks ${resb} in the ass`)
+							.setImage(gif[0]);
+	  
+							return msg.channel.send(exampleEmbed);
+							}
+						}); 
+						db.close();
+					});
+				}		
 				else{
 					MongoClient.connect(MONGO, function(err, db) {
 			  			if (err) throw err;

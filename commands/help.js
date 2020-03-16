@@ -122,6 +122,7 @@ module.exports = {
             .addField( PREFIX + 'nsfw', 'Take an image from danbooru', true)
             .addField( PREFIX + 'fuck', 'Fucks someone', true)
             .addField( PREFIX + 'cunni', 'Make love to someone`s pussy', true)
+            .addField( PREFIX + 'sauce', 'Gives the nhentai url!', true)
             .addField( PREFIX + 'undress', 'Take off your clothes', true)
             .addField( PREFIX + 'urbansfw', 'Takes an urban dictionary definition (not filtered)', true)
             .addField( PREFIX + 'masturbate', 'Masturbate command!', true)
