@@ -57,7 +57,8 @@ module.exports = {
 							return msg.channel.send(exampleEmbed);
 						}
 					});
-				}
+					db.close();
+				});
 			}
 		}	
 	},
