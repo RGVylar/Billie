@@ -20,6 +20,22 @@ module.exports = {
 			  });
 			});
 	  }
+	  else if(msg.member.roles.find(r => r.name === "tester")){
+		const MONGO = config.MONGO;
+	  	if (!args || args == "") {msg.channel.send("I need an url");}
+	  	else if (args.includes('-a')) {
+	  		args.splice(args.indexOf('-a'), 1);
+	  		MongoClient.connect(MONGO, function(err, db) {
+			  if (err) throw err;
+			  var dbo = db.db("billie");
+			  var myobj = { url:args };
+			  dbo.collection("anal").insertOne(myobj, function(err, res) {
+			    if (err) throw err;
+			    msg.channel.send("1 anal lewd inserted");
+			    db.close();
+			  });
+			});
+	  }
 	  	else{
 	  		MongoClient.connect(MONGO, function(err, db) {
 			  if (err) throw err;
