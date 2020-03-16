@@ -21,7 +21,7 @@ const DEV = config.DEV;
 const DEV3 = config.DEV3;
 const TWITCH = config.TWITCH;
 var COUNT=0;
-MongoClient.connect(MONGO, function(err, db) {
+VAR COUNT=MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
   var dbo = db.db("billie");
   dbo.collection("config").find({}).toArray(function(err, result) {
@@ -48,7 +48,6 @@ MongoClient.connect(MONGO, function(err, db) {
 bot.login(TOKEN);
 
 bot.on('ready', () => {
-
   console.info(`Logged in as ${bot.user.tag}!`);
   bot.user.setStatus('available')
     bot.user.setPresence({
