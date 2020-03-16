@@ -92,7 +92,7 @@ module.exports = {
                 urlPost = 'https://gelbooru.com/index.php?page=post&s=view&id='
 
             } else if (sourceWebsite == 'c'){
-                urlSearch = "https://capi-v2.sankakucomplex.com/posts?lang=english&page=1&limit=100&tags=" + urlTag;
+                urlSearch = "https://capi-v2.sankakucomplex.com/posts?lang=english&page=1&login=billietheroboot&password_hash=30486e5ff5e78fb55d6def4c5df7f312ec77f86f&limit=100&tags=" + urlTag;
                 urlPost = 'https://chan.sankakucomplex.com/post/show/'
             }
 
