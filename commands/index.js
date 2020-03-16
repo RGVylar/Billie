@@ -36,6 +36,7 @@ module.exports = {
   Nsfw: require('./nsfw'),
   Fuck: require('./fuck'),
   Cunni: require('./cunni'),
+  Sauce: require('./sauce'),
   Undress: require('./undress'),
   Urbansfw: require('./urbansfw'),
   Masturbate: require('./masturbate'),
