@@ -21,7 +21,7 @@ const DEV = config.DEV;
 const DEV3 = config.DEV3;
 const TWITCH = config.TWITCH;
 var COUNT=0;
-VAR COUNT=MongoClient.connect(MONGO, function(err, db) {
+var COUNT=MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
   var dbo = db.db("billie");
   dbo.collection("config").find({}).toArray(function(err, result) {
