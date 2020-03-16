@@ -25,6 +25,8 @@ module.exports = {
   Avatar: require('./avatar'),
   Attach: require('./attach'),
   Cursed: require('./cursed'),
+  Noticeme: require('./noticeme'),
+  Ignoreme: require('./ignoreme'),
   Translate: require('./translate'),
 
   //NSFW Commands 8
