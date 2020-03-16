@@ -22,7 +22,7 @@ module.exports = {
             .setColor('#FF0000')
             .setTitle('Your sauce!')
             .setURL('https://nhentai.net/g/' + args + '/')
-            .setImage('https://t.nhentai.net/galleries/'+args+'/cover.jpg');
+            .setImage('https://nhentai.net/g/' + args + '/1/');
 
         	msg.channel.send(sauce);  	
         }
