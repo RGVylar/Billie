@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
-var whitelisted = false;
 module.exports = {
   	name: 'hug',
   	description: 'hug!',
   	execute(msg, args) {
+	var whitelisted = false;
 		const MONGO = config.MONGO;	
 	  	if (!msg.mentions.users.size) {
 			msg.channel.send("Find someone :(");
