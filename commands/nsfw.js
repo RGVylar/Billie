@@ -114,7 +114,7 @@ module.exports = {
                 timeout: 5000,         // req/res timeout in ms, it resets on redirect. 0 to disable (OS limit applies). Signal is recommended instead.
                 compress: false,     // support gzip/deflate content encoding. false to disable
                 size: 0,            // maximum response body size in bytes. 0 to disable
-                agent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/74.0'         // http(s).Agent instance or function that returns an instance (see below)
+                agent:        // http(s).Agent instance or function that returns an instance (see below)
             })
                 .then(response => response.text())
                 .then(body => console.log(body))
