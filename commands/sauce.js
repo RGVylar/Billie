@@ -18,13 +18,7 @@ module.exports = {
     		msg.reply('But, give me the holy numbers!');
         }
         else {
-        	const sauce = new Discord.RichEmbed()
-            .setColor('#FF0000')
-            .setTitle('Your sauce!')
-            .setURL('https://nhentai.net/g/' + args + '/')
-            .setImage('https://nhentai.net/g/' + args + '/1/');
-
-        	msg.channel.send(sauce);  	
+    		msg.reply('https://nhentai.net/g/' + args + '/');       	
         }
     }
   },

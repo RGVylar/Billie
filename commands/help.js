@@ -57,6 +57,9 @@ module.exports = {
           .addField( PREFIX + 'ignoreme', 'ill ignore you', true)
           .addField( PREFIX + 'noticeme', 'ill notice you', true)
           .addField( PREFIX + 'github', 'Ill spam my repo', true)
+          .addField( PREFIX + 'pat', 'pat someone', true)
+          .addField( PREFIX + 'slap', 'slap someone', true)
+          .addField( PREFIX + 'handhold', 'W-wait isnt this lewd??', true)
           .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
           msg.channel.send(commands2);
 
