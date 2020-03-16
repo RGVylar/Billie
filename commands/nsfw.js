@@ -30,7 +30,7 @@ module.exports = {
 
             // If the user choose -d it's will search on Danbooru else it will be on gelbooru
             if (args.includes('-d')) { // Debooru
-                sourceWebsite = 'd' 
+                sourceWebsite = 'd'
                 args.splice(args.indexOf('-d'), 1);
             } else if (args.includes('-g')) { // Gelbooru
                 sourceWebsite = 'g';
@@ -87,11 +87,11 @@ module.exports = {
                 urlSearch = "https://danbooru.donmai.us/posts.json?limit=50&random=true&raw=true&tags=" + urlTag;
                 urlPost = 'https://danbooru.donmai.us/posts/'
 
-            } else if (sourceWebsite == 'g'){
+            } else if (sourceWebsite == 'g') {
                 urlSearch = "https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&tag=" + urlTag;
                 urlPost = 'https://gelbooru.com/index.php?page=post&s=view&id='
 
-            } else if (sourceWebsite == 'c'){
+            } else if (sourceWebsite == 'c') {
                 urlSearch = "https://capi-v2.sankakucomplex.com/posts?lang=english&page=1&login=billietheroboot&password_hash=30486e5ff5e78fb55d6def4c5df7f312ec77f86f&limit=100&tags=" + urlTag;
                 urlPost = 'https://chan.sankakucomplex.com/post/show/'
             }
@@ -101,21 +101,7 @@ module.exports = {
             var postID;
 
             //// Select the post with tag
-            await fetch(urlSearch, {
-                // These properties are part of the Fetch Standard
-                method: 'GET',
-                headers: {},        // request headers. format is the identical to that accepted by the Headers constructor (see below)
-                body: null,         // request body. can be null, a string, a Buffer, a Blob, or a Node.js Readable stream
-                redirect: 'follow', // set to `manual` to extract redirect headers, `error` to reject redirect
-                signal: null,       // pass an instance of AbortSignal to optionally abort requests
-
-                // The following properties are node-fetch extensions
-                follow: 20,         // maximum redirect count. 0 to not follow redirect
-                timeout: 5000,         // req/res timeout in ms, it resets on redirect. 0 to disable (OS limit applies). Signal is recommended instead.
-                compress: false,     // support gzip/deflate content encoding. false to disable
-                size: 0,            // maximum response body size in bytes. 0 to disable
-                agent:        // http(s).Agent instance or function that returns an instance (see below)
-            })
+            await fetch(urlSearch)
                 .then(response => response.text())
                 .then(body => console.log(body))
                 .then(data => {
