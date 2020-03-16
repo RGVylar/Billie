@@ -19,7 +19,7 @@ module.exports = {
 					var query = { user: userb };
 					dbo.collection("whitelist").find(query).toArray(function(err, result) {
 						if (err) throw err;
-						if(result){
+						if(result.user==userb){
 							return msg.channel.send("Dont bother him/her...");
 						}
 						else {
