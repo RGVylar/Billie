@@ -59,7 +59,7 @@ bot.on('ready', () => {
             url: TWITCH
         }
     });
-      bot.users.get(DEV).send('Im awake, my master! Peace, Peace and It is my '+newCount+' deploy!');
+      bot.users.get(DEV).send('Im awake, my master! Peace, Peace and It is my '+count+' deploy!');
   });
 bot.on('serverNewMember', function(server, user) {
      user.addTo(server.roles.get("name", "Member"));
