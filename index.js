@@ -33,15 +33,10 @@ MongoClient.connect(MONGO, function(err, db) {
   }); 
   db.close();
 });
-
-bot.login(TOKEN);
-
-bot.on('ready', () => {
-  console.info(`Logged in as ${bot.user.tag}!`);
-  MongoClient.connect(MONGO, function(err, db) {
+MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db("billie");
-        var myquery = { count: /^/ };
+        var myquery = { };
         var newvalues = {$set: {count: COUNT} };
         dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
           if (err) throw err;
@@ -49,6 +44,12 @@ bot.on('ready', () => {
           db.close();
         });
       });
+
+bot.login(TOKEN);
+
+bot.on('ready', () => {
+
+  console.info(`Logged in as ${bot.user.tag}!`);
   bot.user.setStatus('available')
     bot.user.setPresence({
         game: {
