@@ -84,6 +84,7 @@ module.exports = {
             if (sourceWebsite == 'd') {
                 urlSearch = "https://danbooru.donmai.us/posts.json?limit=50&random=true&raw=true&tags=" + urlTag;
                 urlPost = 'https://danbooru.donmai.us/posts/'
+
             } else if (sourceWebsite == 'g'){
                 urlSearch = "https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&tag=" + urlTag;
                 urlPost = 'https://gelbooru.com/index.php?page=post&s=view&id='
@@ -92,6 +93,7 @@ module.exports = {
                 urlSearch = "https://capi-v2.sankakucomplex.com/posts?lang=english&page=1&limit=100&tags=" + urlTag;
                 urlPost = 'https://chan.sankakucomplex.com/post/show/'
             }
+
             console.log(urlSearch);
 
             var postID;
@@ -123,6 +125,7 @@ module.exports = {
                     }
 
                     postID = data[seed].id;
+                    console.table(data[seed]);
 
                     // We post the selected Image
                     const postEmbed = new Discord.RichEmbed()
