@@ -25,6 +25,17 @@ module.exports = {
                 args.push('');
             }
 
+            //Get the focused website
+            var sourceWebsite = '';
+
+            // If the user choose -d it's will search on Danbooru else it will be on gelbooru
+            if (args.includes('-d')) {
+                sourceWebsite = 'd'
+                args.splice(args.indexOf('-d'), 1);
+            } else {
+                sourceWebsite = 'g'; 
+            }
+
             // Get the rating request
             var rating = [];
             var ratingString = [];
@@ -47,6 +58,8 @@ module.exports = {
                 args.splice(args.indexOf('-s'), 1);
             }
 
+
+
             console.log(args);
 
 
@@ -60,12 +73,20 @@ module.exports = {
                 listArgsDelete = "";
             }
 
-
+            // We choose the url to use of the search
 
             var urlTag = args.join('+');
             console.log(urlTag);
-            
-            var urlSearch = "https://danbooru.donmai.us/posts.json?limit=50&random=true&raw=true&tags=" + urlTag;
+            var urlSearch = '';
+            var urlPost = '';
+            if (sourceWebsite == 'd') {
+                urlSearch = "https://danbooru.donmai.us/posts.json?limit=50&random=true&raw=true&tags=" + urlTag;
+                urlPost = 'https://danbooru.donmai.us/posts/'
+            } else {
+                urlSearch = "https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&tag=" + urlTag;
+                urlPost = 'https://gelbooru.com/index.php?page=post&s=view&id='
+            }
+
             console.log(urlSearch);
 
             var postID;
@@ -97,44 +118,26 @@ module.exports = {
                     }
 
                     postID = data[seed].id;
+
+                    // We post the selected Image
+                    const postEmbed = new Discord.RichEmbed()
+                        .setColor('#ffc0cb')
+                        .setURL(urlPost + postID)
+                        .setTitle(data[seed].tag_string_artist)
+                        .setDescription('Tags : ' + args + "\rFilters : " + ratingString)
+                        .setImage(data[seed].file_url);
+
+                    console.log("Id Post : " + data[seed].id);
+                    console.log("URL Post : " + data[seed].file_url);
+
+                    console.log('Sending embed with image');
+
+                    msg.channel.send(postEmbed);
+
                     console.log("Post ID : " + postID);
 
                 })
                 .catch(err => { msg.channel.send(err) });
-
-            if (!error) {
-                //Get Image
-
-                console.log('Getting Image Object');
-
-                var urlPost = "https://danbooru.donmai.us/posts/" + postID + ".json?"
-
-                console.log('URL Image Object : ' + urlPost);
-
-                await fetch(urlPost)
-                    .then(response => response.json())
-                    .then(data => {
-                        const postEmbed = new Discord.RichEmbed()
-                            .setColor('#ffc0cb')
-                            .setURL('https://danbooru.donmai.us/posts/' + postID)
-                            .setTitle(data.tag_string_artist)
-                            .setDescription('Tags : ' + args + "\rFilters : " + ratingString)
-                            .setImage(data.file_url);
-                            //.addField('Tags : ', " " + args)
-                            //.addField('Tags deleted : ', " " + listArgsDelete)
-                            //.addBlankField()
-                            //.addField('Filters : ', " " + ratingString);
-                            
-
-                        console.log("Id Post : " + data.id);
-                        console.log("URL Post : " + data.file_url);
-
-                        console.log('Sending embed with image');
-
-                        msg.channel.send(postEmbed);
-                    })
-                    .catch(err => { msg.channel.send(err) });
-            }
         }
 
 
