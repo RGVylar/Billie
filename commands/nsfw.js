@@ -103,7 +103,6 @@ module.exports = {
             //// Select the post with tag
             await fetch(urlSearch)
                 .then(response => response.json())
-                .then(json => console.log(json))
                 .then(data => {
                     console.log(urlSearch);
                     console.log('fetched');
@@ -156,7 +155,7 @@ module.exports = {
                     console.log("Post ID : " + postID);
 
                 })
-                .catch(err => { msg.channel.send(err) });
+                .catch(err => console.error(err));
         }
 
 
