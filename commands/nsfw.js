@@ -104,6 +104,9 @@ module.exports = {
             await fetch(urlSearch)
                 .then(response => response.json())
                 .then(data => {
+
+                    var data = eval("(" + response + ")")
+                    alert(data.response)
                     console.log(urlSearch);
                     console.log('fetched');
                     console.table(data[0]);
