@@ -35,9 +35,11 @@ module.exports = {
 								return msg.channel.send("Find someone else :(");
 							}
 							else if(whitelisted){
+								console.log(whitelisted);
 								return msg.channel.send("Who?");	
 							}
 							else {
+								console.log(whitelisted);
 								const a = usera.indexOf("#");
 								const b = userb.indexOf("#");
 								const  resa = usera.substring(0, a);
