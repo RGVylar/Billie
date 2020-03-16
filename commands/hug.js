@@ -23,7 +23,7 @@ module.exports = {
 				    	if(result[0].user==userb){
 							console.log('result[0].user: '+result[0].use);
 							console.log('userb: '+userb);
-				    		whitelist=true;
+				    		whitelisted=true;
 							console.log('whitelisted: '+ whitelisted);
 				    	}
 				    	db.close();
