@@ -76,8 +76,6 @@ module.exports = {
 			  			var dbo = db.db("billie");
 			  			dbo.collection("fuck").find({}).toArray(function(err, result) {
 				    		if (err) throw err;
-								const usera = msg.member.user.tag;
-								const userb = user.tag;
 							if(usera==userb){
 								return msg.channel.send("Find someone else :(");
 							}
