@@ -55,7 +55,7 @@ module.exports = {
 							.setImage(gif[0]);
 
 							return msg.channel.send(exampleEmbed);
-						}
+						});
 					});
 					db.close();
 				});
