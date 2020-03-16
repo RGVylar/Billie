@@ -104,6 +104,9 @@ module.exports = {
             await fetch(urlSearch)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(urlSearch);
+                    console.log('fetched');
+                    console.table(data);
                     if (data.length == 0) {
                         console.log('data length = 0');
                           
