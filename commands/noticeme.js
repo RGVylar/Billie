@@ -5,17 +5,16 @@ module.exports = {
   	description: 'set noticeme!',
   	execute(msg, args) {
 		const MONGO = config.MONGO;
-		MongoClient.connect(MONGO, function(err, db) {
-	      	if (err) throw err;
-	      	var dbo = db.db("billie");
-	      	dbo.collection("whitelist").find({}).toArray(function(err, result) {
-	            if (err) throw err;
-	          	const user = msg.member.user.tag;
-	         	result[randomIndex].url;
-	            gif[0]
-	        	return msg.channel.send("Billie desu");
-	      	}); 
-	      	db.close();
-	    });
+	    const user = msg.member.user.tag;
+	    MongoClient.connect(MONGO, function(err, db) {
+			if (err) throw err;
+			var dbo = db.db("billie");
+			var myquery = { user: user };
+			dbo.collection("whitelist").deleteOne(myquery, function(err, obj) {
+			    if (err) throw err;
+			    msg.channel.send("Billie desu");
+			    db.close();
+			});
+		});
   	},
 };
