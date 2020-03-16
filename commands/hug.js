@@ -5,7 +5,6 @@ module.exports = {
   	name: 'hug',
   	description: 'hug!',
   	execute(msg, args) {
-  		var whitelisted=false;
 		const MONGO = config.MONGO;	
 	  	if (!msg.mentions.users.size) {
 			msg.channel.send("Find someone :(");
@@ -14,7 +13,7 @@ module.exports = {
 			const userlist = msg.mentions.users.map(user => {
 				const usera = msg.member.user.tag;
 				const userb = user.tag;
-				MongoClient.connect(MONGO, function(err, db) {
+				var whitelisted = MongoClient.connect(MONGO, function(err, db) {
 				  	if (err) throw err;
 				  	var dbo = db.db("billie");
 				  	var query = { user: userb };
