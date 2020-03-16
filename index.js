@@ -39,10 +39,10 @@ MongoClient.connect(MONGO, function(err, db) {
         var dbo = db.db("billie");
         var myquery = {};
         newCount=count.toString();
-        var newvalues = {$set: {count: newCount} };
+        var newvalues = {$set: {count: count} };
         dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
           if (err) throw err;
-          console.log('Bot '+newCount+' times deployed');
+          console.log('Bot '+count+' times deployed');
           db.close();
         });
       });
