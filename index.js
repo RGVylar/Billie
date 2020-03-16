@@ -21,6 +21,7 @@ const DEV = config.DEV;
 const DEV3 = config.DEV3;
 const TWITCH = config.TWITCH;
 var COUNT=0;
+var newCount=0;
 var COUNT=MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
   var dbo = db.db("billie");
@@ -37,7 +38,7 @@ MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db("billie");
         var myquery = {};
-        var newCount=COUNT.toString();
+        newCount=COUNT.toString();
         var newvalues = {$set: {count: newCount} };
         dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
           if (err) throw err;
