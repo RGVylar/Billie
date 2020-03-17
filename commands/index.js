@@ -2,6 +2,7 @@ module.exports = {
   //Commands 56
   //SAFE Commands 25
   Sa: require('./sa'),
+  Pat: require('./pat'),
   Cry: require('./cry'),
   Say: require('./say'),
   Hug: require('./hug'),
@@ -9,6 +10,7 @@ module.exports = {
   RPS: require('./rps'),
   Tea: require('./tea'),
   Coin: require('./coin'),
+  Slap: require('./slap'),
   Help: require('./help'),
   Ping: require('./ping'),
   Turn: require('./turn'),
@@ -26,6 +28,7 @@ module.exports = {
   Avatar: require('./avatar'),
   Attach: require('./attach'),
   Cursed: require('./cursed'),
+  Handhold: require('./handhold'),
   Noticeme: require('./noticeme'),
   Ignoreme: require('./ignoreme'),
   Translate: require('./translate'),
@@ -57,10 +60,14 @@ module.exports = {
   Smasturbate: require('./smasturbate'),
 
   //ADMIN Commands 12
+  Spat: require('./spat'),
+  Sdab: require('./sdab'),
+  Shug: require('./shug'),
   Scry: require('./scry'),
   Sdab: require('./sdab'),
   Shug: require('./shug'),
   Stea: require('./stea'),
+  Sslap: require('./sslap'),
   Purge: require('./purge'),
   Skiss: require('./skiss'),
   Skick: require('./skick'),
@@ -68,5 +75,6 @@ module.exports = {
   Sdance: require('./sdance'),
   Prefix: require('./prefix'),
   Scursed: require('./scursed'),
+  Shandhold: require('./shandhold'),
   NewCommand: require('./newcommand'),
 };
