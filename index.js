@@ -18,14 +18,24 @@ const TOKEN = config.TOKEN;
 var PREFIX;
 const MONGO = config.MONGO;
 const DEV = config.DEV;
+const DB = config.DB;
 const DEV3 = config.DEV3;
 const TWITCH = config.TWITCH;
 var count="0";
 var cont="0";
 var newCount="0";
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db(DB);
+  dbo.createCollection("config", function(err, res) {
+    if (err) throw err;
+    console.log("Collection created!");
+    db.close();
+  });
+});
 MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
-  var dbo = db.db("billie");
+  var dbo = db.db(DB);
   dbo.collection("config").find({}).toArray(function(err, result) {
     if (err) throw err;
     var res = result[0].prefix;
@@ -39,7 +49,7 @@ MongoClient.connect(MONGO, function(err, db) {
 });
 MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
-        var dbo = db.db("billie");
+        var dbo = db.db(DB);
         var myquery = { count: cont };
         var newvalues = {$set: {count: newCount} };
         dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
@@ -69,7 +79,7 @@ bot.on('serverNewMember', function(server, user) {
 bot.on('message', msg => {
   MongoClient.connect(MONGO, function(err, db) {
     if (err) throw err;
-    var dbo = db.db("billie");
+    var dbo = db.db(DB);
     dbo.collection("config").find({}).toArray(function(err, result) {
       if (err) throw err;
       var res = result[0].prefix;
