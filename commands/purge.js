@@ -10,7 +10,7 @@ module.exports = {
 
         if (amount > 100) return msg.reply('You can\'t delete more than 100 messages at once!'); // Checks if the amount integer is bigger than 100
         if (amount < 1) return msg.reply('You have to delete at least 1 message!'); // Checks if the amount integer is smaller than 1
-        await msg.channel.fetchMessages({ limit: amount+1 }).then(messages => { // Fetches the messages
+        await msg.channel.fetchMessages({ limit: amount }).then(messages => { // Fetches the messages
             msg.channel.bulkDelete(messages 
         )});
     }
