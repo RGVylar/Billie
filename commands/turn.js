@@ -7,7 +7,7 @@ module.exports = {
         if(dioce==7){
           const exampleEmbed = new Discord.RichEmbed()
                 .setColor('#ffff00')
-                .setTitle(`You were expecting an undress anime gif, but it was me, Dio!`)
+                .setTitle(`You were expecting the turn, but it was me, Dio!`)
                 .setImage('https://cdn.discordapp.com/attachments/687651655256375356/689757667027451919/1536245378_lYNXpYX.gif');
               return msg.channel.send(exampleEmbed);
         }
