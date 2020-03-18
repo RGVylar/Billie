@@ -1,5 +1,5 @@
 module.exports = {
-  //Commands 56
+  //Commands 58
   //SAFE Commands 25
   Sa: require('./sa'),
   Pat: require('./pat'),
@@ -19,6 +19,7 @@ module.exports = {
   Kick: require('./kick'),
   Kiss: require('./kiss'),
   Loli: require('./loli'),
+  Lauh: require('./laugh'),
   Dance: require('./dance'),
   Punch: require('./punch'),
   Urban: require('./urban'),
@@ -73,6 +74,7 @@ module.exports = {
   Skiss: require('./skiss'),
   Skick: require('./skick'),
   Sspank: require('./sspank'),
+  Slaugh: require('./slaugh'),
   Spunch: require('./spunch'),
   Sdance: require('./sdance'),
   Prefix: require('./prefix'),

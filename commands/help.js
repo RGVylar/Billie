@@ -61,6 +61,7 @@ module.exports = {
           .addField( PREFIX + 'slap', 'slap someone', true)
           .addField( PREFIX + 'handhold', 'W-wait isnt this lewd??', true)
           .addField( PREFIX + 'spank', 'Spank me baby', true)
+          .addField( PREFIX + 'laugh', 'You ill laugh about this...', true)
           .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
           msg.channel.send(commands2);
 
@@ -76,6 +77,8 @@ module.exports = {
             .addField( PREFIX + 'sdab', 'Adds dab gif to the dab command', true)
             .addField( PREFIX + 'shug', 'Adds hug gif to the hug command', true)
             .addField( PREFIX + 'stea', 'Adds tea gif to the tea command', true)
+            .addField( PREFIX + 'sspank', 'Adds dab spank to the spank command', true)
+            .addField( PREFIX + 'slaugh', 'Adds dab laugh to the laugh command', true)
             .addField( PREFIX + 'punch', 'Adds punch gif to the punch command', true)
             .addField( PREFIX + 'purge', 'Removes n messages', true)
             .addField( PREFIX + 'skiss', 'Adds kiss gif to the kiss command', true)
