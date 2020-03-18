@@ -27,7 +27,10 @@ var newCount="0";
 console.log("Bot starts");
 MongoClient.connect(MONGO, function(err, db) {
   var dbo = db.db(DB);
-  var myobj = { prefix: ["!"],count:735 };
+  var myobj = {  "prefix": [
+        "!"
+    ],
+    "count": "735"};
   dbo.createCollection("config", function(err, res) {
     if (err) {
       console.log("Config exist");
