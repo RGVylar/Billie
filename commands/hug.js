@@ -15,7 +15,7 @@ module.exports = {
 	              .setImage('https://cdn.discordapp.com/attachments/687651655256375356/689757667027451919/1536245378_lYNXpYX.gif');
 	            return msg.channel.send(exampleEmbed);
 	    }
-		    else{
+		else{
 		  	if (!msg.mentions.users.size) {
 				msg.channel.send("Find someone :(");
 			}	
