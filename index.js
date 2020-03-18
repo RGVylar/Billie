@@ -28,9 +28,9 @@ console.log("Bot starts");
 MongoClient.connect(MONGO, function(err, db) {
   var dbo = db.db(DB);
   var myobj = {  "prefix": [
-        "!"
-    ],
-    "count": "735"};
+  "!"
+  ],
+  "count": "735"};
   dbo.createCollection("config", function(err, res) {
     if (err) {
       console.log("Config exist");
@@ -38,14 +38,14 @@ MongoClient.connect(MONGO, function(err, db) {
     else {
       console.log("Config created");
       dbo.collection("config").insertOne(myobj, function(err, res) {
-            if (err) {
-              console.log("Error inserting config");
-            }
-            else{    
-              console.log("Config inserted");
-            }
-            db.close();
-          });
+        if (err) {
+          console.log("Error inserting config");
+        }
+        else{    
+          console.log("Config inserted");
+        }
+        db.close();
+      });
       db.close();
     }
     dbo.createCollection("whitelist", function(err, res) {
@@ -55,7 +55,7 @@ MongoClient.connect(MONGO, function(err, db) {
       else {
         console.log("Whitelist created");
       }
-    db.close();
+      db.close();
     });
 
   });
@@ -77,16 +77,16 @@ MongoClient.connect(MONGO, function(err, db) {
 });
 console.log("Bot got the prefix");
 MongoClient.connect(MONGO, function(err, db) {
-        if (err) throw err;
-        var dbo = db.db(DB);
-        var myquery = { count: cont };
-        var newvalues = {$set: {count: newCount} };
-        dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
-          if (err) throw err;
-          console.log('Bot '+count+' times deployed');
-          db.close();
-        });
-      });
+  if (err) throw err;
+  var dbo = db.db(DB);
+  var myquery = { count: cont };
+  var newvalues = {$set: {count: newCount} };
+  dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
+    if (err) throw err;
+    console.log('Bot '+count+' times deployed');
+    db.close();
+  });
+});
 
 console.log("Bot sets status");
 bot.login(TOKEN);
@@ -94,17 +94,17 @@ bot.login(TOKEN);
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
   bot.user.setStatus('available')
-    bot.user.setPresence({
-        game: {
-            name: count + ' ' + PREFIX+'help',
-            type: "STREAMING",
-            url: TWITCH
-        }
-    });
-      bot.users.get(DEV).send('Im awake, my master! Peace, Peace! It is my '+count+' successful deploy!');
+  bot.user.setPresence({
+    game: {
+      name: count + ' ' + PREFIX+'help',
+      type: "STREAMING",
+      url: TWITCH
+    }
   });
+  bot.users.get(DEV).send('Im awake, my master! Peace, Peace! It is my '+count+' successful deploy!');
+});
 bot.on('serverNewMember', function(server, user) {
-     user.addTo(server.roles.get("name", "Member"));
+ user.addTo(server.roles.get("name", "Member"));
 });
 bot.on('message', msg => {
   MongoClient.connect(MONGO, function(err, db) {
@@ -120,18 +120,18 @@ bot.on('message', msg => {
   if (!msg.content.startsWith(PREFIX)) return;
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();
-	const n = command.indexOf(PREFIX);
-	const  name = command.substring(PREFIX.length, command.length);
+  const n = command.indexOf(PREFIX);
+  const  name = command.substring(PREFIX.length, command.length);
   console.info(`Called command: ${name}`);
 
   if (!bot.commands.has(name)) return;
-    try {
+  try {
 
-        let options = {
-            active: active
-        }
+    let options = {
+      active: active
+    }
 
-        bot.commands.get(name).execute(msg, args, options, bot);
+    bot.commands.get(name).execute(msg, args, options, bot);
     /*++excom;
     bot.user.setPresence({
         game: {
@@ -139,9 +139,9 @@ bot.on('message', msg => {
             type: "STREAMING",
             url: TWITCH
         }
-    });*/
-  } catch (error) {
-    console.error(error);
-    msg.reply('there was an error trying to execute that command!');
-  }
-});
+      });*/
+    } catch (error) {
+      console.error(error);
+      msg.reply('there was an error trying to execute that command!');
+    }
+  });
