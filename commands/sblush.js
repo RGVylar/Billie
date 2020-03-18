@@ -7,20 +7,22 @@ module.exports = {
 	execute(msg, args) {
 		const MONGO = config.MONGO;
 		if(msg.member.id==DEV){
-			if (!args || args == "") {msg.channel.send("I need an url");}	
-			else{
-				MongoClient.connect(MONGO, function(err, db) {
+			if (!args || args == "") {msg.channel.send("I need an url");}
+		}	
+		else{
+			MongoClient.connect(MONGO, function(err, db) {
+				if (err) throw err;
+				var dbo = db.db("billie");
+				var myobj = { url:args };
+				dbo.collection("blush").insertOne(myobj, function(err, res) {
 					if (err) throw err;
-					var dbo = db.db("billie");
-					var myobj = { url:args };
-					dbo.collection("blush").insertOne(myobj, function(err, res) {
-						if (err) throw err;
-						msg.channel.send("1 blush inserted");
-						db.close();
-					});
+					msg.channel.send("1 blush inserted");
 					db.close();
-				}
-			}else{
+				});
+				db.close();
+			}
+			
+			else{
 				msg.channel.send("You dont have permission");
 			}
 			msg.delete();
