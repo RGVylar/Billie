@@ -24,7 +24,7 @@ const TWITCH = config.TWITCH;
 var count="0";
 var cont="0";
 var newCount="0";
-MongoClient.connect(url, function(err, db) {
+MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
   var dbo = db.db(DB);
   dbo.createCollection("config", function(err, res) {
