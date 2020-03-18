@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const config = require("../config.js");
 const DEV = config.DEV;
 module.exports = {
   name: 'turn',
