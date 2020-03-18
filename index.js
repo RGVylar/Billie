@@ -25,16 +25,33 @@ var count="0";
 var cont="0";
 var newCount="0";
 MongoClient.connect(MONGO, function(err, db) {
-  if (err) throw err;
   var dbo = db.db(DB);
+  var myobj = { prefix: ["!"],count:735 };
   dbo.createCollection("config", function(err, res) {
-    if (err) throw err;
-    console.log("Config created!");
-  dbo.createCollection("whitelist", function(err, res) {
-    if (err) throw err;
-    console.log("Whitelist created!");
-    db.close();
+    if (err) {
+      console.log("Config exist");
+    }
+    else {
+      console.log("Config created");
+      dbo.collection("config").insertOne(myobj, function(err, res) {
+            if (err) {
+              console.log("Error inserting config");
+            }
+            else{    
+              console.log("Config inserted");
+            }
+          });
+    }
   });
+  dbo.createCollection("whitelist", function(err, res) {
+    if (err) {
+      console.log("Whitelist exist");
+    }
+    else {
+      console.log("Whitelist created");
+    }
+  });
+  db.close();
 });
 MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
