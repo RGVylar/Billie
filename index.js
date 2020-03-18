@@ -24,6 +24,7 @@ const TWITCH = config.TWITCH;
 var count="0";
 var cont="0";
 var newCount="0";
+console.log("Bot starts");
 MongoClient.connect(MONGO, function(err, db) {
   var dbo = db.db(DB);
   var myobj = { prefix: ["!"],count:735 };
@@ -53,6 +54,7 @@ MongoClient.connect(MONGO, function(err, db) {
   });
   db.close();
 });
+console.log("Bot checked db");
 MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
   var dbo = db.db(DB);
@@ -67,6 +69,7 @@ MongoClient.connect(MONGO, function(err, db) {
   }); 
   db.close();
 });
+console.log("Bot got the prefix");
 MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db(DB);
@@ -79,6 +82,7 @@ MongoClient.connect(MONGO, function(err, db) {
         });
       });
 
+console.log("Bot sets status");
 bot.login(TOKEN);
 
 bot.on('ready', () => {
