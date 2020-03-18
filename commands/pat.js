@@ -39,6 +39,15 @@ module.exports = {
 				  	});
 				});	
 				MongoClient.connect(MONGO, function(err, db) {
+				  if (err) throw err;
+				  var dbo = db.db(DB);
+				  dbo.createCollection("pat", function(err, res) {
+				    if (err) throw err;
+				    console.log("pat created!");
+				    db.close();
+				  });
+				});
+				MongoClient.connect(MONGO, function(err, db) {
 			  		if (err) throw err;
 			  		var dbo = db.db(DB);
 			  		dbo.collection("pat").find({}).toArray(function(err, result) {

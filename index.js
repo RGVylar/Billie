@@ -29,7 +29,10 @@ MongoClient.connect(MONGO, function(err, db) {
   var dbo = db.db(DB);
   dbo.createCollection("config", function(err, res) {
     if (err) throw err;
-    console.log("Collection created!");
+    console.log("Config created!");
+  dbo.createCollection("whitelist", function(err, res) {
+    if (err) throw err;
+    console.log("Whitelist created!");
     db.close();
   });
 });
