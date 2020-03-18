@@ -19,9 +19,9 @@ module.exports = {
       MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db(DB);
-        dbo.createCollection("config", function(err, res) {
+        dbo.createCollection("blush", function(err, res) {
           if (err) {
-            console.log("Config exist");
+            console.log("blush exist");
           }
           else {
             dbo.collection("blush").find({}).toArray(function(err, result) {
