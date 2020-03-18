@@ -100,6 +100,8 @@ module.exports = {
 
             var postID;
 var Http = require('http');
+var Tls = require('tls');
+
             var req = Http.request({
     host: '176.226.251.131',
     // proxy IP
@@ -109,6 +111,31 @@ var Http = require('http');
     path: urlSearch // full URL as path
     }, function (res) {
         res.on('data', function (data) {
+        console.log(data.toString());
+    });
+});
+
+req.end();
+
+var Http = require('http');
+var Tls = require('tls');
+
+var req = Http.request({
+    host: '176.226.251.131',
+    port: 8080,
+    method: 'CONNECT',
+    path: urlSearch,
+});
+
+req.on('connect', function (res, socket, head) {
+    var cts = Tls.connect({
+    host: 'capi-v2.sankakucomplex.com',
+    socket: socket
+    }, function () {
+        cts.write('GET / HTTP/1.1rnHost: sankakucomplex.comrnrn');
+    });
+
+    cts.on('data', function (data) {
         console.log(data.toString());
     });
 });
