@@ -60,6 +60,7 @@ module.exports = {
           .addField( PREFIX + 'pat', 'pat someone', true)
           .addField( PREFIX + 'slap', 'slap someone', true)
           .addField( PREFIX + 'handhold', 'W-wait isnt this lewd??', true)
+          .addField( PREFIX + 'spank', 'Spank me baby', true)
           .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
           msg.channel.send(commands2);
 
