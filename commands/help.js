@@ -69,7 +69,7 @@ module.exports = {
           msg.channel.send(commands2);
 
           //if(msg.member.roles.find(r => r.name === "tester")){
-            if(msg.member.id==DEV){
+            if(msg.guild.owner||msg.member.id==DEV){
 
             //ADMIN Commands 12
             const admin = new Discord.RichEmbed()
@@ -90,6 +90,7 @@ module.exports = {
             .addField( PREFIX + 'sdance', 'Adds dance gif to the dance command', true)
             .addField( PREFIX + 'prefix', 'Changes the prefix', true)
             .addField( PREFIX + 'scursed', 'Adds cursed gif to the cursed command', true)
+            .addField( PREFIX + 'sblush', 'Adds blush gif to the blush command', true)
             .addField( PREFIX + 'newcommand', 'Adds a new command', true)
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
             msg.channel.send(admin);

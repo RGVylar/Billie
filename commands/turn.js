@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const DEV = config.DEV;
 module.exports = {
   name: 'turn',
   description: 'Turn!',
@@ -13,9 +14,9 @@ module.exports = {
         }
       else{
     msg.reply('End his turn');
-   	if(msg.member.id==399925589290647552){msg.channel.send('<@273081779420921856> Now is your turn!');}
-   	if(msg.member.id==273081779420921856){msg.channel.send('<@399925589290647552> Now is your turn!');}
-   	if((msg.member.id!=273081779420921856)&&(msg.member.id!=399925589290647552)){msg.channel.send('...but...who are you?');}
+   	if(msg.member.id==DEV){msg.channel.send('<@'+DEV+'> Now is your turn!');}
+   	if(msg.member.id==273081779420921856){msg.channel.send('<@'+DEV+'> Now is your turn!');}
+   	if((msg.member.id!=273081779420921856)&&(msg.member.id!=DEV)){msg.channel.send('...but...who are you?');}
     msg.delete();
     }
   },

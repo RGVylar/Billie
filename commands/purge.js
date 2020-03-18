@@ -2,7 +2,7 @@ module.exports = {
   name: 'purge',
   description: 'purge command',
     execute: async (msg, args) => {
-    if(msg.guild.owner){
+    if(msg.guild.owner||msg.member.id==DEV){
         const amount = args.join(' '); // Amount of messages which should be deleted
 
         if (!amount) return msg.reply('You haven\'t given an amount of messages which should be deleted!'); // Checks if the amount parameter is given

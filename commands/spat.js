@@ -5,7 +5,7 @@ module.exports = {
   description: 'set pat!',
   execute(msg, args) {
 	const MONGO = config.MONGO;
-    if(msg.member.roles.find(r => r.name === "tester")){
+    if(msg.member.id==DEV){
 	  	if (!args || args == "") {msg.channel.send("I need an url");}	
 	  	else{
 		  	MongoClient.connect(MONGO, function(err, db) {

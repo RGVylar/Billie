@@ -1,11 +1,12 @@
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
+const DEV = config.DEV;
 module.exports = {
   name: 'sundress',
   description: 'set undress!',
   execute(msg, args) {
 	const MONGO = config.MONGO;
-    if(msg.member.roles.find(r => r.name === "tester")){
+    if(msg.member.id==DEV){
 	  	if (!args || args == "") {msg.channel.send("I need an url");}	
 	  	else{
 		  	MongoClient.connect(MONGO, function(err, db) {
