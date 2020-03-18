@@ -46,7 +46,7 @@ MongoClient.connect(MONGO, function(err, db) {
             }
             db.close();
           });
-
+      db.close();
     }
   });
   /*dbo.createCollection("whitelist", function(err, res) {
