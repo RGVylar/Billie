@@ -1,6 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 const DEV = config.DEV;
+const DB = config.DB;
 module.exports = {
   name: 'prefix',
   description: 'set prefix!',
@@ -11,7 +12,7 @@ module.exports = {
 	  	else{ 	
 			MongoClient.connect(MONGO, function(err, db) {
 			  if (err) throw err;
-			  var dbo = db.db("billie");
+			  var dbo = db.db(DB);
 			  var PREFIX = args;
 			  var myquery = { prefix: /^/ };
 			  var newvalues = {$set: {prefix: PREFIX} };
