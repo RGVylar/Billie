@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const config = require("../config.js");
 const MongoClient = require('mongodb').MongoClient;
+const DEV = config.DEV;
 module.exports = {
   name: 'help',
   description: 'list of commands',
@@ -13,7 +14,7 @@ module.exports = {
           if (err) throw err;
           var res = result[0].prefix;
           var PREFIX  = res[0];
-          //Commands 55
+          //Commands 69
           //SAFE commands 25
           const commands = new Discord.RichEmbed()
           .setColor('#99cc00')
@@ -67,7 +68,8 @@ module.exports = {
           .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
           msg.channel.send(commands2);
 
-          if(msg.member.roles.find(r => r.name === "tester")){
+          //if(msg.member.roles.find(r => r.name === "tester")){
+            if(msg.member.id==DEV){
 
             //ADMIN Commands 12
             const admin = new Discord.RichEmbed()
@@ -138,7 +140,8 @@ module.exports = {
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
             msg.channel.send(nsfw);   
 
-            if(msg.member.roles.find(r => r.name === "tester")){
+            //if(msg.member.roles.find(r => r.name === "tester")){
+            if(msg.guild.owner||msg.member.id==DEV){
 
               //ADMIN NSFW Commands 6
               const adminNsfw = new Discord.RichEmbed()
