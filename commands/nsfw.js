@@ -100,6 +100,21 @@ module.exports = {
 
             var postID;
 
+            var req = Http.request({
+    host: '176.226.251.131',
+    // proxy IP
+    port: 8080,
+    // proxy port
+    method: 'GET',
+    path: urlSearch // full URL as path
+    }, function (res) {
+        res.on('data', function (data) {
+        console.log(data.toString());
+    });
+});
+
+req.end();
+
             //// Select the post with tag
             await fetch(urlSearch)
                 .then(response => response.text())
