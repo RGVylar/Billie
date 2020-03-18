@@ -20,17 +20,21 @@ module.exports = {
         if (err) throw err;
         var dbo = db.db(DB);
         dbo.collection("blush").find({}).toArray(function(err, result) {
-          if (err) throw err;
-          const user = msg.member.user.tag;
-          const n = user.indexOf("#");
-          const  res = user.substring(0, n);
-          var randomIndex = Math.floor(Math.random() * result.length); 
-          var gif = result[randomIndex].url;
-          const exampleEmbed = new Discord.RichEmbed()
-          .setColor('#0099ff')
-          .setTitle(`N-nanicore o///o`)
-          .setImage(gif[0]);
-          return msg.channel.send(exampleEmbed);
+           if (err) {
+            msg.channel.send("There are not blushes yet");
+          }
+          else{
+            const user = msg.member.user.tag;
+            const n = user.indexOf("#");
+            const  res = user.substring(0, n);
+            var randomIndex = Math.floor(Math.random() * result.length); 
+            var gif = result[randomIndex].url;
+            const exampleEmbed = new Discord.RichEmbed()
+            .setColor('#0099ff')
+            .setTitle(`N-nanicore o///o`)
+            .setImage(gif[0]);
+            return msg.channel.send(exampleEmbed);
+          }
         }); 
         db.close();
       });
