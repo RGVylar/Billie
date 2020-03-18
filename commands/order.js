@@ -3,6 +3,15 @@ module.exports = {
     name: 'order',
     description: 'show monogatari order',
     execute(msg, args) {
+        var dioce = Math.floor( Math.random() * 10 ) +1;
+        if(dioce==7){
+          const exampleEmbed = new Discord.RichEmbed()
+                .setColor('#ffff00')
+                .setTitle(`You were expecting the monogatari watch order, but it was me, Dio!`)
+                .setImage('https://cdn.discordapp.com/attachments/687651655256375356/689757667027451919/1536245378_lYNXpYX.gif');
+              return msg.channel.send(exampleEmbed);
+        }
+      else{
       const exampleEmbed = new Discord.RichEmbed()
       .setColor('#ffff00')
       .setTitle('Monogatari series watch order')
@@ -27,5 +36,6 @@ module.exports = {
       .setFooter('Made by RGVylar', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
 
       msg.channel.send(exampleEmbed);
-    },
+    }
+  },
 };

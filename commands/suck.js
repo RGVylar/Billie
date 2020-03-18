@@ -7,6 +7,15 @@ module.exports = {
   	execute(msg, args) {
 		var whitelisted = false;
 		const MONGO = config.MONGO;
+        var dioce = Math.floor( Math.random() * 10 ) +1;
+        if(dioce==7){
+          const exampleEmbed = new Discord.RichEmbed()
+                .setColor('#ffff00')
+                .setTitle(`You were expecting a suck anime gif, but it was me, Dio!`)
+                .setImage('https://cdn.discordapp.com/attachments/687651655256375356/689757667027451919/1536245378_lYNXpYX.gif');
+              return msg.channel.send(exampleEmbed);
+        }
+      else{
 		if (!msg.channel.nsfw) {
         	const nsfwWrongChannelWarn = new Discord.RichEmbed()
             .setColor('#FF0000')
@@ -67,6 +76,7 @@ module.exports = {
 						db.close();
 					});
 			});
+	  	}
 	  	}
 	},
 };

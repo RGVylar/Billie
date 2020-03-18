@@ -7,7 +7,7 @@ module.exports = {
     execute(msg, args) {
     const MONGO = config.MONGO;
     var dioce = Math.floor( Math.random() * 10 ) +1;
-    if(dioce>=1){
+    if(dioce==7){
       const exampleEmbed = new Discord.RichEmbed()
               .setColor('#ffff00')
               .setTitle(`You were expecting a crying anime gif, but it was me, Dio!`)
