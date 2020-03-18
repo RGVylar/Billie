@@ -48,16 +48,17 @@ MongoClient.connect(MONGO, function(err, db) {
           });
       db.close();
     }
+    dbo.createCollection("whitelist", function(err, res) {
+      if (err) {
+        console.log("Whitelist exist");
+      }
+      else {
+        console.log("Whitelist created");
+      }
+    db.close();
+    });
+
   });
-  /*dbo.createCollection("whitelist", function(err, res) {
-    if (err) {
-      console.log("Whitelist exist");
-    }
-    else {
-      console.log("Whitelist created");
-    }
-  });
-  db.close();*/
 });
 console.log("Bot checked db");
 MongoClient.connect(MONGO, function(err, db) {
