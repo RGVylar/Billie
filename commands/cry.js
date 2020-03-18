@@ -11,7 +11,7 @@ module.exports = {
       const exampleEmbed = new Discord.RichEmbed()
               .setColor('#ffff00')
               .setTitle(`You were expecting a crying anime gif, but it was me, Dio!`)
-              .setImage('https://cdn.discordapp.com/attachments/687651655256375356/689757667027451919/1536245378_lYNXpYX.gif');
+                .setImage('https://cdn.discordapp.com/attachments/682860137316220928/689793060258971750/1532018000_Tumblr_o0i5tcPs2o1s0527so1_500.gif');
             return msg.channel.send(exampleEmbed);
     }
     else {
