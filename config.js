@@ -2,6 +2,8 @@ exports.TOKEN = process.env.TOKEN;
 
 exports.MONGO = process.env.MONGO;
 
+exports.DB = process.env.DB;
+
 exports.DEV = process.env.DEV;
 
 exports.DEV1 = process.env.DEV1;
