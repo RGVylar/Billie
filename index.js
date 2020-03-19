@@ -81,7 +81,7 @@ MongoClient.connect(MONGO, function(err, db) {
   db.close();
 });
 console.log("Bot checked db");
-MongoClient.connect(MONGO, function(err, db) {
+/*MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
   var dbo = db.db(DB);
   dbo.collection("config").find({}).toArray(function(err, result) {
@@ -94,7 +94,7 @@ MongoClient.connect(MONGO, function(err, db) {
     PREFIX  = res[0];
   }); 
   db.close();
-});
+});*/
 console.log("Bot got the prefix");
 MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
