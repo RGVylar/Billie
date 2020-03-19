@@ -54,6 +54,7 @@ MongoClient.connect(MONGO, function(err, db) {
   var dbo = db.db(DB);
   dbo.collection("config").find({}).toArray(function(err, result) {
     if (err) throw err;
+    db.close();
     if(typeof result[0] !== 'undefined'){
       var res = result[0].prefix;
       count = result[0].count;
@@ -78,7 +79,6 @@ MongoClient.connect(MONGO, function(err, db) {
       });
     }
   }); 
-  db.close();
 });
 console.log("Bot checked db");
 MongoClient.connect(MONGO, function(err, db) {
@@ -86,12 +86,17 @@ MongoClient.connect(MONGO, function(err, db) {
   var dbo = db.db(DB);
   dbo.collection("config").find({}).toArray(function(err, result) {
     if (err) throw err;
+    if(typeof result[0] !== 'undefined'){
     var res = result[0].prefix;
     count = result[0].count;
     cont=count;
     ++count;
     newCount=count.toString();
     PREFIX  = res[0];
+    }
+    else{
+      console.log("Config is undefined");
+    }
   }); 
   db.close();
 });
