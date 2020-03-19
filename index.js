@@ -99,8 +99,8 @@ MongoClient.connect(MONGO, function(err, db) {
     else{
       console.log("Config is undefined");
     }
-  }); 
   db.close();
+  }); 
 });
 
 console.log("Bot got the prefix");
@@ -142,8 +142,8 @@ bot.on('message', msg => {
       if (err) throw err;
       var res = result[0].prefix;
       PREFIX  = res[0];
-    }); 
     db.close();
+    }); 
   });
   if (!msg.content.startsWith(PREFIX)) return;
   const args = msg.content.split(/ +/);
