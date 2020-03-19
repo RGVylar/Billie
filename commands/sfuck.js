@@ -3,6 +3,7 @@ const config = require("../config.js");
 const DEV = config.DEV;
 const DEV2 = config.DEV2;
 const DEV5 = config.DEV5;
+const DB = config.DB;
 module.exports = {
   name: 'sfuck',
   description: 'set fuck!',
@@ -14,7 +15,7 @@ module.exports = {
 	  		args.splice(args.indexOf('-s'), 1);
 	  		MongoClient.connect(MONGO, function(err, db) {
 			  if (err) throw err;
-			  var dbo = db.db("billie");
+			  var dbo = db.db(DB);
 			  var myobj = { url:args };
 			  dbo.collection("strapon").insertOne(myobj, function(err, res) {
 			    if (err) throw err;
@@ -27,7 +28,7 @@ module.exports = {
 	  		args.splice(args.indexOf('-a'), 1);
 	  		MongoClient.connect(MONGO, function(err, db) {
 			  if (err) throw err;
-			  var dbo = db.db("billie");
+			  var dbo = db.db(DB);
 			  var myobj = { url:args };
 			  dbo.collection("anal").insertOne(myobj, function(err, res) {
 			    if (err) throw err;
@@ -39,7 +40,7 @@ module.exports = {
 	  	else{
 	  		MongoClient.connect(MONGO, function(err, db) {
 			  if (err) throw err;
-			  var dbo = db.db("billie");
+			  var dbo = db.db(DB);
 			  var myobj = { url:args };
 			  dbo.collection("fuck").insertOne(myobj, function(err, res) {
 			    if (err) throw err;

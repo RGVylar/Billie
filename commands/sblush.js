@@ -1,5 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
+const DB = config.DB;
 const DEV = config.DEV;
 module.exports = {
 	name: 'sblush',
@@ -13,7 +14,7 @@ module.exports = {
 			else{
 				MongoClient.connect(MONGO, function(err, db) {
 					if (err) throw err;
-					var dbo = db.db("billie");
+					var dbo = db.db(DB);
 					var myobj = { url:args };
 					dbo.collection("blush").insertOne(myobj, function(err, res) {
 						if (err) throw err;

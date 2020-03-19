@@ -13,7 +13,7 @@ module.exports = {
 	  	else{
 		  	MongoClient.connect(MONGO, function(err, db) {
 			  if (err) throw err;
-			  var dbo = db.db("billie");
+			  var dbo = db.db(DB);
 			  var myobj = { url:args };
 			  dbo.collection("undress").insertOne(myobj, function(err, res) {
 			    if (err) throw err;
