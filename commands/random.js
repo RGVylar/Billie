@@ -1,7 +1,8 @@
-const Discord = require('discord.js');
-const KEY = config.KEY;
 var youtube = require('youtube-random-video');
+const config = require("../config.js");
+const Discord = require('discord.js');
 var request = require('request');
+const KEY = config.KEY;
 module.exports = {
   name: 'random',
   description: 'random!',
