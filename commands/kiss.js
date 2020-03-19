@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
+const DB = config.DB;
 module.exports = {
   	name: 'kiss',
   	description: 'kiss!',
@@ -25,7 +26,7 @@ module.exports = {
 				const id = user.id;
 				var whitelisted = MongoClient.connect(MONGO, function(err, db) {
 				  	if (err) throw err;
-				  	var dbo = db.db("billie");
+				  	var dbo = db.db(DB);
 				  	var query = { user: id };
 				  	dbo.collection("whitelist").find(query).toArray(function(err, result) {
 				    	if (err) throw err;
@@ -41,7 +42,7 @@ module.exports = {
 	  				args.splice(args.indexOf('-l'), 1);
 					MongoClient.connect(MONGO, function(err, db) {
 				  		if (err) throw err;
-				  		var dbo = db.db("billie");
+				  		var dbo = db.db(DB);
 				  		dbo.collection("lewdss").find({}).toArray(function(err, result) {
 			    			if (err) throw err;
 							if(usera==userb){
@@ -71,7 +72,7 @@ module.exports = {
 				else{
 					MongoClient.connect(MONGO, function(err, db) {
 			  			if (err) throw err;
-			  			var dbo = db.db("billie");
+			  			var dbo = db.db(DB);
 			  			dbo.collection("kiss").find({}).toArray(function(err, result) {
 				    		if (err) throw err;
 							if(usera==userb){

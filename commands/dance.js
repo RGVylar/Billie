@@ -18,7 +18,7 @@ module.exports = {
 	    else{
 		MongoClient.connect(MONGO, function(err, db) {
 			if (err) throw err;
-			var dbo = db.db("billie");
+			var dbo = db.db(DB);
 			dbo.collection("dance").find({}).toArray(function(err, result) {
 			    	if (err) throw err;
 					const user = msg.member.user.tag;

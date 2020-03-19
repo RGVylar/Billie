@@ -3,6 +3,7 @@ const ytdl = require('ytdl-core');
 const { getInfo } = require('ytdl-getinfo')
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
+const DB = config.DB;
 module.exports = {
   name: 'play',
   description: 'play!',
@@ -104,7 +105,7 @@ async function play(client, options, data, msg) {
     const MONGO = config.MONGO;
     MongoClient.connect(MONGO, function (err, db) {
         if (err) throw err;
-        var dbo = db.db("billie");
+        var dbo = db.db(DB);
         dbo.collection("dance").find({}).toArray(function (err, result) {
             if (err) throw err;
             const user = msg.member.user.tag;

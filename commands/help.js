@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const config = require("../config.js");
 const MongoClient = require('mongodb').MongoClient;
 const DEV = config.DEV;
+const DB = config.DB;
 module.exports = {
   name: 'help',
   description: 'list of commands',
@@ -9,7 +10,7 @@ module.exports = {
       const MONGO = config.MONGO;
       MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
-        var dbo = db.db("billie");
+        var dbo = db.db(DB);
         dbo.collection("config").find({}).toArray(function(err, result) {
           if (err) throw err;
           var res = result[0].prefix;
