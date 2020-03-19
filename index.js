@@ -63,7 +63,7 @@ MongoClient.connect(MONGO, function(err, db) {
     else {
       dbo.collection("config").find({}).toArray(function(err, result) {
         if (err) throw err;
-        if(typeof result[0] !== 'undefined'){
+        if(typeof result[0] != 'undefined'){
           var res = result[0].prefix;
           count = result[0].count;
           cont=count;

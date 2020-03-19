@@ -14,7 +14,7 @@ module.exports = {
 			var dbo = db.db(DB);
 			dbo.collection("whitelist").find(query).toArray(function(err, result) {
 				if (err) throw err;
-				if(typeof result.user !== 'undefined'){
+				if(typeof result.user != 'undefined'){
 					if (err) throw err;
 					var dbo = db.db(DB);
 					dbo.collection("whitelist").insertOne(query, function(err, res) {
