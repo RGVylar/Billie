@@ -18,7 +18,7 @@ module.exports = {
 					MongoClient.connect(MONGO, function(err, db) {
 						if (err) throw err;
 						var dbo = db.db(DB);
-						dbo.collection("whitelist").insertOne(myobj, function(err, res) {
+						dbo.collection("whitelist").insertOne(query, function(err, res) {
 							if (err) throw err;
 							msg.channel.send("Do you even exist?");
 							db.close();
