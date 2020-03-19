@@ -27,17 +27,16 @@ var newCount="0";
 console.log("Bot starts");
 MongoClient.connect(MONGO, function(err, db) {
   var dbo = db.db(DB);
-
   dbo.createCollection("config", function(err, res) {
     if (err) {
       console.log("Config exist");
     }
     else {
       console.log("Config created");
-      
-      db.close();
     }
+    db.close();
   });
+
     dbo.createCollection("whitelist", function(err, res) {
       if (err) {
         console.log("Whitelist exist");
@@ -49,6 +48,7 @@ MongoClient.connect(MONGO, function(err, db) {
     });
 
 });
+
 MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
   var dbo = db.db(DB);
@@ -81,6 +81,7 @@ MongoClient.connect(MONGO, function(err, db) {
   }); 
 });
 console.log("Bot checked db");
+
 MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
   var dbo = db.db(DB);
@@ -100,6 +101,7 @@ MongoClient.connect(MONGO, function(err, db) {
   }); 
   db.close();
 });
+
 console.log("Bot got the prefix");
 MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
