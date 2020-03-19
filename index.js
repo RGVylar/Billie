@@ -27,25 +27,14 @@ var newCount="0";
 console.log("Bot starts");
 MongoClient.connect(MONGO, function(err, db) {
   var dbo = db.db(DB);
-  var myobj = {  "prefix": [
-  "!"
-  ],
-  "count": "735"};
+
   dbo.createCollection("config", function(err, res) {
     if (err) {
       console.log("Config exist");
     }
     else {
       console.log("Config created");
-      dbo.collection("config").insertOne(myobj, function(err, res) {
-        if (err) {
-          console.log("Error inserting config");
-        }
-        else{    
-          console.log("Config inserted");
-        }
-        db.close();
-      });
+      
       db.close();
     }
     dbo.createCollection("whitelist", function(err, res) {
@@ -59,6 +48,37 @@ MongoClient.connect(MONGO, function(err, db) {
     });
 
   });
+});
+MongoClient.connect(MONGO, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db(DB);
+  dbo.collection("config").find({}).toArray(function(err, result) {
+    if (err) throw err;
+    if(typeof result[0] !== 'undefined'){
+    var res = result[0].prefix;
+    count = result[0].count;
+    cont=count;
+    ++count;
+    newCount=count.toString();
+    PREFIX  = res[0];
+    }
+    else{
+      var myobj = {  "prefix": [
+      "!"
+      ],
+      "count": "735"};
+      dbo.collection("config").insertOne(myobj, function(err, res) {
+        if (err) {
+          console.log("Error inserting config");
+        }
+        else{    
+          console.log("Config inserted");
+        }
+        db.close();
+      });
+    }
+  }); 
+  db.close();
 });
 console.log("Bot checked db");
 MongoClient.connect(MONGO, function(err, db) {
