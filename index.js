@@ -40,31 +40,31 @@ MongoClient.connect(MONGO, function(err, db) {
           newCount=count.toString();
           PREFIX  = res[0];
         }
-        else{
+        else{  
+          count = 735;
+          cont=count;
+          ++count;
+          newCount=count.toString();
+          PREFIX  = "!";
+          console.log("Config created");
+          var myobj = {  "prefix": [
+          "!"
+          ],
+          "count": "0"};
+          dbo.collection("config").insertOne(myobj, function(err, res) {
+            if (err) {
+              console.log("Error inserting config");
+            }
+            else{    
+              console.log("Config inserted");
+            }
+            db.close();
+          });
         }
         db.close();
       }); 
     }
     else {
-      count = 735;
-      cont=count;
-      ++count;
-      newCount=count.toString();
-      PREFIX  = "!";
-      console.log("Config created");
-      var myobj = {  "prefix": [
-      "!"
-      ],
-      "count": "0"};
-      dbo.collection("config").insertOne(myobj, function(err, res) {
-        if (err) {
-          console.log("Error inserting config");
-        }
-        else{    
-          console.log("Config inserted");
-        }
-        db.close();
-      });
     }
     db.close();
   });
