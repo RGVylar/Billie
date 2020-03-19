@@ -21,6 +21,8 @@ module.exports = {
         var dbo = db.db(DB);
         dbo.createCollection("blush", function(err, res) {
           if (err) {
+          }
+          if(typeof res[0] !== 'undefined'){
             console.log("blush exist");
           }
           else {
