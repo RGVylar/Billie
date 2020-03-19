@@ -10,7 +10,7 @@ module.exports = {
     youtube.getRandomVid(KEY, function(err , data){
       //key is your youtube api key
       //data is a JSON object
-      msg.channel.send(data);
+      console.log(data);
     })
   },
 };
