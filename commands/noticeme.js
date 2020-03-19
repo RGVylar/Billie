@@ -10,10 +10,13 @@ module.exports = {
 	    MongoClient.connect(MONGO, function(err, db) {
 			if (err) throw err;
 			var dbo = db.db(DB);
+			var initial = db.substring(0, 1);
+			var rest = db.substring(1, db.length);
+			var name = initial+rest;
 			var query = { user: id };
 			dbo.collection("whitelist").deleteMany(query, function(err, obj) {
 			    if (err) throw err;
-			    msg.channel.send(DB+" desu");
+			    msg.channel.send(name+" desu");
 			    db.close();
 			});
 		});

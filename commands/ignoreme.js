@@ -8,7 +8,6 @@ module.exports = {
 		const MONGO = config.MONGO;
 		const ignored = msg.member.user.id;
 		var query = { user:ignored };
-
 		MongoClient.connect(MONGO, function(err, db) {
 			if (err) throw err;
 			var dbo = db.db(DB);
