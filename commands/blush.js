@@ -44,7 +44,7 @@ module.exports = {
             });
           }
           else {
-            
+            msg.channel.send("This blush is not defined");
           }
           db.close();
         }); 

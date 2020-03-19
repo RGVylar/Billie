@@ -1,29 +1,31 @@
-require('dotenv').config();
-const config = require("./config.js");
-const Discord = require('discord.js');
+const MongoClient = require('mongodb').MongoClient;
 const MessageAttachment = require('discord.js');
 const MessageEmbed = require('discord.js');
+const botCommands = require('./commands');
+const config = require("./config.js");
+const Discord = require('discord.js');
 const bot = new Discord.Client();
 const active = new Map();
-bot.commands = new Discord.Collection();
-const botCommands = require('./commands');
-const MongoClient = require('mongodb').MongoClient;
-var excom = 0;
 
+const TWITCH = config.TWITCH;
+const TOKEN = config.TOKEN;
+const MONGO = config.MONGO;
+const DEV3 = config.DEV3;
+const DEV = config.DEV;
+const DB = config.DB;
+
+var newCount="0";
+var count="0";
+var cont="0";
+var PREFIX;
+
+require('dotenv').config();
+
+bot.commands = new Discord.Collection();
 Object.keys(botCommands).map(key => {
   bot.commands.set(botCommands[key].name, botCommands[key]);
 });
 
-const TOKEN = config.TOKEN;
-var PREFIX;
-const MONGO = config.MONGO;
-const DEV = config.DEV;
-const DB = config.DB;
-const DEV3 = config.DEV3;
-const TWITCH = config.TWITCH;
-var count="0";
-var cont="0";
-var newCount="0";
 MongoClient.connect(MONGO, function(err, db) {
   var dbo = db.db(DB);
   dbo.createCollection("config", function(err, res) {
@@ -59,7 +61,7 @@ MongoClient.connect(MONGO, function(err, db) {
       }); 
     }
     else {
-        dbo.collection("config").find({}).toArray(function(err, result) {
+      dbo.collection("config").find({}).toArray(function(err, result) {
         if (err) throw err;
         if(typeof result[0] !== 'undefined'){
           var res = result[0].prefix;
@@ -115,9 +117,11 @@ bot.on('ready', () => {
   });
   bot.users.get(DEV).send('Im awake, my master! Peace, Peace! It is my '+count+' successful deploy!');
 });
+
 bot.on('serverNewMember', function(server, user) {
  user.addTo(server.roles.get("name", "Member"));
 });
+
 bot.on('message', msg => {
   MongoClient.connect(MONGO, function(err, db) {
     if (err) throw err;
@@ -149,16 +153,9 @@ bot.on('message', msg => {
     }
 
     bot.commands.get(name).execute(msg, args, options, bot);
-    /*++excom;
-    bot.user.setPresence({
-        game: {
-            name: cont + ' ' + PREFIX + 'help',
-            type: "STREAMING",
-            url: TWITCH
-        }
-      });*/
-    } catch (error) {
-      console.error(error);
-      msg.reply('there was an error trying to execute that command!');
-    }
-  });
+
+  } catch (error) {
+    console.error(error);
+    msg.reply('there was an error trying to execute that command!');
+  }
+});
