@@ -31,10 +31,11 @@ module.exports = {
 					});
 				}
 			}
-			else{
-				msg.channel.send("You dont have permission");
-			}
-			msg.delete();
 		}
+		else{
+			msg.channel.send("You dont have permission");
+		}
+		msg.delete();
+
 	},
 };
