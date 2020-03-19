@@ -14,15 +14,18 @@ module.exports = {
 			var dbo = db.db(DB);
 			dbo.collection("whitelist").find(query).toArray(function(err, result) {
 				if (err) throw err;
-				if(typeof result !== 'undefined'){
+				console.log(result);
+				console.log(result.user);
+				console.log(result[0].user);
+				console.log(result[0]);
+				if(typeof result[0] !== 'undefined'){
+					if (err) throw err;
+					var dbo = db.db(DB);
+					dbo.collection("whitelist").insertOne(query, function(err, res) {
 						if (err) throw err;
-						var dbo = db.db(DB);
-						dbo.collection("whitelist").insertOne(query, function(err, res) {
-							if (err) throw err;
-							msg.channel.send("Do you even exist?");
-							db.close();
-						});
-					
+						msg.channel.send("Do you even exist?");
+						db.close();
+					});
 				}
 				else{
 					msg.channel.send("Im already ignoring you");
@@ -36,8 +39,8 @@ module.exports = {
 		   
 	},
 };
-
-/*dbo.collection("whitelist").find({}).toArray(function(err, result) {
+/*
+dbo.collection("whitelist").find({}).toArray(function(err, result) {
 		        if (err) throw err;
 		        if(typeof result[0] !== 'undefined'){
 		        	msg.channel.send("Im already ignoring you");
