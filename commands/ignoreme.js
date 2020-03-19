@@ -15,9 +15,6 @@ module.exports = {
 			dbo.collection("whitelist").find(query).toArray(function(err, result) {
 				if (err) throw err;
 				if(typeof result !== 'undefined'){
-					msg.channel.send("Im already ignoring you");
-				}
-				else{
 					MongoClient.connect(MONGO, function(err, db) {
 						if (err) throw err;
 						var dbo = db.db(DB);
@@ -27,6 +24,9 @@ module.exports = {
 							db.close();
 						});
 					});	
+				}
+				else{
+					msg.channel.send("Im already ignoring you");
 				}
 				db.close();
 			});
