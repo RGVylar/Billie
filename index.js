@@ -140,8 +140,13 @@ bot.on('message', msg => {
     var dbo = db.db(DB);
     dbo.collection("config").find({}).toArray(function(err, result) {
       if (err) throw err;
+      if(typeof result[0] !== 'undefined'){
       var res = result[0].prefix;
       PREFIX  = res[0];
+      }
+      else{
+        console.log("Config is undefined"); 
+      }
     db.close();
     }); 
   });
