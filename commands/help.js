@@ -15,7 +15,7 @@ module.exports = {
           if (err) throw err;
           var res = result[0].prefix;
           var PREFIX  = res[0];
-          //Commands 69
+          //Commands 78
           //SAFE commands 25
           const commands = new Discord.RichEmbed()
           .setColor('#99cc00')
@@ -50,7 +50,7 @@ module.exports = {
           .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
           msg.channel.send(commands);
 
-          //SAFE Commands 2
+          //SAFE Commands 11
           const commands2 = new Discord.RichEmbed()
           .setColor('#99cc00')
           .setTitle('Commands 2')
@@ -66,6 +66,7 @@ module.exports = {
           .addField( PREFIX + 'laugh', 'You ill laugh about this...', true)
           .addField( PREFIX + 'panic', 'Are you on danger? This is your command!', true)
           .addField( PREFIX + 'blush', 'o///o n-nani?', true)
+          .addField( PREFIX + 'random', 'ill send you a random youtube video', true)
           .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
           msg.channel.send(commands2);
 
