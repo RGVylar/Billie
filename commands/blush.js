@@ -22,7 +22,7 @@ module.exports = {
         dbo.createCollection("blush", function(err, res) {
           if (err) {
           }
-          if(typeof res[0] !== 'undefined'){
+          if(typeof res !== 'undefined'){
             console.log("blush exist");
           }
           else {

@@ -41,6 +41,7 @@ MongoClient.connect(MONGO, function(err, db) {
           PREFIX  = res[0];
         }
         else{  
+          console.log("A");
           count = 735;
           cont=count;
           ++count;
@@ -65,6 +66,7 @@ MongoClient.connect(MONGO, function(err, db) {
       }); 
     }
     else {
+      console.log("B");
       count = 735;
           cont=count;
           ++count;
