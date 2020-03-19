@@ -3,8 +3,8 @@ const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 const DB = config.DB;
 module.exports = {
-  name: 'blush',
-  description: 'blush!',
+  name: 'cry',
+  description: 'cry!',
   execute(msg, args) {
     const MONGO = config.MONGO;
     var dioce = Math.floor( Math.random() * 10 ) +1;
