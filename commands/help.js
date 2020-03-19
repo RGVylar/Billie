@@ -15,7 +15,7 @@ module.exports = {
           if (err) throw err;
           var res = result[0].prefix;
           var PREFIX  = res[0];
-          //Commands 78
+          //Commands 85
           //SAFE commands 25
           const commands = new Discord.RichEmbed()
           .setColor('#99cc00')
@@ -73,7 +73,7 @@ module.exports = {
           //if(msg.member.roles.find(r => r.name === "tester")){
             if(msg.guild.owner||msg.member.id==DEV){
 
-            //ADMIN Commands 12
+            //ADMIN Commands 15
             const admin = new Discord.RichEmbed()
             .setColor('#99cc00')
             .setTitle('Admin Commands')
@@ -125,7 +125,7 @@ module.exports = {
           }
           else {
 
-            //NSFW Commands 8
+            //NSFW Commands 9
             const nsfw = new Discord.RichEmbed()
             .setColor('#FF0000')
             .setTitle('Commands NSFW')
@@ -146,7 +146,7 @@ module.exports = {
             //if(msg.member.roles.find(r => r.name === "tester")){
             if(msg.guild.owner||msg.member.id==DEV){
 
-              //ADMIN NSFW Commands 6
+              //ADMIN NSFW Commands 7
               const adminNsfw = new Discord.RichEmbed()
               .setColor('#FF0000')
               .setTitle('Admin nsfw Commands')
