@@ -8,9 +8,7 @@ module.exports = {
   description: 'random!',
   execute(msg, args) {
     youtube.getRandomVid(KEY, function(err , data){
-      //key is your youtube api key
-      //data is a JSON object
-      console.log(data);
+      msg.channel.send(data.id.videoId);
     })
   },
 };
