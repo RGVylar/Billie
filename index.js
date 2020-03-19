@@ -65,7 +65,7 @@ MongoClient.connect(MONGO, function(err, db) {
         db.close();
       }); 
     }
-    else {
+    else {/*
       console.log("B");
       count = 735;
           cont=count;
@@ -85,7 +85,7 @@ MongoClient.connect(MONGO, function(err, db) {
               console.log("Config inserted");
             }
             db.close();
-          });
+          });*/
     }
     db.close();
   });
