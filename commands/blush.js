@@ -23,9 +23,6 @@ module.exports = {
           if (err) {
           }
           if(typeof res !== 'undefined'){
-            console.log("blush exist");
-          }
-          else {
             dbo.collection("blush").find({}).toArray(function(err, result) {
               if (err) throw err;
               if(typeof result[0] !== 'undefined'){
@@ -45,6 +42,9 @@ module.exports = {
               }
               db.close();
             });
+          }
+          else {
+            
           }
           db.close();
         }); 

@@ -24,7 +24,6 @@ const TWITCH = config.TWITCH;
 var count="0";
 var cont="0";
 var newCount="0";
-console.log("Bot starts");
 MongoClient.connect(MONGO, function(err, db) {
   var dbo = db.db(DB);
   dbo.createCollection("config", function(err, res) {
@@ -60,7 +59,6 @@ MongoClient.connect(MONGO, function(err, db) {
       }); 
     }
     else {
-          console.log("A");
           count = 735;
           cont=count;
           ++count;
