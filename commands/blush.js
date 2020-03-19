@@ -25,10 +25,8 @@ module.exports = {
           }
           else {
             dbo.collection("blush").find({}).toArray(function(err, result) {
-              if (err) {
-                msg.channel.send("There are not blushes yet");
-              }
-              else{
+              if (err) throw err;
+              if(typeof result[0] !== 'undefined'){
                 const user = msg.member.user.tag;
                 const n = user.indexOf("#");
                 const  res = user.substring(0, n);
@@ -39,6 +37,9 @@ module.exports = {
                 .setTitle(`N-nanicore o///o`)
                 .setImage(gif[0]);
                 return msg.channel.send(exampleEmbed);
+              }
+              else{
+                msg.channel.send("There are not blush gifs yet!");
               }
               db.close();
             });
