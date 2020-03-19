@@ -19,6 +19,7 @@
     "ytsr": "^0.1.11",
     "mongodb": "^3.0.5",
     "mongojs": "^2.4.0",
-    "node-opus": "0.3.3"
+    "node-opus": "0.3.3",
+    "youtube-random-video": "1.0.5"
   }
 }

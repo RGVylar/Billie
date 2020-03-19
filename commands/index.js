@@ -32,6 +32,7 @@ module.exports = {
   Avatar: require('./avatar'),
   Attach: require('./attach'),
   Cursed: require('./cursed'),
+  Random: require('./random'),
   Handhold: require('./handhold'),
   Noticeme: require('./noticeme'),
   Ignoreme: require('./ignoreme'),

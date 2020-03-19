@@ -18,4 +18,6 @@ exports.DEV5 = process.env.DEV5;
 
 exports.TWITCH = process.env.TWITCH;
 
+exports.KEY = process.env.KEY;
+
 exports.PREFIX = '+';
