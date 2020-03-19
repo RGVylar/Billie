@@ -59,11 +59,34 @@ MongoClient.connect(MONGO, function(err, db) {
       }); 
     }
     else {
-          count = 735;
+        dbo.collection("config").find({}).toArray(function(err, result) {
+        if (err) throw err;
+        if(typeof result[0] !== 'undefined'){
+          var res = result[0].prefix;
+          count = result[0].count;
           cont=count;
           ++count;
           newCount=count.toString();
-          PREFIX  = "!";
+          PREFIX  = res[0];
+        }
+        else{  
+          console.log("Config created");
+          var myobj = {  "prefix": [
+          "!"
+          ],
+          "count": "0"};
+          dbo.collection("config").insertOne(myobj, function(err, res) {
+            if (err) {
+              console.log("Error inserting config");
+            }
+            else{    
+              console.log("Config inserted");
+            }
+            db.close();
+          });
+        }
+        db.close();
+      });
     }
     db.close();
   });
