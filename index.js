@@ -30,44 +30,32 @@ MongoClient.connect(MONGO, function(err, db) {
   dbo.createCollection("config", function(err, res) {
     if (err) {
       console.log("Config exist");
+      dbo.collection("config").find({}).toArray(function(err, result) {
+        if (err) throw err;
+        if(typeof result[0] !== 'undefined'){
+          var res = result[0].prefix;
+          count = result[0].count;
+          cont=count;
+          ++count;
+          newCount=count.toString();
+          PREFIX  = res[0];
+        }
+        else{
+        }
+        db.close();
+      }); 
     }
     else {
-      console.log("Config created");
-    }
-    db.close();
-  });
-
-    dbo.createCollection("whitelist", function(err, res) {
-      if (err) {
-        console.log("Whitelist exist");
-      }
-      else {
-        console.log("Whitelist created");
-      }
-      db.close();
-    });
-
-});
-
-MongoClient.connect(MONGO, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db(DB);
-  dbo.collection("config").find({}).toArray(function(err, result) {
-    if (err) throw err;
-    db.close();
-    if(typeof result[0] !== 'undefined'){
-      var res = result[0].prefix;
-      count = result[0].count;
+      count = 735;
       cont=count;
       ++count;
       newCount=count.toString();
-      PREFIX  = res[0];
-    }
-    else{
+      PREFIX  = "!";
+      console.log("Config created");
       var myobj = {  "prefix": [
       "!"
       ],
-      "count": "735"};
+      "count": "0"};
       dbo.collection("config").insertOne(myobj, function(err, res) {
         if (err) {
           console.log("Error inserting config");
@@ -79,44 +67,18 @@ MongoClient.connect(MONGO, function(err, db) {
       });
     }
     db.close();
-  }); 
-});
-console.log("Bot checked db");
-
-MongoClient.connect(MONGO, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db(DB);
-  dbo.collection("config").find({}).toArray(function(err, result) {
-    if (err) throw err;
-    if(typeof result[0] !== 'undefined'){
-    var res = result[0].prefix;
-    count = result[0].count;
-    cont=count;
-    ++count;
-    newCount=count.toString();
-    PREFIX  = res[0];
+  });
+  dbo.createCollection("whitelist", function(err, res) {
+    if (err) {
+      console.log("Whitelist exist");
     }
-    else{
-      console.log("Config is undefined");
+    else {
+      console.log("Whitelist created");
     }
-  db.close();
-  }); 
-});
-
-console.log("Bot got the prefix");
-MongoClient.connect(MONGO, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db(DB);
-  var myquery = { count: cont };
-  var newvalues = {$set: {count: newCount} };
-  dbo.collection("config").updateMany(myquery, newvalues, function(err, res) {
-    if (err) throw err;
-    console.log('Bot '+count+' times deployed');
     db.close();
   });
 });
 
-console.log("Bot sets status");
 bot.login(TOKEN);
 
 bot.on('ready', () => {
@@ -141,13 +103,13 @@ bot.on('message', msg => {
     dbo.collection("config").find({}).toArray(function(err, result) {
       if (err) throw err;
       if(typeof result[0] !== 'undefined'){
-      var res = result[0].prefix;
-      PREFIX  = res[0];
+        var res = result[0].prefix;
+        PREFIX  = res[0];
       }
       else{
         console.log("Config is undefined"); 
       }
-    db.close();
+      db.close();
     }); 
   });
   if (!msg.content.startsWith(PREFIX)) return;
