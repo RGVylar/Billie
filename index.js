@@ -37,6 +37,7 @@ MongoClient.connect(MONGO, function(err, db) {
       
       db.close();
     }
+  });
     dbo.createCollection("whitelist", function(err, res) {
       if (err) {
         console.log("Whitelist exist");
@@ -47,7 +48,6 @@ MongoClient.connect(MONGO, function(err, db) {
       db.close();
     });
 
-  });
 });
 MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
@@ -55,12 +55,12 @@ MongoClient.connect(MONGO, function(err, db) {
   dbo.collection("config").find({}).toArray(function(err, result) {
     if (err) throw err;
     if(typeof result[0] !== 'undefined'){
-    var res = result[0].prefix;
-    count = result[0].count;
-    cont=count;
-    ++count;
-    newCount=count.toString();
-    PREFIX  = res[0];
+      var res = result[0].prefix;
+      count = result[0].count;
+      cont=count;
+      ++count;
+      newCount=count.toString();
+      PREFIX  = res[0];
     }
     else{
       var myobj = {  "prefix": [
@@ -81,7 +81,7 @@ MongoClient.connect(MONGO, function(err, db) {
   db.close();
 });
 console.log("Bot checked db");
-/*MongoClient.connect(MONGO, function(err, db) {
+MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
   var dbo = db.db(DB);
   dbo.collection("config").find({}).toArray(function(err, result) {
@@ -94,7 +94,7 @@ console.log("Bot checked db");
     PREFIX  = res[0];
   }); 
   db.close();
-});*/
+});
 console.log("Bot got the prefix");
 MongoClient.connect(MONGO, function(err, db) {
   if (err) throw err;
