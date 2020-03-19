@@ -14,8 +14,6 @@ module.exports = {
 			var dbo = db.db(DB);
 			dbo.collection("whitelist").find(query).toArray(function(err, result) {
 				if (err) throw err;
-				console.log('user: '+result.user);
-				console.log('results: '+result);
 				if(result==''){
 					if (err) throw err;
 					var dbo = db.db(DB);
