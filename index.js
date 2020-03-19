@@ -78,6 +78,7 @@ MongoClient.connect(MONGO, function(err, db) {
         db.close();
       });
     }
+    db.close();
   }); 
 });
 console.log("Bot checked db");
