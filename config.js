@@ -14,6 +14,8 @@ exports.DEV3 = process.env.DEV3;
 
 exports.DEV4 = process.env.DEV4;
 
+exports.DEV5 = process.env.DEV5;
+
 exports.TWITCH = process.env.TWITCH;
 
 exports.PREFIX = '+';

@@ -1,11 +1,13 @@
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 const DEV = config.DEV;
+const DEV2 = config.DEV2;
+const DEV5 = config.DEV5;
 module.exports = {
   name: 'smasturbate',
   description: 'set masturbation!',
   execute(msg, args) {
-    if(msg.member.id==DEV){
+    if(msg.member.id==DEV||msg.member.id==DEV2||msg.member.id==DEV5){
 		const MONGO = config.MONGO;
 	  	if (!args || args == "") {msg.channel.send("I need an url");}
 	  	else if (args.includes('-m')) {
