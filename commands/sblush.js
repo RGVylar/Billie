@@ -29,13 +29,12 @@ module.exports = {
 						}
 						db.close();
 					});
-				}
+				});
 			}
 		}
 		else{
 			msg.channel.send("You dont have permission");
 		}
 		msg.delete();
-
 	},
 };
