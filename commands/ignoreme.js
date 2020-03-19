@@ -9,7 +9,7 @@ module.exports = {
 		const ignored = msg.member.user.id;
 		var query = { user:ignored };
 
-		MongoClient.connect(url, function(err, db) {
+		MongoClient.connect(MONGO, function(err, db) {
 			if (err) throw err;
 			var dbo = db.db(DB);
 			dbo.collection("whitelist").find(query).toArray(function(err, result) {
