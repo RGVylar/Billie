@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 const DB = config.DB;
@@ -25,38 +26,15 @@ module.exports = {
 					});
 				}
 				else{
-					msg.channel.send("Im already ignoring you");
+	      			const exampleEmbed = new Discord.RichEmbed()
+	              	.setColor('#ffff00')
+	              	.setTitle(`Im already ignoring you!`)
+               		.setImage('https://cdn.discordapp.com/attachments/690295794628165707/690316862541791252/tenor_5.gif');
+	            	return msg.channel.send(exampleEmbed);
+					msg.channel.send("");
 				}
 				db.close();
 			});
-		});
-
-		
-		      
-		   
+		});   
 	},
 };
-/*
-dbo.collection("whitelist").find({}).toArray(function(err, result) {
-		        if (err) throw err;
-		        if(typeof result[0] !== 'undefined'){
-		        	msg.channel.send("Im already ignoring you");
-		        }
-		        else{  
-		          console.log("Config created");
-		          var myobj = {  "prefix": [
-		          "!"
-		          ],
-		          "count": "0"};
-		          dbo.collection("config").insertOne(myobj, function(err, res) {
-		            if (err) {
-		              console.log("Error inserting config");
-		            }
-		            else{    
-		              console.log("Config inserted");
-		            }
-		            db.close();
-		          });
-		        }
-		        db.close();
-		      }); */

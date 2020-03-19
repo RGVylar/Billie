@@ -48,7 +48,11 @@ module.exports = {
 									return msg.channel.send("Find someone else :(");
 								}
 								else if(whitelisted){
-									return msg.channel.send("Who? Someone who doesn't want to be bothered?");	
+									const exampleEmbed = new Discord.RichEmbed()
+								.setColor('#FF0000')
+								.setTitle(`Who? Someone who doesn't want to be bothered?`)
+								.setImage('https://cdn.discordapp.com/attachments/690295794628165707/690318207432655163/8d38fdcda93da34d39d30cb01d1e6e21fd5f41f6_hq.gif');
+								return msg.channel.send(exampleEmbed);	
 								}
 								else {
 									const a = usera.indexOf("#");
