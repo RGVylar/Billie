@@ -110,6 +110,9 @@ module.exports = {
               if (!error && response.statusCode == 200) {
                 console.log(body);
                 console.log('Proxy work !');
+              }else if (error){
+                console.log('ERROR PROXY');
+                console.log(error);
               }
             })
 
