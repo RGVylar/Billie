@@ -106,9 +106,8 @@ module.exports = {
                 host: '149.202.223.183',
                 port: 3128,
                 path: urlSearch
-            }, function (response) {
-                console.log (response);
-                console.log('Proxy test');
+            }, function (response,data) {
+                console.table(data);
             });
 
             //// Select the post with tag
