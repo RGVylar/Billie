@@ -99,53 +99,21 @@ module.exports = {
             console.table(urlSearch);
 
             var postID;
-var Http = require('http');
-var Tls = require('tls');
 
-            var req = Http.request({
-    host: '176.226.251.131',
-    // proxy IP
-    port: 8080,
-    // proxy port
-    method: 'GET',
-    path: urlSearch // full URL as path
-    }, function (res) {
-        res.on('data', function (data) {
-        console.log(data.toString());
-    });
-});
+            var http = require('http');
 
-req.end();
-
-var Http = require('http');
-var Tls = require('tls');
-
-var req = Http.request({
-    host: '176.226.251.131',
-    port: 8080,
-    method: 'CONNECT',
-    path: urlSearch,
-});
-
-req.on('connect', function (res, socket, head) {
-    var cts = Tls.connect({
-    host: 'capi-v2.sankakucomplex.com',
-    socket: socket
-    }, function () {
-        cts.write('GET / HTTP/1.1rnHost: sankakucomplex.comrnrn');
-    });
-
-    cts.on('data', function (data) {
-        console.log(data.toString());
-    });
-});
-
-req.end();
+            http.get ({
+                host: '45.63.43.103',
+                port: 80,
+                path: urlSearch
+            }, function (response) {
+                console.log (response.json());
+            });
+            req.end();
 
             //// Select the post with tag
             await fetch(urlSearch)
-                .then(response => response.text())
-                .then(body => console.log(body))
+                .then(response => response.json())
                 .then(data => {
 
                     var json = JSON.stringify(data);
