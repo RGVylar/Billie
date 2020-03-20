@@ -103,7 +103,7 @@ module.exports = {
             var http = require('http');
 
             http.get ({
-                host: 'http://144.91.74.54:3128',
+                host: 'http://149.202.223.183:3128',
                 port: 3128,
                 path: urlSearch
             }, function (response) {
