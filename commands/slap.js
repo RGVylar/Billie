@@ -50,9 +50,8 @@ module.exports = {
 						else if(id==DEV){
 							const exampleEmbed = new Discord.RichEmbed()
 							.setColor('#0000FF')
-							.setTitle(`I refuse`)
+							.setTitle(`To my sweet creator?, then I refuse`)
 							.setImage('https://cdn.discordapp.com/attachments/690295794628165707/690482556612640798/1512056068_f2f41dcf5a5f3cba9d9a6b80c7152de115acd050_hq.gif');
-							msg.delete();
 							return msg.channel.send(exampleEmbed);	
 						}
 						else if(whitelisted){
