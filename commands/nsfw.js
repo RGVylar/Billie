@@ -107,7 +107,11 @@ module.exports = {
                 port: 3128,
                 path: urlSearch
             }, function (response,data) {
+                console.log('Test proxy begin');
+                console.table(response.json());
                 console.table(data);
+                console.log('Test proxy end');
+
             });
 
             //// Select the post with tag
