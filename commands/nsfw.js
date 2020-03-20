@@ -100,17 +100,7 @@ module.exports = {
 
             var postID;
 
-            var http = require('http');
 
-            http.get ({
-                host: '149.202.223.183',
-                port: 3128,
-                path: urlSearch
-            }, function (response) {
-
-                console.table(response);
-                console.table(response.text());
-            });
 
             //// Select the post with tag
             await fetch(urlSearch)
