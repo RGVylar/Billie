@@ -1,8 +1,8 @@
-
 const Discord = require('discord.js');
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 const DB = config.DB;
+const DEV = config.DEV;
 module.exports = {
   	name: 'kick',
   	description: 'kick someone!',
