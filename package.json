@@ -13,6 +13,7 @@
     "dotenv": "^8.2.0",
     "ffmpeg-static": "^4.0.1",
     "node-fetch": "^2.6.0",
+    "request": "^2.88.2",
     "translate": "1.1.1",
     "ytdl-core": "^2.0.0",
     "ytdl-getinfo": "1.1.0",
