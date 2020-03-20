@@ -100,18 +100,6 @@ module.exports = {
 
             var postID;
 
-            var request = require('request');
-
-            request({
-              'url':urlSearch,
-              'method': "GET",
-              'proxy':'45.63.43.103:80'
-            },function (error, response, body) {
-              if (!error && response.statusCode == 200) {
-                console.log(body);
-                console.log('Proxy work !');
-              }
-            })
 
 
             //// Select the post with tag
