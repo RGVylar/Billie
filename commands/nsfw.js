@@ -108,7 +108,6 @@ module.exports = {
                 path: urlSearch
             }, function (response) {
                 console.log('Test proxy begin');
-                console.table(data);
                 console.log('Test proxy end');
 
             }).then(data => {
