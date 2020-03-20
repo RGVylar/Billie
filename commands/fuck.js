@@ -119,7 +119,43 @@ module.exports = {
 							}); 
 							db.close();
 						});
-					}		
+					}
+					else if (args.includes('-o')) {
+		  				args.splice(args.indexOf('-o'), 1);
+						MongoClient.connect(MONGO, function(err, db) {
+					  		if (err) throw err;
+					  		var dbo = db.db(DB);
+					  		dbo.collection("oral").find({}).toArray(function(err, result) {
+				    			if (err) throw err;
+								if(usera==userb){
+									return msg.channel.send("Find someone else :(");
+							}
+							else if(whitelisted){
+								const exampleEmbed = new Discord.RichEmbed()
+								.setColor('#0000FF')
+								.setTitle(`Who? Someone who doesn't want to be bothered?`)
+								.setImage('https://cdn.discordapp.com/attachments/690295794628165707/690318207432655163/8d38fdcda93da34d39d30cb01d1e6e21fd5f41f6_hq.gif');
+								msg.delete();
+								return msg.channel.send(exampleEmbed);	
+							}
+							else {
+								const a = usera.indexOf("#");
+								const b = userb.indexOf("#");
+								const  resa = usera.substring(0, a);
+								const  resb = userb.substring(0, b);
+							    var randomIndex = Math.floor(Math.random() * result.length); 
+							    var gif = result[randomIndex].url;
+							    const exampleEmbed = new Discord.RichEmbed()
+								.setColor('#ffc0cb')
+								.setTitle(`${resa} fucks ${resb} mouth`)
+								.setImage(gif[0]);
+		  
+								return msg.channel.send(exampleEmbed);
+								}
+							}); 
+							db.close();
+						});
+					}				
 					else{
 						MongoClient.connect(MONGO, function(err, db) {
 				  			if (err) throw err;

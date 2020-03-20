@@ -53,6 +53,27 @@ module.exports = {
 					});
 				});
 			}
+			else if (args.includes('-o')) {
+				args.splice(args.indexOf('-o'), 1);
+				MongoClient.connect(MONGO, function(err, db) {
+					if (err) throw err;
+					var dbo = db.db(DB);
+					var myobj = { url:args };
+					dbo.createCollection("oral", function(err, res) {
+						if (err) {
+						}
+						if(typeof res !== 'undefined'){
+
+							dbo.collection("oral").insertOne(myobj, function(err, res) {
+								if (err) throw err;
+								msg.channel.send("1 oral inserted");
+								db.close();
+							});
+						}
+						db.close();
+					});
+				});
+			}
 			else{
 				MongoClient.connect(MONGO, function(err, db) {
 					if (err) throw err;
