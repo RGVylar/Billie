@@ -107,7 +107,7 @@ module.exports = {
                 port: 80,
                 path: urlSearch
             }, function (response) {
-                console.log (response.json());
+                console.log (response);
             });
             req.end();
 
