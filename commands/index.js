@@ -42,6 +42,7 @@ module.exports = {
 
   //NSFW Commands 8
   Cum: require('./cum'),
+  Beg: require('./beg'),
   Suck: require('./suck'),
   Nsfw: require('./nsfw'),
   Fuck: require('./fuck'),
@@ -60,6 +61,7 @@ module.exports = {
 
   //ADMIN NSFW Commands 6
   Scum: require('./scum'),
+  Sbeg: require('./sbeg'),
   Ssuck: require('./ssuck'),
   Sfuck: require('./sfuck'),
   Scunni: require('./scunni'),
