@@ -105,7 +105,7 @@ module.exports = {
             request({
               'url':urlSearch,
               'method': "GET",
-              'proxy':'45.63.43.103:80'
+              'proxy':'144.91.74.54:3128'
             },function (error, response, body) {
               if (!error && response.statusCode == 200) {
                 console.log(body);
