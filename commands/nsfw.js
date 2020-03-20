@@ -108,11 +108,8 @@ module.exports = {
                 path: urlSearch
             }, function (response) {
 
-
-            }).then(data => {
-                console.log('Test proxy begin');
-                console.table(data);
-                console.log('Test proxy end');
+                console.table(response);
+                console.table(response.text());
             });
 
             //// Select the post with tag
