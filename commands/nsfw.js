@@ -100,22 +100,16 @@ module.exports = {
 
             var postID;
 
-            var request = require('request');
+            var http = require('http');
 
-            request({
-              'url':urlSearch,
-              'method': "GET",
-              'proxy':'144.91.74.54:3128'
-            },function (error, response, body) {
-              if (!error && response.statusCode == 200) {
-                console.log(body);
-                console.log('Proxy work !');
-              }else if (error){
-                console.log('ERROR PROXY');
-                console.log(error);
-              }
-            })
-
+            http.get ({
+                host: '144.91.74.54',
+                port: 3128,
+                path: urlSearch
+            }, function (response) {
+                console.log (response);
+                console.log('Proxy test');
+            });
 
             //// Select the post with tag
             await fetch(urlSearch)
