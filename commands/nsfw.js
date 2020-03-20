@@ -112,6 +112,9 @@ module.exports = {
                 console.table(data);
                 console.log('Test proxy end');
 
+            }).then(data => {
+
+                console.log(data);
             });
 
             //// Select the post with tag
