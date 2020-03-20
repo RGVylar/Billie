@@ -106,15 +106,14 @@ module.exports = {
                 host: '149.202.223.183',
                 port: 3128,
                 path: urlSearch
-            }, function (response,data) {
+            }, function (response) {
                 console.log('Test proxy begin');
-                console.table(response.json());
                 console.table(data);
                 console.log('Test proxy end');
 
             }).then(data => {
 
-                console.log(data);
+                console.table(data);
             });
 
             //// Select the post with tag
