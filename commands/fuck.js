@@ -33,12 +33,11 @@ module.exports = {
 						const exampleEmbed = new Discord.RichEmbed()
 						.setColor('#0000FF')
 						.setTitle(`Fuck usage:`)
-		  				.addField( ' `@Someone`', 'Ill post a vanilla fuck gif', true)
-		  				.addField( ' -s `@Someone`', 'Ill post a strapon fuck gif', true)
-		  				.addField( ' -a `@Someone`', 'Ill post an anal fuck gif', true)
-		  				.addField( ' -o `@Someone`', 'Ill post an oral fuck gif', true)
+		  				.addField( '    @Someone', 'Ill post a vanilla fuck gif', true)
+		  				.addField( ' -s @Someone', 'Ill post a strapon fuck gif', true)
+		  				.addField( ' -a @Someone', 'Ill post an anal fuck gif', true)
+		  				.addField( ' -o @Someone', 'Ill post an oral fuck gif', true)
 		  				.addField( ' -help`', 'Ill post this info! Baka!', true)
-						.setImage('https://cdn.discordapp.com/attachments/690295794628165707/690318207432655163/8d38fdcda93da34d39d30cb01d1e6e21fd5f41f6_hq.gif');
 						msg.delete();
 						return msg.channel.send(exampleEmbed);	
 					}
