@@ -1,3 +1,4 @@
+
 const Discord = require('discord.js');
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
@@ -7,7 +8,7 @@ module.exports = {
   description: 'blush!',
   execute(msg, args) {
     const MONGO = config.MONGO;
-    var dioce = Math.floor( Math.random() * 10 ) +1;
+    var dioce = Math.floor( Math.random() * 20 ) +1;
     if(dioce==7){
       const exampleEmbed = new Discord.RichEmbed()
       .setColor('#ffff00')

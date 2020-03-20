@@ -8,7 +8,7 @@ module.exports = {
   	execute(msg, args) {
 		var whitelisted = false;
 		const MONGO = config.MONGO;
-	    var dioce = Math.floor( Math.random() * 10 ) +1;
+	    var dioce = Math.floor( Math.random() * 20 ) +1;
 	    if(dioce==7){
 	      const exampleEmbed = new Discord.RichEmbed()
 	              .setColor('#ffff00')
@@ -81,7 +81,7 @@ module.exports = {
 								msg.delete();
 								return msg.channel.send(exampleEmbed);	
 							}
-							else {
+							else if(typeof result[0] !== 'undefined'){
 								const a = usera.indexOf("#");
 								const b = userb.indexOf("#");
 								const  resa = usera.substring(0, a);
@@ -95,6 +95,10 @@ module.exports = {
 		  
 								return msg.channel.send(exampleEmbed);
 								}
+
+							else{
+								msg.channel.send("There are not fucks gifs yet!");
+							}
 							}); 
 							db.close();
 						});
@@ -117,7 +121,7 @@ module.exports = {
 								msg.delete();
 								return msg.channel.send(exampleEmbed);	
 							}
-							else {
+							else if(typeof result[0] !== 'undefined'){
 								const a = usera.indexOf("#");
 								const b = userb.indexOf("#");
 								const  resa = usera.substring(0, a);
@@ -131,6 +135,11 @@ module.exports = {
 		  
 								return msg.channel.send(exampleEmbed);
 								}
+
+								else {
+	                				msg.channel.send("There are not fucks gifs yet!");
+								}
+
 							}); 
 							db.close();
 						});
@@ -192,7 +201,7 @@ module.exports = {
 								msg.delete();
 								return msg.channel.send(exampleEmbed);	
 								}
-								else {
+								else if(typeof result[0] != 'undefined'){
 									const a = usera.indexOf("#");
 									const b = userb.indexOf("#");
 									const  resa = usera.substring(0, a);
@@ -205,6 +214,10 @@ module.exports = {
 									.setImage(gif[0]);
 				  
 									return msg.channel.send(exampleEmbed);
+								}
+								
+								else {
+	                				msg.channel.send("There are not fucks gifs yet!");
 								}
 							}); 
 							db.close();
