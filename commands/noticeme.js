@@ -11,6 +11,7 @@ module.exports = {
 			if (err) throw err;
 			var dbo = db.db(DB);
 			var initial = DB.substring(0, 1);
+			initial=initial.toUpperCase();
 			var rest = DB.substring(1, DB.length);
 			var name = initial+rest;
 			var query = { user: id };
