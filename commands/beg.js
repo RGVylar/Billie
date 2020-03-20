@@ -73,7 +73,7 @@ module.exports = {
 								var gif = result[randomIndex].url;
 								const exampleEmbed = new Discord.RichEmbed()
 								.setColor('#ffc0cb')
-								.setTitle(`${resa}, ${resb} is begging for more`)
+								.setTitle(`${resb}, ${resa} is begging for more`)
 								.setImage(gif[0]);
 								
 								return msg.channel.send(exampleEmbed);
