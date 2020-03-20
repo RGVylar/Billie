@@ -159,7 +159,21 @@ module.exports = {
 							}); 
 							db.close();
 						});
-					}				
+					}		
+					else if (args.includes('-help')) {
+		  				args.splice(args.indexOf('-help'), 1);
+						const exampleEmbed = new Discord.RichEmbed()
+						.setColor('#0000FF')
+						.setTitle(`Fuck usage:`)
+          				.addField( PREFIX + 'fuck `@Someone`', 'Ill post a vanilla fuck gif', true)
+          				.addField( PREFIX + 'fuck -s `@Someone`', 'Ill post a strapon fuck gif', true)
+          				.addField( PREFIX + 'fuck -a `@Someone`', 'Ill post an anal fuck gif', true)
+          				.addField( PREFIX + 'fuck -o `@Someone`', 'Ill post an oral fuck gif', true)
+          				.addField( PREFIX + 'fuck -help`', 'Ill post this info! Baka!', true)
+						.setImage('https://cdn.discordapp.com/attachments/690295794628165707/690318207432655163/8d38fdcda93da34d39d30cb01d1e6e21fd5f41f6_hq.gif');
+						msg.delete();
+						return msg.channel.send(exampleEmbed);	
+					}						
 					else{
 						MongoClient.connect(MONGO, function(err, db) {
 				  			if (err) throw err;
