@@ -6,7 +6,7 @@ module.exports = {
   name: 'turn',
   description: 'Turn!',
   execute(msg, args) {
-    var dioce = Math.floor( Math.random() * 10 ) +1;
+    var dioce = Math.floor( Math.random() * 20 ) +1;
     if(dioce==7){
       const exampleEmbed = new Discord.RichEmbed()
       .setColor('#ffff00')
