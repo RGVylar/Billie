@@ -19,7 +19,7 @@ module.exports = {
         return msg.channel.send(video);
       }
       else{
-        msg.channel.reply("This is your random video: "+data.snippet.title);
+        msg.reply("This is your random video: "+data.snippet.title);
         return msg.channel.send("https://youtu.be/"+data.id.videoId);
       }
     })
