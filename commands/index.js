@@ -2,6 +2,7 @@ module.exports = {
   //Commands 58
   //SAFE Commands 25
   Sa: require('./sa'),
+  Que: require('./que'),
   Pat: require('./pat'),
   Cry: require('./cry'),
   Say: require('./say'),
@@ -76,6 +77,7 @@ module.exports = {
   Sdab: require('./sdab'),
   Shug: require('./shug'),
   Stea: require('./stea'),
+  Sque: require('./sque'),
   Spout: require('./spout'),
   Sslap: require('./sslap'),
   Purge: require('./purge'),
