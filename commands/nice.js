@@ -3,8 +3,8 @@ const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 const DB = config.DB;
 module.exports = {
-  name: 'que',
-  description: 'que!',
+  name: 'nice',
+  description: 'nice!',
   execute(msg, args) {
     const MONGO = config.MONGO;
     var dioce = Math.floor( Math.random() * 20 ) +1;
@@ -19,11 +19,11 @@ module.exports = {
       MongoClient.connect(MONGO, function(err, db) {
         if (err) throw err;
         var dbo = db.db(DB);
-        dbo.createCollection("que", function(err, res) {
+        dbo.createCollection("nice", function(err, res) {
           if (err) {
           }
           if(typeof res !== 'undefined'){
-            dbo.collection("que").find({}).toArray(function(err, result) {
+            dbo.collection("nice").find({}).toArray(function(err, result) {
               if (err) throw err;
               if(typeof result[0] !== 'undefined'){
                 const user = msg.member.user.tag;
@@ -33,18 +33,18 @@ module.exports = {
                 var gif = result[randomIndex].url;
                 const exampleEmbed = new Discord.RichEmbed()
                 .setColor('#0099ff')
-                .setTitle(`¿Qué?`)
+                .setTitle(`Niiiiiice`)
                 .setImage(gif[0]);
                 return msg.channel.send(exampleEmbed);
               }
               else{
-                msg.channel.send("There are not que gifs yet!");
+                msg.channel.send("There are not nice gifs yet!");
               }
               db.close();
             });
           }
           else {
-            msg.channel.send("This que is not defined");
+            msg.channel.send("This nice is not defined");
           }
           db.close();
         }); 
