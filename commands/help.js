@@ -67,6 +67,7 @@ module.exports = {
           .addField( PREFIX + 'panic', 'Are you on danger? This is your command!', true)
           .addField( PREFIX + 'blush', 'o///o n-nani?', true)
           .addField( PREFIX + 'random', 'ill send you a random youtube video', true)
+          .addField( PREFIX + 'bite', 'ill bite someone', true)
           .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
           msg.channel.send(commands2);
 
@@ -93,6 +94,7 @@ module.exports = {
             .addField( PREFIX + 'prefix', 'Changes the prefix', true)
             .addField( PREFIX + 'scursed', 'Adds cursed gif to the cursed command', true)
             .addField( PREFIX + 'sblush', 'Adds blush gif to the blush command', true)
+            .addField( PREFIX + 'sbbite', 'Adds blush gif to the bite command', true)
             .addField( PREFIX + 'newcommand', 'Adds a new command', true)
             .setFooter('The prefix right now is `'+PREFIX+'`', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
             msg.channel.send(admin);
