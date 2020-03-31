@@ -58,7 +58,7 @@ module.exports = {
 								const exampleEmbed = new Discord.RichEmbed()
 								.setColor('#0000FF')
 								.setTitle(`Who? Someone who doesn't want to be bothered?`)
-								.setImage('https://cdn.discordapp.com/attachments/690295794628165707/690318207432655163/8d38fdcda93da34d39d30cb01d1e6e21fd5f41f6_hq.gif');
+								.setImage('https://media1.tenor.com/images/23be03bcbba3a14fe95c6db874035bf3/tenor.gif?itemid=7729085');
 								msg.delete();
 								return msg.channel.send(exampleEmbed);	
 							}
