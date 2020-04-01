@@ -36,7 +36,12 @@ module.exports = {
 
               //Validate Info
               let validate = await ytdl.validateURL(urlVideo);
-
+              if(urlVideo.includes("?list=")){
+                var n = urlVideo.indexOf("?list=");
+                var res = urlVideo.slice(n, urlVideo.length);
+                urlVideo=res;
+                console.log(urlVideo)
+              }
               if (!validate) {
                   const noArgsError = new Discord.RichEmbed()
                       .setColor('#FF0000')
