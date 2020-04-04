@@ -6,7 +6,6 @@ module.exports = {
   name: 'angry',
   description: 'angry!',
   execute(msg, args) {
-    const MONGO = config.MONGO;
     var dioce = Math.floor( Math.random() * 20 ) +1;
     if(dioce==7){
       const exampleEmbed = new Discord.RichEmbed()
