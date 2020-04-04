@@ -162,6 +162,6 @@ module.exports = {
         }
 
 
-        msg.delete();
+        //msg.delete();
     },
 };
