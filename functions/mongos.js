@@ -29,9 +29,8 @@ module.exports = function(options) {
             .setColor('#0099ff')
             .setTitle(`${res} is really angry`)
             .setImage(gif[0]);
-            console.log('exampleEmbed');
             //return exampleEmbed;
-            msg.channel.send(exampleEmbed);
+            return msg.channel.send(exampleEmbed);
           }
           else{
             return "There are not angry gifs yet!";
