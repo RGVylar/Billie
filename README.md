@@ -1,7 +1,7 @@
 # Billie is working on my discord!
 [This is my home](https://discord.gg/r7pqSAE)
 
-[![Heroku App Status](http://heroku-shields.herokuapp.com/rgvbot-with-html)](https://rgvbot-with-html.herokuapp.com)
+[![Heroku App Status](http://heroku-shields.herokuapp.com/billie-the-bot)](https://billie-the-bot.herokuapp.com)
 
 ## Social Billie BOT
 
