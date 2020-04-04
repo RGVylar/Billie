@@ -9,8 +9,8 @@
 
 ![GitHub deployments](https://img.shields.io/github/deployments/rgvylar/billie/billie-the-bot)
 ![GitHub All Releases](https://img.shields.io/github/downloads/rgvylar/billie/total)
-![GitHub language count](https://img.shields.io/github/languages/count/rgvylar/billie)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/rgvylar/billie)
+![Twitch Status](https://img.shields.io/twitch/status/rgvylar)
 
 ## Social Billie BOT
 
