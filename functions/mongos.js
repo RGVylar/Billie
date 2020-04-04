@@ -26,6 +26,7 @@ module.exports = function(options) {
             .setColor('#0099ff')
             .setTitle(`${res} is really angry`)
             .setImage(gif[0]);
+            console.log(exampleEmbed);
             return exampleEmbed;
           }
           else{
