@@ -6,6 +6,7 @@ module.exports = function(options) {
   const MongoClient = require('mongodb').MongoClient;
   const Discord = require('discord.js');
   const config = require("../config.js");
+  const MONGO = config.MONGO;
   MongoClient.connect(MONGO, function(err, db) {
     if (err) throw err;
     var dbo = db.db(DB);
