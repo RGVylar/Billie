@@ -12,10 +12,12 @@ module.exports = function(options) {
     if (err) throw err;
     var dbo = db.db(DB);
     dbo.createCollection(collection, function(err, res) {
+      console.log('Collection created?');
       if (err) {
       }
       if(typeof res !== 'undefined'){
         dbo.collection(collection).find({}).toArray(function(err, result) {
+          console.log('query');
           if (err) throw err;
           if(typeof result[0] !== 'undefined'){
             const user = msg.member.user.tag;
@@ -27,7 +29,7 @@ module.exports = function(options) {
             .setColor('#0099ff')
             .setTitle(`${res} is really angry`)
             .setImage(gif[0]);
-            console.log(exampleEmbed);
+            console.log('exampleEmbed');
             return exampleEmbed;
           }
           else{
