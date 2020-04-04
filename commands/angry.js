@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 const DB = config.DB;
-import { query } from '../functions/mongos.js';
 module.exports = {
   name: 'angry',
   description: 'angry!',
@@ -17,7 +16,8 @@ module.exports = {
       return msg.channel.send(exampleEmbed);
     }
     else{
-      let exampleEmbed = query("angry",DB);
+      var collection = "angry"
+      let exampleEmbed = require("../functions/mongo.js")(msg,args,collection,DB);
       msg.channel.send(exampleEmbed);
     }  
   },
