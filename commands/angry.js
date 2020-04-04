@@ -17,7 +17,7 @@ module.exports = {
     }
     else{
       var collection = "angry"
-      let exampleEmbed = require("../functions/mongo.js")(msg,args,collection,DB);
+      let exampleEmbed = require("../functions/mongos.js")(msg,args,collection,DB);
       msg.channel.send(exampleEmbed);
     }  
   },
