@@ -1,7 +1,9 @@
 # Billie is working on my discord!
 [This is my home](https://discord.gg/r7pqSAE)
 
-<img alt="GitHub deployments" src="https://img.shields.io/github/deployments/rgvylar/billie/billie-the-bot">
+![GitHub deployments](https://img.shields.io/github/deployments/rgvylar/billie/billie-the-bot)
+![GitHub All Releases](https://img.shields.io/github/downloads/rgvylar/billie/total)
+![GitHub language count](https://img.shields.io/github/languages/count/rgvylar/billie)
 
 ## Social Billie BOT
 
