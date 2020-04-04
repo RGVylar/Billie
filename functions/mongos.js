@@ -30,13 +30,15 @@ module.exports = function(options) {
             .setTitle(`${res} is really angry`)
             .setImage(gif[0]);
             console.log('exampleEmbed');
-            return exampleEmbed;
+            //return exampleEmbed;
+            msg.channel.send(exampleEmbed);
           }
           else{
             return "There are not angry gifs yet!";
           }
           db.close();
         });
+        console.log('where am i?');
       }
       else {
         return "This angry is not defined";
