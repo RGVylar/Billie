@@ -1,4 +1,5 @@
 module.exports = function(options) {
+  console.log('function called');
   var msg = options.msg;
   var args = options.args;
   var collection = options.collection;
