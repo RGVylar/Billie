@@ -26,12 +26,6 @@ module.exports = {
 
               msg.channel.send(noArgsError);
           } else {
-              if(args.includes("?list=")){
-                var n = args.indexOf("?list=");
-                var res = args.slice(n, args.length);
-                args=res;
-                console.log(args)
-              }
               var urlVideo = '';
 
               //We search for the video on youtube, take the first result if it's just string and not a full url
@@ -41,8 +35,8 @@ module.exports = {
               console.log(urlVideo)
 
               //Validate Info
-              
               let validate = await ytdl.validateURL(urlVideo);
+
               if (!validate) {
                   const noArgsError = new Discord.RichEmbed()
                       .setColor('#FF0000')
