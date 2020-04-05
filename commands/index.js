@@ -28,7 +28,6 @@ module.exports = {
   Nsfw: require('./nsfw'),
   Sauce: require('./sauce'),
   Urbansfw: require('./urbansfw'),
-  Masturbate: require('./masturbate'),
 
   //Music Commands 4
   Join: require('./join'),
