@@ -315,6 +315,20 @@ module.exports = {
 				param0: 'is now undress',
 			}
 		}
+		else if(commandName=='masturbate'){
+			commandName={
+				name: 'masturbate',
+				description: 'masturbate!',
+				type: 'query',
+				rate: 'lewd',
+				col: 'masturbate',
+				param0: 'masturbates',
+			}
+			if(typeof argument != undefined){
+				commandName.col='multibate';
+				commandName.type='multiquery';
+			}
+		}
 		else{
 			//nothing
 		}
