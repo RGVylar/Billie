@@ -6,7 +6,7 @@ const config = require("./config.js");
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const active = new Map();
-
+const commands = require('./commands/command.js');
 const TWITCH = config.TWITCH;
 const TOKEN = config.TOKEN;
 const MONGO = config.MONGO;
@@ -122,7 +122,7 @@ bot.on('serverNewMember', function(server, user) {
  user.addTo(server.roles.get("name", "Member"));
 });
 
-bot.on('message', msg => {
+bot.on('message', async msg => {
   MongoClient.connect(MONGO, function(err, db) {
     if (err) throw err;
     var dbo = db.db(DB);
@@ -145,15 +145,16 @@ bot.on('message', msg => {
   const  name = command.substring(PREFIX.length, command.length);
   console.info(`Called command: ${name}`);
 
-  if (!bot.commands.has(name)) return;
   try {
 
     let options = {
       active: active
     }
-
-    bot.commands.get(name).execute(msg, args, options, bot);
-
+    let result = await bot.commands.get('execution').execute(msg, args,name, options, bot);
+    if(!result){
+      if (!bot.commands.has(name)) return;
+      bot.commands.get(name).execute(msg, args, options, bot);
+    }
   } catch (error) {
     console.error(error);
     msg.reply('there was an error trying to execute that command!');

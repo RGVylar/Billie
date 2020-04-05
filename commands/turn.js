@@ -6,8 +6,8 @@ module.exports = {
   name: 'turn',
   description: 'Turn!',
   execute(msg, args) {
-    var dioce = Math.floor( Math.random() * 20 ) +1;
-    if(dioce==7){
+    let dice =  functions.dice();
+    if(dice==7){
       const exampleEmbed = new Discord.RichEmbed()
       .setColor('#ffff00')
       .setTitle(`You were expecting the turn, but it was me, Dio!`)
