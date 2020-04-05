@@ -4,9 +4,10 @@ module.exports = {
 		var functions = require('../functions/functions.js');
 		var commands = require('./command.js');
 		let command;
+		var argument;
 		if(args.length>0){
 			if (args[0].includes('-')){
-				var argument = args[0];
+				argument = args[0];
 				command = await commands.commands(msg,commandName,argument);
 			}
 			else{

@@ -6,13 +6,10 @@ module.exports = {
   name: 'turn',
   description: 'Turn!',
   execute(msg, args) {
+    var functions = require('../functions/functions.js');
     let dice =  functions.dice();
     if(dice==7){
-      const exampleEmbed = new Discord.RichEmbed()
-      .setColor('#ffff00')
-      .setTitle(`You were expecting the turn, but it was me, Dio!`)
-      .setImage('https://cdn.discordapp.com/attachments/682860137316220928/689793060258971750/1532018000_Tumblr_o0i5tcPs2o1s0527so1_500.gif');
-      return msg.channel.send(exampleEmbed);
+      await functions.dio(msg,col);
     }
     else{
       msg.reply('End his turn');

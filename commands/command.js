@@ -274,10 +274,7 @@ module.exports = {
 				}	
 				else if(argument=='-o'){
 					commandName.col='oral';
-				}
-				else{
-					//nothing
-				}		
+				}	
 			}
 		}
 		else if(commandName=='suck'){
@@ -325,8 +322,10 @@ module.exports = {
 				param0: 'masturbates',
 			}
 			if(typeof argument != undefined){
-				commandName.col='multibate';
-				commandName.type='multiquery';
+				if(argument=='-m'){
+					commandName.col='multibate';
+					commandName.type='multiquery';
+				}
 			}
 		}
 		else{

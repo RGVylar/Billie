@@ -18,13 +18,12 @@ module.exports = {
   Github: require('./github'),
   Lolito: require('./lolito'),
   Avatar: require('./avatar'),
-  Attach: require('./attach'),
   Random: require('./random'),
   Noticeme: require('./noticeme'),
   Ignoreme: require('./ignoreme'),
   Translate: require('./translate'),
 
-  //NSFW Commands 8
+  //NSFW Commands 3
   Nsfw: require('./nsfw'),
   Sauce: require('./sauce'),
   Urbansfw: require('./urbansfw'),
@@ -35,7 +34,7 @@ module.exports = {
   Play: require('./play'),
   Queue: require('./queue'),
 
-  //ADMIN Commands 2
+  //ADMIN Commands 3
   Insert: require('./insert'),
   Prefix: require('./prefix'),
   Purge: require('./purge'),
