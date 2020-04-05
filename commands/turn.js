@@ -5,7 +5,7 @@ const DEV4 = config.DEV4;
 module.exports = {
   name: 'turn',
   description: 'Turn!',
-  execute(msg, args) {
+  execute: async (msg, args) =>{
     var functions = require('../functions/functions.js');
     let dice =  functions.dice();
     if(dice==7){
