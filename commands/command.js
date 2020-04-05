@@ -1,3 +1,8 @@
+const MongoClient = require('mongodb').MongoClient;
+const Discord = require('discord.js');
+const config = require('../config.js');
+const MONGO = config.MONGO;
+const DB = config.DB;
 module.exports = {
 	commands: function (msg,commandName,argument) {
 		var command={};
@@ -329,7 +334,9 @@ module.exports = {
 			}
 		}
 		else{
-			//nothing
+			commandName={
+				description: false,
+			}
 		}
 		return commandName;
 	},

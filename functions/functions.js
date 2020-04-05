@@ -42,10 +42,13 @@ module.exports = {
             if(typeof result[0] !== 'undefined'){
               var randomIndex = Math.floor(Math.random() * result.length); 
               var gif = result[randomIndex].url;
+              if(typeof gif === 'object'){
+                gif=gif[0];
+              }
               const embed = new Discord.RichEmbed()
               .setColor('#0099ff')
               .setTitle(quote)
-              .setImage(gif[0]);
+              .setImage(gif);
               msg.channel.send(embed);
             }
             else{
@@ -110,10 +113,13 @@ module.exports = {
             }
             var randomIndex = Math.floor(Math.random() * result.length); 
             var gif = result[randomIndex].url;
+            if(typeof gif === 'object'){
+              gif=gif[0];
+            }
             const embed = new Discord.RichEmbed()
             .setColor('#0099ff')
             .setTitle(quote)
-            .setImage(gif[0]);
+            .setImage(gif);
             msg.channel.send(embed);
           }
           db.close();
@@ -133,6 +139,32 @@ module.exports = {
           dbo.collection(col).insertOne(myobj, function(err, res) {
             if (err) throw err;
             msg.channel.send('1 '+col+' inserted');
+            db.close();
+          });
+        }
+        db.close();
+      });
+    });
+  },
+  newCommand: function (msg,command) {
+    MongoClient.connect(MONGO, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db(DB);
+      dbo.createCollection('commands', function(err, res) {
+        if (err) {
+        }
+        if(typeof res !== 'undefined'){
+          dbo.collection('commands').insertOne(command, function(err, res) {
+            if (err) throw err;
+            const consent = new Discord.RichEmbed()
+            .setColor('#d3d3d3 ')
+              .setTitle('New command')
+              .addField('Name', command.col)
+              .addField('Description', command.description)
+              .addField('Type', command.type)
+              .addField('Rate', command.rate)
+              .addField('Quote', command.quote);
+            msg.channel.send(consent);
             db.close();
           });
         }
