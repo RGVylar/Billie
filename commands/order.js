@@ -31,7 +31,12 @@ module.exports = {
       .setImage('https://cdn.discord.me/server/99cc19f10df5da7c09263ff47437dd8a700275be98bf88ae8c0c360a4ea0176d/articles/article_5332c6291c17e5269d7dcba9183260a43b9a1daa86be206930cf60f85d2c6d58.jpg')
       .setFooter('Made by RGVylar', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
 
-      msg.channel.send(exampleEmbed);
+      msg.channel.send(exampleEmbed).then(sentEmbed => {
+          sentEmbed.react('695769464444026930')
+          sentEmbed.react('691973694343479338')
+          sentEmbed.react('681620748770476122')
+          sentEmbed.react('679788021008171055')
+      });
     }
   },
 };

@@ -104,7 +104,6 @@ module.exports = {
             msg.channel.send(embed);  
           }
           else {
-            console.log(result);
             var quote='';
             const a = usera.indexOf("#");
             const b = userb.indexOf("#");
@@ -134,17 +133,13 @@ module.exports = {
     });
   },
   insert: function (msg,col,url) {
-    console.log('insert');
     MongoClient.connect(MONGO, function(err, db) {
       if (err) throw err;
       var dbo = db.db(DB);
-      console.log('connect');
       var myobj = { col:col, url:url };
       dbo.createCollection('media', function(err, res) {
         if (err) {
-          console.log(err);
         }
-    console.log('create');
         if(typeof res !== 'undefined'){
           dbo.collection('media').insertOne(myobj, function(err, res) {
             if (err) throw err;
