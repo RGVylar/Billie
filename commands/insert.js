@@ -19,7 +19,7 @@ module.exports = {
 					msg.channel.send("I need an url");
 				}	
 				else{
-					await functions.insert(msg,url,col);
+					await functions.insert(msg,col,url);
 				}
 			}
 			else{
@@ -40,7 +40,7 @@ module.exports = {
 										msg.channel.send("I need an url");
 									}	
 									else{
-										await functions.insert(msg,url,col);
+										await functions.insert(msg,col,url);
 									}			
 								}
 								else{
