@@ -17,7 +17,7 @@ module.exports = {
           var PREFIX  = res[0];
           //Commands 85
           //SAFE commands 25
-          const commands = new Discord.RichEmbed()
+          const commands = new Discord.MessageEmbed()
           .setColor('#99cc00')
           .setTitle('Commands 1')
           .setDescription('The list of commands')
@@ -51,7 +51,7 @@ module.exports = {
           msg.channel.send(commands);
 
           //SAFE Commands 11
-          const commands2 = new Discord.RichEmbed()
+          const commands2 = new Discord.MessageEmbed()
           .setColor('#99cc00')
           .setTitle('Commands 2')
           .setDescription('The list of ignore commands')
@@ -75,7 +75,7 @@ module.exports = {
             if(msg.guild.owner||msg.member.id==DEV){
 
             //ADMIN Commands 15
-            const admin = new Discord.RichEmbed()
+            const admin = new Discord.MessageEmbed()
             .setColor('#99cc00')
             .setTitle('Admin Commands')
             .setDescription('The list of the Admin commands')
@@ -102,7 +102,7 @@ module.exports = {
           }
 
           //Music Commands 3
-          const music = new Discord.RichEmbed()
+          const music = new Discord.MessageEmbed()
           .setColor('#0099ff')
           .setTitle('Music Commands')
           .setDescription('The list of Music commands')
@@ -116,7 +116,7 @@ module.exports = {
           if (!msg.channel.nsfw) {  
 
             //NSFW Commands 0
-            const nsfw = new Discord.RichEmbed()
+            const nsfw = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle('Commands NSFW')
             .setDescription('The list of NSFW commands')
@@ -128,7 +128,7 @@ module.exports = {
           else {
 
             //NSFW Commands 9
-            const nsfw = new Discord.RichEmbed()
+            const nsfw = new Discord.MessageEmbed()
             .setColor('#FF0000')
             .setTitle('Commands NSFW')
             .setDescription('The list of NSFW commands')
@@ -149,7 +149,7 @@ module.exports = {
             if(msg.guild.owner||msg.member.id==DEV){
 
               //ADMIN NSFW Commands 7
-              const adminNsfw = new Discord.RichEmbed()
+              const adminNsfw = new Discord.MessageEmbed()
               .setColor('#FF0000')
               .setTitle('Admin nsfw Commands')
               .setDescription('The list of NSFW Admin commands')

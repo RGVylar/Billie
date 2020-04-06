@@ -7,7 +7,7 @@ module.exports = {
 		const user = msg.member.user.tag;
 		const n = user.indexOf("#");
 		const  res = user.substring(0, n);
-		const exampleEmbed = new Discord.RichEmbed()
+		const exampleEmbed = new Discord.MessageEmbed()
 		.setColor('#0099ff')
 		.setTitle(`${res}'s avatar`)
 		.setImage(msg.author.displayAvatarURL)
@@ -19,7 +19,7 @@ module.exports = {
 		const usert = user.tag;
 		const n = usert.indexOf("#");
 		const  res = usert.substring(0, n);
-		const exampleEmbed = new Discord.RichEmbed()
+		const exampleEmbed = new Discord.MessageEmbed()
 		.setColor('#0099ff')
 		.setTitle(`${res}'s avatar`)
 		.setImage(user.displayAvatarURL);

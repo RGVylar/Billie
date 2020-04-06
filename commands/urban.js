@@ -12,7 +12,7 @@ module.exports = {
       .query({ term: word });
     if (!body.list.length) return msg.channel.send('Could not find any results.');
     const data = body.list[types === 'top' ? 0 : Math.floor(Math.random() * body.list.length)];
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
       .setColor(0x32A8F0)
       .setAuthor('Urban Dictionary', 'https://i.imgur.com/Fo0nRTe.png', 'https://www.urbandictionary.com/')
       .setURL(data.permalink)

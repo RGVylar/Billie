@@ -3,7 +3,7 @@ module.exports = {
   name: 'github',
   description: 'github!',
   execute(msg, args) {
-  	const github = new Discord.RichEmbed()
+  	const github = new Discord.MessageEmbed()
   	.setColor('#d3d3d3 ')
       .setTitle('Billie BOT')
       .setURL('https://github.com/RGVylar/Billie')

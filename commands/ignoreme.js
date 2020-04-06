@@ -25,7 +25,7 @@ module.exports = {
 					});
 				}
 				else{
-	      			const exampleEmbed = new Discord.RichEmbed()
+	      			const exampleEmbed = new Discord.MessageEmbed()
 	              	.setColor('#ffff00')
 	              	.setTitle(`Im already ignoring you!`)
                		.setImage('https://cdn.discordapp.com/attachments/690295794628165707/690316862541791252/tenor_5.gif');

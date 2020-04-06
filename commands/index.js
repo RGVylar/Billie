@@ -2,6 +2,7 @@ module.exports = {
   //Commands 58
   //SAFE Commands 25
   Sa: require('./sa'),
+  Canvas: require('./canvas'),
   Execution: require('./execution'),
   Say: require('./say'),
   RPS: require('./rps'),
