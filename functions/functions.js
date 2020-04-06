@@ -6,7 +6,7 @@ const DB = config.DB;
 const DEV = config.DEV;
 module.exports = {
   lewd: function (msg) {
-    const nsfwWrongChannelWarn = new Discord.RichEmbed()
+    const nsfwWrongChannelWarn = new Discord.MessageEmbed()
     .setColor('#FF0000')
     .setTitle('You lewd !')
     .setDescription('You need to be in a nsfw channel for that Baa~ Baka')
@@ -24,7 +24,7 @@ module.exports = {
     return dice;   
   },
   dio: function (msg,col) {
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor('#ffff00')
     .setTitle('You were expecting a '+col+' anime gif, but it was me, Dio!')
     .setImage('https://cdn.discordapp.com/attachments/682860137316220928/689793060258971750/1532018000_Tumblr_o0i5tcPs2o1s0527so1_500.gif');
@@ -47,7 +47,7 @@ module.exports = {
               if(typeof gif === 'object'){
                 gif=gif[0];
               }
-              const embed = new Discord.RichEmbed()
+              const embed = new Discord.MessageEmbed()
               .setColor('#0099ff')
               .setTitle(quote)
               .setImage(gif);
@@ -96,7 +96,7 @@ module.exports = {
             msg.channel.send("Find someone else :(");
           }
           else if(whitelisted){
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             .setColor('#0000FF')
             .setTitle(`Who? Someone who doesn't want to be bothered?`)
             .setImage('https://media1.tenor.com/images/23be03bcbba3a14fe95c6db874035bf3/tenor.gif?itemid=7729085');
@@ -120,7 +120,7 @@ module.exports = {
             if(typeof gif === 'object'){
               gif=gif[0];
             }
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setTitle(quote)
             .setImage(gif);
@@ -164,7 +164,7 @@ module.exports = {
         if(typeof res !== 'undefined'){
           dbo.collection('commands').insertOne(command, function(err, res) {
             if (err) throw err;
-            const consent = new Discord.RichEmbed()
+            const consent = new Discord.MessageEmbed()
             .setColor('#d3d3d3 ')
             .setTitle('New command')
             .addField('Name', command.col)

@@ -9,7 +9,7 @@ module.exports = {
 
         // Nsfw channel test
         if (!msg.channel.nsfw) {
-            const nsfwWrongChannelWarn = new Discord.RichEmbed()
+            const nsfwWrongChannelWarn = new Discord.MessageEmbed()
                 .setColor('#FF0000')
                 .setTitle('You lewd !')
                 .setDescription('You need to be in a nsfw channel for that Baa~ Baka')
@@ -113,7 +113,7 @@ module.exports = {
                     if (data.length == 0) {
                         console.log('data length = 0');
                           
-                                const postEmbed = new Discord.RichEmbed()
+                                const postEmbed = new Discord.MessageEmbed()
                                     .setColor('#FF0000')
                                     .setTitle('Error')
                                     .setDescription("No image with those tags : " + args)
@@ -141,7 +141,7 @@ module.exports = {
                     console.table(data[seed]);
 
                     // We post the selected Image
-                    const postEmbed = new Discord.RichEmbed()
+                    const postEmbed = new Discord.MessageEmbed()
                         .setColor('#ffc0cb')
                         .setURL(urlPost + postID)
                         .setTitle(data[seed].tag_string_artist)
