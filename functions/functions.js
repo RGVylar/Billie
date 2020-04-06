@@ -44,15 +44,17 @@ module.exports = {
             if(typeof result[0] !== 'undefined'){
               var randomIndex = Math.floor(Math.random() * result.length); 
               var gif = result[randomIndex].url;
-              if(typeof gif === 'object'){
+              /*if(typeof gif === 'object'){
                 gif=gif[0];
-              }
+              }*/
               const embed = new Discord.MessageEmbed()
               .setColor('#0099ff')
               .setTitle(quote)
               .setImage(gif);
-              msg.channel.send(embed);
-              ask(msg,gif);
+              
+            msg.channel.send(embed).then(sentEmbed => {
+            ask(msg,gif,sentEmbed)
+          });
             }
             else{
               msg.channel.send('There are not '+col+' gifs yet!');
@@ -79,9 +81,9 @@ module.exports = {
         dbo.collection("whitelist").find(query).toArray(function(err, result) {
           if (err) throw err;
           if(typeof result[0] !== 'undefined'){
-            if(result[0].user==id){
+            /*if(result[0].user==id){
               whitelisted=true;
-            } 
+            } */
           }
           db.close();
         });
@@ -124,8 +126,9 @@ module.exports = {
             .setColor('#0099ff')
             .setTitle(quote)
             .setImage(gif);
-            msg.channel.send(embed);
-            ask(msg,gif);
+            msg.channel.send(embed).then(sentEmbed => {
+            ask(msg,gif,sentEmbed)
+          });
           }
           db.close();
         });
@@ -199,14 +202,14 @@ module.exports = {
     });
   },
 };
-function ask(msg,gif) {
+function ask(msg,gif,sentEmbed) {
   //if(msg.member.id==DEV){
-    msg.react('👍').then(() => msg.react('👎'));
+    sentEmbed.react('👍').then(() => sentEmbed.react('👎'));
     const filter = (reaction, user) => {
       return ['👍', '👎'].includes(reaction.emoji.name) && user.id === DEV;
     };
 
-    msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+    sentEmbed.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
     .then(collected => {
       const reaction = collected.first();
       if (reaction.emoji.name === '👍') {
