@@ -2,8 +2,7 @@ module.exports = {
   name: 'join',
   description: 'join!',
   execute(msg, args) {
-    const voiceChannel = msg.member.voiceChannel;
-    console.log(msg.member.voiceChannel);
+    const voiceChannel = msg.member.voice.channel;
     if (!voiceChannel || voiceChannel.type !== 'voice') {
       return msg.reply('I couldn\'t connect to your voice channel...');
     }

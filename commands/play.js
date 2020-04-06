@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
-const { getInfo } = require('ytdl-getinfo')
+const { getInfo } = require('ytdl-getinfo');
 const MongoClient = require('mongodb').MongoClient;
 const config = require("../config.js");
 const DB = config.DB;
@@ -11,14 +11,13 @@ module.exports = {
       const ytdl = require('ytdl-core');
 
       // Check if the author is connected to a voice channel
-      if (msg.member.voiceChannel) {
+      if (msg.member.voice.channel) {
 
-          //if (msg.guild.me.voiceChannel) {
-          //    console.log("the bot is already connected");
-          //}
-
+          if (msg.guild.me.voice.channel) {
+              msg.channel.send("The bot is already connected");
+          }
           if (!args || args == "") {
-              const noArgsError = new Discord.RichEmbed()
+              const noArgsError = new Discord.MessageEmbed()
                   .setColor('#FF0000')
                   .setTitle('What do I play ? Duh')
                   .setDescription('You need to put a link for me to play it !')
@@ -27,7 +26,6 @@ module.exports = {
               msg.channel.send(noArgsError);
           } else {
               var urlVideo = '';
-
               //We search for the video on youtube, take the first result if it's just string and not a full url
               await getInfo(args.join(' ')).then(info => {
                   urlVideo = info.items[0].webpage_url;
@@ -37,8 +35,9 @@ module.exports = {
               //Validate Info
               let validate = await ytdl.validateURL(urlVideo);
 
+
               if (!validate) {
-                  const noArgsError = new Discord.RichEmbed()
+                  const noArgsError = new Discord.MessageEmbed()
                       .setColor('#FF0000')
                       .setTitle('Insert a good URL')
                       .setDescription('You need to put a functional youtube link for me to play it !')
@@ -55,8 +54,9 @@ module.exports = {
                   let data = options.active.get(msg.guild.id) || {};
 
                   // Next we update the data
-                  if (!data.connection) data.connection = await msg.member.voiceChannel.join();
+                  if (!data.connection) data.connection = await msg.member.voice.channel.join();
                   if (!data.queue) data.queue = []; //if there isn't a queue array, create one
+                  console.log(data.queue);
                   data.guildID = msg.guild.id; 
 
                   //We add it to the queue
@@ -74,7 +74,7 @@ module.exports = {
                   //if there isn't a dispatcher already created, run the play function
                   if (!data.dispatcher) play(client, options, data,msg);
                   else { // If there is already a dispatcher
-                      const songAddedQueue = new Discord.RichEmbed()
+                      const songAddedQueue = new Discord.MessageEmbed()
                           .setColor('#0099ff')
                           .setTitle('Song added to queue : ' + info.title)
                           .setDescription('Requested by : ' + msg.author.tag)
@@ -115,7 +115,7 @@ async function play(client, options, data, msg) {
             var randomIndex = Math.floor(Math.random() * result.length);
             var gif = result[randomIndex].url;
 
-            const nowPlayingMessage = new Discord.RichEmbed()
+            const nowPlayingMessage = new Discord.MessageEmbed()
                 .setColor('#0099ff')
                 .setTitle('Now Playing : ' + data.queue[0].songTitle)
                 .setDescription('Requested by : ' + data.queue[0].requester)
@@ -128,9 +128,9 @@ async function play(client, options, data, msg) {
     });
 
     //Update the dispatcher data
-    const streamOptions = { seek: 0, volume: 0.75 };
+    const streamOptions = { seek: 0, volume: 0.10 };
 
-    data.dispatcher = await data.connection.playStream(ytdl(data.queue[0].url, { filter: 'audioonly' }), streamOptions);
+    data.dispatcher = await data.connection.play(ytdl(data.queue[0].url, { filter: 'audioonly' }), streamOptions);
     data.dispatcher.guildID = data.guildID;
 
     //Create listener even that will run when the song end
@@ -160,9 +160,9 @@ function finish(client, options, dispatcher, msg) {
         options.active.delete(dispatcher.guildID);
 
         // Leave the voice channel
-        let vc = client.guilds.get(dispatcher.guildID).me.voiceChannel; // Get the voice channel of the bot in the guild
+        let vc = client.guilds.get(dispatcher.guildID).me.voice.channel; // Get the voice channel of the bot in the guild
         if (vc) vc.leave();
-        const botDisconnectMessage = new Discord.RichEmbed()
+        const botDisconnectMessage = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setTitle('No more song !')
             .setDescription('Adios Mios !')

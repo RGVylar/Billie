@@ -9,7 +9,7 @@ module.exports = {
           await functions.dio(msg,col);
         }
       else{
-      const exampleEmbed = new Discord.RichEmbed()
+      const exampleEmbed = new Discord.MessageEmbed()
       .setColor('#ffff00')
       .setTitle('Monogatari series watch order')
       .setURL('https://media.discordapp.net/attachments/652432414135681060/662034140505571378/6gqy1AQaz0AXwlkBaVPMP-ST8fwleVWMLFXAcWkBHOM.png?width=617&height=904')

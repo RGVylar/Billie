@@ -22,7 +22,7 @@ module.exports = {
 
       }*/
       //i must delete this awful thing
-      var exampleEmbed = new Discord.RichEmbed()
+      var exampleEmbed = new Discord.MessageEmbed()
       .setColor('#ffff00')
       .setTitle('Languages')
       .setThumbnail('https://cdn.discord.me/server/99cc19f10df5da7c09263ff47437dd8a700275be98bf88ae8c0c360a4ea0176d/icon_c47e9a6c64d7043618d92c7fb6125d1268f6a40497490ea377d9bba4bef12a27.jpg')
@@ -52,7 +52,7 @@ module.exports = {
       .addField(entries[23][0],entries[23][1],true)
       .addField(entries[24][0],entries[24][1],true);
       msg.channel.send(exampleEmbed);   
-      exampleEmbed = new Discord.RichEmbed()
+      exampleEmbed = new Discord.MessageEmbed()
       .setColor('#ffff00')
       .setTitle('Languages 2')
       .setThumbnail('https://cdn.discord.me/server/99cc19f10df5da7c09263ff47437dd8a700275be98bf88ae8c0c360a4ea0176d/icon_c47e9a6c64d7043618d92c7fb6125d1268f6a40497490ea377d9bba4bef12a27.jpg')
@@ -81,7 +81,7 @@ module.exports = {
       .addField(entries[47][0],entries[47][1],true)
       .addField(entries[48][0],entries[48][1],true);
       msg.channel.send(exampleEmbed);   
-      exampleEmbed = new Discord.RichEmbed()
+      exampleEmbed = new Discord.MessageEmbed()
       .setColor('#ffff00')
       .setTitle('Languages 3')
       .setThumbnail('https://cdn.discord.me/server/99cc19f10df5da7c09263ff47437dd8a700275be98bf88ae8c0c360a4ea0176d/icon_c47e9a6c64d7043618d92c7fb6125d1268f6a40497490ea377d9bba4bef12a27.jpg')
@@ -110,7 +110,7 @@ module.exports = {
       .addField(entries[71][0],entries[71][1],true)
       .addField(entries[72][0],entries[72][1],true);
       msg.channel.send(exampleEmbed);   
-      exampleEmbed = new Discord.RichEmbed()
+      exampleEmbed = new Discord.MessageEmbed()
       .setColor('#ffff00')
       .setTitle('Languages 4')
       .setThumbnail('https://cdn.discord.me/server/99cc19f10df5da7c09263ff47437dd8a700275be98bf88ae8c0c360a4ea0176d/icon_c47e9a6c64d7043618d92c7fb6125d1268f6a40497490ea377d9bba4bef12a27.jpg')
@@ -140,7 +140,7 @@ module.exports = {
       .addField(entries[96][0],entries[96][1],true)
       .addField(entries[97][0],entries[97][1],true);
       msg.channel.send(exampleEmbed);  
-      exampleEmbed = new Discord.RichEmbed()
+      exampleEmbed = new Discord.MessageEmbed()
       .setColor('#ffff00')
       .setTitle('Languages 5')
       .setThumbnail('https://cdn.discord.me/server/99cc19f10df5da7c09263ff47437dd8a700275be98bf88ae8c0c360a4ea0176d/icon_c47e9a6c64d7043618d92c7fb6125d1268f6a40497490ea377d9bba4bef12a27.jpg')

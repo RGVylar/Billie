@@ -9,7 +9,7 @@ module.exports = {
     const MONGO = config.MONGO;
     let dice =  functions.dice();
     if(dice==7){
-      const exampleEmbed = new Discord.RichEmbed()
+      const exampleEmbed = new Discord.MessageEmbed()
       .setColor('#ffff00')
       .setTitle(`You were expecting a quote, but it was me, Dio!`)
       .setImage('https://cdn.discordapp.com/attachments/682860137316220928/689793060258971750/1532018000_Tumblr_o0i5tcPs2o1s0527so1_500.gif');

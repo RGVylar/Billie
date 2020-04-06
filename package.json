@@ -9,20 +9,23 @@
   "author": "RGVylar",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.5.1",
+    "canvas": "^2.6.0",
+    "discord.js": "12.1.1",
     "dotenv": "^8.2.0",
     "ffmpeg-static": "^4.0.1",
+    "mongodb": "^3.0.5",
+    "mongojs": "^3.1.0",
     "node-fetch": "^2.6.0",
+    "node-opus": "0.3.3",
+    "@discordjs/opus": "0.1.0",
     "request": "^2.88.2",
+    "snekfetch": "4.0.4",
+    "stringpad": "1.0.0",
     "translate": "1.1.1",
+    "translatte": "2.5.6",
+    "youtube-random-video": "1.0.5",
     "ytdl-core": "^2.0.0",
     "ytdl-getinfo": "1.1.0",
-    "ytsr": "^0.1.11",
-    "mongodb": "^3.0.5",
-    "mongojs": "^2.4.0",
-    "node-opus": "0.3.3",
-    "youtube-random-video": "1.0.5",
-    "translatte": "2.5.6",
-    "stringpad": "1.0.0"
+    "ytsr": "^0.1.11"
   }
 }

@@ -18,7 +18,7 @@ module.exports = {
             resp += '[' + i + '] - ' + queue[i].songTitle + ' - Requested by : ' + queue[i].requester + '\r'; 
         }
 
-        const queueListMsg = new Discord.RichEmbed()
+        const queueListMsg = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setTitle('Queue list')
             .setDescription(resp);

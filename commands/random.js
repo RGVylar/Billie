@@ -10,7 +10,7 @@ module.exports = {
     youtube.getRandomVid(KEY, function(err , data){
       if (args.includes('-p')) {
         args.splice(args.indexOf('-p'), 1);
-        const video = new Discord.RichEmbed()
+        const video = new Discord.MessageEmbed()
         .setColor('#ffff00')
         .setTitle(data.snippet.title)
         //.setDescription(data.snippet.description)
