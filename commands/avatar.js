@@ -10,9 +10,7 @@ module.exports = {
 		const exampleEmbed = new Discord.MessageEmbed()
 		.setColor('#0099ff')
 		.setTitle(`${res}'s avatar`)
-		.setImage(msg.author.displayAvatarURL)
-		.setTimestamp();
-		//msg.channel.send(`Your avatar: <${msg.author.displayAvatarURL}>`);
+		.setImage(msg.author.avatarURL({ dynamic: true, format: 'png', size: 512 }));
 		return msg.channel.send(exampleEmbed);
 	}
 	const avatarList = msg.mentions.users.map(user => {
@@ -22,8 +20,7 @@ module.exports = {
 		const exampleEmbed = new Discord.MessageEmbed()
 		.setColor('#0099ff')
 		.setTitle(`${res}'s avatar`)
-		.setImage(user.displayAvatarURL);
-		//.setTimestamp();
+		.setImage(user.avatarURL({ dynamic: true, format: 'png', size: 512 }));
 		return msg.channel.send(exampleEmbed);
 	}); 
 	//msg.channel.send(avatarList);
