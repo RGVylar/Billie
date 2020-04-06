@@ -7,7 +7,7 @@ module.exports = {
   description: 'set prefix!',
   execute(msg, args) {
 	const MONGO = config.MONGO;
-    if(msg.guild.owner||msg.member.id==DEV){
+    if(msg.member.id==DEV){//msg.guild.owner||
 	  	if (!args || args == "") {msg.channel.send("I need the new prefix");}	
 	  	else{ 	
 			MongoClient.connect(MONGO, function(err, db) {

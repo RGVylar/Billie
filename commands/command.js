@@ -13,7 +13,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'safe',
 				col: 'kick',
-				param0: 'kicks',
+				quote: 'kicks',
 			}
 		}
 		else if(commandName=='blush'){
@@ -23,7 +23,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'blush',
-				param0: 'blushes',
+				quote: 'blushes',
 			}
 		}
 		else if(commandName=='que'){
@@ -33,7 +33,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'que',
-				param0: ',¿Qué?',
+				quote: ',¿Qué?',
 			}
 		}
 		else if(commandName=='pat'){
@@ -43,7 +43,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'safe',
 				col: 'pat',
-				param0: 'pats',
+				quote: 'pats',
 			}
 		}
 		else if(commandName=='cry'){
@@ -53,7 +53,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'cry',
-				param0: ', Why so sad?',
+				quote: ', Why so sad?',
 			}
 		}
 		else if(commandName=='hug'){
@@ -63,7 +63,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'safe',
 				col: 'hug',
-				param0: 'hugs',
+				quote: 'hugs',
 			}
 		}
 		else if(commandName=='nice'){
@@ -73,7 +73,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'nice',
-				param0: ', Niiiiiice!',
+				quote: ', Niiiiiice!',
 			}
 		}
 		else if(commandName=='tea'){
@@ -83,7 +83,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'tea',
-				param0: `,It's tea time!`,
+				quote: `,It's tea time!`,
 			}
 		}
 		else if(commandName=='dab'){
@@ -93,7 +93,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'dab',
-				param0: 'dabs to them haters!',
+				quote: 'dabs to them haters!',
 			}
 		}
 		else if(commandName=='slap'){
@@ -103,7 +103,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'safe',
 				col: 'slap',
-				param0: 'slaps',
+				quote: 'slaps',
 			}
 		}
 		else if(commandName=='kiss'){
@@ -113,7 +113,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'safe',
 				col: 'kiss',
-				param0: 'kisses',
+				quote: 'kisses',
 			}
 			if(typeof argument != undefined){
 				if(argument=='-l'){
@@ -128,7 +128,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'laugh',
-				param0: 'laughs',
+				quote: 'laughs',
 			}
 		}
 		else if(commandName=='feet'){
@@ -138,7 +138,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'feet',
-				param0: ', notice this feet!',
+				quote: ', notice this feet!',
 			}
 		}
 		else if(commandName=='bite'){
@@ -148,7 +148,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'safe',
 				col: 'bite',
-				param0: 'bites',
+				quote: 'bites',
 			}
 		}
 		else if(commandName=='pout'){
@@ -158,7 +158,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'pout',
-				param0: 'pouts',
+				quote: 'pouts',
 			}
 		}
 		else if(commandName=='angry'){
@@ -168,7 +168,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'angry',
-				param0: 'is angry!',
+				quote: 'is angry!',
 			}
 		}
 		else if(commandName=='dance'){
@@ -178,7 +178,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'dance',
-				param0: 'dances',
+				quote: 'dances',
 			}
 		}
 		else if(commandName=='punch'){
@@ -188,7 +188,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'safe',
 				col: 'punch',
-				param0: 'punches',
+				quote: 'punches',
 			}
 		}
 		else if(commandName=='handhold'){
@@ -198,7 +198,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'safe',
 				col: 'handhold',
-				param0: 'holds your hand,',
+				quote: 'holds your hand,',
 			}
 		}
 		else if(commandName=='cursed'){
@@ -208,7 +208,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'cursed',
-				param0: ', this is cursed!',
+				quote: ', this is cursed!',
 			}
 		}
 		else if(commandName=='panic'){
@@ -218,7 +218,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'panic',
-				param0: 'is on panic!',
+				quote: 'is on panic!',
 			}
 		}
 		else if(commandName=='panic'){
@@ -228,7 +228,7 @@ module.exports = {
 				type: 'query',
 				rate: 'safe',
 				col: 'panic',
-				param0: 'is on panic!',
+				quote: 'is on panic!',
 			}
 		}
 		else if(commandName=='beg'){
@@ -238,7 +238,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'lewd',
 				col: 'beg',
-				param0: 'is begging for more,',
+				quote: 'is begging for more,',
 			}
 		}
 		else if(commandName=='cum'){
@@ -248,7 +248,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'lewd',
 				col: 'cum',
-				param0: 'cums on',
+				quote: 'cums on',
 			}
 		}
 		else if(commandName=='cunni'){
@@ -258,7 +258,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'lewd',
 				col: 'cunni',
-				param0: 'makes sweet love to',
+				quote: 'makes sweet love to',
 			}
 		}
 		else if(commandName=='fuck'){
@@ -268,7 +268,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'lewd',
 				col: 'fuck',
-				param0: 'fucks',
+				quote: 'fucks',
 			}
 			if(typeof argument != undefined){
 				if(argument=='-s'){
@@ -289,7 +289,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'lewd',
 				col: 'suck',
-				param0: 'sucks your pp,',
+				quote: 'sucks your pp,',
 			}
 		}
 		else if(commandName=='spank'){
@@ -299,7 +299,7 @@ module.exports = {
 				type: 'multiquery',
 				rate: 'lewd',
 				col: 'spank',
-				param0: 'spanks',
+				quote: 'spanks',
 			}
 			if(typeof argument != undefined){
 				if(argument=='-irl'){
@@ -314,7 +314,7 @@ module.exports = {
 				type: 'query',
 				rate: 'lewd',
 				col: 'undress',
-				param0: 'is now undress',
+				quote: 'is now undress',
 			}
 		}
 		else if(commandName=='masturbate'){
@@ -324,7 +324,7 @@ module.exports = {
 				type: 'query',
 				rate: 'lewd',
 				col: 'masturbate',
-				param0: 'masturbates',
+				quote: 'masturbates',
 			}
 			if(typeof argument != undefined){
 				if(argument=='-m'){

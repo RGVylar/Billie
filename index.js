@@ -144,7 +144,6 @@ bot.on('message', async msg => {
   const n = command.indexOf(PREFIX);
   const  name = command.substring(PREFIX.length, command.length);
   console.info(`Called command: ${name}`);
-
   try {
 
     let options = {

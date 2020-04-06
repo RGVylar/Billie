@@ -2,14 +2,11 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'order',
     description: 'show monogatari order',
-    execute(msg, args) {
-        let dice =  functions.dice();
+    execute: async (msg, args) =>{
+      var functions = require('../functions/functions.js');
+        let dice =  await functions.dice();
         if(dice==7){
-          const exampleEmbed = new Discord.RichEmbed()
-                .setColor('#ffff00')
-                .setTitle(`You were expecting the monogatari watch order, but it was me, Dio!`)
-                .setImage('https://cdn.discordapp.com/attachments/682860137316220928/689793060258971750/1532018000_Tumblr_o0i5tcPs2o1s0527so1_500.gif');
-              return msg.channel.send(exampleEmbed);
+          await functions.dio(msg,col);
         }
       else{
       const exampleEmbed = new Discord.RichEmbed()
@@ -32,7 +29,6 @@ module.exports = {
       .addField('11.Owarimonogatari Second Season', '7 Episodes')
       .addField('12.Zoku Owarimonogatari', '6 Episodes')
       .setImage('https://cdn.discord.me/server/99cc19f10df5da7c09263ff47437dd8a700275be98bf88ae8c0c360a4ea0176d/articles/article_5332c6291c17e5269d7dcba9183260a43b9a1daa86be206930cf60f85d2c6d58.jpg')
-      //.setTimestamp()
       .setFooter('Made by RGVylar', 'https://cdn.discordapp.com/emojis/675047947246764042.png?v=1');
 
       msg.channel.send(exampleEmbed);

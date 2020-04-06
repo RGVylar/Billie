@@ -5,8 +5,8 @@ const MONGO = config.MONGO;
 const DB = config.DB;
 const DEV = config.DEV;
 module.exports = {
-	name: 'create',
-	description: 'create command!',
+	name: 'delete',
+	description: 'delete command!',
 	execute: async (msg, args) =>{
 		if(msg.member.id==DEV){
 			var functions = require('../functions/functions.js');
@@ -22,30 +22,10 @@ module.exports = {
 						dbo.collection('commands').find(query).toArray(async(err, result)=> {
 							if (err) throw err;
 							if(typeof result[0] !== 'undefined'){
-								msg.channel.send('The command **'+col+'**, already exist');	            		
+								await functions.delCommand(msg,col);		            		
 							}
 							else{
-								var command = {
-									col: 'test',
-									description: 'test',
-									type: 'test',
-									rate: 'test',
-									quote: 'test',
-								}
-								col = args[0];
-								var description = args[1];
-								var type = args[2];
-								var rate = args[3];
-								var quote = args[4];
-								description=description.replace(/_/g, " ");
-								quote=quote.replace(/_/g, " ");
-								command.col=col;
-								command.description=description;
-								command.type=type;
-								command.rate=rate;
-								command.quote=quote;
-								console.log(command);
-								await functions.newCommand(msg,command);
+								msg.channel.send('The command **'+col+'**, dont exist');
 							}
 							db.close();
 						});
@@ -60,6 +40,6 @@ module.exports = {
 		else{
 			msg.channel.send("You dont have permission");
 		}
-		msg.delete();
+		//msg.delete();
 	},
 };

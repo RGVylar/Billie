@@ -3,7 +3,6 @@ module.exports = {
   //SAFE Commands 25
   Sa: require('./sa'),
   Execution: require('./execution'),
-  Create: require('./create'),
   Say: require('./say'),
   RPS: require('./rps'),
   Coin: require('./coin'),
@@ -39,4 +38,6 @@ module.exports = {
   Insert: require('./insert'),
   Prefix: require('./prefix'),
   Purge: require('./purge'),
+  Create: require('./create'),
+  Delete: require('./delete'),
 };

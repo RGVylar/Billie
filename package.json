@@ -21,6 +21,8 @@
     "mongodb": "^3.0.5",
     "mongojs": "^2.4.0",
     "node-opus": "0.3.3",
-    "youtube-random-video": "1.0.5"
+    "youtube-random-video": "1.0.5",
+    "translatte": "2.5.6",
+    "stringpad": "1.0.0"
   }
 }

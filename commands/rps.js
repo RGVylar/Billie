@@ -4,7 +4,6 @@ module.exports = {
   execute(msg, args) {
   var replies = ['rock', 'paper', 'scissors'];
         var result = Math.floor((Math.random() * replies.length));
-
         let uReply = args[0];
         if (!uReply) return msg.channel.send(`Please play with one of these responses: \`${replies.join(', ')}\``);
         if (!replies.includes(uReply)) return msg.channel.send(`Only these responses are accepted: \`${replies.join(', ')}\``);
