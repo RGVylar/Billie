@@ -106,7 +106,8 @@ async function play(client, options, data, msg) {
     MongoClient.connect(MONGO, function (err, db) {
         if (err) throw err;
         var dbo = db.db(DB);
-        dbo.collection("dance").find({}).toArray(function (err, result) {
+        var query = {col:'dance'};
+        dbo.collection("media").find(query).toArray(function (err, result) {
             if (err) throw err;
             const user = msg.member.user.tag;
             const n = user.indexOf("#");
@@ -120,7 +121,7 @@ async function play(client, options, data, msg) {
                 .setDescription('Requested by : ' + data.queue[0].requester)
                 .setThumbnail('https://img.youtube.com/vi/' + data.queue[0].video_id + '/0.jpg')
                 .setURL(data.queue[0].url)
-                .setImage(gif[0]);
+                .setImage(gif);
             msg.channel.send(nowPlayingMessage);
         });
         db.close();

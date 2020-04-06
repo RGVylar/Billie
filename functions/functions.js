@@ -205,10 +205,10 @@ module.exports = {
   },
 };
 function ask(msg,gif) {
-  if(msg.member.id==DEV){
+  //if(msg.member.id==DEV){
     msg.react('👍').then(() => msg.react('👎'));
     const filter = (reaction, user) => {
-      return ['👍', '👎'].includes(reaction.emoji.name) && user.id === msg.author.id;
+      return ['👍', '👎'].includes(reaction.emoji.name) && user.id === DEV;
     };
 
     msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
@@ -231,7 +231,7 @@ function ask(msg,gif) {
       }
     })
     .catch(collected => {
-      msg.reply('Admin reacted with neither a thumbs up, nor a thumbs down.');
+      //msg.reply('Admin reacted with neither a thumbs up, nor a thumbs down.');
     });
-  }  
+  //}  
 }
