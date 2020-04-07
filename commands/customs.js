@@ -29,9 +29,9 @@ module.exports = {
 		            				safe.push(item);
 		            			}
 							};
-		            		var tables=stringtable.create(safe,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: PREFIX});
+		            		var tables=stringtable.create(safe,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: '-'});
 
-		            		var tablef=stringtable.create(lewd,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: PREFIX});
+		            		var tablef=stringtable.create(lewd,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: '-'});
 							msg.channel.send('***Safe commands:***\n```css\n'+tables+'```');
 		            		if (msg.channel.nsfw) {
 								msg.channel.send('***Lewd commands:***\n```diff\n'+tablef+'```');
