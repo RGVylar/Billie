@@ -235,10 +235,10 @@ module.exports = {
 			commandName={
 				name: 'beg',
 				description: 'beg!',
-				type: 'multiquery',
+				type: 'query',
 				rate: 'lewd',
 				col: 'beg',
-				quote: 'is begging for more,',
+				quote: 'is begging for more',
 			}
 		}
 		else if(commandName=='cum'){
