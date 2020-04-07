@@ -105,10 +105,28 @@ module.exports = {
   },
   ns: async function (ctx, text,canvas) {
     var ns = [
-  [ 1, 1, 1],
+   [ 1, 1,  1],
    [ 1, 0.7, -1],
    [ -1, -1, -1]];
     convolve(ns)
+    .canvas(canvas);
+    return ctx;
+  }, 
+  try: async function (ctx, text,canvas) {
+    var trry = [
+    [ -1, -1, -1],
+   [ -1, 8, -1],
+   [ -1, -1, -1]];
+    convolve(trry)
+    .canvas(canvas);
+    return ctx;
+  }, 
+  random: async function (ctx, text,canvas) {
+    var rand = [
+   [ Math.floor((Math.random() * 10)-5), Math.floor((Math.random() * 10)-3), Math.floor((Math.random() * 10)-5)],
+   [ Math.floor((Math.random() * 10)-5), Math.floor((Math.random() * 10)-3), Math.floor((Math.random() * 10)-5)],
+   [ Math.floor((Math.random() * 10)-5), Math.floor((Math.random() * 10)-3), Math.floor((Math.random() * 10)-5)]];
+    convolve(rand)
     .canvas(canvas);
     return ctx;
   }, 
