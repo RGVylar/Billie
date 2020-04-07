@@ -26,6 +26,7 @@
     "youtube-random-video": "1.0.5",
     "ytdl-core": "^2.0.0",
     "ytdl-getinfo": "1.1.0",
-    "ytsr": "^0.1.11"
+    "ytsr": "^0.1.11",
+    "convolve": "0.1.0"
   }
 }

@@ -10,13 +10,19 @@ module.exports = {
 
       if (!args || args == "") {
         msg.reply('But, give me the holy numbers!');
+        }
+        else {
+        msg.reply('https://nhentai.net/g/' + args + '/');         
+        }
+        /*if (!args || args == "") {
+        msg.reply('But, give me the holy numbers!');
       }
       else if(args === parseInt(args, 10)){
         msg.reply('https://nhentai.net/g/' + args + '/');
       }
       else {
         msg.reply('Only number search supported');
-      }
+      }*/
     }
   },
 };

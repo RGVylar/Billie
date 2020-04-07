@@ -28,7 +28,7 @@ module.exports = {
 	      			const exampleEmbed = new Discord.MessageEmbed()
 	              	.setColor('#ffff00')
 	              	.setTitle(`Im already ignoring you!`)
-               		.setImage('https://cdn.discordapp.com/attachments/690295794628165707/690316862541791252/tenor_5.gif');
+               		.setImage('https://media1.tenor.com/images/c9c9ff2eed3dff5c3b9f7c0c033704da/tenor.gif?itemid=8657468');
 	            	return msg.channel.send(exampleEmbed);
 					msg.channel.send("");
 				}
