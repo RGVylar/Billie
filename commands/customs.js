@@ -32,9 +32,9 @@ module.exports = {
 		            		var tables=stringtable.create(safe,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: PREFIX});
 
 		            		var tablef=stringtable.create(lewd,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: PREFIX});
-							msg.channel.send('***Safe commands:***\n```\n'+tables+'```');
+							msg.channel.send('***Safe commands:***\n```css\n'+tables+'```');
 		            		if (msg.channel.nsfw) {
-								msg.channel.send('***Lewd commands:***\n```fix\n'+tablef+'```');
+								msg.channel.send('***Lewd commands:***\n```diff\n'+tablef+'```');
 							}
 							
 		            	}
