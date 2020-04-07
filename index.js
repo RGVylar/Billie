@@ -152,7 +152,7 @@ bot.on('message', async msg => {
     let result = await bot.commands.get('execution').execute(msg, args,name, options, bot);
     if(!result){
       if (!bot.commands.has(name)) return;
-      bot.commands.get(name).execute(msg, args, options, bot);
+      bot.commands.get(name).execute(msg, args, options, bot,PREFIX);
     }
   } catch (error) {
     console.error(error);

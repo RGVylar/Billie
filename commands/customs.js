@@ -7,7 +7,7 @@ const DB = config.DB;
 module.exports = {
   name: 'customs',
   description: 'Shows custom commands',
-  execute: async (msg, args) =>{
+  execute: async (msg, args,options, bot, PREFIX) =>{
   	MongoClient.connect(MONGO, function(err, db) {
 		      	if (err) throw err;
 		      	var dbo = db.db(DB);
@@ -29,14 +29,14 @@ module.exports = {
 		            				safe.push(item);
 		            			}
 							};
-		            		var tables=stringtable.create(safe,{ headers: ['col','description'],capitalizeHeaders: true });
-		            		var tablef=stringtable.create(lewd,{ headers: ['col','description'],capitalizeHeaders: true });
+		            		var tables=stringtable.create(safe,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: PREFIX});
+
+		            		var tablef=stringtable.create(lewd,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: PREFIX});
+							msg.channel.send('***Safe commands:***\n```\n'+tables+'```');
 		            		if (msg.channel.nsfw) {
-								msg.channel.send('***Lewd commands:***\n```'+tablef+'```');
+								msg.channel.send('***Lewd commands:***\n```fix\n'+tablef+'```');
 							}
-							else{
-								msg.channel.send('***Safe commands:***\n```'+tables+'```');
-							}
+							
 		            	}
 		            	else{
 		            		//Command is not generated, check if custom
