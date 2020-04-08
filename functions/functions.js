@@ -315,6 +315,7 @@ function validate(msg,gif,col,sentEmbed) {
               if (err) throw err;
               db.close();
             }); 
+          myquery = { url: gif };
           dbo.collection('suggestions').deleteOne(myquery, function(err, obj) {
             if (err) throw err;
             msg.channel.send('`Gif accepted`');
@@ -323,7 +324,12 @@ function validate(msg,gif,col,sentEmbed) {
         });
       }
       else {
+        var myquery = { url: gif };
+          dbo.collection('suggestions').deleteOne(myquery, function(err, obj) {
+            if (err) throw err;
             msg.channel.send('`Gif rejected`');
+            db.close();
+          });
       }
     })
     .catch(collected => {
