@@ -43,7 +43,7 @@ module.exports = {
 					}
 					else{
 						if (!msg.mentions.users.size) {
-							msg.channel.send("Find someone :(");
+							msg.channel.send("Find someone else, loser **(You must ping someone)**");
 						}	
 						else{
 							await functions.multiquery(msg,args,col,quote);
@@ -85,7 +85,7 @@ module.exports = {
 										}
 										else{
 											if (!msg.mentions.users.size) {
-												msg.channel.send("Find someone :(");
+												msg.channel.send("Find someone else, loser **(You must ping someone)**");
 											}	
 											else{
 												await functions.multiquery(msg,args,col,quote);
