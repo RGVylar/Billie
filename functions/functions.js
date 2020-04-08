@@ -324,12 +324,17 @@ function validate(msg,gif,col,sentEmbed) {
         });
       }
       else {
-        var myquery = { url: gif };
+        MongoClient.connect(MONGO, function(err, db) {
+          if (err) throw err;
+          var dbo = db.db(DB);
+          var myquery = { url: gif };
           dbo.collection('suggestions').deleteOne(myquery, function(err, obj) {
             if (err) throw err;
             msg.channel.send('`Gif rejected`');
             db.close();
           });
+        });
+        
       }
     })
     .catch(collected => {
