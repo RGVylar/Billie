@@ -86,7 +86,6 @@ module.exports = {
               .setColor('#0099ff')
               .setTitle(col)
               .setImage(gif);
-              console.log(result);
             msg.channel.send(embed).then(sentEmbed => {
             validate(msg,gif,col,sentEmbed);
             });
@@ -199,20 +198,16 @@ module.exports = {
     });
   },
   suggest: function (msg,col,url) {
-    console.log(col+' '+url);
     MongoClient.connect(MONGO, function(err, db) {
       if (err) throw err;
       var dbo = db.db(DB);
       var myobj = { col:col, url:url };
       dbo.createCollection('suggestions', function(err, res) {
         if (err) {
-          console.log(err);
         }
-        console.log(res);
         if(typeof res !== 'undefined'){
           dbo.collection('suggestions').insertOne(myobj, function(err, res) {
             if (err) throw err;
-            console.log(res);
             msg.channel.send('1 '+col+' suggested');
             db.close();
           });
@@ -236,7 +231,7 @@ module.exports = {
             if (err) throw err;
             const consent = new Discord.MessageEmbed()
             .setColor('#d3d3d3 ')
-            .setTitle('New command')
+            .setTitle('New command: '+command.col)
             .addField('Name', command.col)
             .addField('Description', command.description)
             .addField('Type', command.type)

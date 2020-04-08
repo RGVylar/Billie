@@ -8,8 +8,9 @@ module.exports = {
 	name: 'check',
 	execute: async (msg, args) =>{
 		if(msg.member.id==DEV){
-		var functions = require('../functions/functions.js');
-		await functions.check(msg);
+			msg.channel.send(msg.member.id+'='DEV);
+			var functions = require('../functions/functions.js');
+			await functions.check(msg);
 		}
 		else{
 			msg.channel.send("You dont have permission");

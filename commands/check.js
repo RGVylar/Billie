@@ -7,7 +7,12 @@ const DEV = config.DEV;
 module.exports = {
 	name: 'check',
 	execute: async (msg, args) =>{
-		var functions = require('../functions/functions.js');
-		await functions.check(msg);
+		if(msg.member.id==DEV){
+			var functions = require('../functions/functions.js');
+			await functions.check(msg);
+		}
+		else{
+			msg.channel.send("You dont have permission");
+		}
 	},
 };
