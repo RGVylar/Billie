@@ -53,8 +53,43 @@ module.exports = {
               .setImage(gif);
               
             msg.channel.send(embed).then(sentEmbed => {
-            ask(msg,gif,sentEmbed)
+            ask(msg,gif,sentEmbed);
           });
+            }
+            else{
+              msg.channel.send('There are not '+col+' gifs yet!');
+            }
+            db.close();
+          });
+        }
+        else {
+          msg.channel.send('This '+col+' is not defined');
+        }
+        db.close();
+      }); 
+    }); 
+  },
+  check: function (msg) {
+    MongoClient.connect(MONGO, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db(DB);
+      dbo.createCollection('media', function(err, res) {
+        if (err) {
+        }
+        if(typeof res !== 'undefined'){
+          dbo.collection('suggestions').find({}).toArray(function(err, result) {
+            if (err) throw err;
+            if(typeof result[0] !== 'undefined'){ 
+              var gif = result[0].url;
+              var col = result[0].col;
+              const embed = new Discord.MessageEmbed()
+              .setColor('#0099ff')
+              .setTitle(col)
+              .setImage(gif);
+              console.log(result);
+            msg.channel.send(embed).then(sentEmbed => {
+            validate(msg,gif,col,sentEmbed);
+            });
             }
             else{
               msg.channel.send('There are not '+col+' gifs yet!');
@@ -94,6 +129,12 @@ module.exports = {
         var action = {col:col};
         dbo.collection('media').find(action).toArray(function(err, result) {
           if (err) throw err;
+
+          if(typeof result[0] !== 'undefined'){
+            /*if(result[0].user==id){
+              whitelisted=true;
+            } */
+          
           if(usera==userb){
             msg.channel.send("Find someone else :(");
           }
@@ -129,7 +170,7 @@ module.exports = {
             msg.channel.send(embed).then(sentEmbed => {
             ask(msg,gif,sentEmbed)
           });
-          }
+          }}else{msg.channel.send('There are not **'+col+'** gifs yet');}
           db.close();
         });
       });
@@ -147,6 +188,32 @@ module.exports = {
           dbo.collection('media').insertOne(myobj, function(err, res) {
             if (err) throw err;
             msg.channel.send('1 '+col+' inserted');
+            db.close();
+          });
+        }
+        else{
+          msg.channel.send('res undefined');
+        }
+        db.close();
+      });
+    });
+  },
+  suggest: function (msg,col,url) {
+    console.log(col+' '+url);
+    MongoClient.connect(MONGO, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db(DB);
+      var myobj = { col:col, url:url };
+      dbo.createCollection('suggestions', function(err, res) {
+        if (err) {
+          console.log(err);
+        }
+        console.log(res);
+        if(typeof res !== 'undefined'){
+          dbo.collection('suggestions').insertOne(myobj, function(err, res) {
+            if (err) throw err;
+            console.log(res);
+            msg.channel.send('1 '+col+' suggested');
             db.close();
           });
         }
@@ -213,7 +280,7 @@ function ask(msg,gif,sentEmbed) {
     .then(collected => {
       const reaction = collected.first();
       if (reaction.emoji.name === '👍') {
-        msg.channel.send('Admin likes this gif');
+        msg.channel.send('`Admin likes this gif`');
       }
       else {
         MongoClient.connect(MONGO, function(err, db) {
@@ -222,10 +289,46 @@ function ask(msg,gif,sentEmbed) {
           var myquery = { url: gif };
           dbo.collection('media').deleteOne(myquery, function(err, obj) {
             if (err) throw err;
-            msg.channel.send('Admin deleted a gif');
+            msg.channel.send('`Admin deleted a gif`');
             db.close();
           });
         });
+      }
+    })
+    .catch(collected => {
+      //msg.reply('Admin reacted with neither a thumbs up, nor a thumbs down.');
+    });
+  //}  
+}
+
+function validate(msg,gif,col,sentEmbed) {
+  //if(msg.member.id==DEV){
+    sentEmbed.react('👍').then(() => sentEmbed.react('👎'));
+    const filter = (reaction, user) => {
+      return ['👍', '👎'].includes(reaction.emoji.name) && user.id === DEV;
+    };
+
+    sentEmbed.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
+    .then(collected => {
+      const reaction = collected.first();
+      if (reaction.emoji.name === '👍') {
+        MongoClient.connect(MONGO, function(err, db) {
+          if (err) throw err;
+          var dbo = db.db(DB);
+          var myquery = { col: col,url: gif };
+          dbo.collection('media').insertOne(myquery, function(err, res) {
+              if (err) throw err;
+              db.close();
+            }); 
+          dbo.collection('suggestions').deleteOne(myquery, function(err, obj) {
+            if (err) throw err;
+            msg.channel.send('`Gif accepted`');
+            db.close();
+          });
+        });
+      }
+      else {
+            msg.channel.send('`Gif rejected`');
       }
     })
     .catch(collected => {
