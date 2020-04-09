@@ -53,7 +53,7 @@ module.exports = {
               .setImage(gif);
               
             msg.channel.send(embed).then(sentEmbed => {
-            ask(msg,gif,sentEmbedl,col);
+            ask(msg,gif,sentEmbed,col);
           });
             }
             else{
