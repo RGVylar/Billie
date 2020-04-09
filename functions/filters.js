@@ -39,11 +39,11 @@ module.exports = {
   },
   text: async function (ctx, text,canvas) {
     ctx.font = 'bold 100px sans-serif';
-    ctx.font = applyText(canvas, text);
+    ctx.font = applyText(ctx,canvas, text);
     ctx.fillStyle = '#ffffff';
     ctx.strokeStyle = 'black';
-    ctx.fillText(text, canvas.width / 11, canvas.height / 1.05);
-    ctx.strokeText(text, canvas.width / 11, canvas.height / 1.05);
+    ctx.fillText(text, canvas.width / 20, canvas.height / 1.05);
+    ctx.strokeText(text, canvas.width / 20, canvas.height / 1.05);
     ctx.fill();
     ctx.stroke();
     return ctx;
@@ -131,15 +131,14 @@ module.exports = {
     return ctx;
   }, 
 }
-const applyText = (canvas, text) => {
-  const ctx = canvas.getContext('2d');
+const applyText = (ctx,canvas, text) => {
   // Declare a base size of the font
   let fontSize = 300;
   do {
     // Assign the font to the context and decrement it so it can be measured again
-    ctx.font = `bold ${fontSize -= 10}px sans-serif`;
+    ctx.font = `bold ${fontSize -= 0.5}px sans-serif`;
     // Compare pixel width of the text to the canvas minus the approximate avatar size
-  } while (ctx.measureText(text).width > canvas.width - 100);
+  } while (ctx.measureText(text).width > canvas.width - 50);
   // Return the result to use in the actual canvas
   return ctx.font;
 };
