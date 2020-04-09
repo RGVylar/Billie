@@ -26,7 +26,7 @@ module.exports = {
   dio: function (msg,col) {
     const embed = new Discord.MessageEmbed()
     .setColor('#ffff00')
-    .setTitle('You were expecting a **'+col+'**, but it was me, Dio!')
+    .setTitle('You were expecting a '+col+' anime gif, but it was me, Dio!')
     .setImage('https://cdn.discordapp.com/attachments/682860137316220928/689793060258971750/1532018000_Tumblr_o0i5tcPs2o1s0527so1_500.gif');
     msg.channel.send(embed); 
   },
@@ -57,13 +57,13 @@ module.exports = {
           });
             }
             else{
-              msg.channel.send('There are not **'+col+'s** yet!');
+              msg.channel.send('There are not '+col+' gifs yet!');
             }
             db.close();
           });
         }
         else {
-          msg.channel.send('This **'+col+'** is not defined');
+          msg.channel.send('This '+col+' is not defined');
         }
         db.close();
       }); 
@@ -84,21 +84,20 @@ module.exports = {
               var col = result[0].col;
               const embed = new Discord.MessageEmbed()
               .setColor('#0099ff')
-              .setTitle('Suggested '+col)
-              .setDescription('**'+((result.length)-1)+'** suggestions left')
+              .setTitle(col)
               .setImage(gif);
             msg.channel.send(embed).then(sentEmbed => {
             validate(msg,gif,col,sentEmbed);
             });
             }
             else{
-              msg.channel.send('There are not more suggestions!');
+              msg.channel.send('There are not '+col+' gifs yet!');
             }
             db.close();
           });
         }
         else {
-          msg.channel.send('This suggestions is not defined');
+          msg.channel.send('This '+col+' is not defined');
         }
         db.close();
       }); 
@@ -136,7 +135,7 @@ module.exports = {
             } */
           
           if(usera==userb){
-            msg.channel.send("I mean, that is sad, loser, find a Billie");
+            msg.channel.send("Find someone else :(");
           }
           else if(whitelisted){
             const embed = new Discord.MessageEmbed()
@@ -168,9 +167,9 @@ module.exports = {
             .setTitle(quote)
             .setImage(gif);
             msg.channel.send(embed).then(sentEmbed => {
-            ask(msg,gif,sentEmbed,col)
+            ask(msg,gif,sentEmbed)
           });
-          }}else{msg.channel.send('There are not **'+col+'s** yet');}
+          }}else{msg.channel.send('There are not **'+col+'** gifs yet');}
           db.close();
         });
       });
@@ -187,7 +186,7 @@ module.exports = {
         if(typeof res !== 'undefined'){
           dbo.collection('media').insertOne(myobj, function(err, res) {
             if (err) throw err;
-            msg.channel.send('**1** `'+col+'` inserted');
+            msg.channel.send('1 '+col+' inserted');
             db.close();
           });
         }
@@ -209,7 +208,7 @@ module.exports = {
         if(typeof res !== 'undefined'){
           dbo.collection('suggestions').insertOne(myobj, function(err, res) {
             if (err) throw err;
-            msg.channel.send('**1** `'+col+'` suggested');
+            msg.channel.send('1 '+col+' suggested');
             db.close();
           });
         }
@@ -253,7 +252,7 @@ module.exports = {
           var myquery = { col:col };
           dbo.collection('media').deleteMany(myquery, function(err, obj) {
             if (err) throw err;
-            msg.channel.send('**'+obj.result.n + "** `"+col+"` deleted");
+            msg.channel.send(obj.result.n + " **"+col+"** deleted");
             db.close();
           });
           dbo.collection('commands').deleteOne(myquery, function(err, obj) {
@@ -265,7 +264,7 @@ module.exports = {
     });
   },
 };
-function ask(msg,gif,sentEmbed,col) {
+function ask(msg,gif,sentEmbed) {
   //if(msg.member.id==DEV){
     sentEmbed.react('👍').then(() => sentEmbed.react('👎'));
     const filter = (reaction, user) => {
@@ -276,7 +275,7 @@ function ask(msg,gif,sentEmbed,col) {
     .then(collected => {
       const reaction = collected.first();
       if (reaction.emoji.name === '👍') {
-        msg.channel.send('Admin liked this `'+col+'`');
+        msg.channel.send('`Admin likes this gif`');
       }
       else {
         MongoClient.connect(MONGO, function(err, db) {
@@ -285,7 +284,7 @@ function ask(msg,gif,sentEmbed,col) {
           var myquery = { url: gif };
           dbo.collection('media').deleteOne(myquery, function(err, obj) {
             if (err) throw err;
-            msg.channel.send('Admin deleted this `'+col+'`');
+            msg.channel.send('`Admin deleted a gif`');
             db.close();
           });
         });
@@ -319,7 +318,7 @@ function validate(msg,gif,col,sentEmbed) {
           myquery = { url: gif };
           dbo.collection('suggestions').deleteOne(myquery, function(err, obj) {
             if (err) throw err;
-            msg.channel.send('`Suggestion accepted`');
+            msg.channel.send('`Gif accepted`');
             db.close();
           });
         });
@@ -331,7 +330,7 @@ function validate(msg,gif,col,sentEmbed) {
           var myquery = { url: gif };
           dbo.collection('suggestions').deleteOne(myquery, function(err, obj) {
             if (err) throw err;
-            msg.channel.send('`Suggestion rejected`');
+            msg.channel.send('`Gif rejected`');
             db.close();
           });
         });

@@ -37,8 +37,7 @@ async function canvas(avatarIMG,channel,fn,args) {
 	if (typeof fn === "function"){
 		ctx=fn(ctx,args.join(' '),canvas);
 	}
-	
-	const attachment = new Discord.MessageAttachment(canvas.toBuffer());
-	
+	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'https://discordjs.guide/assets/img/8CQvVRV.cced9193.png');
+
 	channel.send(`Que coño quieres`, attachment);
 }
