@@ -11,6 +11,7 @@ module.exports = {
   Canvas: require('./canvas'),
   Execution: require('./execution'),
   Say: require('./say'),
+  Poll: require('./poll'),
   RPS: require('./rps'),
   Coin: require('./coin'),
   Help: require('./help'),

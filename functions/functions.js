@@ -275,6 +275,8 @@ function ask(msg,gif,sentEmbed,col) {
     sentEmbed.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
     .then(collected => {
       const reaction = collected.first();
+      console.log(collected);
+      console.log(collected.first());
       if (reaction.emoji.name === '👍') {
         msg.channel.send('Admin liked this `'+col+'`');
       }
