@@ -22,19 +22,22 @@ module.exports = {
 		            		var safe=[];
 		       				var message='';
 		       				var lewdssage='';
+		       				msg.channel.send('***Commands:***');
 		            		result.forEach(recorrer);
 		            		function recorrer(item,index){
 		            			if(item.rate=='lewd'){
 		            				//lewd.push(item);
-		            				lewdssage+='`'+PREFIX+item.col+': '+item.description+'`\n';
+		            				lewdssage+='***'+PREFIX+item.col+':*** `'+item.description+'`\n';
 		            				if(lewdssage.lenght>1900){
-		            					msg.channel.send(lewdssage);
-		            					lewdssage='';
+		            					if (msg.channel.nsfw) {
+		            						msg.channel.send(lewdssage);
+		            						lewdssage='';
+		            					}
 		            				}
 		            				//msg.channel.send('***\n```diff\n'+item.col+': '+item.description+'```');
 		            			}
 		            			else{
-		            				message+='`'+PREFIX+item.col+': '+item.description+'`\n';
+		            				message+='***'+PREFIX+item.col+': `'+item.description+'`\n';
 		            				if(message.lenght>1900){
 		            					msg.channel.send(message);
 		            					message='';
@@ -44,7 +47,9 @@ module.exports = {
 		            			}
 							};
 							msg.channel.send(message);
-							msg.channel.send(lewdssage);
+							if (msg.channel.nsfw) {
+								msg.channel.send(lewdssage);
+							}
 		            		//var tables=stringtable.create(safe,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: '-'});
 
 		            		//var tablef=stringtable.create(lewd,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: '-'});
