@@ -43,6 +43,8 @@ module.exports = {
 		            				//msg.channel.send('***\n```css\n'+item.col+': '+item.description+'```');
 		            			}
 							};
+							msg.channel.send(message);
+							msg.channel.send(lewdssage);
 		            		//var tables=stringtable.create(safe,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: '-'});
 
 		            		//var tablef=stringtable.create(lewd,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: '-'});
