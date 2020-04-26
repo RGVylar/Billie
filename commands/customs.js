@@ -20,15 +20,27 @@ module.exports = {
 		            	if(typeof result[0] !== 'undefined'){
 		            		var lewd=[];
 		            		var safe=[];
+		       				var message='';
+		       				var lewdssage='';
 		            		result.forEach(recorrer);
 		            		function recorrer(item,index){
 		            			if(item.rate=='lewd'){
 		            				//lewd.push(item);
-		            				msg.channel.send('***\n```css\n'+item.col+': '+item.description+'```');
+		            				lewdssage+='`'+PREFIX+item.col+': '+item.description+'`\n';
+		            				if(lewdssage.lenght>1900){
+		            					msg.channel.send(lewdssage);
+		            					lewdssage='';
+		            				}
+		            				//msg.channel.send('***\n```diff\n'+item.col+': '+item.description+'```');
 		            			}
 		            			else{
+		            				message+='`'+PREFIX+item.col+': '+item.description+'`\n';
+		            				if(message.lenght>1900){
+		            					msg.channel.send(message);
+		            					message='';
+		            				}
 		            				//safe.push(item);
-		            				msg.channel.send('***\n```diff\n'+item.col+': '+item.description+'```');
+		            				//msg.channel.send('***\n```css\n'+item.col+': '+item.description+'```');
 		            			}
 							};
 		            		//var tables=stringtable.create(safe,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: '-'});
