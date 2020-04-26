@@ -37,7 +37,7 @@ module.exports = {
 		            				//msg.channel.send('***\n```diff\n'+item.col+': '+item.description+'```');
 		            			}
 		            			else{
-		            				message+='***'+PREFIX+item.col+': `'+item.description+'`\n';
+		            				message+='***'+PREFIX+item.col+':*** `'+item.description+'`\n';
 		            				if(message.lenght>1900){
 		            					msg.channel.send(message);
 		            					message='';
