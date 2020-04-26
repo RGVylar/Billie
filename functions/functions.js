@@ -116,9 +116,9 @@ module.exports = {
         dbo.collection("whitelist").find(query).toArray(function(err, result) {
           if (err) throw err;
           if(typeof result[0] !== 'undefined'){
-            /*if(result[0].user==id){
+            if(result[0].user==id){
               whitelisted=true;
-            } */
+            } 
           }
           db.close();
         });
@@ -131,9 +131,9 @@ module.exports = {
           if (err) throw err;
 
           if(typeof result[0] !== 'undefined'){
-            /*if(result[0].user==id){
+            if(result[0].user==id){
               whitelisted=true;
-            } */
+            } 
           
           if(usera==userb){
             msg.channel.send("I mean, that is sad, loser, find a Billie");
