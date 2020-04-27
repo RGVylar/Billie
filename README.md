@@ -29,7 +29,7 @@ Go to Heroku - New - Create new app
 Go to Settings - Reveal Config Vars.
 Now you must fill the data with your info:
 - DB the name of your MongoDB 
-
+Too lazy to continue! sorry!
 ```
 ## Usage:
 ```
