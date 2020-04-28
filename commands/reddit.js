@@ -4,7 +4,7 @@ module.exports = {
   description: 'reddit!',
   execute(msg, args) {
   	const reddit = new Discord.MessageEmbed()
-  	  .setColor('#FFA500')
+  	  .setColor('#e33500')
       .setTitle('Shinobunfriends')
       .setURL('https://www.reddit.com/r/Shinobunfriends/')
       .setAuthor('Made by RGVylar', 'https://logodownload.org/wp-content/uploads/2018/02/reddit-logo-16.png', 'https://www.twitch.tv/rgvylar')
