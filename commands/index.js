@@ -24,6 +24,7 @@ module.exports = {
   Quote: require('./quote'),
   Order: require('./order'),
   Github: require('./github'),
+  Reddit: require('./reddit'),
   Lolito: require('./lolito'),
   Avatar: require('./avatar'),
   Random: require('./random'),
