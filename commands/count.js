@@ -7,30 +7,20 @@ const DEV = config.DEV;
 module.exports = {
 	name: 'count',
 	execute: async (msg, args,commandName) =>{
+		console.log(commandName);
 		var functions = require('../functions/functions.js');
 		var commands = require('./command.js');
-		let command;
-		var argument;
-		if(args.length>0){
-			if (args[0].includes('-')){
-				argument = args[0];
-				command = await commands.commands(msg,commandName,argument);
-			}
-			else{
-				command = await commands.commands(msg,commandName);
-			}	
-		}
-		else{
-			command = await commands.commands(msg,commandName);
-		}
+		let command  = args[0];
+		console.log(command);
 		let dice =  functions.dice();
-		var col = command.col;
+		var col = command;
 		if(col){
 			if(dice==7){
+			
 				await functions.dio(msg,col);
 			}
 			else{
-				await functions.query(msg,args,col);
+				await functions.count(msg,args,col);
 			}	
 		}
 		else{
@@ -49,10 +39,11 @@ module.exports = {
 		            		//Command is generated
 	            			col = result[0].col;
 							if(dice==7){
+							
 									await functions.dio(msg,col);
 							}
 							else{
-								await functions.query(msg,args,col);
+								await functions.count(msg,args,col);
 							}	
 		            	}
 		            	else{
