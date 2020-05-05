@@ -17,7 +17,7 @@ const DB = config.DB;
 var newCount="0";
 var count="0";
 var cont="0";
-var PREFIX;
+var PREFIX=config.PREFIX;
 
 require('dotenv').config();
 
@@ -108,10 +108,7 @@ bot.login(TOKEN);
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
   bot.user.setStatus('available')
-  bot.user.setPresence({
-    game: {
-      name: PREFIX+'help',
-      type: "STREAMING",
+  bot.user.setPresence({    activity: {      name: 'Good morning',      type: "STREAMING",
       url: TWITCH
     }
   });
@@ -139,6 +136,11 @@ bot.on('message', async msg => {
     }); 
   });
   if (!msg.content.startsWith(PREFIX)) return;
+  bot.user.setPresence({
+      activity:{
+        name: PREFIX+'help',type: "STREAMING",url: TWITCH
+      }
+  });
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();
   const n = command.indexOf(PREFIX);
