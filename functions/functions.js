@@ -81,7 +81,7 @@ module.exports = {
           dbo.collection('media').find(query).toArray(function(err, result) {
             if (err) throw err;
             if(typeof result[0] !== 'undefined'){ 
-              msg.channel.send('**'+result.length+'** `'+col'` results');
+              msg.channel.send('**'+result.length+'** `'+col+'` results');
             }
             else{
               msg.channel.send('There are not **'+col+'s** yet!');
