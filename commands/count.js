@@ -5,8 +5,8 @@ const MONGO = config.MONGO;
 const DB = config.DB;
 const DEV = config.DEV;
 module.exports = {
-	name: 'execution',
-	count: async (msg, args,commandName) =>{
+	name: 'count',
+	execute: async (msg, args,commandName) =>{
 		var functions = require('../functions/functions.js');
 		var commands = require('./command.js');
 		let command;
