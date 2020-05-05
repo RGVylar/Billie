@@ -22,7 +22,7 @@ module.exports = {
 		            		var safe=[];
 		       				var message='';
 		       				var lewdssage='';
-		       				msg.channel.send('***Commands:***');
+		       				msg.channel.send('***'+result.length+' custom commands found (safe and lewd)***');
 		            		result.forEach(recorrer);
 		            		function recorrer(item,index){
 		            			if(item.rate=='lewd'){
