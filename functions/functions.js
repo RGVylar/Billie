@@ -69,6 +69,33 @@ module.exports = {
       }); 
     }); 
   },
+  count: function (msg,args,col) {
+    MongoClient.connect(MONGO, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db(DB);
+      dbo.createCollection('media', function(err, res) {
+        if (err) {
+        }
+        if(typeof res !== 'undefined'){
+          var query = {col:col};
+          dbo.collection('media').find(query).toArray(function(err, result) {
+            if (err) throw err;
+            if(typeof result[0] !== 'undefined'){ 
+              msg.channel.send('**'+result.length+'** `'+col'` results');
+            }
+            else{
+              msg.channel.send('There are not **'+col+'s** yet!');
+            }
+            db.close();
+          });
+        }
+        else {
+          msg.channel.send('This **'+col+'** is not defined');
+        }
+        db.close();
+      }); 
+    }); 
+  },
   check: function (msg) {
     MongoClient.connect(MONGO, function(err, db) {
       if (err) throw err;

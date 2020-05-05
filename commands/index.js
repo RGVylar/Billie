@@ -21,6 +21,7 @@ module.exports = {
   Date: require('./date'),
   Loli: require('./loli'),
   Urban: require('./urban'),
+  Count: require('./count'),
   Quote: require('./quote'),
   Order: require('./order'),
   Github: require('./github'),
