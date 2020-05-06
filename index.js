@@ -13,7 +13,6 @@ const MONGO = config.MONGO;
 const DEV3 = config.DEV3;
 const DEV = config.DEV;
 const DB = config.DB;
-
 var newCount="0";
 var count="0";
 var cont="0";
