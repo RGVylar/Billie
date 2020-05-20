@@ -46,12 +46,12 @@ async function canvas(avs,names,channel) {
 	ctx.drawImage(avatar1, 0, 0, 256, 256);
 	ctx.drawImage(hearth, 320, 100, 128, 128);
 	ctx.drawImage(avatar2, 516, 0, 256, 256);
-	var name=names[0].substring(names[0].lenght,names[0].length/2)+names[0].substring(names[1].length/2,names[1].lenght);
+	var name=names[0].substring(names[0].lenght,names[0].length/2)+names[1].substring(names[1].length/2,names[1].lenght);
     ctx.font = 'bold 50px sans-serif';
     ctx.fillStyle = '#ffffff';
     ctx.strokeStyle = 'black';
-    ctx.fillText(name, canvas.width / 2.5, canvas.height / 2.7);
-    ctx.strokeText(name, canvas.width / 2.5, canvas.height / 2.7);
+    ctx.fillText(name, canvas.width / 2.7, canvas.height / 2.7);
+    ctx.strokeText(name, canvas.width / 2.7, canvas.height / 2.7);
     ctx.fill();
     ctx.stroke();
 	
