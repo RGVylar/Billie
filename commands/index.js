@@ -17,6 +17,7 @@ module.exports = {
   Coin: require('./coin'),
   Help: require('./help'),
   Ping: require('./ping'),
+  Emotes: require('./emotes'),
   Pun: require('./pun'),
   Clapify: require('./clapify'),
   Reverse: require('./reverse'),
