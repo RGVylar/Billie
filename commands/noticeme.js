@@ -3,7 +3,7 @@ const config = require("../config.js");
 const DB = config.DB;
 module.exports = {
   	name: 'noticeme',
-  	description: 'set noticeme!',
+  	description: 'Bot will make you casito :3',
   	execute(msg, args) {
 		const MONGO = config.MONGO;
 	    const id = msg.member.user.id;

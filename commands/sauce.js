@@ -1,6 +1,6 @@
 module.exports = {
   name: 'sauce',
-  description: 'sauce!',
+  description: 'send me the numbers ill give you the sauce!',
   execute: async (msg, args) =>{
     var functions = require('../functions/functions.js');
     if (!msg.channel.nsfw) {

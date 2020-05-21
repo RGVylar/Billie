@@ -4,7 +4,7 @@ const DEV = config.DEV;
 const DB = config.DB;
 module.exports = {
 	name: 'prefix',
-	description: 'set prefix!',
+	description: 'set a new prefix!',
 	execute(msg, args) {
 		const MONGO = config.MONGO;
 	    if(msg.member.id==DEV){//msg.guild.owner||

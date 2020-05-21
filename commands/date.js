@@ -1,6 +1,6 @@
 module.exports = {
   name: 'date',
-  description: 'date!',
+  description: 'Show the date',
   execute(msg, args) {
     msg.reply('It is ' + Date());
   },

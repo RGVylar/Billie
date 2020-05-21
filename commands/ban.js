@@ -3,7 +3,7 @@ const config = require("../config.js");
 const DEV = config.DEV;
 module.exports = {
   name: 'ban',
-  description: 'Shows user avatar (or users if command come with users as args)',
+  description: 'Bans user, you must write a reason',
   execute(msg, args) {
     if(msg.member.id==DEV){
       let user = msg.mentions.users.first();

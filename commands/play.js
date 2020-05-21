@@ -6,7 +6,7 @@ const config = require("../config.js");
 const DB = config.DB;
 module.exports = {
   name: 'play',
-  description: 'play!',
+  description: 'This command is completly broken!',
   execute: async (msg, args, options, client) => {
       const ytdl = require('ytdl-core');
 

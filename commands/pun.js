@@ -1,6 +1,6 @@
 module.exports = {
     name: 'pun',
-    description: 'leet command!',
+    description: 'shows an error message :3',
     execute: async (msg, args,options, bot, PREFIX) =>{
         try {
         	console.log(bot.snek);

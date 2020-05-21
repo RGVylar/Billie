@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 //const stringpad = require('stringpad');
 module.exports = {
   name: 'translate',
-  description: 'translate!',
+  description: 'translate your shitty text!',
   execute(msg, args) {
     var functions = require('../functions/functions.js');
     var languajes = require('../functions/languages.js');

@@ -6,7 +6,7 @@ const DB = config.DB;
 const DEV = config.DEV;
 module.exports = {
 	name: 'delete',
-	description: 'delete command!',
+	description: 'delete a command!',
 	execute: async (msg, args) =>{
 		if(msg.member.id==DEV){
 			var functions = require('../functions/functions.js');

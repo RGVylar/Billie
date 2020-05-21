@@ -7,7 +7,7 @@ const DB = config.DB;
 const DEV = config.DEV;
 module.exports = {
     name: 'inspire',
-    description: 'inspiration command!',
+    description: 'inspiration command! Cringe! :3',
     execute(msg, args){
         request({
             url: "http://inspirobot.me/api?generate=true"

@@ -2,7 +2,7 @@ const config = require('../config.js');
 const DEV = config.DEV;
 module.exports = {
   name: 'poll',
-  description: 'poll',
+  description: 'poll command, but, you must check the results, because is broken',
   execute(msg, args) {
   	var text = args.join(' ');
   	var parts = text.split('|');

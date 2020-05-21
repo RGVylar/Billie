@@ -1,7 +1,7 @@
 const faces = ["(・`ω´・)", ";;w;;", "owo", "UwU", ">w<", "^w^"];
 module.exports = {
     name: 'owo',
-    description: 'leet command!',
+    description: 'This transforms your text in owotism!',
     execute: async (msg, args,options, bot, PREFIX) =>{
         try {
 		    args = args.join(" ") || "What text want you to owoify?";

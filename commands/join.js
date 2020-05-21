@@ -1,6 +1,6 @@
 module.exports = {
   name: 'join',
-  description: 'join!',
+  description: 'Bot will join your voice channel',
   execute(msg, args) {
     const voiceChannel = msg.member.voice.channel;
     if (!voiceChannel || voiceChannel.type !== 'voice') {

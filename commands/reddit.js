@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
   name: 'reddit',
-  description: 'reddit!',
+  description: 'Spam from reddit!',
   execute(msg, args) {
   	const reddit = new Discord.MessageEmbed()
   	  .setColor('#e33500')

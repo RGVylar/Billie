@@ -1,7 +1,7 @@
  const Discord = require('discord.js');
 module.exports = {
   name: 'server',
-  description: 'Shows user avatar (or users if command come with users as args)',
+  description: 'Shows server information',
   execute(msg, args) {
     var server = msg.guild;
   

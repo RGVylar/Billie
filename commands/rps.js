@@ -1,6 +1,6 @@
 module.exports = {
   name: 'rps',
-  description: 'rps!',
+  description: 'Rock paper and scissors, ez',
   execute(msg, args) {
   var replies = ['rock', 'paper', 'scissors'];
         var result = Math.floor((Math.random() * replies.length));

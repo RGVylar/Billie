@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
     name: 'order',
-    description: 'show monogatari order',
+    description: 'shows monogatari order',
     execute: async (msg, args) =>{
       var functions = require('../functions/functions.js');
         let dice =  await functions.dice();

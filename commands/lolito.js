@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'lolito',
-	description: 'sa!',
+	description: 'OMG LOLITO',
 	execute: async (msg, args) =>{
 		await msg.react('679961156554850316');
 		await msg.react('679961519471067148');

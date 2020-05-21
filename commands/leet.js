@@ -7,7 +7,7 @@ const DEV = config.DEV;
 var leet = require("leet");
 module.exports = {
     name: 'leet',
-    description: 'leet command!',
+    description: 'Ah, yes, you can transform your text on cringe',
     execute(msg, args){
         msg.channel.send(leet.convert(args.join(" ")));
     },

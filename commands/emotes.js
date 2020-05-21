@@ -2,7 +2,7 @@ const { RichEmbed } = require("discord.js");
 const react = ["⏪", "◀", "▶", "⏩"];
 module.exports = {
     name: 'emotes',
-    description: 'leet command!',
+    description: 'This is not working :(',
     execute: async (msg, args,options, bot, PREFIX) =>{
          try {
          	console.log(bot);

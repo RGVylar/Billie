@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
   name: 'github',
-  description: 'github!',
+  description: 'This is spam, check my github!',
   execute(msg, args) {
   	const github = new Discord.MessageEmbed()
   	.setColor('#d3d3d3 ')

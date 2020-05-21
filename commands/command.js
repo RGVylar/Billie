@@ -4,6 +4,8 @@ const config = require('../config.js');
 const MONGO = config.MONGO;
 const DB = config.DB;
 module.exports = {
+	name: 'command',
+  description: 'Those are base reaction commands, ignore this command pls :3',
 	commands: function (msg,commandName,argument) {
 		var command={};
 		if (commandName=='kick') {

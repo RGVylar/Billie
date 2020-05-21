@@ -1,6 +1,6 @@
 module.exports = {
     name: 'reverse',
-    description: 'leet command!',
+    description: 'Reverse your text!',
     execute: async (msg, args,options, bot, PREFIX) =>{
         try {
 		    args = args.join(" ") || "What text want you to reversed?";

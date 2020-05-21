@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 module.exports = {
     name: 'nsfw',
-    description: 'AzTest',
+    description: 'Az cool command, be ready for the porn',
     execute: async (msg, args) => {
 
         var error = false;

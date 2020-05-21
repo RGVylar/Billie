@@ -5,7 +5,7 @@ const DEV = config.DEV;
 const DB = config.DB;
 module.exports = {
   name: 'help',
-  description: 'list of commands',
+  description: 'list of commands completly outdated',
   execute(msg, args) {
       const MONGO = config.MONGO;
       MongoClient.connect(MONGO, function(err, db) {

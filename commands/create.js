@@ -6,7 +6,7 @@ const DB = config.DB;
 const DEV = config.DEV;
 module.exports = {
 	name: 'create',
-	description: 'create command!',
+	description: 'create a new command!',
 	execute: async (msg, args) =>{
 		if(msg.member.id==DEV){
 			var functions = require('../functions/functions.js');

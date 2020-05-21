@@ -2,7 +2,7 @@ const config = require("../config.js");
 const DEV = config.DEV;
 module.exports = {
   name: 'purge',
-  description: 'purge command',
+  description: 'Purge command, to purge things',
   execute: async (msg, args) => {
     if(msg.member.id==DEV){
         if(args.includes('-m')){
@@ -25,8 +25,8 @@ module.exports = {
             if (amount < 1) return msg.reply('You have to delete at least 1 message!'); // Checks if the amount integer is smaller than 1
                 await msg.channel.messages.fetch({ limit: amount }).then(messages => { // Fetches the messages
                     msg.channel.bulkDelete(messages.size)
-                    msg.channel.send('**'+amount+'** messages deleted')
                 });
+                msg.channel.send('**'+amount+'** messages deleted')
             }
             else{
                 const avatarList = msg.mentions.users.map(user => {

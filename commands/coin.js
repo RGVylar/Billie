@@ -1,6 +1,6 @@
 module.exports = {
   name: 'coin',
-  description: 'coin!',
+  description: 'Toss a coin to your bot',
   execute(msg, args) {
     var flipcoin = ["heads", "tails"];
     const member = msg.mentions.members.first() || msg.guild.members.get(args[0]) || msg.member;

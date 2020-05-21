@@ -5,7 +5,7 @@ var request = require('request');
 const KEY = config.KEY;
 module.exports = {
   name: 'random',
-  description: 'random!',
+  description: 'send a random video from youtube',
   execute(msg, args) {
     youtube.getRandomVid(KEY, function(err , data){
       if (args.includes('-p')) {

@@ -4,7 +4,7 @@ const config = require("../config.js");
 const DB = config.DB;
 module.exports = {
 	name: 'ignoreme',
-	description: 'set ignoreme!',
+	description: 'Bot will ignore you in reaction commands',
 	execute(msg, args) {
 		const MONGO = config.MONGO;
 		const ignored = msg.member.user.id;

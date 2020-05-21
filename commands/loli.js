@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 module.exports = {
   name: 'loli',
-  description: 'loli!',
+  description: 'Lolicon content',
   execute(msg, args) {
   const user = msg.member.user.tag;
 		const n = user.indexOf("#");

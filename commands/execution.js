@@ -6,6 +6,7 @@ const DB = config.DB;
 const DEV = config.DEV;
 module.exports = {
 	name: 'execution',
+  description: 'This executes the reaction commands, ignore this module too :3',
 	execute: async (msg, args,commandName) =>{
 		var functions = require('../functions/functions.js');
 		var commands = require('./command.js');

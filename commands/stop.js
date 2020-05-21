@@ -2,7 +2,7 @@ const queueSong = [];
 
 module.exports = {
   name: 'stop',
-  description: 'stop!',
+  description: '[Spanish music stops]',
   execute(msg, args) {   
     if(!msg.member.voice.channel)
         return msg.channel.send("You are not in a voice channel");

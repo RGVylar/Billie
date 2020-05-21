@@ -6,7 +6,7 @@ const DB = config.DB;
 const DEV = config.DEV;
 module.exports = {
 	name: 'insert',
-	description: 'set gifs!',
+	description: 'Inserts new content in the bot, only for devs! wink wink',
 	execute: async (msg, args) =>{
 		if(msg.member.id==DEV){
 			var functions = require('../functions/functions.js');

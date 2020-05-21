@@ -4,7 +4,7 @@ const snekfetch = require('snekfetch');
 const types = ['top'];
 module.exports = {
   name: 'urbansfw',
-  description: 'urbansfw!',
+  description: 'Search on urbandictionary but better!',
   async execute(msg, args) {const word = args.join(" ")
   try {
     const { body } = await snekfetch

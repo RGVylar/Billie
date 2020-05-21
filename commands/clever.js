@@ -7,7 +7,7 @@ const DEV = config.DEV;
 var cleverbot = require("cleverbot-node");
 module.exports = {
     name: 'clever',
-    description: 'clever command!',
+    description: 'This doesnt work yet :(',
     execute(msg, args){
 cleverbot.prepare(function() {});
     talkbot = new cleverbot;

@@ -8,7 +8,7 @@ const DB = config.DB;
 const DEV = config.DEV;
 module.exports = {
     name: 'fchan',
-    description: 'fchan command!',
+    description: 'Cringe 4chan command, enjoy',
     execute(msg, args){
     	var suffix=args.join(" ");
         // variable to hold matches

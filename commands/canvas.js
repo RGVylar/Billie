@@ -3,7 +3,7 @@ const Canvas = require('canvas');
 
 module.exports = {
   name: 'canvas',
-  description: 'Shows user avatar (or users if command come with users as args)',
+  description: 'Shows user avatar or and other canvas stuff',
   execute: async (msg, args) =>{
   	const channel = msg.channel;
   	if (!channel) return;

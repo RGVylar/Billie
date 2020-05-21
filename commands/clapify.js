@@ -1,6 +1,6 @@
 module.exports = {
     name: 'clapify',
-    description: 'leet command!',
+    description: 'Say this wit more determination',
     execute: async (msg, args,options, bot, PREFIX) =>{
         try {
 		    args = args.join(" ") || "What text want you to clapify?";

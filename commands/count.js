@@ -6,6 +6,7 @@ const DB = config.DB;
 const DEV = config.DEV;
 module.exports = {
 	name: 'count',
+  description: 'Counts number of content for the command',
 	execute: async (msg, args,commandName) =>{
 		console.log(commandName);
 		var functions = require('../functions/functions.js');

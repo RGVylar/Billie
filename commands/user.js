@@ -1,7 +1,7 @@
  const Discord = require('discord.js');
 module.exports = {
   name: 'user',
-  description: 'Shows user avatar (or users if command come with users as args)',
+  description: 'Shows user info',
   execute(msg, args) {
     let userm = msg.mentions.users.first()
     if(!userm){
