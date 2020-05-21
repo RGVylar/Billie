@@ -65,6 +65,9 @@ module.exports = {
 							if (msg.channel.nsfw) {
 								msg.channel.send(lewdssage);
 							}
+							else{
+								msg.channel.send('Avoided nsfw commands because this is not the proper channel');
+							}
 		            		//var tables=stringtable.create(safe,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: '-'});
 
 		            		//var tablef=stringtable.create(lewd,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: '-'});
