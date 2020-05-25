@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 module.exports = {
   name: 'queue',
   description: 'Show queue list',
-    execute: async (msg, args, options, client) => {
+    execute: async (msg, args, options, bot) =>{
+        var functions = require('../functions/functions.js');
+        var color = functions.getRoleColor(msg,bot);
         let fetched = options.active.get(msg.guild.id);
 
         if (!fetched) return msg.channel.send('There currently isn\'t any music playing in this guild!');
@@ -19,7 +21,7 @@ module.exports = {
         }
 
         const queueListMsg = new Discord.MessageEmbed()
-            .setColor('#0099ff')
+            .setColor(color)
             .setTitle('Queue list')
             .setDescription(resp);
 

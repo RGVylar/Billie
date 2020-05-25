@@ -2,15 +2,16 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'order',
     description: 'shows monogatari order',
-    execute: async (msg, args) =>{
-      var functions = require('../functions/functions.js');
+    execute: async (msg, args, options, bot) =>{
+        var functions = require('../functions/functions.js');
+        var color = functions.getRoleColor(msg,bot);
         let dice =  await functions.dice();
         if(dice==7){
           await functions.dio(msg,col);
         }
       else{
       const exampleEmbed = new Discord.MessageEmbed()
-      .setColor('#ffff00')
+      .setColor(color)
       .setTitle('Monogatari series watch order')
       .setURL('https://media.discordapp.net/attachments/652432414135681060/662034140505571378/6gqy1AQaz0AXwlkBaVPMP-ST8fwleVWMLFXAcWkBHOM.png?width=617&height=904')
       .setAuthor('Join Shinobu And Friends discord server!', 'https://cdn.discord.me/server/99cc19f10df5da7c09263ff47437dd8a700275be98bf88ae8c0c360a4ea0176d/icon_c47e9a6c64d7043618d92c7fb6125d1268f6a40497490ea377d9bba4bef12a27.jpg', 'https://discord.gg/nE2wuh6')

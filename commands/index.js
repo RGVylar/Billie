@@ -9,6 +9,7 @@ module.exports = {
   Server: require('./server'),
   User: require('./user'),
   Canvas: require('./canvas'),
+  Color: require('./color'),
   Execution: require('./execution'),
   Say: require('./say'),
   Owo: require('./owo'),

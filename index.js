@@ -7,6 +7,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const active = new Map();
 const commands = require('./commands/command.js');
+const functions = require('./functions/functions.js');
 const TWITCH = config.TWITCH;
 const TOKEN = config.TOKEN;
 const MONGO = config.MONGO;
@@ -145,7 +146,6 @@ bot.on('message', async msg => {
   const  name = command.substring(PREFIX.length, command.length);
   console.info(`Called command: ${name}`);
   try {
-
     let options = {
       active: active
     }

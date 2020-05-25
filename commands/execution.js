@@ -7,8 +7,9 @@ const DEV = config.DEV;
 module.exports = {
 	name: 'execution',
   description: 'This executes the reaction commands, ignore this module too :3',
-	execute: async (msg, args,commandName) =>{
+	execute: async (msg, args,commandName, options, bot) =>{
 		var functions = require('../functions/functions.js');
+		var color = functions.getRoleColor(msg,bot);
 		var commands = require('./command.js');
 		let command;
 		var argument;
@@ -40,14 +41,14 @@ module.exports = {
 				}
 				else{
 					if(type=='query'){
-						await functions.query(msg,args,col,quote);
+						await functions.query(msg,args,col,quote,color);
 					}
 					else{
 						if (!msg.mentions.users.size) {
 							msg.channel.send("Find someone else, loser **(You must ping someone)**");
 						}	
 						else{
-							await functions.multiquery(msg,args,col,quote);
+							await functions.multiquery(msg,args,col,quote,color);
 						}	
 					}
 				}	
@@ -82,14 +83,14 @@ module.exports = {
 									}
 									else{
 										if(type=='query'){
-											await functions.query(msg,args,col,quote);
+											await functions.query(msg,args,col,quote,color);
 										}
 										else{
 											if (!msg.mentions.users.size) {
 												msg.channel.send("Find someone else, loser **(You must ping someone)**");
 											}	
 											else{
-												await functions.multiquery(msg,args,col,quote);
+												await functions.multiquery(msg,args,col,quote,color);
 											}	
 										}
 									}	

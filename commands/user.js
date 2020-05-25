@@ -2,7 +2,9 @@
 module.exports = {
   name: 'user',
   description: 'Shows user info',
-  execute(msg, args) {
+  execute(msg, args, options, bot) {
+        var functions = require('../functions/functions.js');
+        var color = functions.getRoleColor(msg,bot);
     let userm = msg.mentions.users.first()
     if(!userm){
       var user = msg.author;
@@ -17,7 +19,7 @@ module.exports = {
         .addField('Cuenta Creada', user.createdAt.toDateString(), true)
         .addField('Fecha de Ingreso', msg.member.joinedAt.toDateString())
         .addField('Roles', msg.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
-        .setColor(0x66b3ff)
+        .setColor(color)
         
        msg.channel.send({ embed });
     }else{
@@ -28,7 +30,7 @@ module.exports = {
       .addField('ID', userm.id, true)
       .addField('Estado', userm.presence.status, true)
       .addField('Cuenta Creada', userm.createdAt.toDateString(), true)
-      .setColor(0x66b3ff)
+      .setColor(color)
       
      msg.channel.send({ embed });
     }

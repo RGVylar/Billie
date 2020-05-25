@@ -5,15 +5,17 @@ const types = ['top'];
 module.exports = {
   name: 'urban',
   description: 'Search on urbandictionary',
-  async execute(msg, args) {const word = args.join(" ")
+  async execute(msg, args, options, bot) {const word = args.join(" ")
   try {
+        var functions = require('../functions/functions.js');
+        var color = functions.getRoleColor(msg,bot);
     const { body } = await snekfetch
       .get('http://api.urbandictionary.com/v0/define')
       .query({ term: word });
     if (!body.list.length) return msg.channel.send('Could not find any results.');
     const data = body.list[types === 'top' ? 0 : Math.floor(Math.random() * body.list.length)];
     const embed = new Discord.MessageEmbed()
-      .setColor(0x32A8F0)
+      .setColor(color)
       .setAuthor('Urban Dictionary', 'https://i.imgur.com/Fo0nRTe.png', 'https://www.urbandictionary.com/')
       .setURL(data.permalink)
       .setTitle(data.word)

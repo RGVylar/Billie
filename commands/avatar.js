@@ -2,13 +2,15 @@ const Discord = require('discord.js');
 module.exports = {
   name: 'avatar',
   description: 'Shows user avatar (or users if command come with users as args)',
-  execute(msg, args) {
+  execute(msg, args, options, bot) {
+	var functions = require('../functions/functions.js');
+	var color = functions.getRoleColor(msg,bot);
   	if (!msg.mentions.users.size) {
 		const user = msg.member.user.tag;
 		const n = user.indexOf("#");
 		const  res = user.substring(0, n);
 		const exampleEmbed = new Discord.MessageEmbed()
-		.setColor('#0099ff')
+		.setColor(color)
 		.setTitle(`${res}'s avatar`)
 		.setImage(msg.author.avatarURL({ dynamic: true, format: 'png', size: 512 }));
 		return msg.channel.send(exampleEmbed);
@@ -18,7 +20,7 @@ module.exports = {
 		const n = usert.indexOf("#");
 		const  res = usert.substring(0, n);
 		const exampleEmbed = new Discord.MessageEmbed()
-		.setColor('#0099ff')
+		.setColor(color)
 		.setTitle(`${res}'s avatar`)
 		.setImage(user.avatarURL({ dynamic: true, format: 'png', size: 512 }));
 		return msg.channel.send(exampleEmbed);

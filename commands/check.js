@@ -7,10 +7,16 @@ const DEV = config.DEV;
 module.exports = {
 	name: 'check',
   description: 'Check new content for the bot',
-	execute: async (msg, args) =>{
+	execute: async (msg, args,options,bot) =>{
 		if(msg.member.id==DEV){
 			var functions = require('../functions/functions.js');
-			await functions.check(msg);
+			var color = functions.getRoleColor(msg,bot);
+			if (args.includes('-t')) {
+				await functions.tcheck(msg,color);
+            } 
+            else{
+				await functions.check(msg,color);
+            }
 		}
 		else{
 			msg.channel.send("You dont have permission");

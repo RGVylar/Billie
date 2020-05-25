@@ -7,7 +7,9 @@ const DB = config.DB;
 module.exports = {
   name: 'play',
   description: 'This command is completly broken!',
-  execute: async (msg, args, options, client) => {
+  execute: async (msg, args, options, bot) =>{
+        var functions = require('../functions/functions.js');
+        var color = functions.getRoleColor(msg,bot);
       const ytdl = require('ytdl-core');
 
       // Check if the author is connected to a voice channel
@@ -72,10 +74,10 @@ module.exports = {
 
 
                   //if there isn't a dispatcher already created, run the play function
-                  if (!data.dispatcher) play(client, options, data,msg);
+                  if (!data.dispatcher) play(client, options, data,msg,color);
                   else { // If there is already a dispatcher
                       const songAddedQueue = new Discord.MessageEmbed()
-                          .setColor('#0099ff')
+                          .setColor(color)
                           .setTitle('Song added to queue : ' + info.title)
                           .setDescription('Requested by : ' + msg.author.tag)
                           .setThumbnail('https://img.youtube.com/vi/' + info.video_id + '/0.jpg')
@@ -99,7 +101,7 @@ module.exports = {
 
 };
 
-async function play(client, options, data, msg) {
+async function play(client, options, data, msg,color) {
 
     //Sending the now playing message
     const MONGO = config.MONGO;
@@ -116,7 +118,7 @@ async function play(client, options, data, msg) {
             var gif = result[randomIndex].url;
 
             const nowPlayingMessage = new Discord.MessageEmbed()
-                .setColor('#0099ff')
+                .setColor(color)
                 .setTitle('Now Playing : ' + data.queue[0].songTitle)
                 .setDescription('Requested by : ' + data.queue[0].requester)
                 .setThumbnail('https://img.youtube.com/vi/' + data.queue[0].video_id + '/0.jpg')
@@ -135,11 +137,11 @@ async function play(client, options, data, msg) {
 
     //Create listener even that will run when the song end
     data.dispatcher.once('end', function () {
-        finish(client, options, this, msg);
+        finish(client, options, this, msg,color);
     });
 };
 
-function finish(client, options, dispatcher, msg) {
+function finish(client, options, dispatcher, msg,color) {
 
     //fetch the guild object form the map
     let fetched = options.active.get(dispatcher.guildID);
@@ -152,7 +154,7 @@ function finish(client, options, dispatcher, msg) {
         options.active.set(dispatcher.guildID, fetched);
 
         // finally run the play function with the new song
-        play(client, options, fetched, msg);
+        play(client, options, fetched, msg,color);
     } else {
         console.log('No more song bot leaving');
 
@@ -163,7 +165,7 @@ function finish(client, options, dispatcher, msg) {
         let vc = client.guilds.get(dispatcher.guildID).me.voice.channel; // Get the voice channel of the bot in the guild
         if (vc) vc.leave();
         const botDisconnectMessage = new Discord.MessageEmbed()
-            .setColor('#0099ff')
+            .setColor(color)
             .setTitle('No more song !')
             .setDescription('Adios Mios !')
             .setImage("https://media1.tenor.com/images/34657995bdac0aa521277ecc21c4e4a0/tenor.gif?itemid=15967381");

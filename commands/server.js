@@ -2,7 +2,9 @@
 module.exports = {
   name: 'server',
   description: 'Shows server information',
-  execute(msg, args) {
+  execute(msg, args, options, bot) {
+        var functions = require('../functions/functions.js');
+        var color = functions.getRoleColor(msg,bot);
     var server = msg.guild;
   
     const embed = new Discord.MessageEmbed()
@@ -14,7 +16,7 @@ module.exports = {
     .addField('Dueño del Servidor', server.owner.user.username+'#'+server.owner.user.discriminator+' ('+server.owner.user.id +')', true)
     .addField('Miembros', server.memberCount)
     .addField('Roles', server.roles.size)
-    .setColor(0x66b3ff)
+    .setColor(color)
     
    msg.channel.send({ embed });
   },

@@ -6,12 +6,15 @@ const KEY = config.KEY;
 module.exports = {
   name: 'random',
   description: 'send a random video from youtube',
-  execute(msg, args) {
+  execute(msg, args, options, bot) {
+        var functions = require('../functions/functions.js');
+        var color = functions.getRoleColor(msg,bot);
+        let fetched = options.active.get(msg.guild.id);
     youtube.getRandomVid(KEY, function(err , data){
       if (args.includes('-p')) {
         args.splice(args.indexOf('-p'), 1);
         const video = new Discord.MessageEmbed()
-        .setColor('#ffff00')
+        .setColor(color)
         .setTitle(data.snippet.title)
         //.setDescription(data.snippet.description)
         .setURL('https://youtu.be/'+data.id.videoId)

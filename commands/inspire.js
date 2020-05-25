@@ -8,7 +8,10 @@ const DEV = config.DEV;
 module.exports = {
     name: 'inspire',
     description: 'inspiration command! Cringe! :3',
-    execute(msg, args){
+    execute(msg, args, options, bot) {
+        
+            var functions = require('../functions/functions.js');
+            var color = functions.getRoleColor(msg,bot);
         request({
             url: "http://inspirobot.me/api?generate=true"
         },
@@ -16,6 +19,7 @@ module.exports = {
             if(body.length > 0){
                 msg.channel.send("", {
                     embed: {
+                        color: color,
                         "image": {
                             url: body
                         }

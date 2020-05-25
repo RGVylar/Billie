@@ -8,7 +8,9 @@ var cleverbot = require("cleverbot-node");
 module.exports = {
     name: 'clever',
     description: 'This doesnt work yet :(',
-    execute(msg, args){
+    execute(msg, args, options, bot){
+    var functions = require('../functions/functions.js');
+    var color = functions.getRoleColor(msg,bot);
 cleverbot.prepare(function() {});
     talkbot = new cleverbot;
     //console.log(args);
@@ -18,7 +20,7 @@ cleverbot.prepare(function() {});
             console.log(response);
             msg.channel.send("", {
                 embed: {
-                    color: 0x8698FE,
+                    color: color,
                     author: {
                         name: "Cleverbot",
                         icon_url: "https://lh5.ggpht.com/DiNbF90a-ecMdyG7c49ARdKdm2mlhLDyNswLcmDm3WM6yDADmMMWtTO1XL96-LCEXIc=w300"

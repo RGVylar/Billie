@@ -3,7 +3,9 @@ const fetch = require('node-fetch');
 module.exports = {
     name: 'nsfw',
     description: 'Az cool command, be ready for the porn',
-    execute: async (msg, args) => {
+    execute: async (msg, args, options, bot) => {
+        var functions = require('../functions/functions.js');
+        var color = functions.getRoleColor(msg,bot);
 
         var error = false;
 
@@ -142,7 +144,7 @@ module.exports = {
 
                     // We post the selected Image
                     const postEmbed = new Discord.MessageEmbed()
-                        .setColor('#ffc0cb')
+                        .setColor(color)
                         .setURL(urlPost + postID)
                         .setTitle(data[seed].tag_string_artist)
                         .setDescription('Tags : ' + args + "\rFilters : " + ratingString)
