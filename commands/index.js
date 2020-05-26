@@ -12,6 +12,7 @@ module.exports = {
   Color: require('./color'),
   Execution: require('./execution'),
   Say: require('./say'),
+  Status: require('./status'),
   Owo: require('./owo'),
   Poll: require('./poll'),
   RPS: require('./rps'),
