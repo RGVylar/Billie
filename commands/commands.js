@@ -22,22 +22,22 @@ module.exports = {
 							var local='';
 							var entries= Object.entries(commands);
 							var total=entries.length+result.length;
-							msg.channel.send('***'+total+' total commands found (safe and lewd)***');
-							msg.channel.send('***'+entries.length+' local commands***');
+							msg.member.user.send('***'+total+' total commands found (safe and lewd)***');
+							msg.member.user.send('***'+entries.length+' local commands***');
 							entries.forEach(([key, value]) => {
 								var values= Object.entries(value);
 								local+='***'+PREFIX+values[0][1]+':*** `'+values[1][1]+'`\n';
 									if(local.length>1900){
-										msg.channel.send(local);
+										msg.member.user.send(local);
 										local='';
 								}
 							});
-							msg.channel.send(local);
+							msg.member.user.send(local);
 		            		var lewd=[];
 		            		var safe=[];
 		       				var message='';
 		       				var lewdssage='';
-		       				msg.channel.send('***'+result.length+' custom commands***');
+		       				msg.member.user.send('***'+result.length+' custom commands***');
 		            		result.forEach(recorrer);
 		            		function recorrer(item,index){
 		            			if(item.rate=='lewd'){
@@ -45,7 +45,7 @@ module.exports = {
 		            				lewdssage+='***'+PREFIX+item.col+':*** `'+item.description+'`\n';
 		            				if(lewdssage.lenght>1900){
 		            					if (msg.channel.nsfw) {
-		            						msg.channel.send(lewdssage);
+		            						msg.member.user.send(lewdssage);
 		            						lewdssage='';
 		            					}
 		            				}
@@ -54,28 +54,21 @@ module.exports = {
 		            			else{
 		            				message+='***'+PREFIX+item.col+':*** `'+item.description+'`\n';
 		            				if(message.lenght>1900){
-		            					msg.channel.send(message);
+		            					msg.member.user.send(message);
 		            					message='';
 		            				}
 		            				//safe.push(item);
 		            				//msg.channel.send('***\n```css\n'+item.col+': '+item.description+'```');
 		            			}
 							};
-							msg.channel.send(message);
+							msg.member.user.send(message);
 							if (msg.channel.nsfw) {
-								msg.channel.send(lewdssage);
+								msg.member.user.send(lewdssage);
 							}
 							else{
-								msg.channel.send('Avoided nsfw commands because this is not the proper channel');
+								msg.member.user.send('Avoided nsfw commands because this is not the proper channel');
 							}
-		            		//var tables=stringtable.create(safe,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: '-'});
-
-		            		//var tablef=stringtable.create(lewd,{ headers: ['col','description'],capitalizeHeaders: true ,outerBorder: PREFIX,  innerBorder: PREFIX, rowSeparator: '-'});
-
-							/*msg.channel.send('***Safe commands:***\n```css\n'+tables+'```');
-		            		if (msg.channel.nsfw) {
-								msg.channel.send('***Lewd commands:***\n```diff\n'+tablef+'```');
-							}*/
+		            		msg.react('691973694343479338');
 							
 		            	}
 		            	else{
@@ -86,7 +79,7 @@ module.exports = {
 		          	});
 		        }
 		        else {
-		          msg.channel.send('This **'+commandName+'** is not defined');
+		          msg.member.user.send('This **'+commandName+'** is not defined');
 		        }
 		        db.close();
 		      }); 
