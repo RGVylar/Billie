@@ -68,7 +68,7 @@ module.exports = {
 							else{
 								msg.member.user.send('Avoided nsfw commands because this is not the proper channel');
 							}
-		            		msg.react('691973694343479338');
+		            		msg.react('715355469606158347');
 							
 		            	}
 		            	else{
