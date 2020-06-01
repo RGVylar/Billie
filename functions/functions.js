@@ -216,17 +216,10 @@ module.exports = {
             msg.channel.send(embed);  
           }
           else {
-            //var quote='';
             const a = usera.indexOf("#");
             const b = userb.indexOf("#");
             const  resa = usera.substring(0, a);
             const  resb = userb.substring(0, b);
-            /*if(typeof param1 != 'undefined'){
-              quote=param0+` ${resb} `+param1;
-            }
-            else{
-              quote=param0+` ${resb}`;
-            }*/
             quote=quote+` ${resb}`;
             var randomIndex = Math.floor(Math.random() * result.length); 
             var gif = result[randomIndex].url;
