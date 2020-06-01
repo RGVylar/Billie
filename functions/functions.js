@@ -370,7 +370,7 @@ function ask(msg,gif,sentEmbed,col) {
       console.log(collected);
       console.log(collected.first());
       if (reaction.emoji.name === '👍') {
-        msg.channel.send('Admin liked this `'+col+'`');
+        msg.channel.send('Dev liked this `'+col+'`');
       }
       else {
         MongoClient.connect(MONGO, function(err, db) {
@@ -379,7 +379,7 @@ function ask(msg,gif,sentEmbed,col) {
           var myquery = { url: gif };
           dbo.collection('media').deleteOne(myquery, function(err, obj) {
             if (err) throw err;
-            msg.channel.send('Admin deleted this `'+col+'`');
+            msg.channel.send('Dev deleted this `'+col+'`');
             db.close();
           });
         });
@@ -403,7 +403,7 @@ function task(msg,text,sentEmbed) {
       console.log(collected);
       console.log(collected.first());
       if (reaction.emoji.name === '👍') {
-        msg.channel.send('Admin liked this suggestion');
+        msg.channel.send('Dev liked this suggestion');
       }
       else {
         MongoClient.connect(MONGO, function(err, db) {
@@ -412,7 +412,7 @@ function task(msg,text,sentEmbed) {
           var myquery = { suggestion: text };
           dbo.collection('textggestions').deleteOne(myquery, function(err, obj) {
             if (err) throw err;
-            msg.channel.send('Admin deleted this suggestion');
+            msg.channel.send('Dev deleted this suggestion');
             db.close();
           });
         });
