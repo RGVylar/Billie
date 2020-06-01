@@ -5,7 +5,7 @@ const stringtable = require('string-table');
 const MONGO = config.MONGO;
 const DB = config.DB;
 module.exports = {
-  name: 'commands',
+  name: 'help',
   description: 'Shows list of commands',
   execute: async (msg, args,options, bot, PREFIX) =>{
   	MongoClient.connect(MONGO, function(err, db) {

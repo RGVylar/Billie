@@ -5,7 +5,6 @@ module.exports = {
   Ban: require('./ban'),
   Check: require('./check'),
   Suggest: require('./suggest'),
-  Commands: require('./commands'),
   Server: require('./server'),
   User: require('./user'),
   Canvas: require('./canvas'),
