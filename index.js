@@ -137,7 +137,7 @@ bot.on('message', async msg => {
   if (!msg.content.startsWith(PREFIX)) return;
   bot.user.setPresence({
       activity:{
-        name: PREFIX+'commands',type: "STREAMING",url: TWITCH
+        name: PREFIX+'help',type: "STREAMING",url: TWITCH
       }
   });
   const args = msg.content.split(/ +/);
