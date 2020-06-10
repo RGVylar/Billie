@@ -3,6 +3,7 @@ const config = require("../config.js");
 const Discord = require('discord.js');
 var request = require('request');
 const KEY = config.KEY;
+const url = "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&json=?";
 module.exports = {
   name: 'random',
   description: 'send a random video from youtube',
@@ -21,10 +22,28 @@ module.exports = {
         .setImage('https://img.youtube.com/vi/'+data.id.videoId+'/0.jpg')
         return msg.channel.send(video);
       }
+      else if(args.includes('-t')){
+        request(url, (er, res, body) => {
+        try {
+          let data = JSON.parse(body);
+          let { quoteText, quoteAuthor } = data;
+          console.log(quoteText);
+          console.log(`- ${quoteAuthor}`);
+          const exampleEmbed = new Discord.MessageEmbed()
+          .setColor(color)
+          .setTitle('Your new status!')
+            .setDescription(quoteText)
+            .setFooter(quoteAuthor);
+          return msg.channel.send(exampleEmbed);
+        } catch (e) {
+          console.log(e);
+        }
+      });
+      }
       else{
         msg.reply("This is your random video: "+data.snippet.title);
         return msg.channel.send("https://youtu.be/"+data.id.videoId);
       }
-    })
+    });
   },
 };
