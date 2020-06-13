@@ -22,22 +22,45 @@ module.exports = {
 							var local='';
 							var entries= Object.entries(commands);
 							var total=entries.length+result.length;
-							msg.member.user.send('***'+total+' total commands found (safe and lewd)***');
-							msg.member.user.send('***'+entries.length+' local commands***');
+							if(msg.channel.type=='dm'){
+								msg.author.send('***'+total+' total commands found (safe and lewd)***');
+								msg.author.send('***'+entries.length+' local commands***');
+							}
+							else{
+								msg.member.user.send('***'+total+' total commands found (safe and lewd)***');
+								msg.member.user.send('***'+entries.length+' local commands***');
+							}
 							entries.forEach(([key, value]) => {
 								var values= Object.entries(value);
 								local+='***'+PREFIX+values[0][1]+':*** `'+values[1][1]+'`\n';
-									if(local.length>1900){
+								if(local.length>1900){
+									if(msg.channel.type=='dm'){
+										msg.author.send(local);
+									}
+									else{
 										msg.member.user.send(local);
-										local='';
+									}
+									local='';
 								}
 							});
-							msg.member.user.send(local);
+							if(msg.channel.type=='dm'){
+								msg.author.send(local);
+							}
+							else{
+								msg.member.user.send(local);
+							}
 		            		var lewd=[];
 		            		var safe=[];
 		       				var message='';
 		       				var lewdssage='';
-		       				msg.member.user.send('***'+result.length+' custom commands***');
+
+							if(msg.channel.type=='dm'){
+								msg.author.send('***'+result.length+' custom commands***');
+							}
+							else{
+								msg.member.user.send('***'+result.length+' custom commands***');
+							}
+		       				
 		            		result.forEach(recorrer);
 		            		function recorrer(item,index){
 		            			if(item.rate=='lewd'){
@@ -45,7 +68,12 @@ module.exports = {
 		            				lewdssage+='***'+PREFIX+item.col+':*** `'+item.description+'`\n';
 		            				if(lewdssage.lenght>1900){
 		            					if (msg.channel.nsfw) {
-		            						msg.member.user.send(lewdssage);
+		            						if(msg.channel.type=='dm'){
+												msg.author.send(lewdssage);
+											}
+											else{
+												msg.member.user.send(lewdssage);
+											}
 		            						lewdssage='';
 		            					}
 		            				}
@@ -54,19 +82,35 @@ module.exports = {
 		            			else{
 		            				message+='***'+PREFIX+item.col+':*** `'+item.description+'`\n';
 		            				if(message.lenght>1900){
-		            					msg.member.user.send(message);
+		            					if(msg.channel.type=='dm'){
+											msg.author.send(message);
+										}
+										else{
+											msg.member.user.send(message);
+										}
+		            					
 		            					message='';
 		            				}
 		            				//safe.push(item);
 		            				//msg.channel.send('***\n```css\n'+item.col+': '+item.description+'```');
 		            			}
 							};
-							msg.member.user.send(message);
+							if(msg.channel.type=='dm'){
+								msg.author.send(message);
+							}
+							else{
+								msg.member.user.send(message);
+							}
 							if (msg.channel.nsfw) {
 								msg.member.user.send(lewdssage);
 							}
 							else{
-								msg.member.user.send('Avoided nsfw commands because this is not the proper channel');
+								if(msg.channel.type=='dm'){
+									msg.author.send('Avoided nsfw commands because this is not the proper channel');
+								}
+								else{
+									msg.member.user.send('Avoided nsfw commands because this is not the proper channel');
+								}
 							}
 		            		msg.react('715355469606158347');
 							

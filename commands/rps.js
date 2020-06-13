@@ -10,19 +10,16 @@ module.exports = {
 
         if (replies[result] === uReply) {
             console.log(replies[result]);
-            return msg.channel.send('It\'s a tie! We had the same choice.');
+            return msg.channel.send('Its '+replies[result]+', It\'s a tie! We had the same choice.');
         } else if (uReply === 'rock') {
-            console.log(replies[result]);
-            if (replies[result] === 'paper') return msg.channel.send('I won!');
-            else return msg.channel.send('You won!');
+            if (replies[result] === 'paper') return msg.channel.send('Its '+replies[result]+', I won!');
+            else return msg.channel.send('Its '+replies[result]+', You won!');
         } else if (uReply === 'scissors') {
-            console.log(replies[result]);
-            if (replies[result] === 'rock') return msg.channel.send('I won!');
-            else return msg.channel.send('You won!');
+            if (replies[result] === 'rock') return msg.channel.send('Its '+replies[result]+', I won!');
+            else return msg.channel.send('Its '+replies[result]+', You won!');
         } else if (uReply === 'paper') {
-            console.log(replies[result]);
-            if (replies[result] === 'scissors') return msg.channel.send('I won!');
-            else return msg.channel.send('You won!');
+            if (replies[result] === 'scissors') return msg.channel.send('Its '+replies[result]+', I won!');
+            else return msg.channel.send('Its '+replies[result]+', You won!');
         } 
   },
 };

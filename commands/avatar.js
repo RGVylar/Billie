@@ -4,11 +4,22 @@ module.exports = {
   description: 'Shows user avatar (or users if command come with users as args)',
   execute(msg, args, options, bot) {
 	var functions = require('../functions/functions.js');
-	var color = functions.getRoleColor(msg,bot);
+	var color='00ffff';
+        if(msg.channel.type!='dm'){
+          color = functions.getRoleColor(msg,bot);
+        }
   	if (!msg.mentions.users.size) {
-		const user = msg.member.user.tag;
-		const n = user.indexOf("#");
-		const  res = user.substring(0, n);
+		var user;
+		var res;
+	    if(msg.channel.type=='dm'){
+	      user = msg.author;
+	      res=user.username;
+	    }
+	    else{
+	      user= msg.member.user.tag;
+	      var n = user.indexOf('#');
+	      res = user.substring(0, n);
+	    }
 		const exampleEmbed = new Discord.MessageEmbed()
 		.setColor(color)
 		.setTitle(`${res}'s avatar`)

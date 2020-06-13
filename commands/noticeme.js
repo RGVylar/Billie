@@ -6,7 +6,13 @@ module.exports = {
   	description: 'Bot will make you casito :3',
   	execute(msg, args) {
 		const MONGO = config.MONGO;
-	    const id = msg.member.user.id;
+		var id;
+		if(msg.channel.type=='dm'){
+			id = msg.author.id;
+		}
+		else{
+			id = msg.member.user.id;
+		}
 	    MongoClient.connect(MONGO, function(err, db) {
 			if (err) throw err;
 			var dbo = db.db(DB);

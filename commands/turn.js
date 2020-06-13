@@ -9,7 +9,7 @@ module.exports = {
     var functions = require('../functions/functions.js');
     let dice =  functions.dice();
     if(dice==7){
-      await functions.dio(msg,col);
+      await functions.dio(msg,'turn');
     }
     else{
       msg.reply('End his turn');

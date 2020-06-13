@@ -21,9 +21,17 @@ module.exports = {
     msg.channel.send(nsfwWrongChannelWarn); 
   },
   oneUser: function (msg) {
-    var user = msg.member.user.tag;
-    var n = user.indexOf('#');
-    var res = user.substring(0, n);
+    var user;
+    var res;
+    if(msg.channel.type=='dm'){
+      user = msg.author;
+      res=user.username;
+    }
+    else{
+      user= msg.member.user.tag;
+      var n = user.indexOf('#');
+      res = user.substring(0, n);
+    }
     return res;   
   },
   dice: function (msg) {
@@ -175,7 +183,15 @@ module.exports = {
   },
   multiquery: function (msg,args,col,quote,color) {
     const userlist = msg.mentions.users.map(user => {
-      const usera = msg.member.user.tag;
+    var usera;
+    if(msg.channel.type=='dm'){
+      var user = msg.author;
+      var tag = msg.discriminator;
+      usera=user+'#'+tag;
+    }
+    else{
+      usera = msg.member.user.tag;
+    } 
       const userb = user.tag;
       const id = user.id;
       var whitelisted = MongoClient.connect(MONGO, function(err, db) {

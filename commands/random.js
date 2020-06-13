@@ -9,8 +9,10 @@ module.exports = {
   description: 'send a random video from youtube',
   execute(msg, args, options, bot) {
         var functions = require('../functions/functions.js');
-        var color = functions.getRoleColor(msg,bot);
-        let fetched = options.active.get(msg.guild.id);
+        var color='00ffff';
+        if(msg.channel.type!='dm'){
+          color = functions.getRoleColor(msg,bot);
+        }
     youtube.getRandomVid(KEY, function(err , data){
       if (args.includes('-p')) {
         args.splice(args.indexOf('-p'), 1);
@@ -36,7 +38,7 @@ module.exports = {
             .setFooter(quoteAuthor);
           return msg.channel.send(exampleEmbed);
         } catch (e) {
-          console.log(e);
+          return msg.channel.send(`Oh no an error occured :( \`${e.message}\` try again later`);
         }
       });
       }

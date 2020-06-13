@@ -8,6 +8,7 @@ module.exports = {
   Server: require('./server'),
   User: require('./user'),
   Canvas: require('./canvas'),
+  Latest: require('./latest'),
   Color: require('./color'),
   Execution: require('./execution'),
   Say: require('./say'),

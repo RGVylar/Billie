@@ -4,14 +4,32 @@ module.exports = {
   description: 'Shows user status (or users if command come with users as args)',
   execute(msg, args, options, bot) {
 	var functions = require('../functions/functions.js');
-	var color = functions.getRoleColor(msg,bot);
-	const guilid=msg.guild.id;
+	var guilid;
+	var st;
+	var color='00ffff';
+        if(msg.channel.type!='dm'){
+          color = functions.getRoleColor(msg,bot);
+          guilid=msg.guild.id;
+          st = msg.member;
+        }
+        else{
+        	guilid=msg.author.id;
+        	st=msg.author;
+        }
+	
 	const guild = bot.guilds.resolve(guilid);
   	if (!msg.mentions.users.size) {
-		const user = msg.member.user.tag;
-		const n = user.indexOf("#");
-		const  res = user.substring(0, n);
-		const st = msg.member;
+  		var user;
+		var res;
+	    if(msg.channel.type=='dm'){
+	      user = msg.author;
+	      res=user.username;
+	    }
+	    else{
+	      user= msg.member.user.tag;
+	      var n = user.indexOf('#');
+	      res = user.substring(0, n);
+	    }
 		console.log(st.presence.activities[0]);
 		if(st.presence.activities[0]==undefined){
 			msg.channel.send(`${res} no status`)

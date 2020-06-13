@@ -7,7 +7,13 @@ module.exports = {
 	description: 'Bot will ignore you in reaction commands',
 	execute(msg, args) {
 		const MONGO = config.MONGO;
-		const ignored = msg.member.user.id;
+		var ignored;
+		if(msg.channel.type=='dm'){
+			ignored = msg.author.id;
+		}
+		else{
+			ignored = msg.member.user.id;
+		}
 		var query = { user:ignored };
 		MongoClient.connect(MONGO, function(err, db) {
 			if (err) throw err;
@@ -34,6 +40,7 @@ module.exports = {
 				}
 				db.close();
 			});
-		});   
+		}); 
+
 	},
 };

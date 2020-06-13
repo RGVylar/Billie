@@ -8,9 +8,19 @@ module.exports = {
 	name: 'check',
   description: 'Check new content for the bot',
 	execute: async (msg, args,options,bot) =>{
-		if(msg.member.id==DEV){
-			var functions = require('../functions/functions.js');
-			var color = functions.getRoleColor(msg,bot);
+		var id;
+		var functions = require('../functions/functions.js');
+		var color='00ffff';
+        if(msg.channel.type!='dm'){
+          color = functions.getRoleColor(msg,bot);
+        }
+		if(msg.channel.type=='dm'){
+			id = msg.author.id;
+		}
+		else{
+			id = msg.member.user.id;
+		}
+		if(id==DEV){
 			if (args.includes('-t')) {
 				await functions.tcheck(msg,color);
             } 
@@ -19,7 +29,7 @@ module.exports = {
             }
 		}
 		else{
-			msg.channel.send("You dont have permission");
+			msg.channel.send("This command is only for DEV");
 		}
 	},
 };

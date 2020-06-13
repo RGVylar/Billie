@@ -4,7 +4,10 @@ module.exports = {
     description: 'shows monogatari order',
     execute: async (msg, args, options, bot) =>{
         var functions = require('../functions/functions.js');
-        var color = functions.getRoleColor(msg,bot);
+        var color='00ffff';
+        if(msg.channel.type!='dm'){
+          color = functions.getRoleColor(msg,bot);
+        }
         let dice =  await functions.dice();
         if(dice==7){
           await functions.dio(msg,col);

@@ -6,7 +6,10 @@ module.exports = {
   description: 'Shows user avatar or and other canvas stuff',
   execute: async (msg, args, options, bot) =>{
 	var functions = require('../functions/functions.js');
-	var color = functions.getRoleColor(msg,bot);
+	var color='00ffff';
+        if(msg.channel.type!='dm'){
+          color = functions.getRoleColor(msg,bot);
+        }
   	const channel = msg.channel;
   	if (!channel) return;
 	var filters = require('../functions/filters.js');
@@ -15,7 +18,14 @@ module.exports = {
   	var member=msg.member;
   	var avatarIMG;
   	if (!msg.mentions.users.size) {
-		const user = msg.member.user.tag;
+  		var user;
+		if(msg.channel.type=='dm'){
+			user = msg.author.username;
+		}
+		else{
+			user = msg.member.user.tag;
+		}
+		 
 		avatarIMG=msg.author.avatarURL({ dynamic: true, format: 'png', size: 512 });
 		canvas(avatarIMG,channel,fn,args,color);
 	}

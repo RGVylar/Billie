@@ -8,9 +8,19 @@ module.exports = {
 	name: 'create',
 	description: 'create a new command!',
 	execute: async (msg, args, options, bot) =>{
-		if(msg.member.id==DEV){
+		var id;
+		if(msg.channel.type=='dm'){
+			id = msg.author.id;
+		}
+		else{
+			id = msg.member.user.id;
+		}
+		if(id==DEV){
 			var functions = require('../functions/functions.js');
-    		var color = functions.getRoleColor(msg,bot);
+    		var color='00ffff';
+	        if(msg.channel.type!='dm'){
+	          color = functions.getRoleColor(msg,bot);
+	        }
 			var col = args[0];
 			MongoClient.connect(MONGO, function(err, db) {
 				if (err) throw err;

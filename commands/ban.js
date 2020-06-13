@@ -5,7 +5,7 @@ module.exports = {
   name: 'ban',
   description: 'Bans user, you must write a reason',
   execute(msg, args) {
-    if(msg.member.id==DEV){
+    if(msg.member.id==DEV||msg.guild.owner){
       let user = msg.mentions.users.first();
         let razon = args.slice(1).join(' ');
     

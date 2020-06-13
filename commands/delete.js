@@ -8,7 +8,14 @@ module.exports = {
 	name: 'delete',
 	description: 'delete a command!',
 	execute: async (msg, args) =>{
-		if(msg.member.id==DEV){
+		var id;
+		if(msg.channel.type=='dm'){
+			id = msg.author.id;
+		}
+		else{
+			id = msg.member.user.id;
+		}
+		if(id==DEV){
 			var functions = require('../functions/functions.js');
 			var col = args[0];
 			MongoClient.connect(MONGO, function(err, db) {

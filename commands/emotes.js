@@ -6,9 +6,9 @@ module.exports = {
     execute: async (msg, args,options, bot, PREFIX) =>{
          try {
          	console.log(bot);
-		    let emojis = msg.content.includes("--all") ? client.emojis.cache : msg.guild.emojis.cache;
-		    emojis = emojis.map(x => `${client.emojis.cache.get(x.id) ? client.emojis.cache.get(x.id).toString() : ""} | \`${client.emojis.cache.get(x.id) ? client.emojis.cache.get(x.id).toString() : ""}\``);
-		    const chunks = client.util.chunk(emojis, 10);
+		    let emojis = msg.content.includes("--all") ? bot.emojis.cache : msg.guild.emojis.cache;
+		    emojis = emojis.map(x => `${bot.emojis.cache.get(x.id) ? bot.emojis.cache.get(x.id).toString() : ""} | \`${bot.emojis.cache.get(x.id) ? bot.emojis.cache.get(x.id).toString() : ""}\``);
+		    const chunks = bot.util.chunk(emojis, 10);
 		    let index = 0;
 		    const embed = new RichEmbed()
 		      .setColor("RANDOM")
@@ -37,7 +37,7 @@ module.exports = {
 		    }
 		    return awaitReactions(thisMess);
 		  } catch (e) {
-		    msg.channel.send(`Oh no an error occured :( \`${client.util.codeblock(e.stack, "ini")}\` try again later`);
+		    msg.channel.send(`Oh no an error occured :( \`${bot.util.codeblock(e.stack, "ini")}\` try again later`);
 		    return console.error(e);
 		  }
     },

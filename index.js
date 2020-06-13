@@ -108,10 +108,15 @@ bot.login(TOKEN);
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!`);
   bot.user.setStatus('available')
-  bot.user.setPresence({    activity: {      name: 'Good morning',      type: "STREAMING",
-      url: TWITCH
+  bot.user.setPresence(
+    { 
+      activity: { 
+        name: 'Good morning',
+        type: "STREAMING",
+        url: TWITCH
+      }
     }
-  });
+  );
 });
 
 bot.on('serverNewMember', function(server, user) {

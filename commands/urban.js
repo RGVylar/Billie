@@ -8,7 +8,10 @@ module.exports = {
   async execute(msg, args, options, bot) {const word = args.join(" ")
   try {
         var functions = require('../functions/functions.js');
-        var color = functions.getRoleColor(msg,bot);
+        var color='00ffff';
+        if(msg.channel.type!='dm'){
+          color = functions.getRoleColor(msg,bot);
+        }
     const { body } = await snekfetch
       .get('http://api.urbandictionary.com/v0/define')
       .query({ term: word });

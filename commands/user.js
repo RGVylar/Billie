@@ -4,7 +4,21 @@ module.exports = {
   description: 'Shows user info',
   execute(msg, args, options, bot) {
         var functions = require('../functions/functions.js');
-        var color = functions.getRoleColor(msg,bot);
+        var color='00ffff';
+        var username;
+        var joined;
+        var roles;
+        if(msg.channel.type!='dm'){
+          color = functions.getRoleColor(msg,bot);
+          username=msg.member.nickname;
+          joined=msg.member.joinedAt.toDateString()
+          roles= msg.member.roles.cache.map(roles => `\`${roles.name}\``).join(', ');
+        }
+        else{
+          username=msg.author.username;
+          joined='This is not a server';
+          roles=joined;
+        }
     let userm = msg.mentions.users.first()
     if(!userm){
       var user = msg.author;
@@ -15,10 +29,10 @@ module.exports = {
         .addField('Jugando a', user.presence.game != null ? user.presence.game.name : "Nada", true)
         .addField('ID', user.id, true)
         .addField('Estado', user.presence.status, true)
-        .addField('Apodo', msg.member.nickname, true)
+        .addField('Apodo', username, true)
         .addField('Cuenta Creada', user.createdAt.toDateString(), true)
-        .addField('Fecha de Ingreso', msg.member.joinedAt.toDateString())
-        .addField('Roles', msg.member.roles.cache.map(roles => `\`${roles.name}\``).join(', '))
+        .addField('Fecha de Ingreso', joined)
+        .addField('Roles', roles)
         .setColor(color)
         
        msg.channel.send({ embed });

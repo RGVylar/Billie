@@ -4,7 +4,7 @@ module.exports = {
   name: 'purge',
   description: 'Purge command, to purge things',
   execute: async (msg, args) => {
-    if(msg.member.id==DEV){
+    if(msg.member.id==DEV||msg.guild.owner){
         if(args.includes('-m')){
             args.splice(args.indexOf('-m'), 1);
             

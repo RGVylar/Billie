@@ -10,7 +10,10 @@ module.exports = {
     description: 'inspiration command! Cringe! :3',
     execute(msg, args, options, bot) {
         var functions = require('../functions/functions.js');
-        var color = functions.getRoleColor(msg,bot);
+        var color='00ffff';
+            if(msg.channel.type!='dm'){
+              color = functions.getRoleColor(msg,bot);
+            }
         request({
             url: "http://inspirobot.me/api?generate=true"
         },

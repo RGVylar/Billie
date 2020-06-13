@@ -9,7 +9,10 @@ module.exports = {
   description: 'This executes the reaction commands, ignore this module too :3',
 	execute: async (msg, args,commandName, options, bot) =>{
 		var functions = require('../functions/functions.js');
-		var color = functions.getRoleColor(msg,bot);
+		var color='00ffff';
+        if(msg.channel.type!='dm'){
+          color = functions.getRoleColor(msg,bot);
+        }
 		var commands = require('./command.js');
 		let command;
 		var argument;

@@ -8,11 +8,9 @@ module.exports = {
 	name: 'count',
   description: 'Counts number of content for the command',
 	execute: async (msg, args,commandName) =>{
-		console.log(commandName);
 		var functions = require('../functions/functions.js');
 		var commands = require('./command.js');
 		let command  = args[0];
-		console.log(command);
 		let dice =  functions.dice();
 		var col = command;
 		if(col){

@@ -6,8 +6,14 @@ module.exports = {
 	name: 'prefix',
 	description: 'set a new prefix!',
 	execute(msg, args) {
-		const MONGO = config.MONGO;
-	    if(msg.member.id==DEV){//msg.guild.owner||
+		const MONGO = config.MONGO;var id;
+		if(msg.channel.type=='dm'){
+			id = msg.author.id;
+		}
+		else{
+			id = msg.member.user.id;
+		}
+	    if(id==DEV){//msg.guild.owner||
 	    	if (!args || args == "") {msg.channel.send("I need the new prefix");}	
 	    	else{ 	
 	    		MongoClient.connect(MONGO, function(err, db) {

@@ -10,7 +10,10 @@ module.exports = {
     description: 'This doesnt work yet :(',
     execute(msg, args, options, bot){
     var functions = require('../functions/functions.js');
-    var color = functions.getRoleColor(msg,bot);
+    var color='00ffff';
+        if(msg.channel.type!='dm'){
+          color = functions.getRoleColor(msg,bot);
+        }
 cleverbot.prepare(function() {});
     talkbot = new cleverbot;
     //console.log(args);

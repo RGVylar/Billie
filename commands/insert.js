@@ -8,7 +8,14 @@ module.exports = {
 	name: 'insert',
 	description: 'Inserts new content in the bot, only for devs! wink wink',
 	execute: async (msg, args) =>{
-		if(msg.member.id==DEV){
+		var id;
+		if(msg.channel.type=='dm'){
+			id = msg.author.id;
+		}
+		else{
+			id = msg.member.user.id;
+		}
+		if(id==DEV){
 			var functions = require('../functions/functions.js');
 			var commands = require('./command.js');
 			var col = args[0];
