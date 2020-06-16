@@ -152,10 +152,19 @@ bot.on('message', async msg => {
         name: PREFIX+'help',type: "STREAMING",url: TWITCH
       }
   });*/
-  bot.user.setPresence(
+  /*bot.user.setPresence(
     { 
       activity: { 
         name: `+help for ${bot.users.cache.size} users!`,
+        type: "STREAMING",
+        url: TWITCH
+      }
+    }
+  );*/
+bot.user.setPresence(
+    { 
+      activity: { 
+        name: `No te rayes mas, o lo empeoras todo`,
         type: "STREAMING",
         url: TWITCH
       }
@@ -168,7 +177,8 @@ bot.on('message', async msg => {
   console.info(`Called command: ${name}`);
   var user;
   var res;
-  if(msg.channel.type=='dm'){
+  var type = msg.channel.type;
+  if(type=='dm'){
     user = msg.author;
     res=user.username;
   }
@@ -179,7 +189,7 @@ bot.on('message', async msg => {
   }
   var d = new Date();
   
-  let data =`\n`+d.toLocaleString()+` ~ `+res+` tried to execute the command: ${name} with: ${args}`;
+  let data =`\n`+d.toLocaleString()+` ~ `+type+` ~ `+res+` tried to execute the command: ${name} with: ${args}`;
   fs.appendFile('logs/logs.txt', data, (err) => { 
     if (err) throw err; 
   }) 
