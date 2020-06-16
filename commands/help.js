@@ -62,7 +62,7 @@ module.exports = {
 							}
 		       				
 		            		result.forEach(recorrer);
-		            		function recorrer(item,index){
+		            		async function recorrer(item,index){
 		            			if(item.rate=='lewd'){
 		            				//lewd.push(item);
 		            				lewdssage+='***'+PREFIX+item.col+':*** `'+item.description+'`\n';
@@ -70,9 +70,11 @@ module.exports = {
 		            					if (msg.channel.nsfw) {
 		            						if(msg.channel.type=='dm'){
 												msg.author.send(lewdssage);
+												await new Promise(r => setTimeout(r, 2000));
 											}
 											else{
 												msg.member.user.send(lewdssage);
+												await new Promise(r => setTimeout(r, 2000));
 											}
 		            						lewdssage='';
 		            					}
@@ -84,9 +86,11 @@ module.exports = {
 		            				if(message.lenght>1900){
 		            					if(msg.channel.type=='dm'){
 											msg.author.send(message);
+											await new Promise(r => setTimeout(r, 2000));
 										}
 										else{
 											msg.member.user.send(message);
+											await new Promise(r => setTimeout(r, 2000));
 										}
 		            					
 		            					message='';

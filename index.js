@@ -14,6 +14,7 @@ const MONGO = config.MONGO;
 const DEV3 = config.DEV3;
 const DEV = config.DEV;
 const DB = config.DB;
+const fs = require('fs') 
 var newCount="0";
 var count="0";
 var cont="0";
@@ -92,6 +93,7 @@ MongoClient.connect(MONGO, function(err, db) {
     }
     db.close();
   });
+
   dbo.createCollection("whitelist", function(err, res) {
     if (err) {
       console.log("Whitelist exist");
@@ -102,16 +104,21 @@ MongoClient.connect(MONGO, function(err, db) {
     db.close();
   });
 });
-
+ 
 bot.login(TOKEN);
 
 bot.on('ready', () => {
-  console.info(`Logged in as ${bot.user.tag}!`);
-  bot.user.setStatus('available')
+  console.info(`Logged in as ${bot.user.tag}!\n`);
+  
+  console.log(`Bot has started, with: 
+  ${bot.users.cache.size} users 
+  ${bot.channels.cache.size} channels
+  ${bot.guilds.cache.size} guilds.\n`);
+
   bot.user.setPresence(
     { 
       activity: { 
-        name: 'Good morning',
+        name: `${bot.guilds.cache.size} guilds!`,
         type: "STREAMING",
         url: TWITCH
       }
@@ -140,16 +147,42 @@ bot.on('message', async msg => {
     }); 
   });
   if (!msg.content.startsWith(PREFIX)) return;
-  bot.user.setPresence({
+  /*bot.user.setPresence({
       activity:{
         name: PREFIX+'help',type: "STREAMING",url: TWITCH
       }
-  });
+  });*/
+  bot.user.setPresence(
+    { 
+      activity: { 
+        name: `+help for ${bot.users.cache.size} users!`,
+        type: "STREAMING",
+        url: TWITCH
+      }
+    }
+  );
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();
   const n = command.indexOf(PREFIX);
   const  name = command.substring(PREFIX.length, command.length);
   console.info(`Called command: ${name}`);
+  var user;
+  var res;
+  if(msg.channel.type=='dm'){
+    user = msg.author;
+    res=user.username;
+  }
+  else{
+    user= msg.member.user.tag;
+    var symbol = user.indexOf('#');
+    res = user.substring(0, symbol);
+  }
+  var d = new Date();
+  
+  let data =`\n`+d.toLocaleString()+` ~ `+res+` tried to execute the command: ${name} with: ${args}`;
+  fs.appendFile('logs/logs.txt', data, (err) => { 
+    if (err) throw err; 
+  }) 
   try {
     let options = {
       active: active

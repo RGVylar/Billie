@@ -29,6 +29,7 @@ module.exports = {
   Leet: require('./leet'),
   Fchan: require('./fchan'),
   Turn: require('./turn'),
+  Logs: require('./logs'),
   Dice: require('./dice'),
   Date: require('./date'),
   Loli: require('./loli'),
