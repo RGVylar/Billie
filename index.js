@@ -152,7 +152,7 @@ bot.on('message', async msg => {
         name: PREFIX+'help',type: "STREAMING",url: TWITCH
       }
   });*/
-  /*bot.user.setPresence(
+  bot.user.setPresence(
     { 
       activity: { 
         name: `+help for ${bot.users.cache.size} users!`,
@@ -160,8 +160,8 @@ bot.on('message', async msg => {
         url: TWITCH
       }
     }
-  );*/
-bot.user.setPresence(
+  );
+/*bot.user.setPresence(
     { 
       activity: { 
         name: `No te rayes mas, o lo empeoras todo`,
@@ -169,7 +169,7 @@ bot.user.setPresence(
         url: TWITCH
       }
     }
-  );
+  );*/
   const args = msg.content.split(/ +/);
   const command = args.shift().toLowerCase();
   const n = command.indexOf(PREFIX);
