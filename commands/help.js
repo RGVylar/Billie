@@ -33,7 +33,7 @@ module.exports = {
 							entries.forEach(([key, value]) => {
 								var values= Object.entries(value);
 								local+='***'+PREFIX+values[0][1]+':*** `'+values[1][1]+'`\n';
-								if(local.length>1900){
+								if(local.length>1000){
 									if(msg.channel.type=='dm'){
 										msg.author.send(local);
 									}
@@ -66,7 +66,7 @@ module.exports = {
 		            			if(item.rate=='lewd'){
 		            				//lewd.push(item);
 		            				lewdssage+='***'+PREFIX+item.col+':*** `'+item.description+'`\n';
-		            				if(lewdssage.lenght>1900){
+		            				if(lewdssage.lenght>1000){
 		            					if (msg.channel.nsfw) {
 		            						if(msg.channel.type=='dm'){
 												msg.author.send(lewdssage);
@@ -81,7 +81,7 @@ module.exports = {
 		            			}
 		            			else{
 		            				message+='***'+PREFIX+item.col+':*** `'+item.description+'`\n';
-		            				if(message.lenght>1900){
+		            				if(message.lenght>1000){
 		            					if(msg.channel.type=='dm'){
 											msg.author.send(message);
 										}
