@@ -65,6 +65,4 @@ module.exports = {
   Delete: require('./delete'),
   Newcom: require('./newcom'),
   Shut: require('./shut'),
-  Test: require('./test'),
-  Lolo: require('./lolo'),
 };
