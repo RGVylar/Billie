@@ -1,20 +1,21 @@
 const MongoClient = require('mongodb').MongoClient;
 const MessageAttachment = require('discord.js');
 const MessageEmbed = require('discord.js');
-const botCommands = require('./commands');
+var botCommands = require('./commands');
 const config = require("./config.js");
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const active = new Map();
 const commands = require('./commands/command.js');
 const functions = require('./functions/functions.js');
+const childProcess = require('child_process');
 const TWITCH = config.TWITCH;
 const TOKEN = config.TOKEN;
 const MONGO = config.MONGO;
 const DEV3 = config.DEV3;
 const DEV = config.DEV;
 const DB = config.DB;
-const fs = require('fs') 
+const fs = require('fs');
 var newCount="0";
 var count="0";
 var cont="0";
@@ -114,7 +115,12 @@ bot.on('ready', () => {
   ${bot.users.cache.size} users 
   ${bot.channels.cache.size} channels
   ${bot.guilds.cache.size} guilds.\n`);
+  var d = new Date();
+  let data =`\n[`+d.toLocaleString()+`][Iniciar] Bot has started, with: `+bot.users.cache.size+` users, `+bot.channels.cache.size+` channels and `+bot.guilds.cache.size+` guilds.`;
 
+  fs.appendFile('logs/logs.txt', data, (err) => { 
+    if (err) throw err; 
+  }) 
   bot.user.setPresence(
     { 
       activity: { 
@@ -155,7 +161,7 @@ bot.on('message', async msg => {
   bot.user.setPresence(
     { 
       activity: { 
-        name: `+help for ${bot.users.cache.size} users!`,
+        name: `+help for ${bot.guilds.cache.size} guilds!`,
         type: "STREAMING",
         url: TWITCH
       }
@@ -181,18 +187,44 @@ bot.on('message', async msg => {
   if(type=='dm'){
     user = msg.author;
     res=user.username;
+    type='Publico';
   }
   else{
     user= msg.member.user.tag;
     var symbol = user.indexOf('#');
     res = user.substring(0, symbol);
+    type='Privado';
   }
   var d = new Date();
   
-  let data =`\n`+d.toLocaleString()+` ~ `+type+` ~ `+res+` tried to execute the command: ${name} with: ${args}`;
+  let data =`\n[`+d.toLocaleString()+`][`+type+`] `+res+` sent the command: ${name}.`;
+  if(args!=""){
+    data+=` Args: ${args}.`;
+  }
+  if (msg.mentions.users.size){
+    data+=` Users:`;
+      msg.mentions.users.map(user => {
+      data+=` `+user.username;
+    });
+      data+=`.`;
+  }
   fs.appendFile('logs/logs.txt', data, (err) => { 
     if (err) throw err; 
   }) 
+  if(name=='restart'){
+    msg.channel.send('Resetting...')
+    console.log("This is pid " + process.pid);
+    setTimeout(function () {
+        process.on("exit", function () {
+            require("child_process").spawn(process.argv.shift(), process.argv, {
+                cwd: process.cwd(),
+                detached : true,
+                stdio: "inherit"
+            });
+        });
+        process.exit();
+    }, 1000);
+  }else{
   try {
     let options = {
       active: active
@@ -205,5 +237,6 @@ bot.on('message', async msg => {
   } catch (error) {
     console.error(error);
     msg.reply('there was an error trying to execute that command!');
+  }
   }
 });
