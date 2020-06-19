@@ -33,7 +33,7 @@ module.exports = {
 							entries.forEach(([key, value]) => {
 								var values= Object.entries(value);
 								local+='***'+PREFIX+values[0][1]+':*** `'+values[1][1]+'`\n';
-								if(local.length>1000){
+								if(local.length>1900){
 									if(msg.channel.type=='dm'){
 										msg.author.send(local);
 									}
@@ -60,13 +60,12 @@ module.exports = {
 							else{
 								msg.member.user.send('***'+result.length+' custom commands***');
 							}
-		       				
 		            		result.forEach(recorrer);
 		            		function recorrer(item,index){
 		            			if(item.rate=='lewd'){
 		            				//lewd.push(item);
 		            				lewdssage+='***'+PREFIX+item.col+':*** `'+item.description+'`\n';
-		            				if(lewdssage.lenght>1000){
+		            				if(lewdssage.length>1900){
 		            					if (msg.channel.nsfw) {
 		            						if(msg.channel.type=='dm'){
 												msg.author.send(lewdssage);
@@ -81,14 +80,14 @@ module.exports = {
 		            			}
 		            			else{
 		            				message+='***'+PREFIX+item.col+':*** `'+item.description+'`\n';
-		            				if(message.lenght>1000){
+		            				if(message.length>1900){
 		            					if(msg.channel.type=='dm'){
 											msg.author.send(message);
 										}
 										else{
 											msg.member.user.send(message);
 										}
-		            					
+										
 		            					message='';
 		            				}
 		            				//safe.push(item);
@@ -101,6 +100,7 @@ module.exports = {
 							else{
 								msg.member.user.send(message);
 							}
+
 							if (msg.channel.nsfw) {
 								msg.member.user.send(lewdssage);
 							}

@@ -15,6 +15,8 @@ module.exports = {
           .addField('DM Commands:', 'Now you can user the commands in the dms')
           .addField('Purge command:', 'Now server owner can use purge command')
           .addField('Ban command:', 'Now server owner can use ban command')
+          .addField('Restart command', 'Now i can restart bot from commands')
+          .addField('Help command', 'Fixed this command, now shows all the commands correctly')
           .setFooter('Date: 13/06/2020');
     return msg.channel.send(exampleEmbed);
   },
