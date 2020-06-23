@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 module.exports = {
-  name: 'status',
+  name: 'drama',
   description: 'Shows user status (or users if command come with users as args)',
   execute(msg, args, options, bot) {
 	var functions = require('../functions/functions.js');

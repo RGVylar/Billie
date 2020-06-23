@@ -12,7 +12,7 @@ module.exports = {
   Color: require('./color'),
   Execution: require('./execution'),
   Say: require('./say'),
-  Status: require('./status'),
+  Drama: require('./drama'),
   Owo: require('./owo'),
   Poll: require('./poll'),
   RPS: require('./rps'),
@@ -39,7 +39,7 @@ module.exports = {
   Github: require('./github'),
   Reddit: require('./reddit'),
   Lolito: require('./lolito'),
-  Avatar: require('./avatar'),
+  Pfp: require('./pfp'),
   Random: require('./random'),
   Noticeme: require('./noticeme'),
   Ignoreme: require('./ignoreme'),
@@ -64,4 +64,5 @@ module.exports = {
   Delete: require('./delete'),
   Newcom: require('./newcom'),
   Shut: require('./shut'),
+  Test: require('./test'),
 };
