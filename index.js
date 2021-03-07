@@ -110,7 +110,10 @@ bot.login(TOKEN);
 
 bot.on('ready', () => {
   console.info(`Logged in as ${bot.user.tag}!\n`);
-  
+
+  console.log('List of guilds:');
+  const Guilds = bot.guilds.cache.map(guild => guild.name).join("\n");
+  console.log(Guilds+'\n');
   console.log(`Bot has started, with: 
   ${bot.users.cache.size} users 
   ${bot.channels.cache.size} channels
