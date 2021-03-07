@@ -37,6 +37,7 @@ module.exports = {
 		    }
 		    return awaitReactions(thisMess);
 		  } catch (e) {
+		  	console.log(bot.util);
 		    msg.channel.send(`Oh no an error occured :( \`${bot.util.codeblock(e.stack, "ini")}\` try again later`);
 		    return console.error(e);
 		  }

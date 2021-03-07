@@ -1,14 +1,15 @@
+const fetch = require('node-fetch');
+const Discord = require('discord.js');
 module.exports = {
     name: 'pun',
     description: 'shows an error message :3',
     execute: async (msg, args,options, bot, PREFIX) =>{
-        try {
-        	console.log(bot.snek);
-		    const { body } = await bot.snek.get("https://icanhazdadjoke.com/")
-		      .set("Accept", "application/json");
-		    return msg.channel.send(`📢 \`|\` **${body.joke.length ? body.joke : "Try again"}**`);
-		  } catch (e) {
-		    return msg.channel.send(`Oh no an error occured :( \`${e.message}\` try again later`);
-		  }
+        let url = "https://icanhazdadjoke.com/slack";
+        let joke;
+        let permLink;
+        fetch(url).then(res => res.json()).then(data => {
+            joke = data.attachments[0].text;
+            msg.channel.send(joke);
+        });
     },
 };

@@ -17,7 +17,7 @@ module.exports = {
 				dbo.createCollection('textggestions', function(err, res) {
 					if (err) {
 					}
-					if(typeof res !== 'undefined'){
+					//if(typeof res !== 'undefined'){
 						var query = { suggestion: args };
 						dbo.collection('textggestions').find(query).toArray(async(err, result)=> {
 							if (err) throw err;
@@ -38,10 +38,10 @@ module.exports = {
 							}
 							db.close();
 						});
-					}
+					/*}
 					else {
 						//msg.channel.send('This **'+commandName+'** is not defined');
-					}
+					}*/
 					db.close();
 				}); 
 			}); 
@@ -94,7 +94,7 @@ module.exports = {
 						dbo.createCollection('commands', function(err, res) {
 							if (err) {
 							}
-							if(typeof res !== 'undefined'){
+							//if(typeof res !== 'undefined'){
 								var query = { url: url };
 								dbo.collection('media').find(query).toArray(async(err, result)=> {
 									if (err) throw err;
@@ -115,10 +115,10 @@ module.exports = {
 									}
 									db.close();
 								});
-							}
+							/*}
 							else {
-								msg.channel.send('This **'+commandName+'** is not defined');
-							}
+								msg.channel.send('This  is not defined');
+							}*/
 							db.close();
 						}); 
 					}); 

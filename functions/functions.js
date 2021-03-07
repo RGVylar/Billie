@@ -6,10 +6,10 @@ const DB = config.DB;
 const DEV = config.DEV;
 module.exports = {
   getRoleColor: function(msg,bot) {
-    const guilid=msg.guild.id;
+    /*const guilid=msg.guild.id;
     const guild = bot.guilds.resolve(guilid);
-    const user = guild.member(bot.user);
-    const color = user.roles.highest.color;
+    const user = guild.member(bot.user);*/
+    const color = msg.member.displayHexColor
     return color;
   },
   lewd: function (msg) {

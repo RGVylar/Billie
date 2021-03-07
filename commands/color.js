@@ -13,12 +13,14 @@ module.exports = {
 		}
 		else{
 			const guilid=msg.guild.id;
-			const guild = bot.guilds.resolve(guilid);
-			const user = guild.member(bot.user);
-			const color = user.roles.highest.color;
+			//const guild = bot.guilds.resolve(guilid);
+			//const guild = msg.guild.id;
+			//const user = guild.member(bot.user);
+			//const user = msg.user.id;
+			//const color = user.roles.highest.color;
 			const embed = new Discord.MessageEmbed()
-              .setColor(color)
-              .setTitle('#'+color);
+              .setColor(msg.member.displayHexColor)
+              .setTitle('Billy`s color: '+msg.member.displayHexColor);
             msg.channel.send(embed);	
 		}
 	},

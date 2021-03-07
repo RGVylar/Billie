@@ -14,7 +14,7 @@ module.exports = {
 	      		dbo.createCollection('commands', function(err, res) {
 		        	if (err) {
 		        	}
-		        	if(typeof res !== 'undefined'){
+		        	//if(typeof res !== 'undefined'){
 		          		dbo.collection('commands').find({}).toArray(async(err, result)=> {
 		            	if (err) throw err;
 		            	if(typeof result[0] !== 'undefined'){
@@ -121,10 +121,10 @@ module.exports = {
 					  	}
 		            	db.close();
 		          	});
-		        }
+		        /*}
 		        else {
 		          msg.member.user.send('This **'+commandName+'** is not defined');
-		        }
+		        }*/
 		        db.close();
 		      }); 
 		    }); 
