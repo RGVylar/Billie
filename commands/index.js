@@ -64,4 +64,5 @@ module.exports = {
   Delete: require('./delete'),
   Newcom: require('./newcom'),
   Shut: require('./shut'),
+  Billieav: require('./billieav'),
 };
