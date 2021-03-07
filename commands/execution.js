@@ -65,7 +65,7 @@ module.exports = {
 	      		dbo.createCollection('commands', function(err, res) {
 		        	if (err) {
 		        	}
-		        	if(typeof res !== 'undefined'){
+		        	//if(typeof res !== 'undefined'){
 		            	var query = { col: commandName };
 		          		dbo.collection('commands').find(query).toArray(async(err, result)=> {
 		            	if (err) throw err;
@@ -101,14 +101,15 @@ module.exports = {
 		            	}
 		            	else{
 		            		//Command is not generated, check if custom
+		          			//msg.channel.send('Command is not generated, check if custom');
 							return false;	
 					  	}
 		            	db.close();
 		          	});
-		        }
+		        /*}
 		        else {
 		          msg.channel.send('This **'+commandName+'** is not defined');
-		        }
+		        }*/
 		        db.close();
 		      }); 
 		    }); 

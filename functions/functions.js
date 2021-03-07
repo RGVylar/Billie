@@ -52,7 +52,7 @@ module.exports = {
       dbo.createCollection('media', function(err, res) {
         if (err) {
         }
-        if(typeof res !== 'undefined'){
+        //if(typeof res !== 'undefined'){
           var query = {col:col};
           dbo.collection('media').find(query).toArray(function(err, result) {
             if (err) throw err;
@@ -76,10 +76,10 @@ module.exports = {
             }
             db.close();
           });
-        }
+        /*}
         else {
           msg.channel.send('This **'+col+'** is not defined');
-        }
+        }*/
         db.close();
       }); 
     }); 
@@ -91,7 +91,7 @@ module.exports = {
       dbo.createCollection('media', function(err, res) {
         if (err) {
         }
-        if(typeof res !== 'undefined'){
+        //if(typeof res !== 'undefined'){
           var query = {col:col};
           dbo.collection('media').find(query).toArray(function(err, result) {
             if (err) throw err;
@@ -103,10 +103,10 @@ module.exports = {
             }
             db.close();
           });
-        }
+        /*}
         else {
           msg.channel.send('This **'+col+'** is not defined');
-        }
+        }*/
         db.close();
       }); 
     }); 
@@ -118,7 +118,7 @@ module.exports = {
       dbo.createCollection('media', function(err, res) {
         if (err) {
         }
-        if(typeof res !== 'undefined'){
+        //if(typeof res !== 'undefined'){
           dbo.collection('suggestions').find({}).toArray(function(err, result) {
             if (err) throw err;
             if(typeof result[0] !== 'undefined'){ 
@@ -138,10 +138,10 @@ module.exports = {
             }
             db.close();
           });
-        }
+        /*}
         else {
           msg.channel.send('This suggestions is not defined');
-        }
+        }*/
         db.close();
       }); 
     }); 
@@ -153,7 +153,7 @@ module.exports = {
       dbo.createCollection('textggestions', function(err, res) {
         if (err) {
         }
-        if(typeof res !== 'undefined'){
+        //if(typeof res !== 'undefined'){
           dbo.collection('textggestions').find({}).toArray(function(err, result) {
             if (err) throw err;
             if(typeof result[0] !== 'undefined'){ 
@@ -173,10 +173,10 @@ module.exports = {
             }
             db.close();
           });
-        }
+        /*}
         else {
           msg.channel.send('This suggestions is not defined');
-        }
+        }*/
         db.close();
       }); 
     }); 
@@ -263,16 +263,16 @@ module.exports = {
       dbo.createCollection('media', function(err, res) {
         if (err) {
         }
-        if(typeof res !== 'undefined'){
+        //if(typeof res !== 'undefined'){
           dbo.collection('media').insertOne(myobj, function(err, res) {
             if (err) throw err;
             msg.channel.send('**1** `'+col+'` inserted');
             db.close();
           });
-        }
+        /*}
         else{
           msg.channel.send('res undefined');
-        }
+        }*/
         db.close();
       });
     });
@@ -328,7 +328,7 @@ module.exports = {
       dbo.createCollection('commands', function(err, res) {
         if (err) {
         }
-        if(typeof res !== 'undefined'){
+        //if(typeof res !== 'undefined'){
           dbo.collection('commands').insertOne(command, function(err, res) {
             if (err) throw err;
             const consent = new Discord.MessageEmbed()
@@ -342,7 +342,7 @@ module.exports = {
             msg.channel.send(consent);
             db.close();
           });
-        }
+        //}
         db.close();
       });
     });

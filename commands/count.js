@@ -53,7 +53,7 @@ module.exports = {
 		          	});
 		        }
 		        else {
-		          msg.channel.send('This **'+commandName+'** is not defined');
+		          //msg.channel.send('This **'+commandName+'** is not defined');
 		        }
 		        db.close();
 		      }); 
