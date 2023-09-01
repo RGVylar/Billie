@@ -12,7 +12,7 @@
 ## Social Billie BOT
 ### Modular system bot
 ```
-Bot is completly modular, you can disabled or add new modules.
+Bot is completly modular, you can disable or add new modules.
 ```
 * Usage: _Modules are located inside **commands** folder._
  * Billie
