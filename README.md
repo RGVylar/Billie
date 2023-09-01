@@ -1,6 +1,4 @@
 # Billie is working on my discord!
-[This is my home](https://discord.gg/r7pqSAE)
-
 
 ![GitHub followers](https://img.shields.io/github/followers/rgvylar?style=social)
 ![GitHub forks](https://img.shields.io/github/forks/rgvylar/billie?style=social)
@@ -10,7 +8,6 @@
 ![GitHub deployments](https://img.shields.io/github/deployments/rgvylar/billie/billie-the-bot)
 ![GitHub All Releases](https://img.shields.io/github/downloads/rgvylar/billie/total)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/rgvylar/billie)
-![Twitch Status](https://img.shields.io/twitch/status/rgvylar)
 
 ## Social Billie BOT
 ### Modular system bot
@@ -141,8 +138,4 @@ Go to Settings - Reveal Config Vars.
 Now you must fill the data with your info:
 - DB the name of your MongoDB 
 ...
-```
-# Too lazy to continue explaining sorry!
-## Usage:
-```
 ```
